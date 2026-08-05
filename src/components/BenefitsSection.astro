@@ -1,0 +1,114 @@
+---
+const benefits = [
+	{ title: 'Clarity and focus', body: 'You know what matters, what does not, and where to invest next.' },
+	{ title: 'Accountable execution', body: 'Agencies and vendors perform better when someone senior is leading them. You stop babysitting.' },
+	{ title: 'Lower stress. Better decisions.', body: 'Marketing stops being noise. You regain time and confidence as an owner.' },
+];
+---
+<section class="benefits">
+	<div class="wrap">
+		<div class="heading">
+			<div class="eyebrow">Benefits</div>
+			<h2>So, what are the benefits?</h2>
+		</div>
+		<div class="cards">
+			{benefits.map((b) => (
+				<div class="card">
+					<h3>{b.title}</h3>
+					<p>{b.body}</p>
+				</div>
+			))}
+		</div>
+		<div class="quote-band">
+			<div class="photo">Photo</div>
+			<p>Senior leadership, not another vendor. One person who owns the outcome.</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.benefits {
+		padding: 90px 48px;
+		background: var(--color-surface-sunken);
+	}
+	.wrap {
+		max-width: 980px;
+		margin: 0 auto;
+	}
+	.heading {
+		text-align: center;
+		margin-bottom: 48px;
+	}
+	.eyebrow {
+		color: var(--color-accent);
+		font-size: var(--fs-eyebrow);
+		letter-spacing: var(--ls-eyebrow);
+		text-transform: uppercase;
+		font-weight: var(--fw-semibold);
+	}
+	.heading h2 {
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: var(--fs-heading-lg);
+		margin: 16px 0 0;
+	}
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+	}
+	.card {
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		padding: 28px;
+		box-shadow: var(--shadow-sm);
+	}
+	.card h3 {
+		font-family: var(--font-display);
+		font-size: var(--fs-heading-sm);
+		margin: 0 0 10px;
+		color: var(--color-ink);
+		font-weight: var(--fw-medium);
+	}
+	.card p {
+		font-family: var(--font-body);
+		font-size: var(--fs-body);
+		line-height: var(--lh-body);
+		color: var(--color-ink-muted);
+		margin: 0;
+	}
+	.quote-band {
+		margin-top: 48px;
+		background: var(--color-primary);
+		color: var(--color-ink-on-dark);
+		border-radius: var(--radius-md);
+		padding: 32px 40px;
+		display: flex;
+		align-items: center;
+		gap: 24px;
+	}
+	.photo {
+		width: 96px;
+		height: 96px;
+		flex-shrink: 0;
+		background: var(--navy-600);
+		border-radius: var(--radius-md);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 11px;
+		color: var(--color-ink-on-dark-muted);
+	}
+	.quote-band p {
+		font-family: var(--font-display);
+		font-style: italic;
+		font-size: var(--fs-heading-sm);
+		margin: 0;
+	}
+	@media (max-width: 900px) {
+		.cards {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

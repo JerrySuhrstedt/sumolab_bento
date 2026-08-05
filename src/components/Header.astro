@@ -1,0 +1,45 @@
+---
+const links = ['Services', 'Approach', "Who It's For", 'Case Studies', 'About', 'Insights', 'Contact'];
+---
+<header class="header">
+	<span class="wordmark">SumoLab</span>
+	<nav class="nav">
+		{links.map((l) => <a href="#">{l}</a>)}
+	</nav>
+	<a href="#" class="cta">Book a Strategy Call→</a>
+</header>
+
+<style>
+	.header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 20px 48px;
+		background: var(--color-primary);
+	}
+	.wordmark {
+		font-family: var(--font-display);
+		font-style: italic;
+		font-weight: 500;
+		font-size: 22px;
+		color: var(--color-ink-on-dark);
+	}
+	.nav {
+		display: flex;
+		gap: 26px;
+	}
+	.nav a {
+		font-family: var(--font-body);
+		font-size: 14px;
+		color: var(--color-ink-on-dark-muted);
+	}
+	.cta {
+		font-family: var(--font-body);
+		font-weight: 600;
+		font-size: 14px;
+		color: var(--color-primary);
+		background: var(--color-ink-on-dark);
+		padding: 10px 18px;
+		border-radius: var(--radius-sm);
+	}
+</style>

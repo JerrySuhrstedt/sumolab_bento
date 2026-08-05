@@ -1,0 +1,129 @@
+---
+const left = ['Fractional CMO Leadership', 'Marketing Strategy And Roadmap', 'Brand And Messaging Alignment', 'Agency And Vendor Oversight', 'KPI Definition And Reporting'];
+const right = ['Funnel And Conversion Review', 'CRM And Marketing System Optimization', 'AI And Automation Opportunity Mapping', 'Weekly Or Biweekly Leadership Cadence'];
+---
+<section class="founder">
+	<div class="wrap">
+		<div class="avatar"></div>
+		<div class="eyebrow">About</div>
+		<h2>Hi, I'm Jerry Suhrstedt.</h2>
+		<p>
+			26 years of experience as an entrepreneur, marketing leader, and business consultant, helping
+			established businesses develop and execute high-impact marketing strategies without the
+			commitment of a full-time hire.
+		</p>
+		<a href="#" class="link">About Jerry→</a>
+	</div>
+</section>
+
+<section class="features">
+	<div class="wrap">
+		<div class="eyebrow center">Features</div>
+		<h2>We feature.</h2>
+		<p class="sub">Simple. Logical.</p>
+		<div class="cols">
+			<ul>
+				{left.map((t) => <li><span class="check">✓</span>{t}</li>)}
+			</ul>
+			<ul>
+				{right.map((t) => <li><span class="check">✓</span>{t}</li>)}
+			</ul>
+		</div>
+	</div>
+</section>
+
+<style>
+	.founder {
+		padding: 90px 48px;
+		background: var(--color-surface-sunken);
+		text-align: center;
+	}
+	.founder .wrap {
+		max-width: 640px;
+		margin: 0 auto;
+	}
+	.avatar {
+		width: 88px;
+		height: 88px;
+		border-radius: 50%;
+		background: var(--color-border-strong);
+		margin: 0 auto 24px;
+	}
+	.eyebrow {
+		color: var(--color-accent);
+		font-size: var(--fs-eyebrow);
+		letter-spacing: var(--ls-eyebrow);
+		text-transform: uppercase;
+		font-weight: var(--fw-semibold);
+	}
+	.eyebrow.center {
+		text-align: center;
+	}
+	.founder h2 {
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: var(--fs-heading-md);
+		margin: 16px 0;
+	}
+	.founder p {
+		font-family: var(--font-body);
+		font-size: var(--fs-body);
+		line-height: var(--lh-body);
+		color: var(--color-ink-muted);
+		margin: 0 0 24px;
+	}
+	.link {
+		font-family: var(--font-body);
+		font-weight: 600;
+		color: var(--color-link);
+	}
+	.features {
+		padding: 90px 48px;
+		background: var(--color-bg);
+	}
+	.features .wrap {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+	.features h2 {
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: var(--fs-heading-lg);
+		margin: 16px 0 8px;
+		text-align: center;
+	}
+	.sub {
+		text-align: center;
+		font-family: var(--font-body);
+		color: var(--color-ink-muted);
+		margin: 0 0 40px;
+	}
+	.cols {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 40px;
+	}
+	.cols ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+	.cols li {
+		font-family: var(--font-body);
+		font-size: var(--fs-body);
+		color: var(--color-ink);
+		display: flex;
+		gap: 10px;
+	}
+	.check {
+		color: var(--color-accent);
+	}
+	@media (max-width: 640px) {
+		.cols {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

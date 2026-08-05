@@ -1,0 +1,100 @@
+---
+const columns = [
+	{ h: 'Company', items: ['About', 'Approach', "Who It's For", 'Case Studies', 'Insights', 'Contact'] },
+	{ h: 'Services', items: ['Fractional CMO', 'Fractional Marketing Director'] },
+	{ h: 'Connect', items: ['Book a Strategy Call→', 'jerry@sumolab.co', '(480) 826-9400', 'Chandler, Arizona', 'LinkedIn'] },
+];
+---
+<footer class="footer">
+	<div class="grid">
+		<div>
+			<span class="wordmark">SumoLab</span>
+			<p class="tagline">
+				Senior marketing leadership for established businesses ready to turn scattered activity into
+				focused growth.
+			</p>
+		</div>
+		{columns.map((col) => (
+			<div>
+				<div class="col-h">{col.h}</div>
+				<ul>
+					{col.items.map((t) => <li>{t}</li>)}
+				</ul>
+			</div>
+		))}
+	</div>
+	<div class="bottom">
+		<span>© 2026 SumoLab LLC. All rights reserved.</span>
+		<div class="legal">
+			<span>Privacy Policy</span>
+			<span>Terms</span>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background: var(--navy-900);
+		color: var(--color-ink-on-dark-muted);
+		padding: 64px 48px 32px;
+	}
+	.grid {
+		max-width: 1080px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 1.4fr 1fr 1fr 1fr;
+		gap: 32px;
+	}
+	.wordmark {
+		font-family: var(--font-display);
+		font-style: italic;
+		font-weight: 500;
+		font-size: 20px;
+		color: var(--color-ink-on-dark);
+	}
+	.tagline {
+		font-family: var(--font-body);
+		font-size: 13px;
+		line-height: 1.6;
+		margin-top: 14px;
+		max-width: 260px;
+	}
+	.col-h {
+		font-family: var(--font-body);
+		font-weight: 600;
+		font-size: 13px;
+		color: var(--color-ink-on-dark);
+		margin-bottom: 12px;
+	}
+	.grid ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	.grid li {
+		font-family: var(--font-body);
+		font-size: 13px;
+	}
+	.bottom {
+		max-width: 1080px;
+		margin: 48px auto 0;
+		padding-top: 20px;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		display: flex;
+		justify-content: space-between;
+		font-family: var(--font-body);
+		font-size: 12px;
+	}
+	.legal {
+		display: flex;
+		gap: 16px;
+	}
+	@media (max-width: 780px) {
+		.grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+</style>

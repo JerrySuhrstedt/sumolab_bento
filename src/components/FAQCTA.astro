@@ -1,0 +1,137 @@
+---
+const faqs = [
+	{ q: 'How is this different from hiring a full-time Director of Marketing or CMO?', a: 'You get senior-level leadership without salary, benefits, onboarding time, or long-term risk. You gain experience and perspective immediately, with flexibility to scale up or down as your business needs change.' },
+	{ q: 'Who is this for?', a: 'Established businesses that want growth, clarity, and accountability. Typical clients we work with generate $5M+ in revenue.' },
+	{ q: 'Is this the same as hiring an agency?', a: 'No. Agencies execute tasks. I own the strategy and hold execution accountable.' },
+	{ q: 'Is this more like a CMO or a marketing manager?', a: 'It is senior leadership focused on results. Strategy plus execution ownership, without full-time overhead.' },
+	{ q: 'How long do clients typically work with you?', a: 'Most engagements start at six months and continue as long as growth and clarity are priorities.' },
+	{ q: 'Will you do the work or just advise?', a: 'I lead, guide, and step in where needed. The goal is progress, not busywork.' },
+	{ q: 'Is AI actually practical for my business?', a: 'Yes, when applied correctly. I focus on real automation that saves time and money, not hype.' },
+];
+---
+<section class="faq">
+	<div class="wrap">
+		<div class="heading">
+			<div class="eyebrow">FAQs</div>
+			<h2>Questions answered.</h2>
+		</div>
+		<div class="accordion">
+			{faqs.map((item, i) => (
+				<div class="item">
+					<button class="q" aria-expanded={i === 0 ? 'true' : 'false'}>
+						<span>{item.q}</span>
+						<span class="icon" aria-hidden="true">+</span>
+					</button>
+					<p class="a">{item.a}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<section class="final-cta">
+	<h2>Ready to stop guessing and start owning your marketing?</h2>
+	<a href="#" class="cta">Book a Strategy Call→</a>
+</section>
+
+<style>
+	.faq {
+		padding: 90px 48px;
+		background: var(--color-surface-sunken);
+	}
+	.wrap {
+		max-width: 720px;
+		margin: 0 auto;
+	}
+	.heading {
+		text-align: center;
+		margin-bottom: 32px;
+	}
+	.eyebrow {
+		color: var(--color-accent);
+		font-size: var(--fs-eyebrow);
+		letter-spacing: var(--ls-eyebrow);
+		text-transform: uppercase;
+		font-weight: var(--fw-semibold);
+	}
+	.heading h2 {
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: var(--fs-heading-lg);
+		margin: 16px 0 0;
+	}
+	.item {
+		border-bottom: 1px solid var(--color-border);
+	}
+	.q {
+		width: 100%;
+		text-align: left;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 20px 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 16px;
+		font-family: var(--font-body);
+		font-weight: var(--fw-semibold);
+		font-size: var(--fs-body);
+		color: var(--color-ink);
+	}
+	.icon {
+		color: var(--color-accent);
+		font-size: 20px;
+		flex-shrink: 0;
+		transition: transform var(--duration-base) var(--ease-standard);
+	}
+	.q[aria-expanded='true'] .icon {
+		transform: rotate(45deg);
+	}
+	.a {
+		margin: 0 0 20px;
+		font-family: var(--font-body);
+		font-size: var(--fs-body-sm);
+		line-height: var(--lh-body);
+		color: var(--color-ink-muted);
+		display: none;
+	}
+	.q[aria-expanded='true'] + .a {
+		display: block;
+	}
+	.final-cta {
+		padding: 90px 48px;
+		background: var(--color-primary);
+		color: var(--color-ink-on-dark);
+		text-align: center;
+	}
+	.final-cta h2 {
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: var(--fs-heading-lg);
+		margin: 0 0 28px;
+		max-width: 640px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.final-cta .cta {
+		display: inline-block;
+		font-family: var(--font-body);
+		font-weight: 600;
+		font-size: 15px;
+		color: var(--color-primary);
+		background: var(--color-ink-on-dark);
+		padding: 15px 28px;
+		border-radius: var(--radius-sm);
+	}
+</style>
+
+<script>
+	document.querySelectorAll<HTMLButtonElement>('.faq .q').forEach((btn) => {
+		btn.addEventListener('click', () => {
+			const expanded = btn.getAttribute('aria-expanded') === 'true';
+			document.querySelectorAll('.faq .q').forEach((b) => b.setAttribute('aria-expanded', 'false'));
+			btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+		});
+	});
+</script>
