@@ -26,7 +26,7 @@ const benefits = [
 		))}
 	</div>
 	<div class="photo-band">
-		<div class="photo-bg" role="img" aria-label="Office collaboration photo placeholder"></div>
+		<img src="/images/team-diverse-office.jpg" alt="" class="photo-bg" />
 		<div class="photo-overlay">
 			<p>Senior leadership, not another vendor. One person who owns the outcome.</p>
 		</div>
@@ -89,6 +89,8 @@ const benefits = [
 	.photo-bg {
 		width: 100%;
 		height: 260px;
+		object-fit: cover;
+		display: block;
 		background: var(--grey-400);
 	}
 	.photo-overlay {
