@@ -3,14 +3,33 @@ export interface NavLink {
 	href: string;
 }
 
-export const primaryNav: NavLink[] = [
-	{ label: "Services", href: "/services" },
-	{ label: "Approach", href: "/approach" },
-	{ label: "Who It's For", href: "/who-its-for" },
+export interface NavItem {
+	label: string;
+	href?: string;
+	children?: NavLink[];
+}
+
+export const primaryNav: NavItem[] = [
+	{
+		label: "Services",
+		href: "/services",
+		children: [
+			{ label: "Fractional CMO", href: "/services/fractional-cmo" },
+			{ label: "Fractional Marketing Director", href: "/services/fractional-marketing-director" },
+			{ label: "Fractional AI Advisor", href: "/services/fractional-ai-advisor" },
+		],
+	},
+	{
+		label: "About",
+		href: "/about",
+		children: [
+			{ label: "About Jerry", href: "/about" },
+			{ label: "Approach", href: "/approach" },
+			{ label: "Who It's For", href: "/who-its-for" },
+		],
+	},
 	{ label: "Case Studies", href: "/case-studies" },
-	{ label: "About", href: "/about" },
 	{ label: "Insights", href: "/insights" },
-	{ label: "Contact", href: "/contact" },
 ];
 
 export const primaryCta: NavLink = {

@@ -8,7 +8,18 @@ import PrimaryCTA from "./PrimaryCTA.astro";
 		<ul>
 			{primaryNav.map((item) => (
 				<li>
-					<a href={item.href}>{item.label}</a>
+					{item.children ? (
+						<div class="mobile-group">
+							<a href={item.href} class="group-label">{item.label}</a>
+							<ul class="sub-list">
+								{item.children.map((child) => (
+									<li><a href={child.href} class="sub-link">{child.label}</a></li>
+								))}
+							</ul>
+						</div>
+					) : (
+						<a href={item.href}>{item.label}</a>
+					)}
 				</li>
 			))}
 		</ul>
@@ -53,6 +64,27 @@ import PrimaryCTA from "./PrimaryCTA.astro";
 		font-weight: 600;
 		font-size: 2.25rem;
 		color: #fff;
+	}
+	.mobile-group {
+		display: flex;
+		flex-direction: column;
+	}
+	.group-label {
+		font-size: 2.25rem;
+	}
+	.sub-list {
+		padding-left: 20px;
+		gap: 0;
+		margin-bottom: 8px;
+	}
+	.sub-link {
+		font-size: 1.25rem;
+		font-weight: 500;
+		color: rgba(255,255,255,0.6);
+		padding: 6px 0;
+	}
+	.sub-link:hover {
+		color: var(--orange-500);
 	}
 	.cta-wrap {
 		margin-top: 32px;

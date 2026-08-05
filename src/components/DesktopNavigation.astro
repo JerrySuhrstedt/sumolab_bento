@@ -5,8 +5,22 @@ import { primaryNav } from "../data/navigation";
 <nav aria-label="Primary" class="desktop-nav">
 	<ul>
 		{primaryNav.map((item) => (
-			<li>
-				<a href={item.href}>{item.label}</a>
+			<li class:list={["nav-item", item.children ? "has-dropdown" : ""]}>
+				{item.children ? (
+					<button type="button" class="nav-btn" aria-haspopup="true" aria-expanded="false">
+						{item.label}
+						<svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+							<path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</button>
+					<div class="dropdown" role="menu">
+						{item.children.map((child) => (
+							<a href={child.href} class="dropdown-link" role="menuitem">{child.label}</a>
+						))}
+					</div>
+				) : (
+					<a href={item.href}>{item.label}</a>
+				)}
 			</li>
 		))}
 	</ul>
@@ -27,15 +41,120 @@ import { primaryNav } from "../data/navigation";
 		padding: 0;
 		display: flex;
 		align-items: center;
-		gap: 26px;
+		gap: 4px;
 	}
-	a {
+	.nav-item {
+		position: relative;
+	}
+	a, .nav-btn {
 		font-family: var(--font-body);
 		font-size: 14px;
 		font-weight: 500;
 		color: rgba(255, 255, 255, 0.75);
+		padding: 8px 14px;
+		border-radius: 8px;
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		transition: color 0.15s, background 0.15s;
+		white-space: nowrap;
 	}
-	a:hover {
+	.nav-btn {
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+	a:hover, .nav-btn:hover, .nav-item.is-open .nav-btn {
 		color: #fff;
+		background: rgba(255,255,255,0.08);
+	}
+	.chevron {
+		transition: transform 0.2s;
+		opacity: 0.6;
+	}
+	.nav-item.is-open .chevron {
+		transform: rotate(180deg);
+		opacity: 1;
+	}
+	.dropdown {
+		position: absolute;
+		top: calc(100% + 8px);
+		left: 0;
+		background: #fff;
+		border-radius: 16px;
+		padding: 8px;
+		min-width: 220px;
+		box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		opacity: 0;
+		pointer-events: none;
+		transform: translateY(-6px);
+		transition: opacity 0.18s ease, transform 0.18s ease;
+		z-index: 100;
+	}
+	.nav-item.is-open .dropdown {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateY(0);
+	}
+	.dropdown-link {
+		font-family: var(--font-display);
+		font-size: 14px;
+		font-weight: 500;
+		color: var(--ink-950);
+		padding: 10px 14px;
+		border-radius: 10px;
+		background: none;
+		display: block;
+	}
+	.dropdown-link:hover {
+		background: var(--surface-sunken, #f5f2ee);
+		color: var(--orange-500);
 	}
 </style>
+
+<script>
+	function initDropdowns() {
+		const items = document.querySelectorAll<HTMLLIElement>('.desktop-nav .has-dropdown');
+		items.forEach((item) => {
+			const btn = item.querySelector<HTMLButtonElement>('.nav-btn');
+			if (!btn) return;
+
+			const open = () => {
+				items.forEach((i) => i.classList.remove('is-open'));
+				item.classList.add('is-open');
+				btn.setAttribute('aria-expanded', 'true');
+			};
+			const close = () => {
+				item.classList.remove('is-open');
+				btn.setAttribute('aria-expanded', 'false');
+			};
+
+			btn.addEventListener('click', (e) => {
+				e.stopPropagation();
+				item.classList.contains('is-open') ? close() : open();
+			});
+		});
+
+		document.addEventListener('click', () => {
+			items.forEach((i) => {
+				i.classList.remove('is-open');
+				i.querySelector<HTMLButtonElement>('.nav-btn')?.setAttribute('aria-expanded', 'false');
+			});
+		});
+
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') {
+				items.forEach((i) => {
+					i.classList.remove('is-open');
+					i.querySelector<HTMLButtonElement>('.nav-btn')?.setAttribute('aria-expanded', 'false');
+				});
+			}
+		});
+	}
+
+	initDropdowns();
+	document.addEventListener('astro:page-load', initDropdowns);
+</script>
