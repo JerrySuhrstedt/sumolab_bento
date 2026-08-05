@@ -1,0 +1,90 @@
+---
+import type { Service } from "../data/services";
+
+interface Props {
+	service: Service;
+}
+const { service } = Astro.props;
+---
+
+<article class="service-card">
+	<div>
+		<h3>{service.name}</h3>
+		<p class="summary">{service.summary}</p>
+	</div>
+	<ul>
+		{service.includes.slice(0, 3).map((item) => (
+			<li>
+				<span class="dot" aria-hidden="true"></span>
+				{item.title}
+			</li>
+		))}
+	</ul>
+	<a href={`/services/${service.slug}`} class="link">
+		<span>Explore How We Help</span>
+		<span aria-hidden="true" class="arrow">→</span>
+	</a>
+</article>
+
+<style>
+	.service-card {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+		background: var(--surface-sunken);
+		border-radius: var(--radius-md);
+		padding: 32px;
+	}
+	h3 {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 1.5rem;
+		margin: 0;
+	}
+	.summary {
+		font-size: 14px;
+		line-height: 1.6;
+		color: var(--text-secondary);
+		margin: 12px 0 0;
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+	li {
+		display: flex;
+		gap: 10px;
+		align-items: flex-start;
+		font-size: 14px;
+		color: var(--text-primary);
+	}
+	.dot {
+		width: 6px;
+		height: 6px;
+		margin-top: 6px;
+		border-radius: 2px;
+		background: var(--orange-500);
+		flex: none;
+	}
+	.link {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		margin-top: auto;
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 14px;
+		color: var(--orange-500);
+		align-self: flex-start;
+	}
+	.arrow {
+		transition: transform 0.15s ease;
+	}
+	.link:hover .arrow {
+		transform: translateX(2px);
+	}
+</style>

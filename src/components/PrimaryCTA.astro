@@ -1,0 +1,56 @@
+---
+import { primaryCta } from "../data/navigation";
+
+interface Props {
+	class?: string;
+	variant?: "primary" | "secondary";
+	label?: string;
+	href?: string;
+}
+
+const { class: className = "", variant = "primary", label = primaryCta.label, href = primaryCta.href } = Astro.props;
+---
+
+<a href={href} class:list={["cta", variant, className]}>
+	<span>{label}</span>
+	<span aria-hidden="true" class="arrow">→</span>
+</a>
+
+<style>
+	.cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 15px;
+		border-radius: var(--radius-sm);
+		padding: 14px 24px;
+		white-space: nowrap;
+		transition: background-color 0.15s ease, color 0.15s ease;
+	}
+	.cta.primary {
+		background: var(--orange-500);
+		color: #fff;
+	}
+	.cta.primary:hover {
+		background: var(--orange-600);
+		color: #fff;
+	}
+	.cta.secondary {
+		background: transparent;
+		color: var(--text-primary);
+		border: 1px solid var(--border-strong);
+	}
+	.cta.secondary:hover {
+		background: var(--surface-sunken);
+		color: var(--text-primary);
+	}
+	.arrow {
+		display: inline-block;
+		transition: transform 0.15s ease;
+	}
+	.cta:hover .arrow {
+		transform: translateX(2px);
+	}
+</style>

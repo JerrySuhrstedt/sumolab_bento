@@ -1,0 +1,253 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Section from '../../components/Section.astro';
+import PrimaryCTA from '../../components/PrimaryCTA.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import { services } from '../../data/services';
+import { cities } from '../../data/cities';
+
+export function getStaticPaths() {
+	return services.map((service) => ({
+		params: { slug: service.slug },
+		props: { service },
+	}));
+}
+
+const { service } = Astro.props;
+
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'Service',
+	name: service.name,
+	description: service.summary,
+	provider: {
+		'@type': 'ProfessionalService',
+		name: 'SumoLab',
+		url: 'https://sumolab-bento.sumolab.workers.dev',
+	},
+	areaServed: cities.map((city) => ({
+		'@type': 'City',
+		name: `${city.name}, ${city.state}`,
+	})),
+};
+---
+
+<Layout title={`${service.name} | SumoLab`} description={service.summary} structuredData={structuredData}>
+	<PageHero
+		image="/photos/services-hero-leadership.jpg"
+		eyebrow="Services"
+		align="left"
+		imagePosition="75% center"
+	>
+		<h1>{service.name}</h1>
+		<p>{service.tagline}</p>
+	</PageHero>
+
+	<Section tone="white">
+		<div class="situation-grid">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>The situation</p>
+				<h2 class="page-h2">{service.situation}</h2>
+			</div>
+			<div>
+				<p class="symptom-label">Common symptoms</p>
+				<ul class="dot-list" style="margin-top:20px">
+					{service.symptoms.map((symptom) => (
+						<li class="divider-item">
+							<span class="dot" aria-hidden="true"></span>{symptom}
+						</li>
+					))}
+				</ul>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="plain">
+		<p class="eyebrow-label"><span class="dot"></span>What's included</p>
+		<h2 class="page-h2">What this engagement covers.</h2>
+		<div class="grid-3" style="margin-top:40px">
+			{service.includes.map((item) => (
+				<div class="include-card">
+					<h3 class="page-h3">{item.title}</h3>
+					<p class="lede">{item.description}</p>
+				</div>
+			))}
+		</div>
+	</Section>
+
+	<Section tone="white">
+		<p class="eyebrow-label"><span class="dot"></span>How it works</p>
+		<h2 class="page-h2">The engagement, step by step.</h2>
+		<ol class="steps-grid" style="margin-top:40px">
+			{service.howItWorks.map((step, index) => (
+				<li class="step">
+					<span class="step-num">{String(index + 1).padStart(2, '0')}</span>
+					<p class="lede">{step}</p>
+				</li>
+			))}
+		</ol>
+	</Section>
+
+	<Section tone="ink">
+		<p class="eyebrow-label" style="color:var(--orange-400)"><span class="dot"></span>Outcomes</p>
+		<h2 class="page-h2" style="color:#fff">What changes for your business.</h2>
+		<ul class="dot-list grid-2" style="margin-top:32px">
+			{service.outcomes.map((outcome) => (
+				<li style="color:rgba(255,255,255,0.9)">
+					<span class="dot" aria-hidden="true"></span>{outcome}
+				</li>
+			))}
+		</ul>
+	</Section>
+
+	<Section tone="plain">
+		<div class="two-col" style="align-items:start">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>Who it's for</p>
+				<ul class="dot-list" style="margin-top:20px">
+					{service.whoItsFor.map((item) => (
+						<li><span class="dot" aria-hidden="true"></span>{item}</li>
+					))}
+				</ul>
+			</div>
+			<div>
+				<p class="not-for-label">Who it's not for</p>
+				<ul class="dot-list muted" style="margin-top:20px">
+					{service.whoItsNotFor.map((item) => (
+						<li><span class="dot" aria-hidden="true"></span>{item}</li>
+					))}
+				</ul>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="white">
+		<p class="eyebrow-label"><span class="dot"></span>FAQ</p>
+		<h2 class="page-h2">Common questions.</h2>
+		<div style="margin-top:32px;max-width:720px">
+			<FaqAccordion items={service.faqs} />
+		</div>
+	</Section>
+
+	<Section tone="plain">
+		<p class="eyebrow-label"><span class="dot"></span>Service areas</p>
+		<h2 class="page-h3" style="margin-bottom:24px">Serving established businesses across the Phoenix metro.</h2>
+		<ul class="city-list">
+			{cities.map((city) => (
+				<li>
+					<a href={`/services/${service.slug}/${city.slug}/`} class="city-link">
+						{service.name} in {city.name}, {city.state}
+					</a>
+				</li>
+			))}
+		</ul>
+	</Section>
+
+	<Section tone="ink">
+		<div class="card-cta-row">
+			<h2 class="page-h2" style="color:#fff;margin:0">Let's talk about whether {service.shortName.toLowerCase()} is the right fit.</h2>
+			<PrimaryCTA />
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.situation-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 48px;
+		align-items: start;
+	}
+	.symptom-label {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 12px;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--text-secondary);
+		margin: 0;
+	}
+	.divider-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 10px;
+		padding-bottom: 16px;
+		border-bottom: 1px solid var(--hairline);
+	}
+	.divider-item:last-child {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+	.include-card {
+		border-top: 3px solid var(--orange-500);
+		padding-top: 20px;
+	}
+	.steps-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 24px;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.step {
+		border-top: 3px solid var(--orange-500);
+		padding-top: 20px;
+	}
+	.step-num {
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: 0.75rem;
+		letter-spacing: 0.08em;
+		color: var(--text-secondary);
+		display: block;
+		margin-bottom: 12px;
+	}
+	.not-for-label {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 12px;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--text-secondary);
+		margin: 0 0 4px;
+	}
+	.city-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+	.city-link {
+		display: inline-flex;
+		align-items: center;
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: 14px;
+		color: var(--text-primary);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-sm);
+		padding: 10px 18px;
+		transition: border-color 0.15s, color 0.15s;
+	}
+	.city-link:hover {
+		border-color: var(--orange-500);
+		color: var(--orange-500);
+	}
+	@media (max-width: 780px) {
+		.situation-grid {
+			grid-template-columns: 1fr;
+		}
+		.steps-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	@media (max-width: 480px) {
+		.steps-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

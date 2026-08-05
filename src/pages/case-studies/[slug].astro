@@ -1,0 +1,109 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Section from '../../components/Section.astro';
+import PrimaryCTA from '../../components/PrimaryCTA.astro';
+import { caseStudies } from '../../data/case-studies';
+
+export function getStaticPaths() {
+	return caseStudies.map((caseStudy) => ({
+		params: { slug: caseStudy.slug },
+		props: { caseStudy },
+	}));
+}
+
+const { caseStudy } = Astro.props;
+---
+
+<Layout title={`${caseStudy.title} | SumoLab Case Studies`} description={caseStudy.summary}>
+	<PageHero
+		image="/photos/case-studies-hero.jpg"
+		eyebrow={`Case Study · ${caseStudy.client}`}
+		align="left"
+		imagePosition="80% center"
+	>
+		<h1>{caseStudy.title}</h1>
+		<p>{caseStudy.summary}</p>
+	</PageHero>
+
+	<Section tone="white">
+		<div class="par-grid">
+			<p class="section-label">Problem</p>
+			<ul class="par-list">
+				{caseStudy.problem.map((line) => <li class="lede">{line}</li>)}
+			</ul>
+		</div>
+	</Section>
+
+	<Section tone="plain">
+		<div class="par-grid">
+			<p class="section-label">Action</p>
+			<ul class="par-list">
+				{caseStudy.action.map((line) => <li class="lede">{line}</li>)}
+			</ul>
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<div class="par-grid">
+			<p class="section-label" style="color:var(--orange-400)">Result</p>
+			<ul class="par-list">
+				{caseStudy.result.map((line) => (
+					<li class="lede" style="color:rgba(255,255,255,0.9)">{line}</li>
+				))}
+			</ul>
+		</div>
+	</Section>
+
+	{caseStudy.keyTakeaways && (
+		<Section tone="white">
+			<p class="eyebrow-label"><span class="dot"></span>Key takeaways</p>
+			<h2 class="page-h2">What this proved.</h2>
+			<ul class="dot-list grid-2" style="margin-top:32px">
+				{caseStudy.keyTakeaways.map((item) => (
+					<li><span class="dot" aria-hidden="true"></span>{item}</li>
+				))}
+			</ul>
+		</Section>
+	)}
+
+	<Section tone="ink">
+		<div class="card-cta-row">
+			<h2 class="page-h2" style="color:#fff;margin:0">Want results like these for your business?</h2>
+			<PrimaryCTA />
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.par-grid {
+		display: grid;
+		grid-template-columns: 200px 1fr;
+		gap: 48px;
+		align-items: start;
+	}
+	.section-label {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 12px;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--text-secondary);
+		margin: 0;
+		padding-top: 4px;
+	}
+	.par-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+	@media (max-width: 640px) {
+		.par-grid {
+			grid-template-columns: 1fr;
+			gap: 16px;
+		}
+	}
+</style>

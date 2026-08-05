@@ -1,0 +1,86 @@
+---
+import BrandLogo from "./BrandLogo.astro";
+import DesktopNavigation from "./DesktopNavigation.astro";
+import MobileMenuToggle from "./MobileMenuToggle.astro";
+import PrimaryCTA from "./PrimaryCTA.astro";
+
+interface Props {
+	transparentOnHero?: boolean;
+}
+
+const { transparentOnHero = false } = Astro.props;
+---
+
+<header id="site-header" class:list={["site-header", { "transparent-on-hero": transparentOnHero }]}>
+	<div class="inner">
+		<BrandLogo variant="white" height={26} />
+		<DesktopNavigation />
+		<div class="right">
+			<div class="cta-desktop">
+				<PrimaryCTA />
+			</div>
+			<MobileMenuToggle />
+		</div>
+	</div>
+</header>
+
+<style>
+	.site-header {
+		position: sticky;
+		top: 0;
+		z-index: 50;
+		background: var(--ink-950);
+		transition: background-color 0.3s ease, box-shadow 0.3s ease;
+	}
+	.site-header.transparent-on-hero {
+		position: fixed;
+		inset-inline: 0;
+		background: transparent;
+	}
+	.site-header.is-scrolled {
+		box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.5);
+	}
+	.site-header.transparent-on-hero.is-scrolled {
+		background: var(--ink-950);
+	}
+	.inner {
+		max-width: 1180px;
+		margin: 0 auto;
+		padding: 20px 40px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+	}
+	.right {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+	.cta-desktop {
+		display: none;
+	}
+	@media (min-width: 1024px) {
+		.cta-desktop {
+			display: block;
+		}
+	}
+	@media (max-width: 640px) {
+		.inner {
+			padding: 16px 20px;
+		}
+	}
+</style>
+
+<script>
+	function initHeaderScrollState() {
+		const header = document.getElementById("site-header");
+		if (!header) return;
+		const updateState = () => {
+			header.classList.toggle("is-scrolled", window.scrollY > 80);
+		};
+		updateState();
+		window.addEventListener("scroll", updateState, { passive: true });
+	}
+	initHeaderScrollState();
+</script>

@@ -1,0 +1,124 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Section from '../../components/Section.astro';
+import PrimaryCTA from '../../components/PrimaryCTA.astro';
+import { insights } from '../../data/insights';
+import { founder } from '../../data/founder';
+
+export function getStaticPaths() {
+	return insights.map((insight) => ({
+		params: { slug: insight.slug },
+		props: { insight },
+	}));
+}
+
+const { insight } = Astro.props;
+
+const publishedDate = new Date(insight.publishedAt).toLocaleDateString('en-US', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+	timeZone: 'UTC',
+});
+---
+
+<Layout title={`${insight.title} | SumoLab Insights`} description={insight.excerpt}>
+	<PageHero
+		image={insight.imageSrc}
+		eyebrow={`${insight.category} · ${publishedDate}`}
+		align="left"
+	>
+		<h1>{insight.title}</h1>
+		<p>{insight.excerpt}</p>
+	</PageHero>
+
+	<Section tone="white">
+		<div class="article-wrap">
+			<div class="article-header">
+				<h2 class="page-h2">{insight.title}</h2>
+				<p class="lede">{insight.excerpt}</p>
+				<div class="byline">
+					{founder.headshotSrc && (
+						<img
+							src={founder.headshotSrc}
+							alt={founder.name ?? 'Author'}
+							class="byline-avatar"
+						/>
+					)}
+					<div>
+						<p class="byline-name">{founder.name}</p>
+						<p class="byline-date">{publishedDate}</p>
+					</div>
+				</div>
+			</div>
+			<div class="article-body">
+				{insight.body.map((para) => <p class="lede">{para}</p>)}
+				{insight.keyPoints && (
+					<ul class="dot-list key-points">
+						{insight.keyPoints.map((point) => (
+							<li><span class="dot" aria-hidden="true"></span>{point}</li>
+						))}
+					</ul>
+				)}
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<div class="card-cta-row">
+			<h2 class="page-h2" style="color:#fff;margin:0">Want senior marketing leadership on your team?</h2>
+			<PrimaryCTA />
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.article-wrap {
+		max-width: 720px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+	.article-header {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		padding-bottom: 32px;
+		border-bottom: 1px solid var(--hairline);
+	}
+	.byline {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		margin-top: 8px;
+	}
+	.byline-avatar {
+		width: 48px;
+		height: 48px;
+		border-radius: 999px;
+		object-fit: cover;
+	}
+	.byline-name {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 15px;
+		margin: 0;
+	}
+	.byline-date {
+		font-size: 13px;
+		color: var(--text-secondary);
+		margin: 0;
+	}
+	.article-body {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+	.key-points {
+		margin-top: 16px;
+		padding-top: 32px;
+		border-top: 1px solid var(--hairline);
+	}
+</style>

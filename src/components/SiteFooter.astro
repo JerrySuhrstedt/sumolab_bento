@@ -1,0 +1,129 @@
+---
+import BrandLogo from "./BrandLogo.astro";
+import PrimaryCTA from "./PrimaryCTA.astro";
+import { footerNav, legalNav } from "../data/navigation";
+import { contact } from "../data/contact";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+	<div class="grid">
+		<div>
+			<BrandLogo variant="white" height={24} />
+			<p class="tagline">
+				Senior marketing leadership for established businesses ready to turn scattered activity into
+				focused growth.
+			</p>
+		</div>
+		<div>
+			<div class="col-h">Company</div>
+			<ul>
+				{footerNav.company.map((item) => (
+					<li><a href={item.href}>{item.label}</a></li>
+				))}
+			</ul>
+		</div>
+		<div>
+			<div class="col-h">Services</div>
+			<ul>
+				{footerNav.services.map((item) => (
+					<li><a href={item.href}>{item.label}</a></li>
+				))}
+			</ul>
+		</div>
+		<div>
+			<div class="col-h">Connect</div>
+			<ul class="connect">
+				<li><PrimaryCTA /></li>
+				<li>{contact.email ? <a href={`mailto:${contact.email}`}>{contact.email}</a> : null}</li>
+				<li>{contact.phone ? <a href={`tel:${contact.phoneHref}`}>{contact.phone}</a> : null}</li>
+				<li>{contact.location}</li>
+				<li>{contact.linkedinUrl ? <a href={contact.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn</a> : null}</li>
+			</ul>
+		</div>
+	</div>
+	<div class="bottom">
+		<span>© {year} SumoLab LLC. All rights reserved.</span>
+		<div class="legal">
+			{legalNav.map((item) => <a href={item.href}>{item.label}</a>)}
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		background: var(--ink-950);
+		color: rgba(255, 255, 255, 0.65);
+	}
+	.grid {
+		max-width: 1180px;
+		margin: 0 auto;
+		padding: 64px 40px 32px;
+		display: grid;
+		grid-template-columns: 1.4fr 1fr 1fr 1fr;
+		gap: 32px;
+	}
+	.tagline {
+		font-size: 14px;
+		line-height: 1.6;
+		margin: 16px 0 0;
+		max-width: 260px;
+	}
+	.col-h {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 12px;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.5);
+		margin-bottom: 14px;
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		font-size: 14px;
+	}
+	ul.connect {
+		gap: 12px;
+		align-items: flex-start;
+	}
+	a {
+		color: rgba(255, 255, 255, 0.75);
+	}
+	a:hover {
+		color: var(--orange-500);
+	}
+	.bottom {
+		max-width: 1180px;
+		margin: 0 auto;
+		padding: 20px 40px 32px;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		display: flex;
+		justify-content: space-between;
+		font-size: 13px;
+	}
+	.legal {
+		display: flex;
+		gap: 20px;
+	}
+	.legal a {
+		color: rgba(255, 255, 255, 0.6);
+	}
+	@media (max-width: 780px) {
+		.grid {
+			grid-template-columns: 1fr 1fr;
+			padding: 48px 20px 24px;
+		}
+		.bottom {
+			flex-direction: column;
+			gap: 12px;
+			padding: 16px 20px 24px;
+		}
+	}
+</style>

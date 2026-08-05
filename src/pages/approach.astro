@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import PrimaryCTA from '../components/PrimaryCTA.astro';
+import { approachPhases } from '../data/approach';
+---
+
+<Layout
+	title="Approach | SumoLab"
+	description="How a SumoLab engagement works: diagnose, focus, lead, and improve. A clear, practical process for building senior marketing leadership into your business."
+>
+	<PageHero
+		image="/photos/approach-hero.jpg"
+		eyebrow="Approach"
+		align="right"
+	>
+		<h1>A clear process,<br />not a black box.</h1>
+		<p>What a Fractional Marketing Director actually is, what the role covers, and how it compares to a Fractional CMO.</p>
+	</PageHero>
+
+	<Section tone="white">
+		<div class="divider-rows">
+			{approachPhases.map((phase) => (
+				<div class="phase-row">
+					<div class="phase-left">
+						<span class="phase-num">{phase.number}</span>
+						<h2 class="page-h3" style="margin:0">{phase.title}</h2>
+					</div>
+					<div class="phase-right">
+						<p class="lede">{phase.detail}</p>
+					</div>
+				</div>
+			))}
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<div class="card-cta-row">
+			<h2 class="page-h2" style="color:#fff;margin:0">See how this process would apply to your business.</h2>
+			<PrimaryCTA />
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.phase-row {
+		display: grid;
+		grid-template-columns: 280px 1fr;
+		gap: 40px;
+		padding: 40px 0;
+		border-top: 1px solid var(--hairline);
+	}
+	.phase-row:first-child {
+		border-top: none;
+		padding-top: 0;
+	}
+	.phase-row:last-child {
+		padding-bottom: 0;
+	}
+	.phase-left {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	.phase-num {
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: 0.75rem;
+		letter-spacing: 0.08em;
+		color: var(--text-secondary);
+	}
+	.phase-right {
+		padding-top: 2px;
+	}
+	@media (max-width: 780px) {
+		.phase-row {
+			grid-template-columns: 1fr;
+			gap: 12px;
+		}
+	}
+</style>

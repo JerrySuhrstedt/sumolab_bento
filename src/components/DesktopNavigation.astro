@@ -1,0 +1,41 @@
+---
+import { primaryNav } from "../data/navigation";
+---
+
+<nav aria-label="Primary" class="desktop-nav">
+	<ul>
+		{primaryNav.map((item) => (
+			<li>
+				<a href={item.href}>{item.label}</a>
+			</li>
+		))}
+	</ul>
+</nav>
+
+<style>
+	.desktop-nav {
+		display: none;
+	}
+	@media (min-width: 1024px) {
+		.desktop-nav {
+			display: block;
+		}
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		gap: 26px;
+	}
+	a {
+		font-family: var(--font-body);
+		font-size: 14px;
+		font-weight: 500;
+		color: rgba(255, 255, 255, 0.75);
+	}
+	a:hover {
+		color: #fff;
+	}
+</style>

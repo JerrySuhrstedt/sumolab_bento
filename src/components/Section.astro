@@ -1,0 +1,54 @@
+---
+interface Props {
+	tone?: "white" | "ink" | "accent" | "plain";
+	class?: string;
+	id?: string;
+}
+
+const { tone = "white", class: className = "", id } = Astro.props;
+---
+
+<section id={id} class:list={["section-wrap", className]}>
+	<div class:list={["card", tone]}>
+		<slot />
+	</div>
+</section>
+
+<style>
+	.section-wrap {
+		max-width: 1180px;
+		margin: 0 auto;
+		padding: 0 40px 24px;
+	}
+	.card {
+		border-radius: var(--radius-lg);
+		padding: 48px;
+	}
+	.card.white {
+		background: var(--white);
+		border: 1px solid var(--border);
+		color: var(--text-primary);
+	}
+	.card.ink {
+		background: var(--ink-950);
+		color: #fff;
+	}
+	.card.accent {
+		background: var(--orange-500);
+		color: #fff;
+	}
+	.card.plain {
+		padding: 0;
+		background: none;
+		border: none;
+		color: var(--text-primary);
+	}
+	@media (max-width: 640px) {
+		.section-wrap {
+			padding: 0 20px 20px;
+		}
+		.card:not(.plain) {
+			padding: 32px 24px;
+		}
+	}
+</style>

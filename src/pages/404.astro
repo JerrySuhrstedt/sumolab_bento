@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import PrimaryCTA from '../components/PrimaryCTA.astro';
+---
+
+<Layout title="Page Not Found | SumoLab" description="This page doesn't exist.">
+	<Section tone="plain" style="min-height:60vh;display:flex;align-items:center;padding-top:80px;padding-bottom:80px">
+		<div>
+			<p class="eyebrow-label"><span class="dot"></span>404</p>
+			<h1 class="page-h1">This page doesn't exist.</h1>
+			<p class="lede">The page you're looking for may have moved, or the link may be out of date. Here are a few places to go instead.</p>
+			<div class="cta-row">
+				<a href="/" class="back-btn">Back to homepage</a>
+				<PrimaryCTA />
+			</div>
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.cta-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 16px;
+		margin-top: 32px;
+	}
+	.back-btn {
+		display: inline-flex;
+		align-items: center;
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 15px;
+		background: var(--ink-950);
+		color: #fff;
+		border-radius: var(--radius-sm);
+		padding: 14px 24px;
+		text-decoration: none;
+		transition: opacity 0.15s;
+	}
+	.back-btn:hover {
+		opacity: 0.85;
+		color: #fff;
+	}
+</style>

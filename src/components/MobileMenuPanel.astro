@@ -1,0 +1,127 @@
+---
+import { primaryNav } from "../data/navigation";
+import PrimaryCTA from "./PrimaryCTA.astro";
+---
+
+<div id="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation" class="mobile-panel" hidden>
+	<nav aria-label="Mobile primary">
+		<ul>
+			{primaryNav.map((item) => (
+				<li>
+					<a href={item.href}>{item.label}</a>
+				</li>
+			))}
+		</ul>
+		<div class="cta-wrap">
+			<PrimaryCTA />
+		</div>
+	</nav>
+</div>
+
+<style>
+	.mobile-panel {
+		position: fixed;
+		inset: 0;
+		z-index: 40;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		background-color: var(--ink-950);
+		opacity: 0;
+		transform: translateY(-8px);
+		transition: opacity 0.22s ease, transform 0.22s ease;
+	}
+	.mobile-panel.is-open {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	nav {
+		padding: 0 32px;
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+	a {
+		display: block;
+		padding: 12px 0;
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 2.25rem;
+		color: #fff;
+	}
+	.cta-wrap {
+		margin-top: 32px;
+	}
+</style>
+
+<script>
+	function initMobileNav() {
+		const toggle = document.getElementById("mobile-menu-toggle");
+		const panel = document.getElementById("mobile-menu-panel");
+		if (!toggle || !panel) return;
+
+		const getFocusable = () =>
+			Array.from(panel.querySelectorAll<HTMLElement>("a, button")).filter((el) => el.offsetParent !== null);
+
+		const onKeydown = (e: KeyboardEvent) => {
+			if (e.key === "Escape") {
+				closeMenu();
+				return;
+			}
+			if (e.key === "Tab") {
+				const focusable = getFocusable();
+				if (focusable.length === 0) return;
+				const first = focusable[0];
+				const last = focusable[focusable.length - 1];
+				if (e.shiftKey && document.activeElement === first) {
+					e.preventDefault();
+					last.focus();
+				} else if (!e.shiftKey && document.activeElement === last) {
+					e.preventDefault();
+					first.focus();
+				}
+			}
+		};
+
+		function openMenu() {
+			if (!panel || !toggle) return;
+			panel.hidden = false;
+			requestAnimationFrame(() => panel.classList.add("is-open"));
+			toggle.setAttribute("aria-expanded", "true");
+			toggle.setAttribute("aria-label", "Close menu");
+			document.documentElement.style.overflow = "hidden";
+			document.addEventListener("keydown", onKeydown);
+			getFocusable()[0]?.focus();
+		}
+
+		function closeMenu() {
+			if (!panel || !toggle) return;
+			panel.classList.remove("is-open");
+			toggle.setAttribute("aria-expanded", "false");
+			toggle.setAttribute("aria-label", "Open menu");
+			document.documentElement.style.overflow = "";
+			document.removeEventListener("keydown", onKeydown);
+			const onTransitionEnd = () => {
+				panel.hidden = true;
+				panel.removeEventListener("transitionend", onTransitionEnd);
+			};
+			panel.addEventListener("transitionend", onTransitionEnd);
+			toggle.focus();
+		}
+
+		toggle.addEventListener("click", () => {
+			const isOpen = toggle.getAttribute("aria-expanded") === "true";
+			if (isOpen) closeMenu();
+			else openMenu();
+		});
+
+		panel.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+	}
+
+	initMobileNav();
+</script>

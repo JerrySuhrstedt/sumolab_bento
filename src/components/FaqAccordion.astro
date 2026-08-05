@@ -1,0 +1,64 @@
+---
+interface FaqItem {
+	question: string;
+	answer: string;
+}
+interface Props {
+	items: FaqItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="accordion">
+	{items.map((item, index) => (
+		<details open={index === 0}>
+			<summary>
+				<span>{item.question}</span>
+				<span class="icon" aria-hidden="true">+</span>
+			</summary>
+			<p>{item.answer}</p>
+		</details>
+	))}
+</div>
+
+<style>
+	.accordion {
+		border-top: 1px solid var(--hairline);
+	}
+	details {
+		border-bottom: 1px solid var(--hairline);
+		padding: 18px 0;
+	}
+	summary {
+		cursor: pointer;
+		list-style: none;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 16px;
+		color: var(--text-primary);
+	}
+	summary::-webkit-details-marker {
+		display: none;
+	}
+	.icon {
+		color: var(--orange-500);
+		font-size: 20px;
+		flex-shrink: 0;
+		transition: transform 0.2s ease;
+	}
+	details[open] .icon {
+		transform: rotate(45deg);
+	}
+	details p {
+		margin: 12px 0 0;
+		font-family: var(--font-body);
+		font-size: 14px;
+		line-height: 1.6;
+		color: var(--text-secondary);
+	}
+</style>

@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import PrimaryCTA from '../components/PrimaryCTA.astro';
+import { fitFor, notFitFor } from '../data/fit';
+
+const signals = [
+	'The owner or CEO is making marketing decisions without marketing expertise',
+	'The company relies heavily on referrals and wants predictable lead generation',
+	'Marketing tactics exist, but no unified strategy connects them',
+	'Marketing responsibilities are spread across several people, with no one in charge',
+];
+---
+
+<Layout
+	title="Who It's For | SumoLab"
+	description="SumoLab works with established businesses generating $5M to $50M in annual revenue that need senior marketing leadership, not more isolated campaigns."
+>
+	<PageHero
+		image="/photos/who-its-for-hero.jpg"
+		eyebrow="Who it's for"
+		align="left"
+	>
+		<h1>Built for serious business.</h1>
+		<p>Not startups looking for cheap execution. SumoLab works best with companies that have real marketing activity already underway and need someone senior to lead it.</p>
+	</PageHero>
+
+	<Section tone="white">
+		<p class="eyebrow-label"><span class="dot"></span>Signals it's time</p>
+		<h2 class="page-h2">If any of this sounds familiar…</h2>
+		<ul class="dot-list grid-2" style="margin-top:32px">
+			{signals.map((signal) => (
+				<li><span class="dot" aria-hidden="true"></span>{signal}</li>
+			))}
+		</ul>
+	</Section>
+
+	<Section tone="plain">
+		<div class="two-col" style="align-items:start">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>Strong fit</p>
+				<h2 class="page-h2">SumoLab may be a strong fit if…</h2>
+				<ul class="dot-list" style="margin-top:24px">
+					{fitFor.map((item) => (
+						<li><span class="dot" aria-hidden="true"></span>{item}</li>
+					))}
+				</ul>
+			</div>
+			<div>
+				<p class="not-fit-label">Probably not the right fit if</p>
+				<ul class="dot-list muted" style="margin-top:20px">
+					{notFitFor.map((item) => (
+						<li><span class="dot" aria-hidden="true"></span>{item}</li>
+					))}
+				</ul>
+				<p class="lede" style="margin-top:24px">If that's where you are today, that's a completely reasonable place to be. It's just not what SumoLab is built for, and we'd rather tell you that upfront.</p>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<div class="card-cta-row">
+			<h2 class="page-h2" style="color:#fff;margin:0">Still not sure? A short conversation will make it clear.</h2>
+			<PrimaryCTA />
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.not-fit-label {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 12px;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--text-secondary);
+		margin: 0 0 4px;
+	}
+</style>

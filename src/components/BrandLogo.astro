@@ -1,0 +1,30 @@
+---
+interface Props {
+	class?: string;
+	variant?: "normal" | "white";
+	height?: number;
+}
+
+const { class: className = "", variant = "normal", height = 28 } = Astro.props;
+const width = Math.round(height * (462.6 / 67.9));
+---
+
+<a href="/" aria-label="SumoLab home" class:list={["brand-logo", className]}>
+	<img
+		src="/logos/sumolab-bento.svg"
+		alt="SumoLab"
+		height={height}
+		width={width}
+		class:list={{ "logo-white": variant === "white" }}
+	/>
+</a>
+
+<style>
+	.brand-logo {
+		display: inline-flex;
+		align-items: center;
+	}
+	.logo-white {
+		filter: brightness(0) invert(1);
+	}
+</style>

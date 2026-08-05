@@ -1,0 +1,40 @@
+---
+interface Props {
+	class?: string;
+	tone?: "orange" | "onDark";
+}
+
+const { class: className = "", tone = "orange" } = Astro.props;
+---
+
+<p class:list={["eyebrow", tone, className]}>
+	<span class="dot" aria-hidden="true"></span>
+	<slot />
+</p>
+
+<style>
+	.eyebrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 12.5px;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		margin: 0;
+	}
+	.eyebrow.orange {
+		color: var(--orange-500);
+	}
+	.eyebrow.onDark {
+		color: var(--orange-100);
+	}
+	.dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 999px;
+		background: currentColor;
+		flex: none;
+	}
+</style>
