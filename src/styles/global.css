@@ -4,6 +4,6 @@
 @import '../../tokens/effects.css';
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-body{font-family:var(--font-body);color:var(--color-ink);background:var(--color-bg)}
-a{color:var(--color-link);text-decoration:none}
-a:hover{color:var(--color-link-hover);text-decoration:underline}
+body{font-family:var(--font-body);color:var(--text-primary);background:var(--surface-page)}
+a{color:var(--orange-500);text-decoration:none}
+a:hover{color:var(--orange-600)}

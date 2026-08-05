@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import ProblemSolution from '../components/ProblemSolution.astro';
 import BenefitsSection from '../components/BenefitsSection.astro';
@@ -10,12 +9,21 @@ import FAQCTA from '../components/FAQCTA.astro';
 import Footer from '../components/Footer.astro';
 ---
 <Layout title="SumoLab — Fractional CMO for Growing Businesses">
-	<Header />
 	<Hero />
-	<ProblemSolution />
-	<BenefitsSection />
-	<TestimonialsSection />
-	<FounderFeatures />
-	<FAQCTA />
+	<div class="content-wrap">
+		<ProblemSolution />
+		<BenefitsSection />
+		<TestimonialsSection />
+		<FounderFeatures />
+		<FAQCTA />
+	</div>
 	<Footer />
 </Layout>
+
+<style>
+	.content-wrap {
+		max-width: 1180px;
+		margin: 0 auto;
+		padding: 64px 40px;
+	}
+</style>

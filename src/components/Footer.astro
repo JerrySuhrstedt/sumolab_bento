@@ -1,14 +1,14 @@
 ---
 const columns = [
 	{ h: 'Company', items: ['About', 'Approach', "Who It's For", 'Case Studies', 'Insights', 'Contact'] },
-	{ h: 'Services', items: ['Fractional CMO', 'Fractional Marketing Director'] },
-	{ h: 'Connect', items: ['Book a Strategy Call→', 'jerry@sumolab.co', '(480) 826-9400', 'Chandler, Arizona', 'LinkedIn'] },
+	{ h: 'Services', items: ['Fractional CMO', 'Fractional Marketing Director', 'Fractional AI Advisor'] },
+	{ h: 'Connect', items: ['jerry@sumolab.co', '(480) 826-9400', 'Chandler, Arizona'] },
 ];
 ---
 <footer class="footer">
 	<div class="grid">
 		<div>
-			<span class="wordmark">SumoLab</span>
+			<img src="/images/sumolab-logo.svg" alt="SumoLab" class="logo" />
 			<p class="tagline">
 				Senior marketing leadership for established businesses ready to turn scattered activity into
 				focused growth.
@@ -17,9 +17,9 @@ const columns = [
 		{columns.map((col) => (
 			<div>
 				<div class="col-h">{col.h}</div>
-				<ul>
-					{col.items.map((t) => <li>{t}</li>)}
-				</ul>
+				<div class="col-items">
+					{col.items.map((t) => <span>{t}</span>)}
+				</div>
 			</div>
 		))}
 	</div>
@@ -34,67 +34,61 @@ const columns = [
 
 <style>
 	.footer {
-		background: var(--navy-900);
-		color: var(--color-ink-on-dark-muted);
-		padding: 64px 48px 32px;
+		border-top: 1px solid var(--hairline);
 	}
 	.grid {
-		max-width: 1080px;
+		max-width: 1180px;
 		margin: 0 auto;
+		padding: 48px 40px;
 		display: grid;
 		grid-template-columns: 1.4fr 1fr 1fr 1fr;
 		gap: 32px;
 	}
-	.wordmark {
-		font-family: var(--font-display);
-		font-style: italic;
-		font-weight: 500;
-		font-size: 20px;
-		color: var(--color-ink-on-dark);
+	.logo {
+		height: 22px;
+		margin-bottom: 16px;
 	}
 	.tagline {
-		font-family: var(--font-body);
-		font-size: 13px;
+		font-size: 14px;
+		color: var(--text-secondary);
 		line-height: 1.6;
-		margin-top: 14px;
 		max-width: 260px;
 	}
 	.col-h {
-		font-family: var(--font-body);
+		font-family: var(--font-display);
 		font-weight: 600;
-		font-size: 13px;
-		color: var(--color-ink-on-dark);
-		margin-bottom: 12px;
+		font-size: 12px;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		margin-bottom: 14px;
 	}
-	.grid ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
+	.col-items {
 		display: flex;
 		flex-direction: column;
-		gap: 8px;
-	}
-	.grid li {
-		font-family: var(--font-body);
-		font-size: 13px;
+		gap: 10px;
+		font-size: 14px;
 	}
 	.bottom {
-		max-width: 1080px;
-		margin: 48px auto 0;
-		padding-top: 20px;
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		max-width: 1180px;
+		margin: 0 auto;
+		padding: 0 40px 32px;
 		display: flex;
 		justify-content: space-between;
-		font-family: var(--font-body);
-		font-size: 12px;
+		font-size: 13px;
+		color: var(--text-muted);
 	}
 	.legal {
 		display: flex;
-		gap: 16px;
+		gap: 20px;
 	}
 	@media (max-width: 780px) {
 		.grid {
 			grid-template-columns: 1fr 1fr;
+		}
+		.bottom {
+			flex-direction: column;
+			gap: 12px;
 		}
 	}
 </style>

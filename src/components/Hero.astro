@@ -1,81 +1,131 @@
 ---
+import Header from './Header.astro';
 const points = [
 	'Replace Agency Chaos With Leadership',
 	'Align Marketing To Revenue Goals',
 	'Reduce Waste With Smarter Systems And AI',
 ];
 ---
-<section class="hero">
+<div class="hero">
+	<div class="hero-bg" role="img" aria-label="Office photo placeholder"></div>
 	<div class="hero-overlay"></div>
+	<Header />
 	<div class="hero-content">
-		<h1>Turn Fragmented Marketing Into Predictable Growth.</h1>
-		<p>
-			Fractional CMO for established businesses ($5M+ revenue) that need clear strategy, accountable
-			execution, and modern automation, without hiring full-time.
-		</p>
+		<div class="accent-bar"></div>
+		<h1>AI won't fix your business.</h1>
+		<p class="subhead">Understanding your business will… and I've spent a lifetime learning both.</p>
 		<ul>
-			{points.map((t) => <li>— {t}</li>)}
+			{points.map((t) => (
+				<li>
+					<span class="check">✓</span>
+					{t}
+				</li>
+			))}
 		</ul>
 		<a href="#" class="cta">Book a Strategy Call→</a>
 	</div>
-</section>
+</div>
 
 <style>
 	.hero {
 		position: relative;
-		background: var(--color-primary);
-		color: var(--color-ink-on-dark);
-		padding: 90px 48px 110px;
-		text-align: center;
-		overflow: hidden;
+		min-height: 820px;
+		display: flex;
+		flex-direction: column;
+	}
+	.hero-bg {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+		background: var(--grey-400);
 	}
 	.hero-overlay {
 		position: absolute;
 		inset: 0;
-		background: var(--navy-900);
-		opacity: 0.35;
+		background: linear-gradient(180deg, rgba(16, 16, 18, 0.55), rgba(16, 16, 18, 0.4) 40%, rgba(16, 16, 18, 0.78));
+		z-index: 1;
 	}
 	.hero-content {
 		position: relative;
-		max-width: 760px;
-		margin: 0 auto;
+		z-index: 2;
+		max-width: 1180px;
+		width: 100%;
+		margin: auto 0 0;
+		padding: 40px 40px 72px;
+		box-sizing: border-box;
+	}
+	.accent-bar {
+		width: 56px;
+		height: 4px;
+		background: var(--orange-500);
+		border-radius: 2px;
+		margin-bottom: 24px;
 	}
 	h1 {
 		font-family: var(--font-display);
-		font-weight: 500;
-		font-size: var(--fs-display-lg);
-		line-height: var(--lh-tight);
-		margin: 0;
+		font-weight: 700;
+		font-size: 64px;
+		line-height: 1.05;
+		letter-spacing: -0.02em;
+		color: #fff;
+		max-width: 760px;
+		margin: 0 0 20px;
 	}
-	p {
-		font-family: var(--font-body);
-		font-size: var(--fs-body-lg);
-		line-height: var(--lh-body);
-		color: var(--color-ink-on-dark-muted);
-		margin: 24px 0 0;
+	.subhead {
+		font-size: 19px;
+		line-height: 1.5;
+		color: rgba(255, 255, 255, 0.85);
+		margin: 0 0 24px;
+		max-width: 520px;
 	}
 	ul {
 		list-style: none;
 		padding: 0;
-		margin: 28px 0 0;
+		margin: 0 0 28px;
 		display: flex;
 		flex-direction: column;
-		gap: 8px;
-		align-items: center;
+		gap: 10px;
 	}
 	li {
-		font-family: var(--font-body);
-		font-size: 15px;
+		display: flex;
+		gap: 10px;
+		align-items: center;
+		font-size: 16px;
+		font-weight: 500;
+		color: #fff;
+	}
+	.check {
+		width: 20px;
+		height: 20px;
+		border-radius: 999px;
+		border: 1.5px solid var(--orange-500);
+		color: var(--orange-500);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 12px;
+		flex: none;
 	}
 	.cta {
 		display: inline-block;
-		margin-top: 32px;
-		font-family: var(--font-body);
+		font-family: var(--font-display);
 		font-weight: 600;
 		font-size: 15px;
-		color: var(--color-primary);
-		background: var(--color-ink-on-dark);
-		padding: 15px 28px;
+		background: var(--orange-500);
+		color: #fff;
+		border: none;
 		border-radius: var(--radius-sm);
+		padding: 14px 24px;
+	}
+	.cta:hover {
+		background: var(--orange-600);
+		color: #fff;
+	}
+	@media (max-width: 640px) {
+		h1 {
+			font-size: 40px;
+		}
 	}
 </style>

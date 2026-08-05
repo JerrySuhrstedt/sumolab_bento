@@ -1,113 +1,110 @@
 ---
 const quotes = [
-	{ name: 'Alek Synkevych', role: 'CEO, RevBit', quote: "Jerry's mentorship, approachable nature, and positive attitude stand out. He is an excellent mentor and coach, always willing to share his expertise and help team members increase their skill sets." },
-	{ name: 'Khero Witey', role: 'Associate VP, Third Republic', quote: "Jerry is one of a kind, talks the talk and actually backs it up by walking the walk! If you need someone who understands marketing, there's not many out there that are better!" },
-	{ name: 'Jonathan Cisneros', role: 'Agency Owner', quote: 'It’s rare to find an individual as knowledgeable and driven as Jerry. It always struck me how much of an executor on any project Jerry is. I would line up to have Jerry on my team any day.' },
-	{ name: 'Doug Crew', role: 'Systems Consultant', quote: 'His skills, work ethic, and collaborative spirit contribute to the success of any organization. Don’t miss the opportunity to work with Jerry, a true pro who consistently delivers outstanding results.' },
+	{ photo: '/images/team/alek-synkevych.jpg', name: 'Alek Synkevych', role: 'CEO, RevBit', quote: "Jerry's mentorship, approachable nature, and positive attitude stand out. He is an excellent mentor and coach.", dark: false },
+	{ photo: '/images/team/khero-witey.jpg', name: 'Khero Witey', role: 'Associate VP, Third Republic', quote: 'Jerry is one of a kind, talks the talk and actually backs it up by walking the walk!', dark: true },
+	{ photo: '/images/team/jonathan-cisneros.jpg', name: 'Jonathan Cisneros', role: 'Agency Owner', quote: 'It’s rare to find an individual as knowledgeable and driven as Jerry. I would line up to have him on my team any day.', dark: false },
+	{ photo: '/images/team/doug-crew.jpg', name: 'Doug Crew', role: 'Systems Consultant', quote: 'His skills, work ethic, and collaborative spirit contribute to the success of any organization.', dark: false },
 ];
 ---
-<section class="testimonials">
-	<div class="wrap">
-		<div class="heading">
-			<div class="eyebrow">What clients say</div>
-			<h2>Don't take our word for it.</h2>
-		</div>
-		<div class="grid">
-			{quotes.map((q) => (
-				<div class="card">
-					<div class="stars" aria-hidden="true">★★★★★</div>
-					<p class="quote">“{q.quote}”</p>
-					<div class="person">
-						<div class="avatar"></div>
-						<div>
-							<div class="name">{q.name}</div>
-							<div class="role">{q.role}</div>
-						</div>
-					</div>
-				</div>
-			))}
-		</div>
+<div class="card">
+	<div class="heading">
+		<div class="eyebrow">What clients say</div>
+		<h2>Don't take our word for it.</h2>
 	</div>
-</section>
+	<div class="grid">
+		{quotes.map((q) => (
+			<div class={`tile ${q.dark ? 'dark' : ''}`}>
+				<img src={q.photo} alt={q.name} class="avatar" />
+				<div class="stars" aria-hidden="true">★★★★★</div>
+				<p class="quote">"{q.quote}"</p>
+				<div class="name">{q.name}</div>
+				<div class="role">{q.role}</div>
+			</div>
+		))}
+	</div>
+</div>
 
 <style>
-	.testimonials {
-		padding: 90px 48px;
-		background: var(--color-bg);
-	}
-	.wrap {
-		max-width: 1080px;
-		margin: 0 auto;
+	.card {
+		background: var(--white);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+		padding: 48px;
+		margin-bottom: 24px;
 	}
 	.heading {
 		text-align: center;
-		margin-bottom: 48px;
+		margin-bottom: 32px;
 	}
 	.eyebrow {
-		color: var(--color-accent);
-		font-size: var(--fs-eyebrow);
-		letter-spacing: var(--ls-eyebrow);
-		text-transform: uppercase;
-		font-weight: var(--fw-semibold);
-	}
-	.heading h2 {
 		font-family: var(--font-display);
-		font-weight: 500;
-		font-size: var(--fs-heading-lg);
-		margin: 16px 0 0;
+		font-weight: 600;
+		font-size: 12.5px;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--orange-500);
+		margin-bottom: 16px;
+	}
+	h2 {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 32px;
+		margin: 0;
 	}
 	.grid {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 20px;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 16px;
 	}
-	.card {
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
+	.tile {
+		background: var(--surface-sunken);
 		border-radius: var(--radius-md);
-		padding: 24px;
-		display: flex;
-		flex-direction: column;
-		gap: 14px;
-		box-shadow: var(--shadow-sm);
+		padding: 22px;
 	}
-	.stars {
-		color: var(--color-star);
-		font-size: 15px;
-		letter-spacing: 2px;
-	}
-	.quote {
-		font-family: var(--font-body);
-		font-size: var(--fs-body);
-		line-height: var(--lh-body);
-		color: var(--color-ink);
-		margin: 0;
-	}
-	.person {
-		display: flex;
-		align-items: center;
-		gap: 12px;
-		margin-top: 4px;
+	.tile.dark {
+		background: var(--ink-950);
+		color: #fff;
 	}
 	.avatar {
 		width: 40px;
 		height: 40px;
-		border-radius: 50%;
-		background: var(--color-surface-sunken);
-		border: 1px solid var(--color-border);
+		border-radius: 999px;
+		object-fit: cover;
+		margin-bottom: 14px;
+		display: block;
+	}
+	.stars {
+		color: var(--orange-500);
+		font-size: 12px;
+		letter-spacing: 2px;
+		margin-bottom: 10px;
+	}
+	.quote {
+		font-size: 13px;
+		line-height: 1.5;
+		margin: 0 0 14px;
 	}
 	.name {
-		font-family: var(--font-body);
-		font-weight: var(--fw-semibold);
-		font-size: var(--fs-body-sm);
-		color: var(--color-ink);
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 13px;
 	}
 	.role {
-		font-family: var(--font-body);
-		font-size: var(--fs-caption);
-		color: var(--color-ink-muted);
+		font-size: 12px;
+		color: var(--text-muted);
 	}
-	@media (max-width: 780px) {
+	.tile.dark .role {
+		color: rgba(255, 255, 255, 0.55);
+	}
+	@media (max-width: 900px) {
+		.grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	@media (max-width: 640px) {
+		.card {
+			padding: 32px 24px;
+		}
 		.grid {
 			grid-template-columns: 1fr;
 		}

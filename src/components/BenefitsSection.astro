@@ -1,114 +1,118 @@
 ---
 const benefits = [
-	{ title: 'Clarity and focus', body: 'You know what matters, what does not, and where to invest next.' },
-	{ title: 'Accountable execution', body: 'Agencies and vendors perform better when someone senior is leading them. You stop babysitting.' },
-	{ title: 'Lower stress. Better decisions.', body: 'Marketing stops being noise. You regain time and confidence as an owner.' },
+	{
+		title: 'You start in the right place, not the expensive place.',
+		body: 'Most AI money gets burned on the wrong problem. I read your whole business first, then point AI at the one or two spots where it actually moves profit. No science projects.',
+	},
+	{
+		title: 'You get an operator, not an advisor who disappears.',
+		body: "I've run twelve companies. I don't hand you a slide deck and leave. I sit on your side of the table, put the tools to work, and stay until they're earning their keep.",
+	},
+	{
+		title: 'You get judgment across the whole business, not just one corner.',
+		body: "Finance, operations, marketing, sales, HR, manufacturing. I've owned every square on the board. That's why I can tell what AI should touch, what it shouldn't, and prove the return either way.",
+	},
 ];
 ---
-<section class="benefits">
-	<div class="wrap">
-		<div class="heading">
-			<div class="eyebrow">Benefits</div>
-			<h2>So, what are the benefits?</h2>
-		</div>
-		<div class="cards">
-			{benefits.map((b) => (
-				<div class="card">
-					<h3>{b.title}</h3>
-					<p>{b.body}</p>
-				</div>
-			))}
-		</div>
-		<div class="quote-band">
-			<div class="photo">Photo</div>
+<div class="card">
+	<div class="eyebrow">Benefits</div>
+	<h2>So, what are the benefits?</h2>
+	<div class="tiles">
+		{benefits.map((b) => (
+			<div class="tile">
+				<h3>{b.title}</h3>
+				<p>{b.body}</p>
+			</div>
+		))}
+	</div>
+	<div class="photo-band">
+		<div class="photo-bg" role="img" aria-label="Office collaboration photo placeholder"></div>
+		<div class="photo-overlay">
 			<p>Senior leadership, not another vendor. One person who owns the outcome.</p>
 		</div>
 	</div>
-</section>
+</div>
 
 <style>
-	.benefits {
-		padding: 90px 48px;
-		background: var(--color-surface-sunken);
-	}
-	.wrap {
-		max-width: 980px;
-		margin: 0 auto;
-	}
-	.heading {
-		text-align: center;
-		margin-bottom: 48px;
+	.card {
+		background: var(--white);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+		padding: 48px;
+		margin-bottom: 24px;
 	}
 	.eyebrow {
-		color: var(--color-accent);
-		font-size: var(--fs-eyebrow);
-		letter-spacing: var(--ls-eyebrow);
-		text-transform: uppercase;
-		font-weight: var(--fw-semibold);
-	}
-	.heading h2 {
 		font-family: var(--font-display);
-		font-weight: 500;
-		font-size: var(--fs-heading-lg);
-		margin: 16px 0 0;
+		font-weight: 600;
+		font-size: 12.5px;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--orange-500);
+		margin-bottom: 16px;
 	}
-	.cards {
+	h2 {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 32px;
+		line-height: 1.2;
+		margin: 0 0 32px;
+		max-width: 700px;
+	}
+	.tiles {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: 20px;
+		gap: 18px;
+		margin-bottom: 24px;
 	}
-	.card {
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
+	.tile {
+		background: var(--surface-sunken);
 		border-radius: var(--radius-md);
-		padding: 28px;
-		box-shadow: var(--shadow-sm);
+		padding: 26px;
 	}
-	.card h3 {
+	.tile h3 {
 		font-family: var(--font-display);
-		font-size: var(--fs-heading-sm);
+		font-weight: 600;
+		font-size: 17px;
 		margin: 0 0 10px;
-		color: var(--color-ink);
-		font-weight: var(--fw-medium);
 	}
-	.card p {
-		font-family: var(--font-body);
-		font-size: var(--fs-body);
-		line-height: var(--lh-body);
-		color: var(--color-ink-muted);
+	.tile p {
+		font-size: 14px;
+		line-height: 1.6;
+		color: var(--text-secondary);
 		margin: 0;
 	}
-	.quote-band {
-		margin-top: 48px;
-		background: var(--color-primary);
-		color: var(--color-ink-on-dark);
+	.photo-band {
+		position: relative;
 		border-radius: var(--radius-md);
-		padding: 32px 40px;
-		display: flex;
-		align-items: center;
-		gap: 24px;
+		overflow: hidden;
 	}
-	.photo {
-		width: 96px;
-		height: 96px;
-		flex-shrink: 0;
-		background: var(--navy-600);
-		border-radius: var(--radius-md);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-size: 11px;
-		color: var(--color-ink-on-dark-muted);
+	.photo-bg {
+		width: 100%;
+		height: 260px;
+		background: var(--grey-400);
 	}
-	.quote-band p {
+	.photo-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to top, rgba(16, 16, 18, 0.75), transparent 60%);
+		display: flex;
+		align-items: flex-end;
+		padding: 24px;
+	}
+	.photo-overlay p {
+		color: #fff;
 		font-family: var(--font-display);
-		font-style: italic;
-		font-size: var(--fs-heading-sm);
+		font-weight: 600;
+		font-size: 18px;
+		max-width: 480px;
 		margin: 0;
 	}
-	@media (max-width: 900px) {
-		.cards {
+	@media (max-width: 780px) {
+		.tiles {
 			grid-template-columns: 1fr;
+		}
+		.card {
+			padding: 32px 24px;
 		}
 	}
 </style>

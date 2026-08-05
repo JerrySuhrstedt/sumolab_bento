@@ -2,7 +2,7 @@
 const links = ['Services', 'Approach', "Who It's For", 'Case Studies', 'About', 'Insights', 'Contact'];
 ---
 <header class="header">
-	<span class="wordmark">SumoLab</span>
+	<img src="/images/sumolab-logo.svg" alt="SumoLab" class="logo" />
 	<nav class="nav">
 		{links.map((l) => <a href="#">{l}</a>)}
 	</nav>
@@ -11,35 +11,47 @@ const links = ['Services', 'Approach', "Who It's For", 'Case Studies', 'About', 
 
 <style>
 	.header {
+		position: relative;
+		z-index: 2;
+		max-width: 1180px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 28px 40px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 20px 48px;
-		background: var(--color-primary);
+		gap: 24px;
 	}
-	.wordmark {
-		font-family: var(--font-display);
-		font-style: italic;
-		font-weight: 500;
-		font-size: 22px;
-		color: var(--color-ink-on-dark);
+	.logo {
+		height: 24px;
+		filter: brightness(0) invert(1);
 	}
 	.nav {
 		display: flex;
 		gap: 26px;
+		font-size: 14px;
+		font-weight: 500;
+		flex-wrap: wrap;
 	}
 	.nav a {
-		font-family: var(--font-body);
-		font-size: 14px;
-		color: var(--color-ink-on-dark-muted);
+		color: #fff;
+	}
+	.nav a:hover {
+		color: var(--orange-100);
 	}
 	.cta {
-		font-family: var(--font-body);
+		font-family: var(--font-display);
 		font-weight: 600;
 		font-size: 14px;
-		color: var(--color-primary);
-		background: var(--color-ink-on-dark);
-		padding: 10px 18px;
+		background: var(--orange-500);
+		color: #fff;
+		border: none;
 		border-radius: var(--radius-sm);
+		padding: 12px 20px;
+		white-space: nowrap;
+	}
+	.cta:hover {
+		background: var(--orange-600);
+		color: #fff;
 	}
 </style>
