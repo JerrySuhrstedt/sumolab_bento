@@ -1,0 +1,219 @@
+<!-- @dsCard group="Website" viewport="1180x800" name="Homepage" subtitle="Full recreation of sumolab.co homepage" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>SumoLab — Homepage UI Kit</title><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>body{margin:0}</style>
+</head><body><div id="root"></div>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { Card, StarRating, Testimonial, Accordion } = window.SumoLabDesignSystem_c48669;
+function Header() {
+  const links = ['Services', 'Approach', "Who It's For", 'Case Studies', 'About', 'Insights', 'Contact'];
+  return React.createElement('header', {
+    style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 48px', background: 'var(--color-primary)' },
+  },
+    React.createElement('span', { style: { fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 500, fontSize: 22, color: 'var(--color-ink-on-dark)' } }, 'SumoLab'),
+    React.createElement('nav', { style: { display: 'flex', gap: 26 } },
+      links.map((l, i) => React.createElement('a', { key: i, href: '#', style: { fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--color-ink-on-dark-muted)' } }, l))
+    ),
+    React.createElement('a', { href: '#', style: {
+      fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 14, color: 'var(--color-primary)', background: 'var(--color-ink-on-dark)',
+      padding: '10px 18px', borderRadius: 'var(--radius-sm)', textDecoration: 'none',
+    } }, 'Book a Strategy Call→')
+  );
+}
+
+function Hero() {
+  return React.createElement('section', { style: { position: 'relative', background: 'var(--color-primary)', color: 'var(--color-ink-on-dark)', padding: '90px 48px 110px', textAlign: 'center', overflow: 'hidden' } },
+    React.createElement('div', { style: {
+      position: 'absolute', inset: 0, background: 'var(--navy-900)', opacity: 0.35,
+    } }),
+    React.createElement('div', { style: { position: 'relative', maxWidth: 760, margin: '0 auto' } },
+      React.createElement('h1', { style: { fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'var(--fs-display-lg)', lineHeight: 'var(--lh-tight)', margin: 0 } }, 'Turn Fragmented Marketing Into Predictable Growth.'),
+      React.createElement('p', { style: { fontFamily: 'var(--font-body)', fontSize: 'var(--fs-body-lg)', lineHeight: 'var(--lh-body)', color: 'var(--color-ink-on-dark-muted)', margin: '24px 0 0' } },
+        'Fractional CMO for established businesses ($5M+ revenue) that need clear strategy, accountable execution, and modern automation, without hiring full-time.'),
+      React.createElement('ul', { style: { listStyle: 'none', padding: 0, margin: '28px 0 0', display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center' } },
+        ['Replace Agency Chaos With Leadership', 'Align Marketing To Revenue Goals', 'Reduce Waste With Smarter Systems And AI'].map((t, i) =>
+          React.createElement('li', { key: i, style: { fontFamily: 'var(--font-body)', fontSize: 15 } }, '— ' + t))),
+      React.createElement('a', { href: '#', style: {
+        display: 'inline-block', marginTop: 32, fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-primary)',
+        background: 'var(--color-ink-on-dark)', padding: '15px 28px', borderRadius: 'var(--radius-sm)', textDecoration: 'none',
+      } }, 'Book a Strategy Call→')
+    )
+  );
+}
+
+function GapSection() {
+  return React.createElement('section', { style: { padding: '90px 48px', background: 'var(--color-bg)', textAlign: 'center' } },
+    React.createElement('div', { style: { maxWidth: 720, margin: '0 auto' } },
+      React.createElement('div', { style: { color: 'var(--color-accent)', fontSize: 'var(--fs-eyebrow)', letterSpacing: 'var(--ls-eyebrow)', textTransform: 'uppercase', fontWeight: 'var(--fw-semibold)' } }, 'The gap'),
+      React.createElement('h2', { style: { fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'var(--fs-heading-lg)', lineHeight: 'var(--lh-heading)', margin: '16px 0 20px' } },
+        'Most growing businesses do not have a marketing problem. They have a leadership gap.'),
+      React.createElement('p', { style: { fontFamily: 'var(--font-body)', fontSize: 'var(--fs-body)', lineHeight: 'var(--lh-body)', color: 'var(--color-ink-muted)', margin: 0 } },
+        'Marketing tasks are getting done. Ads are running. Vendors are busy. But no one owns the strategy. Messaging changes by channel. Budgets get spent without clear return. Decisions feel reactive. Growth feels harder than it should.'),
+      React.createElement('p', { style: { fontFamily: 'var(--font-body)', fontSize: 'var(--fs-body)', lineHeight: 'var(--lh-body)', color: 'var(--color-ink-muted)', margin: '16px 0 0' } },
+        'Owners end up managing marketing instead of leading the business. That is expensive. In money. In time. In stress.')
+    )
+  );
+}
+function SolutionSection() {
+  return React.createElement('section', { style: { padding: '0 48px 90px', background: 'var(--color-bg)' } },
+    React.createElement('div', { style: { maxWidth: 980, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'center' } },
+      React.createElement('div', { style: { aspectRatio: '4/3', background: 'var(--color-surface-sunken)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-body)', fontSize: 13, color: 'var(--color-ink-faint)' } }, 'Photo: entrepreneur in office'),
+      React.createElement('div', null,
+        React.createElement('div', { style: { color: 'var(--color-accent)', fontSize: 'var(--fs-eyebrow)', letterSpacing: 'var(--ls-eyebrow)', textTransform: 'uppercase', fontWeight: 'var(--fw-semibold)' } }, 'Solution'),
+        React.createElement('h2', { style: { fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'var(--fs-heading-md)', lineHeight: 'var(--lh-heading)', margin: '16px 0' } }, 'This is where a Fractional CMO steps in.'),
+        React.createElement('p', { style: { fontFamily: 'var(--font-body)', fontSize: 'var(--fs-body)', lineHeight: 'var(--lh-body)', color: 'var(--color-ink-muted)', margin: 0 } },
+          "SumoLab's founder acts as the owner of your marketing function, bringing clarity, direction, and accountability across strategy, execution, systems, and performance, so marketing supports growth instead of draining it.")
+      )
+    )
+  );
+}
+
+const benefits = [
+  { title: 'Clarity and focus', body: 'You know what matters, what does not, and where to invest next.' },
+  { title: 'Accountable execution', body: 'Agencies and vendors perform better when someone senior is leading them. You stop babysitting.' },
+  { title: 'Lower stress. Better decisions.', body: 'Marketing stops being noise. You regain time and confidence as an owner.' },
+];
+function BenefitsSection() {
+  return React.createElement('section', { style: { padding: '90px 48px', background: 'var(--color-surface-sunken)' } },
+    React.createElement('div', { style: { maxWidth: 980, margin: '0 auto' } },
+      React.createElement('div', { style: { textAlign: 'center', marginBottom: 48 } },
+        React.createElement('div', { style: { color: 'var(--color-accent)', fontSize: 'var(--fs-eyebrow)', letterSpacing: 'var(--ls-eyebrow)', textTransform: 'uppercase', fontWeight: 'var(--fw-semibold)' } }, 'Benefits'),
+        React.createElement('h2', { style: { fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'var(--fs-heading-lg)', margin: '16px 0 0' } }, 'So, what are the benefits?')
+      ),
+      React.createElement('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20 } },
+        benefits.map((b, i) => React.createElement(Card, { key: i, title: b.title }, b.body))
+      ),
+      React.createElement('div', { style: { marginTop: 48, background: 'var(--color-primary)', color: 'var(--color-ink-on-dark)', borderRadius: 'var(--radius-md)', padding: '32px 40px', display: 'flex', alignItems: 'center', gap: 24 } },
+        React.createElement('div', { style: { width: 96, height: 96, flexShrink: 0, background: 'var(--navy-600)', borderRadius: 'var(--radius-md)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, color: 'var(--color-ink-on-dark-muted)' } }, 'Photo'),
+        React.createElement('p', { style: { fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: 'var(--fs-heading-sm)', margin: 0 } },
+          'Senior leadership, not another vendor. One person who owns the outcome.')
+      )
+    )
+  );
+}
+
+const quotes = [
+  { name: 'Alek Synkevych', role: 'CEO, RevBit', quote: "Jerry's mentorship, approachable nature, and positive attitude stand out. He is an excellent mentor and coach, always willing to share his expertise and help team members increase their skill sets." },
+  { name: 'Khero Witey', role: 'Associate VP, Third Republic', quote: "Jerry is one of a kind, talks the talk and actually backs it up by walking the walk! If you need someone who understands marketing, there's not many out there that are better!" },
+  { name: 'Jonathan Cisneros', role: 'Agency Owner', quote: 'It’s rare to find an individual as knowledgeable and driven as Jerry. It always struck me how much of an executor on any project Jerry is. I would line up to have Jerry on my team any day.' },
+  { name: 'Doug Crew', role: 'Systems Consultant', quote: 'His skills, work ethic, and collaborative spirit contribute to the success of any organization. Don’t miss the opportunity to work with Jerry, a true pro who consistently delivers outstanding results.' },
+];
+function TestimonialsSection() {
+  return React.createElement('section', { style: { padding: '90px 48px', background: 'var(--color-bg)' } },
+    React.createElement('div', { style: { maxWidth: 1080, margin: '0 auto' } },
+      React.createElement('div', { style: { textAlign: 'center', marginBottom: 48 } },
+        React.createElement('div', { style: { color: 'var(--color-accent)', fontSize: 'var(--fs-eyebrow)', letterSpacing: 'var(--ls-eyebrow)', textTransform: 'uppercase', fontWeight: 'var(--fw-semibold)' } }, 'What clients say'),
+        React.createElement('h2', { style: { fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'var(--fs-heading-lg)', margin: '16px 0 0' } }, "Don't take our word for it.")
+      ),
+      React.createElement('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 20 } },
+        quotes.map((q, i) => React.createElement(Testimonial, { key: i, ...q }))
+      )
+    )
+  );
+}
+
+function FounderSection() {
+  return React.createElement('section', { style: { padding: '90px 48px', background: 'var(--color-surface-sunken)', textAlign: 'center' } },
+    React.createElement('div', { style: { maxWidth: 640, margin: '0 auto' } },
+      React.createElement('div', { style: { width: 88, height: 88, borderRadius: '50%', background: 'var(--color-border-strong)', margin: '0 auto 24px' } }),
+      React.createElement('div', { style: { color: 'var(--color-accent)', fontSize: 'var(--fs-eyebrow)', letterSpacing: 'var(--ls-eyebrow)', textTransform: 'uppercase', fontWeight: 'var(--fw-semibold)' } }, 'About'),
+      React.createElement('h2', { style: { fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'var(--fs-heading-md)', margin: '16px 0' } }, "Hi, I'm Jerry Suhrstedt."),
+      React.createElement('p', { style: { fontFamily: 'var(--font-body)', fontSize: 'var(--fs-body)', lineHeight: 'var(--lh-body)', color: 'var(--color-ink-muted)', margin: '0 0 24px' } },
+        '26 years of experience as an entrepreneur, marketing leader, and business consultant, helping established businesses develop and execute high-impact marketing strategies without the commitment of a full-time hire.'),
+      React.createElement('a', { href: '#', style: { fontFamily: 'var(--font-body)', fontWeight: 600, color: 'var(--color-link)' } }, 'About Jerry→')
+    )
+  );
+}
+function FeaturesSection() {
+  const left = ['Fractional CMO Leadership', 'Marketing Strategy And Roadmap', 'Brand And Messaging Alignment', 'Agency And Vendor Oversight', 'KPI Definition And Reporting'];
+  const right = ['Funnel And Conversion Review', 'CRM And Marketing System Optimization', 'AI And Automation Opportunity Mapping', 'Weekly Or Biweekly Leadership Cadence'];
+  const row = (items) => React.createElement('ul', { style: { listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 14 } },
+    items.map((t, i) => React.createElement('li', { key: i, style: { fontFamily: 'var(--font-body)', fontSize: 'var(--fs-body)', color: 'var(--color-ink)', display: 'flex', gap: 10 } },
+      React.createElement('span', { style: { color: 'var(--color-accent)' } }, '✓'), t)));
+  return React.createElement('section', { style: { padding: '90px 48px', background: 'var(--color-bg)' } },
+    React.createElement('div', { style: { maxWidth: 900, margin: '0 auto' } },
+      React.createElement('div', { style: { color: 'var(--color-accent)', fontSize: 'var(--fs-eyebrow)', letterSpacing: 'var(--ls-eyebrow)', textTransform: 'uppercase', fontWeight: 'var(--fw-semibold)', textAlign: 'center' } }, 'Features'),
+      React.createElement('h2', { style: { fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'var(--fs-heading-lg)', margin: '16px 0 8px', textAlign: 'center' } }, 'We feature.'),
+      React.createElement('p', { style: { textAlign: 'center', fontFamily: 'var(--font-body)', color: 'var(--color-ink-muted)', margin: '0 0 40px' } }, 'Simple. Logical.'),
+      React.createElement('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40 } }, row(left), row(right))
+    )
+  );
+}
+
+const faqs = [
+  { q: 'How is this different from hiring a full-time Director of Marketing or CMO?', a: 'You get senior-level leadership without salary, benefits, onboarding time, or long-term risk. You gain experience and perspective immediately, with flexibility to scale up or down as your business needs change.' },
+  { q: 'Who is this for?', a: 'Established businesses that want growth, clarity, and accountability. Typical clients we work with generate $5M+ in revenue.' },
+  { q: 'Is this the same as hiring an agency?', a: 'No. Agencies execute tasks. I own the strategy and hold execution accountable.' },
+  { q: 'Is this more like a CMO or a marketing manager?', a: 'It is senior leadership focused on results. Strategy plus execution ownership, without full-time overhead.' },
+  { q: 'How long do clients typically work with you?', a: 'Most engagements start at six months and continue as long as growth and clarity are priorities.' },
+  { q: 'Will you do the work or just advise?', a: 'I lead, guide, and step in where needed. The goal is progress, not busywork.' },
+  { q: 'Is AI actually practical for my business?', a: 'Yes, when applied correctly. I focus on real automation that saves time and money, not hype.' },
+];
+function FAQSection() {
+  return React.createElement('section', { style: { padding: '90px 48px', background: 'var(--color-surface-sunken)' } },
+    React.createElement('div', { style: { maxWidth: 720, margin: '0 auto' } },
+      React.createElement('div', { style: { textAlign: 'center', marginBottom: 32 } },
+        React.createElement('div', { style: { color: 'var(--color-accent)', fontSize: 'var(--fs-eyebrow)', letterSpacing: 'var(--ls-eyebrow)', textTransform: 'uppercase', fontWeight: 'var(--fw-semibold)' } }, 'FAQs'),
+        React.createElement('h2', { style: { fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'var(--fs-heading-lg)', margin: '16px 0 0' } }, 'Questions answered.')
+      ),
+      React.createElement(Accordion, { items: faqs })
+    )
+  );
+}
+function FinalCTA() {
+  return React.createElement('section', { style: { padding: '90px 48px', background: 'var(--color-primary)', color: 'var(--color-ink-on-dark)', textAlign: 'center' } },
+    React.createElement('h2', { style: { fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 'var(--fs-heading-lg)', margin: '0 0 28px', maxWidth: 640, marginLeft: 'auto', marginRight: 'auto' } },
+      'Ready to stop guessing and start owning your marketing?'),
+    React.createElement('a', { href: '#', style: { display: 'inline-block', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-primary)', background: 'var(--color-ink-on-dark)', padding: '15px 28px', borderRadius: 'var(--radius-sm)', textDecoration: 'none' } }, 'Book a Strategy Call→')
+  );
+}
+
+function Footer() {
+  return React.createElement('footer', { style: { background: 'var(--navy-900)', color: 'var(--color-ink-on-dark-muted)', padding: '64px 48px 32px' } },
+    React.createElement('div', { style: { maxWidth: 1080, margin: '0 auto', display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr 1fr', gap: 32 } },
+      React.createElement('div', null,
+        React.createElement('span', { style: { fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 500, fontSize: 20, color: 'var(--color-ink-on-dark)' } }, 'SumoLab'),
+        React.createElement('p', { style: { fontFamily: 'var(--font-body)', fontSize: 13, lineHeight: 1.6, marginTop: 14, maxWidth: 260 } },
+          'Senior marketing leadership for established businesses ready to turn scattered activity into focused growth.')
+      ),
+      [
+        { h: 'Company', items: ['About', 'Approach', "Who It's For", 'Case Studies', 'Insights', 'Contact'] },
+        { h: 'Services', items: ['Fractional CMO', 'Fractional Marketing Director'] },
+        { h: 'Connect', items: ['Book a Strategy Call→', 'jerry@sumolab.co', '(480) 826-9400', 'Chandler, Arizona', 'LinkedIn'] },
+      ].map((col, i) => React.createElement('div', { key: i },
+        React.createElement('div', { style: { fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 13, color: 'var(--color-ink-on-dark)', marginBottom: 12 } }, col.h),
+        React.createElement('ul', { style: { listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 8 } },
+          col.items.map((t, j) => React.createElement('li', { key: j, style: { fontFamily: 'var(--font-body)', fontSize: 13 } }, t)))
+      ))
+    ),
+    React.createElement('div', { style: { maxWidth: 1080, margin: '48px auto 0', paddingTop: 20, borderTop: '1px solid rgba(255,255,255,0.1)', display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--font-body)', fontSize: 12 } },
+      React.createElement('span', null, '© 2026 SumoLab LLC. All rights reserved.'),
+      React.createElement('div', { style: { display: 'flex', gap: 16 } }, React.createElement('span', null, 'Privacy Policy'), React.createElement('span', null, 'Terms'))
+    )
+  );
+}
+
+
+function App(){
+  return (
+    <div>
+      <Header/>
+      <Hero/>
+      <GapSection/>
+      <SolutionSection/>
+      <BenefitsSection/>
+      <TestimonialsSection/>
+      <FounderSection/>
+      <FeaturesSection/>
+      <FAQSection/>
+      <FinalCTA/>
+      <Footer/>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body></html>
