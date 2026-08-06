@@ -33,7 +33,7 @@ const structuredData = {
 };
 ---
 
-<Layout title={`${service.name} | SumoLab`} description={service.summary} structuredData={structuredData}>
+<Layout title={`${service.seoTitle ?? service.name} | SumoLab`} description={service.summary} structuredData={structuredData}>
 	<PageHero
 		image="/photos/services-hero-leadership.jpg"
 		eyebrow="Services"

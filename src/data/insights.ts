@@ -66,6 +66,30 @@ export const insights: InsightArticle[] = [
 		],
 	},
 	{
+		slug: "fractional-cmo-cost",
+		imageSrc: "/insights/fractional-cmo-cost.jpg",
+		title: "What Does a Fractional CMO Cost?",
+		category: "Strategy & Leadership",
+		publishedAt: "2026-08-06",
+		excerpt:
+			"The honest range is $5,000 to $15,000 a month. But the fractional CMO cost question isn't really about the number — it's about what you're comparing it to.",
+		body: [
+			"If you've started looking into marketing leadership, you've probably found that fractional CMO cost is one of those questions where the answers online are all over the map. I've seen ranges from $2,000 a month to $25,000 a month, and both can be accurate depending on who you're talking to. Let me give you a practical answer based on 28 years of building businesses and doing this work.",
+			"The range you should expect from an experienced Fractional CMO is $5,000 to $15,000 a month. That's the honest number for someone who's worked at a real CMO level — not a marketing coordinator wearing a title, not a consultant who shows up for two hours and hands you a deck. The $5,000 end gets you 10 to 12 hours a month of focused, senior-level engagement. The $15,000 end gets you deeper weekly involvement, ownership of more functions, and active management of your team and vendors.",
+			"A few things push the number higher: company complexity, the number of direct reports and vendors to coordinate, the scope of active marketing initiatives, and whether you need significant strategic rebuilding versus ongoing leadership of a functioning system. A business with three active agencies, a trade show calendar, a CRM migration underway, and a product launch will require more engagement than one running a single focused lead generation program.",
+			"The comparison that actually matters is not month to month — it's against your alternatives. A full-time Marketing Director or CMO in a $5M to $50M company typically costs $150,000 to $300,000 a year once salary, benefits, bonuses, and the months it takes them to become productive are included. You're also taking payroll risk: if the hire doesn't work out, you've spent 6 to 12 months and that full-year cost before you can course-correct. A fractional engagement is productive from week one. If it's not working, you can recalibrate or end it without a severance conversation.",
+			"The other comparison is against your marketing spend. Most of the companies I work with are spending between $100,000 and $500,000 a year on marketing — agencies, ads, tools, events. The fractional CMO fee is $60,000 to $180,000 of that. If the rest of the spend produces better returns because someone senior is aiming it, the math works quickly. If your current $300,000 in marketing spend is producing unclear results and a Fractional CMO can close 20% of the gap, that's a $60,000 return on a $60,000 to $120,000 investment. That's before the compounding — better strategy now means better results in every year that follows.",
+			"The question that's more useful than 'what does a Fractional CMO cost?' is this: what is my current marketing leadership gap costing me? If you can't answer that, the first conversation is often worth having just to find out. Most fractional engagements start with a discovery phase — a working session where we look at the business, the marketing spend, the pipeline, and the gaps. That usually tells us both what the right level of engagement looks like and whether the investment makes obvious sense.",
+			"There's no universal right answer on fractional CMO cost. What there is: a clear framework for whether the investment makes sense. If you're generating $5M to $50M in revenue, spending real money on marketing, and not getting predictable results from it, the economics almost always work. The first conversation is free. I'll tell you honestly whether this is the right fit — and if it's not, I'll point you toward what is.",
+		],
+		keyPoints: [
+			"Fractional CMO cost typically ranges from $5,000–$15,000/month based on scope, hours, and company complexity",
+			"Full-time CMO total comp runs $150,000–$300,000/year plus 6–9 months to full productivity — fractional is productive from week one",
+			"The real ROI question: what is your current marketing leadership gap costing you in unrealized revenue?",
+			"Higher engagement ($10K–$15K/month) includes active team and vendor management, full strategic ownership across the marketing function",
+		],
+	},
+	{
 		slug: "creating-a-seamless-brand-experience-consistency",
 		imageSrc: "/insights/creating-a-seamless-brand-experience-consistency.jpg",
 		title: "Creating a Seamless Brand Experience: Consistency Across Social Media Channels",

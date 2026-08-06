@@ -12,6 +12,7 @@ export interface Service {
 	slug: string;
 	name: string;
 	shortName: string;
+	seoTitle?: string;
 	tagline: string;
 	summary: string;
 	situation: string;
@@ -113,7 +114,7 @@ export const fractionalMarketingDirector: Service = {
 	shortName: "Fractional Marketing Director",
 	tagline: "Executive-level marketing leadership to drive predictable growth, without the full-time Marketing Director cost.",
 	summary:
-		"An experienced marketing leader who sets strategy and also oversees execution, systems, and day-to-day marketing operations, on a fractional basis. You get senior leadership closer to the operational work, without the cost, delay, or risk of a full-time hire.",
+		"A Fractional Marketing Director who sets strategy and oversees execution, systems, and day-to-day marketing operations on a part-time basis. You get senior marketing leadership closer to the operational work — without the cost, delay, or risk of a full-time hire.",
 	situation:
 		"Your marketing looks busy, but results feel random. Leads fluctuate. Messaging changes by channel. Vendors execute without a unified plan. Sales and marketing operate on different assumptions. You end up paying for activity instead of outcomes.",
 	symptoms: [
@@ -189,9 +190,10 @@ export const fractionalAIAdvisor: Service = {
 	slug: "fractional-ai-advisor",
 	name: "Fractional AI Advisor",
 	shortName: "Fractional AI Advisor",
-	tagline: "Senior business judgment applied to AI, pointed at the one or two places it can actually move profit.",
+	seoTitle: "AI Marketing Consultant | Fractional AI Advisor",
+	tagline: "An AI marketing consultant who brings senior operator judgment to AI — pointed at the one or two places it can actually move profit across your business.",
 	summary:
-		"AI leadership for owners who are done experimenting. I bring senior business judgment to the one question most consultants can't answer: where AI actually belongs in your business. Working across every function, finance, operations, marketing, sales, HR, I find the highest-payoff place to start, put AI to work, and prove the return. Not a technologist. An operator who's run twelve companies and knows what moves profit.",
+		"An AI marketing consultant and business operator who brings 28 years of judgment to the one question most consultants can't answer: where AI actually belongs in your business. Not just marketing — finance, operations, sales, HR. I find the highest-payoff place to start, put AI to work, and prove the return. Not a technologist. An operator who's run twelve companies and knows what moves profit.",
 	situation:
 		"You've been told to \"experiment with AI,\" so you have: a chatbot pilot here, an automation tool there, a subscription finance never asked for. None of it is tied to a plan, and MIT found that 95% of corporate AI projects like this return nothing. The tools aren't the problem. The absence of business judgment pointing them is.",
 	symptoms: [

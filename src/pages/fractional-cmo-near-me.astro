@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import PrimaryCTA from '../components/PrimaryCTA.astro';
+
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'ProfessionalService',
+	name: 'SumoLab',
+	description: 'Fractional CMO services for established businesses generating $5M–$50M in annual revenue.',
+	url: 'https://sumolab.co/fractional-cmo-near-me/',
+	areaServed: {
+		'@type': 'Country',
+		name: 'United States',
+	},
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: 'Chandler',
+		addressRegion: 'AZ',
+		addressCountry: 'US',
+	},
+};
+---
+
+<Layout
+	title="Fractional CMO Near Me | SumoLab"
+	description="Looking for a fractional CMO near me? SumoLab works with $5M–$50M businesses across the US — remote-first, results-first. 28 years of operator and marketing experience."
+	structuredData={structuredData}
+>
+	<PageHero
+		image="/photos/services-hero-leadership.jpg"
+		eyebrow="Fractional CMO Near Me"
+		align="left"
+		imagePosition="75% center"
+	>
+		<h1>The Fractional CMO Near You.</h1>
+		<p>Most businesses searching for a fractional CMO near me aren't really searching for proximity. They're searching for someone who gets their business. That's a different question — and a better one.</p>
+	</PageHero>
+
+	<Section tone="white">
+		<div class="two-col" style="align-items:start;gap:64px">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>Local vs. remote</p>
+				<h2 class="page-h2">Does location actually matter?</h2>
+				<p class="lede" style="margin-top:24px">For fractional CMO work, proximity matters far less than fit, experience, and the quality of leadership. The best fractional engagements I've run are built on trust, results, and clear communication — not a shared zip code.</p>
+				<p class="lede" style="margin-top:16px">What matters: does this person have operating experience deep enough to understand your business? Have they built companies, not just managed campaigns? Can they sit at your leadership table and make decisions that move revenue? That's what you're hiring for — not a city on a résumé.</p>
+			</div>
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>How SumoLab works</p>
+				<h2 class="page-h2">Remote-first. Results-first.</h2>
+				<p class="lede" style="margin-top:24px">SumoLab works with businesses across the US. Every engagement is built around your business, your team, and your goals — not a travel schedule. Weekly sessions, clear priorities, and direct access mean you're never waiting on geography to move the work forward.</p>
+				<p class="lede" style="margin-top:16px">Based in the Phoenix metro, and available for in-person strategy sessions when the work calls for it.</p>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="plain">
+		<p class="eyebrow-label"><span class="dot"></span>What to look for</p>
+		<h2 class="page-h2">The right questions to ask.</h2>
+		<div class="questions-grid" style="margin-top:40px">
+			<div class="question-card">
+				<h3 class="page-h3">Have they actually run a business?</h3>
+				<p class="lede">Marketing strategy from someone who's only ever been inside a marketing department is different from strategy from someone who's owned the P&L. Ask specifically: have they founded or co-founded a company? Carried a number? Made payroll? The answer changes everything about how they'll think about your marketing.</p>
+			</div>
+			<div class="question-card">
+				<h3 class="page-h3">Do they know your revenue range?</h3>
+				<p class="lede">Enterprise CMO experience doesn't automatically translate to the $5M–$50M world. The strategies, the resource constraints, the need to do more with less — these are genuinely different. Look for someone who's navigated that range before, not someone coming down from a Fortune 500 to figure it out on your dime.</p>
+			</div>
+			<div class="question-card">
+				<h3 class="page-h3">Can they show you real results?</h3>
+				<p class="lede">Ask for specific examples: a company they worked with at a similar stage, the problem they walked into, the measurable outcome. Not "we improved brand awareness." Revenue growth. Lead volume. Cost per acquisition. The numbers a business owner can actually feel.</p>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<p class="eyebrow-label" style="color:var(--orange-400)"><span class="dot"></span>What SumoLab brings</p>
+		<h2 class="page-h2" style="color:#fff">28 years of building and marketing real businesses.</h2>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:680px;margin-top:24px">I've founded and co-founded twelve companies. Taken a home building business from bankruptcy to $12M. Grown a builder from 60 homes a year to over 800. Taken another from $3M to $11M in under three years. The marketing strategies I bring to your business have been tested under real conditions, with real stakes — not in a classroom or a consulting deck.</p>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:680px;margin-top:16px">Every fractional CMO engagement starts with understanding your business first and your marketing second. That order matters. The strategy follows from the business, not the other way around.</p>
+	</Section>
+
+	<Section tone="white">
+		<div class="card-cta-row">
+			<h2 class="page-h2" style="margin:0">Not sure if this is the right fit? One conversation will make it clear.</h2>
+			<PrimaryCTA />
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.questions-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 32px;
+	}
+	.question-card {
+		border-top: 3px solid var(--orange-500);
+		padding-top: 20px;
+	}
+	@media (max-width: 780px) {
+		.questions-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
