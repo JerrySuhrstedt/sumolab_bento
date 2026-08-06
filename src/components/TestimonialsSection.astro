@@ -1,28 +1,31 @@
 ---
 import { testimonials } from '../data/testimonials';
-const quotes = testimonials.map((t, i) => ({
-	photo: t.photoSrc,
-	name: t.name,
-	role: t.title,
-	quote: t.quote,
-	dark: i === 1,
-}));
 ---
 <div class="card">
 	<div class="heading">
 		<div class="eyebrow">What clients say</div>
 		<h2>Don't take our word for it.</h2>
 	</div>
-	<div class="grid">
-		{quotes.map((q) => (
-			<div class={`tile ${q.dark ? 'dark' : ''}`}>
-				<img src={q.photo} alt={q.name} class="avatar" />
-				<div class="stars" aria-hidden="true">★★★★★</div>
-				<p class="quote">"{q.quote}"</p>
-				<div class="name">{q.name}</div>
-				<div class="role">{q.role}</div>
-			</div>
-		))}
+	<div class="carousel-outer">
+		<div class="track" id="t-track">
+			{testimonials.map((t, i) => (
+				<div class={`tile${i % 5 === 2 ? ' dark' : ''}`}>
+					{t.photoSrc
+						? <img src={t.photoSrc} alt={t.name} class="avatar" loading="lazy" />
+						: <div class="avatar-init" aria-hidden="true">{t.name.charAt(0)}</div>
+					}
+					<div class="stars" aria-hidden="true">★★★★★</div>
+					<p class="quote">"{t.quote}"</p>
+					<div class="name">{t.name}</div>
+					<div class="role">{t.title}</div>
+				</div>
+			))}
+		</div>
+	</div>
+	<div class="controls">
+		<button class="nav-btn" id="t-prev" aria-label="Previous testimonial">←</button>
+		<div class="pip-row" id="t-pips"></div>
+		<button class="nav-btn" id="t-next" aria-label="Next testimonial">→</button>
 	</div>
 </div>
 
@@ -33,6 +36,7 @@ const quotes = testimonials.map((t, i) => ({
 		border-radius: var(--radius-lg);
 		padding: 48px;
 		margin-bottom: 24px;
+		overflow: hidden;
 	}
 	.heading {
 		text-align: center;
@@ -54,15 +58,21 @@ const quotes = testimonials.map((t, i) => ({
 		line-height: 1.1;
 		margin: 0;
 	}
-	.grid {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+	.carousel-outer {
+		overflow: hidden;
+	}
+	.track {
+		display: flex;
 		gap: 16px;
+		transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+		will-change: transform;
 	}
 	.tile {
+		flex: 0 0 auto;
 		background: var(--surface-sunken);
 		border-radius: var(--radius-md);
 		padding: 22px;
+		box-sizing: border-box;
 	}
 	.tile.dark {
 		background: var(--ink-950);
@@ -75,6 +85,20 @@ const quotes = testimonials.map((t, i) => ({
 		object-fit: cover;
 		margin-bottom: 14px;
 		display: block;
+	}
+	.avatar-init {
+		width: 40px;
+		height: 40px;
+		border-radius: 999px;
+		background: var(--orange-500);
+		color: #fff;
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: 18px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 14px;
 	}
 	.stars {
 		color: var(--orange-500);
@@ -99,17 +123,53 @@ const quotes = testimonials.map((t, i) => ({
 	.tile.dark .role {
 		color: rgba(255, 255, 255, 0.55);
 	}
-	@media (max-width: 900px) {
-		.grid {
-			grid-template-columns: 1fr 1fr;
-		}
+	.controls {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 16px;
+		margin-top: 24px;
+	}
+	.nav-btn {
+		background: none;
+		border: 1px solid var(--border);
+		border-radius: var(--radius-sm);
+		width: 36px;
+		height: 36px;
+		cursor: pointer;
+		font-size: 16px;
+		color: var(--text-primary);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: border-color 0.15s, color 0.15s;
+	}
+	.nav-btn:hover {
+		border-color: var(--orange-500);
+		color: var(--orange-500);
+	}
+	.pip-row {
+		display: flex;
+		gap: 6px;
+		align-items: center;
+	}
+	.pip {
+		width: 6px;
+		height: 6px;
+		border-radius: 999px;
+		background: var(--border);
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		transition: background 0.2s, width 0.2s;
+	}
+	.pip.active {
+		background: var(--ink-950);
+		width: 18px;
 	}
 	@media (max-width: 640px) {
 		.card {
 			padding: 32px 24px;
-		}
-		.grid {
-			grid-template-columns: 1fr;
 		}
 		h2 {
 			font-size: 2.25rem;
@@ -117,3 +177,96 @@ const quotes = testimonials.map((t, i) => ({
 		}
 	}
 </style>
+
+<script>
+function initCarousel() {
+	const track = document.getElementById('t-track') as HTMLElement | null;
+	const pipRow = document.getElementById('t-pips') as HTMLElement | null;
+	if (!track || !pipRow) return;
+
+	const tiles = Array.from(track.children) as HTMLElement[];
+	const N = tiles.length;
+
+	function visibleCount() {
+		if (window.innerWidth <= 640) return 1;
+		if (window.innerWidth <= 900) return 2;
+		return 3;
+	}
+
+	const GAP = 16;
+
+	function setWidths() {
+		const outerW = track.parentElement!.offsetWidth;
+		const vc = visibleCount();
+		const tileW = (outerW - (vc - 1) * GAP) / vc;
+		Array.from(track.children).forEach((t) => {
+			(t as HTMLElement).style.width = `${tileW}px`;
+		});
+	}
+
+	// Clone first few tiles for seamless looping
+	tiles.slice(0, visibleCount()).forEach(t => {
+		track.appendChild(t.cloneNode(true));
+	});
+
+	setWidths();
+
+	let current = 0;
+	let paused = false;
+	const INTERVAL = 5000;
+
+	function step() {
+		const outerW = track.parentElement!.offsetWidth;
+		const vc = visibleCount();
+		const tileW = (outerW - (vc - 1) * GAP) / vc;
+		return tileW + GAP;
+	}
+
+	function goTo(idx: number, animate = true) {
+		track.style.transition = animate
+			? 'transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)'
+			: 'none';
+		current = idx;
+		track.style.transform = `translateX(-${idx * step()}px)`;
+		updatePips();
+	}
+
+	track.addEventListener('transitionend', () => {
+		if (current >= N) {
+			goTo(current - N, false);
+		}
+	});
+
+	// Build pips (one per tile, up to N)
+	pipRow.innerHTML = '';
+	for (let i = 0; i < N; i++) {
+		const pip = document.createElement('button');
+		pip.className = 'pip' + (i === 0 ? ' active' : '');
+		pip.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
+		pip.addEventListener('click', () => { goTo(i); });
+		pipRow.appendChild(pip);
+	}
+
+	function updatePips() {
+		const pips = pipRow.querySelectorAll('.pip');
+		pips.forEach((p, i) => p.classList.toggle('active', i === (current % N)));
+	}
+
+	let timer = setInterval(() => { if (!paused) goTo(current + 1); }, INTERVAL);
+
+	document.getElementById('t-prev')?.addEventListener('click', () => {
+		goTo(current > 0 ? current - 1 : N - 1);
+	});
+	document.getElementById('t-next')?.addEventListener('click', () => {
+		goTo(current + 1);
+	});
+
+	track.parentElement!.addEventListener('mouseenter', () => { paused = true; });
+	track.parentElement!.addEventListener('mouseleave', () => { paused = false; });
+
+	window.addEventListener('resize', () => { setWidths(); goTo(current, false); });
+}
+
+initCarousel();
+document.addEventListener('astro:page-load', initCarousel);
+</script>
