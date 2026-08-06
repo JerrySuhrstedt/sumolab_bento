@@ -1,5 +1,6 @@
 export interface CaseStudy {
 	slug: string;
+	icon: string;
 	title: string;
 	client: string;
 	summary: string;
@@ -12,6 +13,7 @@ export interface CaseStudy {
 export const caseStudies: CaseStudy[] = [
 	{
 		slug: "hiline-homes-sales-growth",
+		icon: "/icons/cs-hiline-homes-sales-growth.svg",
 		title: "Revitalizing HiLine Homes' Sales Through Dynamic Marketing Strategies",
 		client: "HiLine Homes",
 		summary: "Weekly sales leads per office grew from 12-20 to 150-200, and annual home sales rose from 60-70 units to over 800 within three years.",
@@ -36,6 +38,7 @@ export const caseStudies: CaseStudy[] = [
 	},
 	{
 		slug: "stanbrooke-salesforce-sales-process",
+		icon: "/icons/cs-stanbrooke-salesforce-sales-process.svg",
 		title: "Transforming Stanbrooke Custom Homes' Sales Process with Salesforce",
 		client: "Stanbrooke Custom Homes",
 		summary: "Annual sales grew from $3 million to $11 million in under three years after overhauling the sales process with Salesforce.",
@@ -59,6 +62,7 @@ export const caseStudies: CaseStudy[] = [
 	},
 	{
 		slug: "stanbrooke-contractor-shortage",
+		icon: "/icons/cs-stanbrooke-contractor-shortage.svg",
 		title: "Resolving Contractor Shortage at Stanbrooke Custom Homes",
 		client: "Stanbrooke Custom Homes",
 		summary: "A creative recruiting campaign mobilized framing crews and got every project back on track within 45 days.",
@@ -81,6 +85,7 @@ export const caseStudies: CaseStudy[] = [
 	},
 	{
 		slug: "turning-failure-into-success",
+		icon: "/icons/cs-turning-failure-into-success.svg",
 		title: "Turning Failure Into a Multi-Million Dollar Success",
 		client: "Chasewood Homes / Stanbrooke Custom Homes",
 		summary: "After a business failure and Chapter 13 bankruptcy, a rebuilt partnership grew a new home-building company to $600K-$700K in monthly revenue.",
@@ -107,6 +112,7 @@ export const caseStudies: CaseStudy[] = [
 	},
 	{
 		slug: "rebranding-first-products",
+		icon: "/icons/cs-rebranding-first-products.svg",
 		title: "Rebranding “First Products” with Memorable Cartoon Characters",
 		client: "First Products",
 		summary: "Two cartoon characters and a set of bobble-head dolls turned a generic 30-year-old brand name into something hospitals actually remembered.",
@@ -128,6 +134,7 @@ export const caseStudies: CaseStudy[] = [
 	},
 	{
 		slug: "altair-global-reporting",
+		icon: "/icons/cs-altair-global-reporting.svg",
 		title: "Streamlining Altair Global's Reporting Process with Salesforce Dashboards",
 		client: "Altair Global",
 		summary: "A custom Salesforce dashboard eliminated the stressful two-week scramble before every board meeting.",
@@ -151,6 +158,7 @@ export const caseStudies: CaseStudy[] = [
 	},
 	{
 		slug: "marketo-to-pardot-migration",
+		icon: "/icons/cs-marketo-to-pardot-migration.svg",
 		title: "Seamless Transition from Marketo to Salesforce Account Engagement (Pardot)",
 		client: "Salesforce client",
 		summary: "A scoped migration roadmap moved a client from Marketo to Pardot with minimal disruption to marketing operations.",

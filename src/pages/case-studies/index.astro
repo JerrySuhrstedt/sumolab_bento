@@ -24,6 +24,7 @@ import { caseStudies } from '../../data/case-studies';
 		<div class="grid-2">
 			{caseStudies.map((cs) => (
 				<a href={`/case-studies/${cs.slug}/`} class="cs-card">
+					<img src={cs.icon} alt="" class="cs-icon" aria-hidden="true" width="40" height="40" />
 					<p class="cs-client">{cs.client}</p>
 					<h2 class="page-h3">{cs.title}</h2>
 					<p class="lede">{cs.summary}</p>
@@ -56,6 +57,12 @@ import { caseStudies } from '../../data/case-studies';
 	.cs-card:hover {
 		border-color: var(--orange-500);
 		color: var(--text-primary);
+	}
+	.cs-icon {
+		width: 40px;
+		height: 40px;
+		display: block;
+		margin-bottom: 8px;
 	}
 	.cs-client {
 		font-family: var(--font-display);
