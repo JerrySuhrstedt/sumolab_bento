@@ -21,14 +21,17 @@ import { caseStudies } from '../../data/case-studies';
 	</PageHero>
 
 	<Section tone="white">
-		<div class="grid-2">
+		<div class="grid-3">
 			{caseStudies.map((cs) => (
 				<a href={`/case-studies/${cs.slug}/`} class="cs-card">
-					<img src={cs.icon} alt="" class="cs-icon" aria-hidden="true" width="40" height="40" />
-					<p class="cs-client">{cs.client}</p>
-					<h2 class="page-h3">{cs.title}</h2>
-					<p class="lede">{cs.summary}</p>
-					<span class="cs-link">Read the case study <span aria-hidden="true">→</span></span>
+					<div class="cs-img-wrap">
+						<img src={cs.image} alt="" class="cs-img" loading="lazy" />
+					</div>
+					<div class="cs-body">
+						<p class="cs-client">{cs.client}</p>
+						<h2 class="page-h3">{cs.title}</h2>
+						<p class="lede">{cs.summary}</p>
+					</div>
 				</a>
 			))}
 		</div>
@@ -46,10 +49,9 @@ import { caseStudies } from '../../data/case-studies';
 	.cs-card {
 		display: flex;
 		flex-direction: column;
-		gap: 12px;
 		border: 1px solid var(--border);
 		border-radius: var(--radius-md);
-		padding: 32px;
+		overflow: hidden;
 		color: var(--text-primary);
 		text-decoration: none;
 		transition: border-color 0.15s;
@@ -58,11 +60,25 @@ import { caseStudies } from '../../data/case-studies';
 		border-color: var(--orange-500);
 		color: var(--text-primary);
 	}
-	.cs-icon {
-		width: 40px;
-		height: 40px;
-		display: block;
-		margin-bottom: 8px;
+	.cs-img-wrap {
+		aspect-ratio: 4 / 3;
+		overflow: hidden;
+		background: var(--surface-sunken);
+	}
+	.cs-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.3s;
+	}
+	.cs-card:hover .cs-img {
+		transform: scale(1.04);
+	}
+	.cs-body {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		padding: 24px;
 	}
 	.cs-client {
 		font-family: var(--font-display);
@@ -72,15 +88,5 @@ import { caseStudies } from '../../data/case-studies';
 		text-transform: uppercase;
 		color: var(--text-secondary);
 		margin: 0;
-	}
-	.cs-link {
-		display: inline-flex;
-		align-items: center;
-		gap: 6px;
-		font-family: var(--font-display);
-		font-weight: 600;
-		font-size: 14px;
-		color: var(--orange-500);
-		margin-top: auto;
 	}
 </style>
