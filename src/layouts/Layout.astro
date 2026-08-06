@@ -47,6 +47,14 @@ const structuredDataList = structuredData ? (Array.isArray(structuredData) ? str
 		<meta name="twitter:image" content={new URL("/og-image.jpg", Astro.site)} />
 
 		{structuredDataList.map((data) => <script type="application/ld+json" is:inline set:html={JSON.stringify(data)} />)}
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-MXVW8RH6LN" is:inline></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-MXVW8RH6LN');
+		</script>
 	</head>
 	<body>
 		<SiteHeader transparentOnHero={transparentHeader} />
