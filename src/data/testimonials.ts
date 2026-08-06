@@ -118,6 +118,7 @@ export const testimonials: Testimonial[] = [
 		quote: "Jerry is one of the most competent, dynamic people I know. His design and branding skills reflect his wide-ranging creativity and his ability to understand on a deep level what the needs of a company or brand are.",
 		name: "DeAnna Dailey",
 		title: "Digital Experience Analyst, Washington State DOT",
+		photoSrc: "/team/deanna-dailey.jpg",
 	},
 	{
 		quote: "Nearly thirty-five years of friendship has shown me that Jerry is a man of integrity, humor, and strong work ethic. He is generous, quick to offer encouragement, and one of the most consistent people I have met.",
