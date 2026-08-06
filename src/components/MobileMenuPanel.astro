@@ -39,11 +39,13 @@ import PrimaryCTA from "./PrimaryCTA.astro";
 		justify-content: center;
 		background-color: var(--ink-950);
 		opacity: 0;
+		pointer-events: none;
 		transform: translateY(-8px);
 		transition: opacity 0.22s ease, transform 0.22s ease;
 	}
 	.mobile-panel.is-open {
 		opacity: 1;
+		pointer-events: auto;
 		transform: translateY(0);
 	}
 	nav {
