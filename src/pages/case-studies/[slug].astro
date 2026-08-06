@@ -17,10 +17,10 @@ const { caseStudy } = Astro.props;
 
 <Layout title={`${caseStudy.title} | SumoLab Case Studies`} description={caseStudy.summary}>
 	<PageHero
-		image="/photos/case-studies-hero.jpg"
+		image={caseStudy.image}
 		eyebrow={`Case Study · ${caseStudy.client}`}
 		align="left"
-		imagePosition="80% center"
+		imagePosition="center center"
 	>
 		<h1>{caseStudy.title}</h1>
 		<p>{caseStudy.summary}</p>
@@ -33,10 +33,7 @@ const { caseStudy } = Astro.props;
 				{caseStudy.problem.map((line) => <li class="lede">{line}</li>)}
 			</ul>
 		</div>
-	</Section>
-
-	<Section tone="plain">
-		<div class="par-grid">
+		<div class="par-grid" style="margin-top: 48px">
 			<p class="section-label">Action</p>
 			<ul class="par-list">
 				{caseStudy.action.map((line) => <li class="lede">{line}</li>)}
@@ -76,12 +73,6 @@ const { caseStudy } = Astro.props;
 </Layout>
 
 <style>
-	.par-grid {
-		display: grid;
-		grid-template-columns: 200px 1fr;
-		gap: 48px;
-		align-items: start;
-	}
 	.section-label {
 		font-family: var(--font-display);
 		font-weight: 600;
@@ -90,7 +81,12 @@ const { caseStudy } = Astro.props;
 		text-transform: uppercase;
 		color: var(--text-secondary);
 		margin: 0;
-		padding-top: 4px;
+	}
+	.par-grid {
+		display: grid;
+		grid-template-columns: 160px 1fr;
+		gap: 48px;
+		align-items: start;
 	}
 	.par-list {
 		list-style: none;
@@ -100,7 +96,7 @@ const { caseStudy } = Astro.props;
 		flex-direction: column;
 		gap: 20px;
 	}
-	@media (max-width: 640px) {
+	@media (max-width: 780px) {
 		.par-grid {
 			grid-template-columns: 1fr;
 			gap: 16px;
