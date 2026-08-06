@@ -1,13 +1,13 @@
 export const founder = {
 	name: "Jerry Suhrstedt" as string | null,
 	title: "Founder & Fractional CMO, SumoLab" as string | null,
-	bio: "28 years of experience as an entrepreneur, marketing leader, and business consultant, helping established businesses develop and execute high-impact marketing strategies without the commitment of a full-time hire." as string | null,
+	bio: "32 years of building, running, and rescuing companies — twelve of them — across marketing, technology, construction, and professional services. I'm a Fractional CMO and marketing operator who uses AI to help $5M–$50M businesses grow faster than their competition. I don't advise from the outside. I get in, own the function, and deliver results you can measure." as string | null,
 	longBio: [
-		"Jerry Suhrstedt is a marketing strategist, entrepreneur, and operator with 28 years of experience helping businesses grow.",
-		"He has founded, scaled, and sold multiple companies, and has worked inside startups, agencies, and established organizations. That mix of experience shapes the way he approaches marketing today: clear positioning, strong messaging, practical marketing systems, and marketing that supports sales instead of operating in a silo.",
-		"Over the past three decades he has worked across manufacturing, technology, professional services, healthcare, and construction-related businesses, covering the full marketing stack, from brand and messaging to lead generation, CRM, content, and digital advertising.",
-		"Before launching SumoLab, he built a career working with complex marketing and technology systems, with extensive experience on platforms such as Salesforce and HubSpot. He is a certified Salesforce Administrator and an experienced business analyst, a technical background that lets him connect marketing strategy to the systems that actually drive revenue.",
-		"Outside of work, he continues to build businesses, mentor entrepreneurs, and create educational content focused on helping professionals transition from traditional employment into business ownership.",
+		"Jerry Suhrstedt is a Fractional CMO, marketing operator, and AI strategist with 32 years of experience helping $5M–$50M businesses grow. He has founded, scaled, and rescued more than twelve companies across marketing, technology, construction, healthcare, and professional services.",
+		"That operating background shapes everything about how he works. When he sits down with a business owner, he isn't guessing at what they're dealing with — he's lived it. The disconnected marketing and sales teams, the vendors producing activity instead of results, the ad spend that looks busy but isn't moving revenue.",
+		"Three years ago, when AI arrived as a practical business tool, he went deep immediately — not because it was fashionable, but because he recognized what it could actually do inside a real business. That edge now runs through every engagement: AI as the multiplier that lets a fractional engagement deliver more, faster, for less than a traditional agency or full-time hire.",
+		"His marketing depth is full-stack and hands-on: brand and positioning, lead generation systems, video production, web development, graphic design, content strategy, digital advertising, CRM implementation, and marketing automation. He is a certified Salesforce Administrator and an experienced business analyst — a technical foundation that connects marketing strategy directly to the systems that drive revenue.",
+		"He works with established businesses generating $5M to $50M in revenue that need senior marketing leadership, clear strategy, and accountable execution — without the cost, delay, or risk of a full-time CMO.",
 	] as string[],
 	expertise: [
 		"Brand development",
@@ -26,6 +26,6 @@ export const founder = {
 		"Construction",
 	] as string[],
 	headshotSrc: "/team/jerry-suhrstedt.png" as string | null,
-	experience: ["28 years in business, marketing, and entrepreneurship"] as string[],
+	experience: ["32 years in business, marketing, and entrepreneurship"] as string[],
 	linkedinUrl: "https://www.linkedin.com/in/jerrysuhrstedt/" as string | null,
 };
