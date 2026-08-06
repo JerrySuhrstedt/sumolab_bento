@@ -1,11 +1,11 @@
 export const founder = {
 	name: "Jerry Suhrstedt" as string | null,
 	title: "Founder & Fractional CMO, SumoLab" as string | null,
-	bio: "26 years of experience as an entrepreneur, marketing leader, and business consultant, helping established businesses develop and execute high-impact marketing strategies without the commitment of a full-time hire." as string | null,
+	bio: "28 years of experience as an entrepreneur, marketing leader, and business consultant, helping established businesses develop and execute high-impact marketing strategies without the commitment of a full-time hire." as string | null,
 	longBio: [
-		"Jerry Suhrstedt is a marketing strategist, entrepreneur, and operator with 26 years of experience helping businesses grow.",
+		"Jerry Suhrstedt is a marketing strategist, entrepreneur, and operator with 28 years of experience helping businesses grow.",
 		"He has founded, scaled, and sold multiple companies, and has worked inside startups, agencies, and established organizations. That mix of experience shapes the way he approaches marketing today: clear positioning, strong messaging, practical marketing systems, and marketing that supports sales instead of operating in a silo.",
-		"Over the past two decades he has worked across manufacturing, technology, professional services, healthcare, and construction-related businesses, covering the full marketing stack, from brand and messaging to lead generation, CRM, content, and digital advertising.",
+		"Over the past three decades he has worked across manufacturing, technology, professional services, healthcare, and construction-related businesses, covering the full marketing stack, from brand and messaging to lead generation, CRM, content, and digital advertising.",
 		"Before launching SumoLab, he built a career working with complex marketing and technology systems, with extensive experience on platforms such as Salesforce and HubSpot. He is a certified Salesforce Administrator and an experienced business analyst, a technical background that lets him connect marketing strategy to the systems that actually drive revenue.",
 		"Outside of work, he continues to build businesses, mentor entrepreneurs, and create educational content focused on helping professionals transition from traditional employment into business ownership.",
 	] as string[],
@@ -26,6 +26,6 @@ export const founder = {
 		"Construction",
 	] as string[],
 	headshotSrc: "/team/jerry-suhrstedt.png" as string | null,
-	experience: ["26 years in business, marketing, and entrepreneurship"] as string[],
-	linkedinUrl: null as string | null,
+	experience: ["28 years in business, marketing, and entrepreneurship"] as string[],
+	linkedinUrl: "https://www.linkedin.com/in/jerrysuhrstedt/" as string | null,
 };

@@ -1,0 +1,184 @@
+---
+const metrics = [
+	{
+		before: '12–20',
+		after: '150–200',
+		afterSmall: false,
+		unit: 'Weekly sales leads per office',
+		client: 'HiLine Homes',
+		context: 'Three-year engagement',
+	},
+	{
+		before: '$3M',
+		after: '$11M',
+		afterSmall: false,
+		unit: 'Annual revenue',
+		client: 'Stanbrooke Custom Homes',
+		context: 'Under three years',
+	},
+	{
+		before: null,
+		after: '45',
+		afterSmall: false,
+		unit: 'Days to resolve a full contractor shortage',
+		client: 'Stanbrooke Custom Homes',
+		context: 'Creative recruiting campaign',
+	},
+];
+---
+
+<div class="card">
+	<div class="top-row">
+		<div>
+			<div class="eyebrow">Proof</div>
+			<h2>Real engagements.<br />Real numbers.</h2>
+		</div>
+		<a href="/case-studies" class="link">See all case studies →</a>
+	</div>
+
+	<div class="metrics">
+		{metrics.map((m) => (
+			<div class="metric">
+				<div class="number-row">
+					{m.before && (
+						<>
+							<span class="num before">{m.before}</span>
+							<span class="arrow" aria-hidden="true">→</span>
+						</>
+					)}
+					<span class="num after">{m.after}</span>
+				</div>
+				<p class="unit">{m.unit}</p>
+				<p class="client">{m.client} · {m.context}</p>
+			</div>
+		))}
+	</div>
+</div>
+
+<style>
+	.card {
+		background: var(--ink-950);
+		border-radius: var(--radius-lg);
+		padding: 48px;
+		margin-bottom: 24px;
+	}
+
+	.top-row {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 24px;
+		margin-bottom: 40px;
+		flex-wrap: wrap;
+	}
+
+	.eyebrow {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 12.5px;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--orange-500);
+		margin-bottom: 16px;
+	}
+
+	h2 {
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: clamp(2.25rem, 4vw, 4rem);
+		line-height: 1.1;
+		color: #fff;
+		margin: 0;
+	}
+
+	.link {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 14px;
+		color: var(--orange-500);
+		white-space: nowrap;
+		flex-shrink: 0;
+		margin-bottom: 4px;
+		transition: color 0.15s;
+	}
+	.link:hover { color: var(--orange-600); }
+
+	.metrics {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 3px;
+	}
+
+	.metric {
+		background: rgba(255, 255, 255, 0.04);
+		border-radius: var(--radius-md);
+		padding: 32px 28px;
+	}
+
+	.number-row {
+		display: flex;
+		align-items: baseline;
+		gap: 10px;
+		flex-wrap: wrap;
+		margin-bottom: 4px;
+	}
+
+	.num {
+		font: var(--text-stat);
+		line-height: 1;
+	}
+
+	.num.after {
+		color: var(--orange-500);
+	}
+
+	.num.before {
+		color: rgba(255, 255, 255, 0.22);
+		font-size: 42px;
+	}
+
+	.arrow {
+		color: rgba(255, 255, 255, 0.2);
+		font-size: 22px;
+		font-weight: 300;
+		line-height: 1;
+	}
+
+	.unit {
+		font-family: var(--font-display);
+		font-size: 15px;
+		font-weight: 500;
+		color: rgba(255, 255, 255, 0.82);
+		margin: 18px 0 8px;
+		line-height: 1.4;
+	}
+
+	.client {
+		font-size: 13px;
+		color: rgba(255, 255, 255, 0.4);
+		margin: 0;
+		line-height: 1.4;
+	}
+
+	@media (max-width: 900px) {
+		.metrics {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.card {
+			padding: 32px 24px;
+		}
+		.metrics {
+			grid-template-columns: 1fr;
+		}
+		.metric {
+			padding: 24px;
+		}
+		.top-row {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+</style>

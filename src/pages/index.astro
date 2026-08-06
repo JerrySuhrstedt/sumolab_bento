@@ -2,7 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import ProblemSolution from '../components/ProblemSolution.astro';
+import CaseStudyMetrics from '../components/CaseStudyMetrics.astro';
 import BenefitsSection from '../components/BenefitsSection.astro';
+import ServicesOverview from '../components/ServicesOverview.astro';
 import TestimonialsSection from '../components/TestimonialsSection.astro';
 import FounderFeatures from '../components/FounderFeatures.astro';
 import FAQCTA from '../components/FAQCTA.astro';
@@ -13,8 +15,8 @@ const structuredData = {
 	'@context': 'https://schema.org',
 	'@type': 'ProfessionalService',
 	name: 'SumoLab',
-	description: 'SumoLab provides fractional CMO leadership for established businesses generating $5M+ in annual revenue.',
-	url: 'https://sumolab.co',
+	description: 'SumoLab provides fractional CMO and marketing leadership for established businesses generating $5M+ in annual revenue.',
+	url: 'https://sumolab-bento.sumolab.workers.dev',
 	telephone: contact.phoneHref ?? undefined,
 	address: contact.location
 		? {
@@ -28,15 +30,17 @@ const structuredData = {
 };
 ---
 <Layout
-	title="SumoLab | Proven Business Judgment, Real AI Results"
-	description="AI won't fix your business — understanding it will. I bring both: decades as an operator and marketer, plus AI applied where it counts. No hype, just return."
+	title="SumoLab | Fractional CMO & Marketing Leadership"
+	description="Senior marketing leadership without the full-time cost. SumoLab brings 28 years of operator experience and precise AI strategy to established businesses ready for real growth."
 	structuredData={structuredData}
 	transparentHeader
 >
 	<Hero />
 	<div class="content-wrap">
 		<ProblemSolution />
+		<CaseStudyMetrics />
 		<BenefitsSection />
+		<ServicesOverview />
 		<TestimonialsSection />
 		<FounderFeatures />
 		<FAQCTA />

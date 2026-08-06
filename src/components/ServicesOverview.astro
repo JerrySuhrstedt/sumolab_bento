@@ -1,0 +1,93 @@
+---
+import ServiceCard from './ServiceCard.astro';
+import { services } from '../data/services';
+---
+
+<div class="card">
+	<div class="top-row">
+		<div>
+			<div class="eyebrow">Services</div>
+			<h2>Three ways to engage.</h2>
+		</div>
+		<a href="/services" class="all-link">See all services →</a>
+	</div>
+	<div class="grid">
+		{services.map((service) => (
+			<ServiceCard service={service} />
+		))}
+	</div>
+</div>
+
+<style>
+	.card {
+		background: var(--white);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+		padding: 48px;
+		margin-bottom: 24px;
+	}
+
+	.top-row {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 24px;
+		margin-bottom: 32px;
+		flex-wrap: wrap;
+	}
+
+	.eyebrow {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 12.5px;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--orange-500);
+		margin-bottom: 16px;
+	}
+
+	h2 {
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: clamp(2.25rem, 4vw, 4rem);
+		line-height: 1.1;
+		margin: 0;
+	}
+
+	.all-link {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 14px;
+		color: var(--orange-500);
+		white-space: nowrap;
+		flex-shrink: 0;
+		margin-bottom: 4px;
+		transition: color 0.15s;
+	}
+	.all-link:hover { color: var(--orange-600); }
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 18px;
+	}
+
+	@media (max-width: 900px) {
+		.grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.card {
+			padding: 32px 24px;
+		}
+		.grid {
+			grid-template-columns: 1fr;
+		}
+		.top-row {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+</style>
