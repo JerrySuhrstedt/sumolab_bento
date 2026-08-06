@@ -1,34 +1,49 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 # SumoLab Bento — CLAUDE.md
 
 ## What this project is
 
-A full rebuild of sumolab.co in a new bento-grid visual style (orange/black/white). Lives here, reviewed here — **do not touch the live sumolab.co site or the separate Astro rebuild at `/Volumes/4TB ExtremePro/sumolab_website/`.**
+A full rebuild of sumolab.co in a new bento-grid visual style (orange/black/white). **sumolab.co routes to this Cloudflare Workers deployment** — it is the live site. Do not edit the separate older Astro rebuild at `/Volumes/4TB ExtremePro/sumolab_website/`.
 
 ## Stack
 
 - **Astro 7** static site, TypeScript strict mode
 - **Cloudflare Workers** static asset deployment (NOT Cloudflare Pages)
 - GitHub repo: `github.com/JerrySuhrstedt/sumolab_bento` (main branch)
-- Live URL: `https://sumolab-bento.sumolab.workers.dev`
+- Live URLs: `https://sumolab.co` and `https://sumolab-bento.sumolab.workers.dev` (same deployment)
 
-## Deploy
+## Commands
 
 ```bash
-cd "/Volumes/4TB ExtremePro/sumolab bento"
-npm run build
-npx wrangler deploy
+# Development
+npm run dev          # dev server at http://localhost:4321
+
+# Ship
+npm run build        # static build to dist/
+npx wrangler deploy  # deploy to Cloudflare Workers (manual — no CI/CD)
+git push origin main # push to GitHub after deploying
 ```
 
-No GitHub → Cloudflare auto-deploy. All deploys are manual via wrangler.
+No GitHub → Cloudflare auto-deploy. The full release sequence is always: build → wrangler deploy → git push.
+
+`npm run build` also catches TypeScript errors — there is no separate type-check command.
 
 ## Design system
 
 **Colors**
 - `--ink-950 #101012` — dark background
-- `--paper-050 #F5F2EE` — warm white
+- `--paper-050 #F5F2EE` — warm white (page background)
 - `--orange-500 #FC5434` — primary accent
 - `--orange-600 #E2451F` — hover state
-- Token files live in `/tokens/` (colors.css, typography.css, spacing.css, effects.css)
+- `--white` — card surface (white)
+- `--border` — card border (subtle)
+- `--hairline` — divider lines (lighter than border)
+- `--surface-sunken` — recessed tile background inside cards
+- `--text-secondary` / `--text-muted` — body copy hierarchy
+- Token source files live in `/tokens/` (colors.css, typography.css, spacing.css, effects.css)
 
 **Typography**
 - Display/UI: **Poppins** 600/700 (via Google Fonts)
@@ -45,16 +60,36 @@ No GitHub → Cloudflare auto-deploy. All deploys are manual via wrangler.
 
 ## Architecture
 
-- `src/layouts/Layout.astro` — root layout, SEO, canonical URL, imports SiteHeader + SiteFooter
-- `src/components/SiteHeader.astro` — dark header, transparent-on-hero mode via `transparentHeader` prop
-- `src/components/SiteFooter.astro` — 4-col footer, driven by `navigation.ts` + `contact.ts`
-- `src/components/PageHero.astro` — inner-page hero as bento card (NOT full-width; constrained to 1180px, rounded)
-- `src/components/Section.astro` — bento card wrapper for content sections (tones: white/ink/accent/plain)
-- `src/data/*.ts` — all page content (navigation, contact, founder, testimonials, services, case-studies, insights, cities)
+- `src/layouts/Layout.astro` — root layout, SEO meta, OG tags, canonical URL, GA4 pixel, structured data injection, imports SiteHeader + SiteFooter
+- `src/components/SiteHeader.astro` — dark header; transparent-on-hero mode via `transparentOnHero` prop
+- `src/components/SiteFooter.astro` — 4-col footer driven by `navigation.ts` + `contact.ts`; LinkedIn/social links render conditionally (null = hidden)
+- `src/components/PageHero.astro` — inner-page hero as bento card (NOT full-bleed; 1180px max-width, rounded, `min-height: 460px`). Props: `image`, `eyebrow`, `align` ("left"|"right"), `imagePosition`
+- `src/components/Section.astro` — bento card wrapper for content sections. `tone` prop: `white` | `ink` | `accent` | `plain`
+- `src/data/*.ts` — all page content; edit these for copy changes, never hardcode content in components
 
-## Inner-page heroes
+## Data files (content lives here)
 
-Use `PageHero.astro`, not a full-bleed section. It renders a rounded bento card constrained to 1180px max-width with `min-height: 460px`. Props: `image`, `eyebrow`, `align` ("left"|"right"), `imagePosition`.
+| File | Controls |
+|---|---|
+| `founder.ts` | Jerry's bio, years of experience, expertise list, LinkedIn URL |
+| `contact.ts` | Email, phone, location, social URLs (null = not rendered) |
+| `services.ts` | Three services with full copy: fractional-cmo, fractional-marketing-director, fractional-ai-advisor |
+| `testimonials.ts` | 20 testimonials with photoSrc; order matters — marketing endorsements first |
+| `case-studies.ts` | 7 case studies with metrics |
+| `insights.ts` | Blog/article metadata |
+| `navigation.ts` | Nav links and footer nav groups |
+| `approach.ts` | 5-phase explainer content |
+| `cities.ts` | AZ cities for geo SEO pages |
+
+## Homepage section order
+
+`index.astro` renders: Hero → ProblemSolution → CaseStudyMetrics → BenefitsSection → ServicesOverview → TestimonialsSection → FounderFeatures → FAQCTA
+
+Structured data (Schema.org `ProfessionalService`) is defined in `index.astro`, not `Layout.astro`.
+
+## Testimonials carousel
+
+`TestimonialsSection.astro` uses a cloned-tile seamless loop. Tile widths are set by JS (`setWidths()` reads `track.parentElement.offsetWidth`) — do NOT use CSS `calc()` on flex-basis, it causes zero-width tiles. Breakpoints: 3 tiles ≤ desktop, 2 ≤ 900px, 1 ≤ 640px.
 
 ## Global CSS utilities (`src/styles/global.css`)
 
@@ -69,14 +104,19 @@ Use `PageHero.astro`, not a full-bleed section. It renders a rounded bento card 
 ## Public assets
 
 - `/photos/` — page hero/section photos
-- `/team/` — team headshots (jerry-suhrstedt.png, alek-synkevych.jpg, etc.)
+- `/team/` — headshots for testimonials and founder (20 files; see `testimonials.ts` for filenames)
 - `/insights/` — article images
-- `/videos/hero-office-loop.mp4` — homepage hero video
+- `/videos/hero-office-loop.mp4` — homepage hero background video
 - `/logos/sumolab-bento.svg` — orange mark + black wordmark
+
+## Analytics & SEO
+
+- **GA4** pixel `G-MXVW8RH6LN` is in `src/layouts/Layout.astro` (fires on every page)
+- `astro.config.mjs` must keep `site: 'https://sumolab-bento.sumolab.workers.dev'` or canonical URL generation throws
+- Structured data URL in `index.astro` should be `https://sumolab-bento.sumolab.workers.dev`
 
 ## Rules
 
 - **No unsolicited design decisions.** Jerry provides all style direction. Don't choose colors, layouts, or typography on your own initiative.
-- **Do not touch sumolab.co** or `/Volumes/4TB ExtremePro/sumolab_website/`.
+- **Do not edit `/Volumes/4TB ExtremePro/sumolab_website/`** — that is the old site, not this project.
 - Font-size answers always in **rem**.
-- astro.config.mjs must have `site` set or canonical URL generation throws — currently `https://sumolab-bento.sumolab.workers.dev`.
