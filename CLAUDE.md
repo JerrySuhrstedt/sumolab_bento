@@ -115,6 +115,20 @@ Structured data (Schema.org `ProfessionalService`) is defined in `index.astro`, 
 - `astro.config.mjs` must keep `site: 'https://sumolab-bento.sumolab.workers.dev'` or canonical URL generation throws
 - Structured data URL in `index.astro` should be `https://sumolab-bento.sumolab.workers.dev`
 
+## SEO Keyword Targets (as of 2026-08-06)
+
+Primary search terms to optimize for — one keyword per page, include exact phrase in page title, H1, first 100 words, and meta description:
+
+| Keyword | Primary Page |
+|---|---|
+| `fractional CMO near me` | `/fractional-cmo-near-me/` |
+| `fractional marketing director` | `/services/fractional-marketing-director/` |
+| `AI marketing consultant` | `/services/fractional-ai-advisor/` |
+| `hire fractional CMO` | Homepage (`/`) |
+| `fractional CMO` | `/services/fractional-cmo/` + articles |
+
+**Do NOT target** (zero search volume): fractional CMO Arizona, fractional CMO Phoenix, fractional CMO Scottsdale, marketing consultant Chandler AZ, AI marketing consultant Arizona, fractional AI advisor, fractional CMO $5M business, AI strategy for small business.
+
 ## Rules
 
 - **No unsolicited design decisions.** Jerry provides all style direction. Don't choose colors, layouts, or typography on your own initiative.

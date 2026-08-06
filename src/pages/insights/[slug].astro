@@ -53,7 +53,7 @@ const publishedDate = new Date(insight.publishedAt).toLocaleDateString('en-US', 
 				</div>
 			</div>
 			<div class="article-body">
-				{insight.body.map((para) => <p class="lede">{para}</p>)}
+				{insight.body.map((para) => <p class="lede" set:html={para}></p>)}
 				{insight.keyPoints && (
 					<ul class="dot-list key-points">
 						{insight.keyPoints.map((point) => (
