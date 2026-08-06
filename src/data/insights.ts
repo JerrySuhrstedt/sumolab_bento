@@ -11,6 +11,61 @@ export interface InsightArticle {
 
 export const insights: InsightArticle[] = [
 	{
+		slug: "do-i-need-a-fractional-cmo",
+		imageSrc: "/insights/do-i-need-a-fractional-cmo.jpg",
+		title: "Do I Need a Fractional CMO?",
+		category: "Strategy & Leadership",
+		publishedAt: "2026-08-06",
+		excerpt:
+			"Most business owners don't ask this question until something breaks. Here's the honest answer — and the five signals that tell you it's time.",
+		body: [
+			"Most business owners don't ask 'do I need a Fractional CMO?' until something breaks. The ads stop working. The agency relationship goes stale. Revenue flattens and nobody can explain exactly why. You're not short on marketing activity — you're short on marketing results. If that sounds familiar, keep reading.",
+			"Here's the honest answer: you probably don't need a Fractional CMO. You need what a Fractional CMO delivers — senior marketing leadership that actually moves revenue. The title is just the package it comes in.",
+			"A Fractional CMO is a senior marketing executive who works with your company on a part-time basis, typically 10 to 20 hours a week, at a fraction of the cost of a full-time hire. They're not a consultant who hands you a report and disappears. They're not an agency that executes tasks without strategy. They sit at the leadership table, own the marketing function, and are accountable for results. A full-time CMO costs $150,000 to $300,000 a year before benefits and equity. A fractional engagement typically runs $5,000 to $15,000 a month — and you're productive from week one, not month six.",
+			"After 28 years of building businesses and doing this work, I've watched the same five signals show up in company after company. If more than two of these describe your business, you need one.",
+			"Signal one: your marketing has no clear owner. You have vendors executing, but nobody making the decisions that connect execution to revenue. The agency does its job. The freelancer does theirs. But nobody's steering. That gap — between activity and direction — is exactly where money gets wasted.",
+			"Signal two: your revenue has plateaued and you can't diagnose why. Sales is blaming marketing. Marketing is pointing at the product. You're caught in the middle without the data or the framework to figure out what's actually true. That's not a sales problem or a marketing problem — it's a leadership problem.",
+			"Signal three: you're spending on marketing without confidence. The budget gets approved every year, but when someone asks what the return is, the honest answer is 'we think it's working.' That's not acceptable at $5M. It's definitely not acceptable at $20M or $50M.",
+			"Signal four: you're growing faster than your marketing can keep up with. New markets, new products, new sales reps — and the marketing strategy is the same one you built three years ago when you were half the size. What got you here won't get you there.",
+			"Signal five: you're about to make a big marketing investment. A rebrand. A new website. A major ad campaign. A CRM implementation. These decisions are expensive when they go wrong — and the difference between getting them right and getting them wrong is almost always having someone senior enough in the room before the vendor gets paid.",
+			"Now, this matters just as much: knowing when you don't need one. If your marketing is already producing predictable, measurable pipeline and you have someone capable running it, you don't need more leadership — you need more execution resources. If you're generating less than $3M in revenue, the economics usually don't pencil out yet. Every dollar at that stage should go directly into customer acquisition. And if your business model doesn't depend on marketing — referral-only firms, regulated markets with captive demand — a Fractional CMO probably isn't your highest-leverage investment.",
+			"The clearest way I can describe what changes when you get senior marketing leadership in place: marketing stops being a cost center and starts being a revenue engine. Decisions get made instead of debated. The agency gets direction instead of autonomy. The messaging gets consistent. The pipeline becomes predictable. And you, as the owner, stop spending your Monday mornings managing a function that should be managing itself.",
+			"I've watched it happen inside a home building company that went from 60 homes a year to over 800. Inside a custom builder that grew from $3M to $11M in under three years. The strategy wasn't magic. It was leadership — consistent, senior, accountable leadership applied to the marketing function.",
+			"Don't ask yourself 'do I need a Fractional CMO?' Ask this instead: is my marketing producing the results my business needs, and do I have someone senior enough to make it better? If the answer to either part is no, you already have your answer. The first conversation is free. I'll tell you honestly whether this is the right fit — and if it's not, I'll point you toward what is.",
+		],
+		keyPoints: [
+			"A Fractional CMO costs $5,000–$15,000/month versus $150,000–$300,000/year for a full-time CMO",
+			"Five signals: no clear marketing owner, plateaued revenue with no diagnosis, spending without confidence, outgrowing your setup, or a major investment coming",
+			"Below $3M in revenue, the economics of fractional CMO leadership usually don't work — execution resources are the priority",
+			"The shift when it works: marketing stops being a cost center and becomes a measurable revenue engine",
+		],
+	},
+	{
+		slug: "when-to-hire-a-fractional-cmo",
+		imageSrc: "/insights/when-to-hire-a-fractional-cmo.jpg",
+		title: "When to Hire a Fractional CMO",
+		category: "Strategy & Leadership",
+		publishedAt: "2026-08-06",
+		excerpt:
+			"Hire too early and the business isn't ready. Hire too late and you've burned 18 months of budget without direction. Here's how to get the timing right.",
+		body: [
+			"The question most business owners ask is 'should I hire a Fractional CMO?' The better question is 'when?' Timing matters more than most people realize. Hire too early and the business isn't ready to absorb the leadership. Hire too late and you've spent 18 months burning budget on marketing that didn't work because nobody senior enough was steering it. I've been on both sides of that mistake. Here's how to avoid it.",
+			"The revenue window that almost always makes sense is between $5M and $50M — and it's not arbitrary. Below $5M, you're still proving the model. Marketing at that stage is mostly about getting enough customers to validate that the business works. You need execution, not strategy overhead. Above $50M, you probably have the budget and complexity to justify a full-time CMO and a real in-house marketing department. Between $5M and $50M, you're in the growth zone: the business is proven, the marketing has to scale, and you're almost certainly carrying too much of it yourself.",
+			"The second signal: you've outgrown your current marketing setup. Most companies in this revenue range have one of three situations — a coordinator or small internal team that executes well but doesn't strategize, an agency relationship that produces deliverables but no direction, or the owner doing everything and running out of bandwidth. All three hit a ceiling at roughly the same point. The business grows past what the setup was built for. Instead of the marketing evolving, it just gets more expensive. More vendors, more tools, more spend — without more results. That ceiling is the signal. When the system that got you here can't get you to the next level, you need someone who can redesign the system.",
+			"Third signal: a major marketing investment is on the horizon. A rebrand. A new website. A CRM implementation. A new market entry. A product launch. These are the moments when a bad marketing decision costs real money. The difference between a $200,000 rebrand that moves the needle and one that produces pretty assets nobody uses is almost always a senior person who defines what success looks like before the project starts — not after the vendor has already cashed the check.",
+			"Fourth signal: your sales and marketing teams are misaligned. This one gets overlooked, but it's one of the most expensive problems I see in $5M to $50M companies. Marketing generates leads. Sales doesn't close them. Sales says the leads are bad. Marketing says sales can't sell. Both are partly right and mostly pointing fingers. The fix isn't a new CRM or a different lead gen campaign — it's someone senior enough to get both teams in a room, look at the actual data, and redesign the handoff between marketing and sales. That's a Fractional CMO's job.",
+			"Fifth signal: a significant business event is coming. Acquisition. Capital raise. Major partnership. New market entry. These are moments when how you tell your story — your positioning, your brand, your proof points — can materially affect the outcome. A Fractional CMO doesn't just run marketing. They shape narrative. If you have a significant event on the horizon in the next 12 to 18 months, the time to get marketing leadership in place is now, so the story is clean and credible before you need it.",
+			"Here's the most important thing I can tell you about timing: the best time to hire a Fractional CMO is before you desperately need one. When marketing is under pressure — leads drying up, a funded rebrand already underway, a bad quarter on the books — you're hiring from weakness. The changes take longer, cost more, and the pressure to show immediate results pushes you toward short-term tactics instead of the strategy that actually fixes the problem.",
+			"The second-best time is right now, if any of the signals above describe where your business is today. Start with a conversation. Bring your real numbers, your real frustrations, and your real goals. A good Fractional CMO will tell you honestly what's fixable, what the timeline looks like, and whether they're the right fit. If it's not a fit, I'll tell you that too.",
+		],
+		keyPoints: [
+			"The revenue sweet spot for a Fractional CMO is $5M–$50M — below that, prioritize execution; above that, consider a full-time hire",
+			"Watch for the ceiling: when more marketing spend stops producing more results, it's a leadership gap, not a budget gap",
+			"Get senior marketing leadership in place before a major investment, not after the vendor is already paid",
+			"The best time to hire is before pressure forces the decision — hiring under pressure drives tactics over strategy",
+		],
+	},
+	{
 		slug: "creating-a-seamless-brand-experience-consistency",
 		imageSrc: "/insights/creating-a-seamless-brand-experience-consistency.jpg",
 		title: "Creating a Seamless Brand Experience: Consistency Across Social Media Channels",
