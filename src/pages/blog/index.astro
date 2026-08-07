@@ -35,6 +35,13 @@ const categories = [
 			{categories.map((cat) => (
 				<button type="button" data-category={cat} class="filter-btn">{cat}</button>
 			))}
+			<input
+				type="search"
+				id="article-search"
+				class="search-input"
+				placeholder="Search articles…"
+				aria-label="Search articles"
+			/>
 		</div>
 	</div>
 
@@ -53,21 +60,38 @@ const categories = [
 				</a>
 			))}
 		</div>
+		<p id="no-results" class="lede" style="display:none">No articles match your search.</p>
 	</Section>
 </Layout>
 
 <style>
-	.filter-bar {
-		background: #fff;
-		border-bottom: 1px solid var(--hairline);
-	}
 	.filter-inner {
 		max-width: 1180px;
 		margin: 0 auto;
 		padding: 16px 40px;
 		display: flex;
 		flex-wrap: wrap;
+		align-items: center;
 		gap: 10px;
+	}
+	.search-input {
+		font-family: var(--font-body);
+		font-size: 14px;
+		border: 1px solid var(--border);
+		border-radius: var(--radius-sm);
+		padding: 8px 16px;
+		background: #fff;
+		color: var(--text-primary);
+		min-width: 220px;
+		margin-left: auto;
+		transition: border-color 0.15s;
+	}
+	.search-input:focus {
+		outline: none;
+		border-color: var(--orange-500);
+	}
+	.search-input::placeholder {
+		color: var(--text-muted);
 	}
 	.filter-btn {
 		font-family: var(--font-display);
@@ -144,19 +168,35 @@ const categories = [
 	function initFilter() {
 		const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
 		const cards = document.querySelectorAll<HTMLAnchorElement>('#insights-grid > a');
+		const search = document.querySelector<HTMLInputElement>('#article-search');
+		const noResults = document.getElementById('no-results');
 		if (!buttons.length || !cards.length) return;
+
+		let activeCategory = 'all';
+
+		const applyFilters = () => {
+			const query = (search?.value ?? '').trim().toLowerCase();
+			let visible = 0;
+			cards.forEach((card) => {
+				const matchesCategory = activeCategory === 'all' || card.dataset.category === activeCategory;
+				const matchesQuery = !query || (card.textContent ?? '').toLowerCase().includes(query);
+				const show = matchesCategory && matchesQuery;
+				(card as HTMLElement).style.display = show ? '' : 'none';
+				if (show) visible++;
+			});
+			if (noResults) noResults.style.display = visible ? 'none' : '';
+		};
 
 		buttons.forEach((btn) => {
 			btn.addEventListener('click', () => {
-				const cat = btn.dataset.category;
+				activeCategory = btn.dataset.category ?? 'all';
 				buttons.forEach((b) => b.classList.remove('active'));
 				btn.classList.add('active');
-				cards.forEach((card) => {
-					const show = cat === 'all' || card.dataset.category === cat;
-					(card as HTMLElement).style.display = show ? '' : 'none';
-				});
+				applyFilters();
 			});
 		});
+
+		search?.addEventListener('input', applyFilters);
 	}
 
 	initFilter();
