@@ -118,7 +118,7 @@ export const caseStudies: CaseStudy[] = [
 	{
 		slug: "rebranding-first-products",
 		icon: "/icons/cs-rebranding-first-products.svg",
-		image: "/insights/why-branding-is-important-the-judy-trudy-success-story.jpg",
+		image: "/blog/why-branding-is-important-the-judy-trudy-success-story.jpg",
 		title: "Rebranding “First Products” with Memorable Cartoon Characters",
 		client: "First Products",
 		summary: "Two cartoon characters and a set of bobble-head dolls turned a generic 30-year-old brand name into something hospitals actually remembered.",

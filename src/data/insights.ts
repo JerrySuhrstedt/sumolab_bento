@@ -12,7 +12,7 @@ export interface InsightArticle {
 export const insights: InsightArticle[] = [
 	{
 		slug: "do-i-need-a-fractional-cmo",
-		imageSrc: "/insights/do-i-need-a-fractional-cmo.jpg",
+		imageSrc: "/blog/do-i-need-a-fractional-cmo.jpg",
 		title: "Do I Need a Fractional CMO?",
 		category: "Strategy & Leadership",
 		publishedAt: "2026-08-06",
@@ -48,7 +48,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "when-to-hire-a-fractional-cmo",
-		imageSrc: "/insights/when-to-hire-a-fractional-cmo.jpg",
+		imageSrc: "/blog/when-to-hire-a-fractional-cmo.jpg",
 		title: "When to Hire a Fractional CMO",
 		category: "Strategy & Leadership",
 		publishedAt: "2026-08-06",
@@ -78,7 +78,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "fractional-cmo-cost",
-		imageSrc: "/insights/fractional-cmo-cost.jpg",
+		imageSrc: "/blog/fractional-cmo-cost.jpg",
 		title: "What Does a Fractional CMO Cost?",
 		category: "Strategy & Leadership",
 		publishedAt: "2026-08-06",
@@ -106,7 +106,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "creating-a-seamless-brand-experience-consistency",
-		imageSrc: "/insights/creating-a-seamless-brand-experience-consistency.jpg",
+		imageSrc: "/blog/creating-a-seamless-brand-experience-consistency.jpg",
 		title: "Creating a Seamless Brand Experience: Consistency Across Social Media Channels",
 		category: "Marketing & Growth",
 		publishedAt: "2024-10-15",
@@ -125,7 +125,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "digital-marketing-strategies-tips-best-practices",
-		imageSrc: "/insights/digital-marketing-strategies-tips-best-practices.jpg",
+		imageSrc: "/blog/digital-marketing-strategies-tips-best-practices.jpg",
 		title: "Digital Marketing: Strategies, Tips, Best Practices",
 		category: "Marketing & Growth",
 		publishedAt: "2024-06-17",
@@ -146,7 +146,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "high-quality-website-design-elevate-your-online-presence",
-		imageSrc: "/insights/high-quality-website-design-elevate-your-online-presence.jpg",
+		imageSrc: "/blog/high-quality-website-design-elevate-your-online-presence.jpg",
 		title: "High-Quality Website Design: Elevate Your Online Presence",
 		category: "Systems & Automation",
 		publishedAt: "2024-06-17",
@@ -168,7 +168,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "10-crazy-benefits-of-podcasting-for-your-business",
-		imageSrc: "/insights/10-crazy-benefits-of-podcasting-for-your-business.jpg",
+		imageSrc: "/blog/10-crazy-benefits-of-podcasting-for-your-business.jpg",
 		title: "10 Benefits of Podcasting for Your Business",
 		category: "Marketing & Growth",
 		publishedAt: "2024-06-07",
@@ -191,7 +191,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "smart-web-design-for-contractors-in-chandler-arizona",
-		imageSrc: "/insights/smart-web-design-for-contractors-in-chandler-arizona.jpg",
+		imageSrc: "/blog/smart-web-design-for-contractors-in-chandler-arizona.jpg",
 		title: "Smart Web Design for Contractors in Chandler, Arizona",
 		category: "Systems & Automation",
 		publishedAt: "2024-06-08",
@@ -209,7 +209,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "why-branding-is-important-the-judy-trudy-success-story",
-		imageSrc: "/insights/why-branding-is-important-the-judy-trudy-success-story.jpg",
+		imageSrc: "/blog/why-branding-is-important-the-judy-trudy-success-story.jpg",
 		title: "Why Branding Is Important: The Judy & Trudy Success Story",
 		category: "Marketing & Growth",
 		publishedAt: "2024-06-11",
@@ -225,7 +225,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "seo-tools-for-website-traffic-discover-secrets",
-		imageSrc: "/insights/seo-tools-for-website-traffic-discover-secrets.jpg",
+		imageSrc: "/blog/seo-tools-for-website-traffic-discover-secrets.jpg",
 		title: "SEO Tools for Website Traffic: What They Get Wrong",
 		category: "Marketing & Growth",
 		publishedAt: "2024-06-15",
@@ -241,7 +241,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "what-digital-marketing-is-what-it-is-not",
-		imageSrc: "/insights/what-digital-marketing-is-what-it-is-not.jpg",
+		imageSrc: "/blog/what-digital-marketing-is-what-it-is-not.jpg",
 		title: "What Digital Marketing Is, and What It Is Not",
 		category: "Marketing & Growth",
 		publishedAt: "2024-06-25",
@@ -263,7 +263,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "business-turnaround-strategy-bankrupt-to-12m",
-		imageSrc: "/insights/business-turnaround-strategy-bankrupt-to-12m.jpg",
+		imageSrc: "/blog/business-turnaround-strategy-bankrupt-to-12m.jpg",
 		title: "My Business Turnaround Strategy: From Bankruptcy to a Multi-Million Dollar Company",
 		category: "Strategy & Leadership",
 		publishedAt: "2024-08-20",
@@ -279,7 +279,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "how-a-home-builder-implemented-salesforce-and-boosted-sales",
-		imageSrc: "/insights/how-a-home-builder-implemented-salesforce-and-boosted-sales.jpg",
+		imageSrc: "/blog/how-a-home-builder-implemented-salesforce-and-boosted-sales.jpg",
 		title: "How a Home Builder Implemented Salesforce and Boosted Sales",
 		category: "Case Studies",
 		publishedAt: "2024-03-24",
@@ -296,7 +296,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "do-i-need-a-business-analyst",
-		imageSrc: "/insights/do-i-need-a-business-analyst.jpg",
+		imageSrc: "/blog/do-i-need-a-business-analyst.jpg",
 		title: "Do I Need a Business Analyst?",
 		category: "Strategy & Leadership",
 		publishedAt: "2024-03-24",
@@ -313,7 +313,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "5-powerful-reasons-you-need-marketing-automation",
-		imageSrc: "/insights/5-powerful-reasons-you-need-marketing-automation.jpg",
+		imageSrc: "/blog/5-powerful-reasons-you-need-marketing-automation.jpg",
 		title: "5 Powerful Reasons You Need Marketing Automation",
 		category: "Systems & Automation",
 		publishedAt: "2024-03-24",
@@ -335,7 +335,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "sales-process-6-powerful-reasons-you-need-one",
-		imageSrc: "/insights/sales-process-6-powerful-reasons-you-need-one.jpg",
+		imageSrc: "/blog/sales-process-6-powerful-reasons-you-need-one.jpg",
 		title: "Sales Process: 6 Powerful Reasons You Need One",
 		category: "Sales & CRM",
 		publishedAt: "2024-03-24",
@@ -355,7 +355,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "what-business-analysts-do",
-		imageSrc: "/insights/what-business-analysts-do.jpg",
+		imageSrc: "/blog/what-business-analysts-do.jpg",
 		title: "What Business Analysts Actually Do",
 		category: "Strategy & Leadership",
 		publishedAt: "2024-03-24",
@@ -370,7 +370,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "slack-5-reasons-its-better-for-internal-communication",
-		imageSrc: "/insights/slack-5-reasons-its-better-for-internal-communication.jpg",
+		imageSrc: "/blog/slack-5-reasons-its-better-for-internal-communication.jpg",
 		title: "Slack: 5 Reasons It's Better for Internal Communication",
 		category: "Systems & Automation",
 		publishedAt: "2024-03-24",
@@ -385,7 +385,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "start-your-salesforce-career",
-		imageSrc: "/insights/start-your-salesforce-career.jpg",
+		imageSrc: "/blog/start-your-salesforce-career.jpg",
 		title: "How to Start Your Salesforce Career",
 		category: "Sales & CRM",
 		publishedAt: "2024-03-24",
@@ -402,7 +402,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "why-your-business-may-need-salesforce",
-		imageSrc: "/insights/why-your-business-may-need-salesforce.jpg",
+		imageSrc: "/blog/why-your-business-may-need-salesforce.jpg",
 		title: "Why Your Business May Need Salesforce",
 		category: "Sales & CRM",
 		publishedAt: "2024-03-24",
@@ -417,7 +417,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "5-reasons-your-business-needs-a-crm",
-		imageSrc: "/insights/5-reasons-your-business-needs-a-crm.jpg",
+		imageSrc: "/blog/5-reasons-your-business-needs-a-crm.jpg",
 		title: "5 Reasons Your Business Needs a CRM",
 		category: "Sales & CRM",
 		publishedAt: "2024-03-24",
@@ -432,7 +432,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "do-i-need-a-salesforce-consultant",
-		imageSrc: "/insights/do-i-need-a-salesforce-consultant.jpg",
+		imageSrc: "/blog/do-i-need-a-salesforce-consultant.jpg",
 		title: "Do I Need a Salesforce Consultant?",
 		category: "Sales & CRM",
 		publishedAt: "2024-03-24",
@@ -447,7 +447,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "5-ways-to-find-a-huge-lippafoygle",
-		imageSrc: "/insights/seo-tools-for-website-traffic-discover-secrets.jpg",
+		imageSrc: "/blog/seo-tools-for-website-traffic-discover-secrets.jpg",
 		title: "5 Ways to Find a Huge Lippafoygle",
 		category: "Digital Marketing",
 		publishedAt: "2024-06-27",
@@ -475,7 +475,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "i-bought-salesforce-now-what",
-		imageSrc: "/insights/i-bought-salesforce-now-what.jpg",
+		imageSrc: "/blog/i-bought-salesforce-now-what.jpg",
 		title: "I Bought Salesforce, Now What?",
 		category: "Sales & CRM",
 		publishedAt: "2024-03-24",
@@ -490,7 +490,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "what-really-is-a-crm",
-		imageSrc: "/insights/what-really-is-a-crm.jpg",
+		imageSrc: "/blog/what-really-is-a-crm.jpg",
 		title: "What Really Is a CRM?",
 		category: "Sales & CRM",
 		publishedAt: "2024-03-24",
@@ -505,7 +505,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "why-salesforce-is-the-1-crm",
-		imageSrc: "/insights/why-salesforce-is-the-1-crm.jpg",
+		imageSrc: "/blog/why-salesforce-is-the-1-crm.jpg",
 		title: "Why Salesforce Is the #1 CRM",
 		category: "Sales & CRM",
 		publishedAt: "2024-03-24",
@@ -522,7 +522,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "email-marketing-strategies-for-effective-campaigns",
-		imageSrc: "/insights/email-marketing-strategies-for-effective-campaigns.jpg",
+		imageSrc: "/blog/email-marketing-strategies-for-effective-campaigns.jpg",
 		title: "Email Marketing: Strategies for Effective Campaigns",
 		category: "Email Marketing",
 		publishedAt: "2024-06-17",
@@ -644,7 +644,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "social-media-marketing-boost-your-online-presence-today",
-		imageSrc: "/insights/social-media-marketing-boost-your-online-presence-today.jpg",
+		imageSrc: "/blog/social-media-marketing-boost-your-online-presence-today.jpg",
 		title: "Social Media Marketing: Boost Your Online Presence Today",
 		category: "Social Media",
 		publishedAt: "2024-06-17",
@@ -737,7 +737,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "ppc-management-services-maximize-your-ad-campaigns-roi",
-		imageSrc: "/insights/ppc-management-services-maximize-your-ad-campaigns-roi.jpg",
+		imageSrc: "/blog/ppc-management-services-maximize-your-ad-campaigns-roi.jpg",
 		title: "PPC Management Services: Maximize Your Ad Campaigns ROI",
 		category: "Digital Marketing",
 		publishedAt: "2024-06-17",
@@ -839,7 +839,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "marketing-agency-grow-your-business-with-experts",
-		imageSrc: "/insights/marketing-agency-grow-your-business-with-experts.jpg",
+		imageSrc: "/blog/marketing-agency-grow-your-business-with-experts.jpg",
 		title: "Marketing Agency - Grow Your Business with Experts",
 		category: "Marketing Strategy",
 		publishedAt: "2024-06-17",
@@ -922,7 +922,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "trusted-digital-marketing-agency-grow-your-business-online",
-		imageSrc: "/insights/trusted-digital-marketing-agency-grow-your-business-online.jpg",
+		imageSrc: "/blog/trusted-digital-marketing-agency-grow-your-business-online.jpg",
 		title: "Trusted Digital Marketing Agency | Grow Your Business Online",
 		category: "Marketing Strategy",
 		publishedAt: "2024-06-17",
@@ -1013,7 +1013,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "boost-your-online-visibility-with-expertly-crafted-seo-services",
-		imageSrc: "/insights/boost-your-online-visibility-with-expertly-crafted-seo-services.jpg",
+		imageSrc: "/blog/boost-your-online-visibility-with-expertly-crafted-seo-services.jpg",
 		title: "Boost Your Online Visibility with Expertly Crafted SEO Services",
 		category: "SEO & Search",
 		publishedAt: "2024-06-17",
@@ -1113,7 +1113,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "online-marketing-agency-expert-digital-marketing-solutions",
-		imageSrc: "/insights/online-marketing-agency-expert-digital-marketing-solutions.jpg",
+		imageSrc: "/blog/online-marketing-agency-expert-digital-marketing-solutions.jpg",
 		title: "Online Marketing Agency | Expert Digital Marketing Solutions",
 		category: "Marketing Strategy",
 		publishedAt: "2024-06-17",
@@ -1229,7 +1229,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "grow-your-business-with-expert-marketing-consulting-services",
-		imageSrc: "/insights/grow-your-business-with-expert-marketing-consulting-services.jpg",
+		imageSrc: "/blog/grow-your-business-with-expert-marketing-consulting-services.jpg",
 		title: "Grow Your Business with Expert Marketing Consulting Services",
 		category: "Branding",
 		publishedAt: "2024-06-17",
@@ -1342,7 +1342,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "friendly-local-advertising-agency-for-businesses",
-		imageSrc: "/insights/friendly-local-advertising-agency-for-businesses.jpg",
+		imageSrc: "/blog/friendly-local-advertising-agency-for-businesses.jpg",
 		title: "Friendly Local Advertising Agency for Businesses",
 		category: "Digital Marketing",
 		publishedAt: "2024-06-17",
@@ -1469,7 +1469,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "email-marketing-services-to-grow-your-business-online",
-		imageSrc: "/insights/email-marketing-services-to-grow-your-business-online.jpg",
+		imageSrc: "/blog/email-marketing-services-to-grow-your-business-online.jpg",
 		title: "Email Marketing Services to Grow Your Business Online",
 		category: "Email Marketing",
 		publishedAt: "2024-06-17",
@@ -1567,7 +1567,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "branding-agency-create-your-unique-business-identity",
-		imageSrc: "/insights/branding-agency-create-your-unique-business-identity.jpg",
+		imageSrc: "/blog/branding-agency-create-your-unique-business-identity.jpg",
 		title: "Branding Agency: Create Your Unique Business Identity",
 		category: "Branding",
 		publishedAt: "2024-06-17",
@@ -1674,7 +1674,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "boost-your-local-business-with-proven-local-seo-services",
-		imageSrc: "/insights/boost-your-local-business-with-proven-local-seo-services.jpg",
+		imageSrc: "/blog/boost-your-local-business-with-proven-local-seo-services.jpg",
 		title: "Boost Your Local Business with Proven Local SEO Services",
 		category: "SEO & Search",
 		publishedAt: "2024-06-17",
@@ -1767,7 +1767,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "lead-generation-services-for-thriving-businesses-expert-solutions",
-		imageSrc: "/insights/lead-generation-services-for-thriving-businesses-expert-solutions.jpg",
+		imageSrc: "/blog/lead-generation-services-for-thriving-businesses-expert-solutions.jpg",
 		title: "Lead Generation Services for Thriving Businesses | Expert Solutions",
 		category: "Lead Generation",
 		publishedAt: "2024-06-17",
@@ -1873,7 +1873,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "web-design-agency-crafting-stunning-digital-experiences",
-		imageSrc: "/insights/web-design-agency-crafting-stunning-digital-experiences.jpg",
+		imageSrc: "/blog/web-design-agency-crafting-stunning-digital-experiences.jpg",
 		title: "Web Design Agency | Crafting Stunning Digital Experiences",
 		category: "Branding",
 		publishedAt: "2024-06-17",
@@ -1977,7 +1977,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "top-digital-advertising-strategies-for-your-business",
-		imageSrc: "/insights/top-digital-advertising-strategies-for-your-business.jpg",
+		imageSrc: "/blog/top-digital-advertising-strategies-for-your-business.jpg",
 		title: "Top Digital Advertising Strategies for Your Business",
 		category: "Digital Marketing",
 		publishedAt: "2024-06-17",
@@ -2096,7 +2096,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "content-creation-services-elevate-your-brand-with-high-quality-content",
-		imageSrc: "/insights/content-creation-services-elevate-your-brand-with-high-quality-content.jpg",
+		imageSrc: "/blog/content-creation-services-elevate-your-brand-with-high-quality-content.jpg",
 		title: "Content Creation Services: Elevate Your Brand with High-Quality Content",
 		category: "Branding",
 		publishedAt: "2024-06-17",
@@ -2195,7 +2195,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "b2c-marketing-agency-expert-brand-building-solutions",
-		imageSrc: "/insights/b2c-marketing-agency-expert-brand-building-solutions.jpg",
+		imageSrc: "/blog/b2c-marketing-agency-expert-brand-building-solutions.jpg",
 		title: "B2C Marketing Agency | Expert Brand Building Solutions",
 		category: "Branding",
 		publishedAt: "2024-06-17",
@@ -2288,7 +2288,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "boost-your-online-visibility-with-expert-website-optimization-services",
-		imageSrc: "/insights/boost-your-online-visibility-with-expert-website-optimization-services.jpg",
+		imageSrc: "/blog/boost-your-online-visibility-with-expert-website-optimization-services.jpg",
 		title: "Boost Your Online Visibility with Expert Website Optimization Services",
 		category: "Web & Design",
 		publishedAt: "2024-06-17",
@@ -2384,7 +2384,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "elevate-your-brand-with-professional-graphic-design-services",
-		imageSrc: "/insights/elevate-your-brand-with-professional-graphic-design-services.jpg",
+		imageSrc: "/blog/elevate-your-brand-with-professional-graphic-design-services.jpg",
 		title: "Elevate Your Brand with Professional Graphic Design Services",
 		category: "Branding",
 		publishedAt: "2024-06-17",
@@ -2463,7 +2463,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "market-research-services-expert-data-analysis-insights",
-		imageSrc: "/insights/market-research-services-expert-data-analysis-insights.jpg",
+		imageSrc: "/blog/market-research-services-expert-data-analysis-insights.jpg",
 		title: "Market Research Services - Expert Data Analysis & Insights",
 		category: "Digital Marketing",
 		publishedAt: "2024-06-17",
@@ -2561,7 +2561,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "digital-marketing-solutions-unlock-your-online-potential",
-		imageSrc: "/insights/digital-marketing-solutions-unlock-your-online-potential.jpg",
+		imageSrc: "/blog/digital-marketing-solutions-unlock-your-online-potential.jpg",
 		title: "Digital Marketing Solutions | Unlock Your Online Potential",
 		category: "Digital Marketing",
 		publishedAt: "2024-06-17",
@@ -2656,7 +2656,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "search-engine-marketing-sem-guide-for-better-rankings",
-		imageSrc: "/insights/search-engine-marketing-sem-guide-for-better-rankings.jpg",
+		imageSrc: "/blog/search-engine-marketing-sem-guide-for-better-rankings.jpg",
 		title: "Search Engine Marketing (SEM) Guide for Better Rankings",
 		category: "SEO & Search",
 		publishedAt: "2024-06-17",
@@ -2772,7 +2772,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "b2b-marketing-agency-innovative-solutions-for-your-business",
-		imageSrc: "/insights/b2b-marketing-agency-innovative-solutions-for-your-business.jpg",
+		imageSrc: "/blog/b2b-marketing-agency-innovative-solutions-for-your-business.jpg",
 		title: "B2B Marketing Agency: Innovative Solutions for Your Business",
 		category: "Marketing Strategy",
 		publishedAt: "2024-06-17",
@@ -2877,7 +2877,7 @@ export const insights: InsightArticle[] = [
 	},
 	{
 		slug: "5-reasons-web-design-in-phoenix-az-is-affordable",
-		imageSrc: "/insights/5-reasons-web-design-in-phoenix-az-is-affordable.jpg",
+		imageSrc: "/blog/5-reasons-web-design-in-phoenix-az-is-affordable.jpg",
 		title: "5 Reasons Web Design in Phoenix AZ Is Affordable",
 		category: "Web & Design",
 		publishedAt: "2024-06-17",
