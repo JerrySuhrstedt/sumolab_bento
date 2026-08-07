@@ -4,6 +4,8 @@ import PageHero from '../../components/PageHero.astro';
 import Section from '../../components/Section.astro';
 import { insights } from '../../data/insights';
 
+const sortedInsights = [...insights].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+
 const categories = [
 	'Strategy & Leadership',
 	'Marketing & Growth',
@@ -38,7 +40,7 @@ const categories = [
 
 	<Section tone="white">
 		<div class="grid-3" id="insights-grid">
-			{insights.map((article) => (
+			{sortedInsights.map((article) => (
 				<a href={`/blog/${article.slug}/`} data-category={article.category} class="article-card">
 					<div class="article-img-wrap">
 						<img src={article.imageSrc} alt="" class="article-img" loading="lazy" />
