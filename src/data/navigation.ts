@@ -29,7 +29,7 @@ export const primaryNav: NavItem[] = [
 		],
 	},
 	{ label: "Case Studies", href: "/case-studies" },
-	{ label: "Insights", href: "/insights" },
+	{ label: "Insights", href: "/blog" },
 ];
 
 export const primaryCta: NavLink = {
@@ -43,7 +43,7 @@ export const footerNav = {
 		{ label: "Approach", href: "/approach" },
 		{ label: "Who It's For", href: "/who-its-for" },
 		{ label: "Case Studies", href: "/case-studies" },
-		{ label: "Insights", href: "/insights" },
+		{ label: "Insights", href: "/blog" },
 		{ label: "Contact", href: "/contact" },
 	] satisfies NavLink[],
 	services: [

@@ -1,17 +1,20 @@
-# Article URL redirects (old flat URLs → /insights/ prefix)
-/5-ways-to-find-a-huge-lippafoygle/ /insights/5-ways-to-find-a-huge-lippafoygle/ 301
-/sales-process-6-powerful-reasons-you-need-one/ /insights/sales-process-6-powerful-reasons-you-need-one/ 301
-/do-i-need-a-business-analyst/ /insights/do-i-need-a-business-analyst/ 301
-/digital-marketing-strategies-tips-best-practices/ /insights/digital-marketing-strategies-tips-best-practices/ 301
-/what-digital-marketing-is-what-it-is-not/ /insights/what-digital-marketing-is-what-it-is-not/ 301
-/why-branding-is-important-the-judy-trudy-success-story/ /insights/why-branding-is-important-the-judy-trudy-success-story/ 301
-/seo-tools-for-website-traffic-discover-secrets/ /insights/seo-tools-for-website-traffic-discover-secrets/ 301
-/10-crazy-benefits-of-podcasting-for-your-business/ /insights/10-crazy-benefits-of-podcasting-for-your-business/ 301
-/smart-web-design-for-contractors-in-chandler-arizona/ /insights/smart-web-design-for-contractors-in-chandler-arizona/ 301
-/high-quality-website-design-elevate-your-online-presence/ /insights/high-quality-website-design-elevate-your-online-presence/ 301
-/business-turnaround-strategy-bankrupt-to-12m/ /insights/business-turnaround-strategy-bankrupt-to-12m/ 301
-/my-crazy-business-turnaround-strategy-from-bankrupt-dumpster-fire-to-12-million/ /insights/business-turnaround-strategy-bankrupt-to-12m/ 301
-/creating-a-seamless-brand-experience-how-to-maintain-consistency-across-social-media-channels/ /insights/creating-a-seamless-brand-experience-consistency/ 301
+# Old WordPress article URLs → /blog/ (direct, no chaining)
+/5-ways-to-find-a-huge-lippafoygle/ /blog/5-ways-to-find-a-huge-lippafoygle/ 301
+/sales-process-6-powerful-reasons-you-need-one/ /blog/sales-process-6-powerful-reasons-you-need-one/ 301
+/do-i-need-a-business-analyst/ /blog/do-i-need-a-business-analyst/ 301
+/digital-marketing-strategies-tips-best-practices/ /blog/digital-marketing-strategies-tips-best-practices/ 301
+/what-digital-marketing-is-what-it-is-not/ /blog/what-digital-marketing-is-what-it-is-not/ 301
+/why-branding-is-important-the-judy-trudy-success-story/ /blog/why-branding-is-important-the-judy-trudy-success-story/ 301
+/seo-tools-for-website-traffic-discover-secrets/ /blog/seo-tools-for-website-traffic-discover-secrets/ 301
+/10-crazy-benefits-of-podcasting-for-your-business/ /blog/10-crazy-benefits-of-podcasting-for-your-business/ 301
+/smart-web-design-for-contractors-in-chandler-arizona/ /blog/smart-web-design-for-contractors-in-chandler-arizona/ 301
+/high-quality-website-design-elevate-your-online-presence/ /blog/high-quality-website-design-elevate-your-online-presence/ 301
+/business-turnaround-strategy-bankrupt-to-12m/ /blog/business-turnaround-strategy-bankrupt-to-12m/ 301
+/my-crazy-business-turnaround-strategy-from-bankrupt-dumpster-fire-to-12-million/ /blog/business-turnaround-strategy-bankrupt-to-12m/ 301
+/creating-a-seamless-brand-experience-how-to-maintain-consistency-across-social-media-channels/ /blog/creating-a-seamless-brand-experience-consistency/ 301
+
+# Catch-all: any /insights/* traffic → /blog/*
+/insights/* /blog/:splat 301
 
 # Fractional CMO service URL redirects
 /fractional-cmo/ /services/fractional-cmo/ 301

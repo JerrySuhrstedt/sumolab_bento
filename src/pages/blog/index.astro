@@ -39,7 +39,7 @@ const categories = [
 	<Section tone="white">
 		<div class="grid-3" id="insights-grid">
 			{insights.map((article) => (
-				<a href={`/insights/${article.slug}/`} data-category={article.category} class="article-card">
+				<a href={`/blog/${article.slug}/`} data-category={article.category} class="article-card">
 					<div class="article-img-wrap">
 						<img src={article.imageSrc} alt="" class="article-img" loading="lazy" />
 					</div>
