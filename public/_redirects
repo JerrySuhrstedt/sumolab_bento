@@ -1,69 +1,23 @@
-# 301 redirects from the old sumolab.co (WordPress) URL structure
-# to this site, preserving existing SEO / inbound links.
-
-# Company / about pages
-/about-jerry/ /about/ 301
-/what-is-sumolab/ /about/ 301
-/what-is-a-fractional-marketing-director/ /approach/ 301
-/lp/fractional-marketing-director/ /services/fractional-marketing-director/ 301
-
-# Services (old slug had a city suffix, "service" was singular).
-# The old site's 7 city-variant service pages had a broken copy-paste bug
-# (Chandler's body copy leaked into every other city's page) and were
-# rebuilt from scratch as real, unique pages at /services/[service]/[city]/.
-/service/fractional-cmo-chandler-az/ /services/fractional-cmo/chandler/ 301
-/service/fractional-cmo-phoenix-az/ /services/fractional-cmo/phoenix/ 301
-/service/fractional-cmo-scottsdale-az/ /services/fractional-cmo/scottsdale/ 301
-/service/fractional-marketing-director-chandler-az/ /services/fractional-marketing-director/chandler/ 301
-/service/fractional-marketing-director-phoenix-az/ /services/fractional-marketing-director/phoenix/ 301
-/service/fractional-marketing-director-scottsdale-az/ /services/fractional-marketing-director/scottsdale/ 301
-/service/fractional-marketing-director-tempe-az/ /services/fractional-marketing-director/tempe/ 301
-
-# Individual case studies (slugs were renamed). The old case-studies index
-# was already at /case-studies/, same as the new one, so no redirect needed
-# there — a self-redirect was causing ERR_TOO_MANY_REDIRECTS.
-/case-study/case-study-rebranding-first-products-with-memorable-cartoon-characters/ /case-studies/rebranding-first-products/ 301
-/case-study/case-study-revitalizing-hiline-homes-sales-through-dynamic-marketing-strategies/ /case-studies/hiline-homes-sales-growth/ 301
-/case-study/case-study-seamless-transition-from-marketo-to-salesforce-account-engagement-pardot/ /case-studies/marketo-to-pardot-migration/ 301
-/case-study/case-study-streamlining-altair-globals-reporting-process-with-salesforce-dashboards/ /case-studies/altair-global-reporting/ 301
-/case-study/case-study-turning-failure-into-a-multi-million-dollar-success/ /case-studies/turning-failure-into-success/ 301
-/case-study/case-study-resolving-contractor-shortage-at-stanbrooke-custom-homes/ /case-studies/stanbrooke-contractor-shortage/ 301
-/case-study/case-study-transforming-stanbrooke-custom-homes-sales-process-with-salesforce/ /case-studies/stanbrooke-salesforce-sales-process/ 301
-
-# Blog index -> Insights
-/blog/ /insights/ 301
-
-# Individual blog posts (slug preserved, moved under /insights/)
-/creating-a-seamless-brand-experience-consistency/ /insights/creating-a-seamless-brand-experience-consistency/ 301
+# Article URL redirects (old flat URLs → /insights/ prefix)
+/5-ways-to-find-a-huge-lippafoygle/ /insights/5-ways-to-find-a-huge-lippafoygle/ 301
+/sales-process-6-powerful-reasons-you-need-one/ /insights/sales-process-6-powerful-reasons-you-need-one/ 301
+/do-i-need-a-business-analyst/ /insights/do-i-need-a-business-analyst/ 301
 /digital-marketing-strategies-tips-best-practices/ /insights/digital-marketing-strategies-tips-best-practices/ 301
-/high-quality-website-design-elevate-your-online-presence/ /insights/high-quality-website-design-elevate-your-online-presence/ 301
-/10-crazy-benefits-of-podcasting-for-your-business/ /insights/10-crazy-benefits-of-podcasting-for-your-business/ 301
-/smart-web-design-for-contractors-in-chandler-arizona/ /insights/smart-web-design-for-contractors-in-chandler-arizona/ 301
+/what-digital-marketing-is-what-it-is-not/ /insights/what-digital-marketing-is-what-it-is-not/ 301
 /why-branding-is-important-the-judy-trudy-success-story/ /insights/why-branding-is-important-the-judy-trudy-success-story/ 301
 /seo-tools-for-website-traffic-discover-secrets/ /insights/seo-tools-for-website-traffic-discover-secrets/ 301
-/what-digital-marketing-is-what-it-is-not/ /insights/what-digital-marketing-is-what-it-is-not/ 301
+/10-crazy-benefits-of-podcasting-for-your-business/ /insights/10-crazy-benefits-of-podcasting-for-your-business/ 301
+/smart-web-design-for-contractors-in-chandler-arizona/ /insights/smart-web-design-for-contractors-in-chandler-arizona/ 301
+/high-quality-website-design-elevate-your-online-presence/ /insights/high-quality-website-design-elevate-your-online-presence/ 301
 /business-turnaround-strategy-bankrupt-to-12m/ /insights/business-turnaround-strategy-bankrupt-to-12m/ 301
-/how-a-home-builder-implemented-salesforce-and-boosted-sales/ /insights/how-a-home-builder-implemented-salesforce-and-boosted-sales/ 301
-/do-i-need-a-business-analyst/ /insights/do-i-need-a-business-analyst/ 301
-/5-powerful-reasons-you-need-marketing-automation/ /insights/5-powerful-reasons-you-need-marketing-automation/ 301
-/sales-process-6-powerful-reasons-you-need-one/ /insights/sales-process-6-powerful-reasons-you-need-one/ 301
-/what-business-analysts-do/ /insights/what-business-analysts-do/ 301
-/slack-5-reasons-its-better-for-internal-communication/ /insights/slack-5-reasons-its-better-for-internal-communication/ 301
-/start-your-salesforce-career/ /insights/start-your-salesforce-career/ 301
-/why-your-business-may-need-salesforce/ /insights/why-your-business-may-need-salesforce/ 301
-/5-reasons-your-business-needs-a-crm/ /insights/5-reasons-your-business-needs-a-crm/ 301
-/do-i-need-a-salesforce-consultant/ /insights/do-i-need-a-salesforce-consultant/ 301
-/i-bought-salesforce-now-what/ /insights/i-bought-salesforce-now-what/ 301
-/what-really-is-a-crm/ /insights/what-really-is-a-crm/ 301
-/why-salesforce-is-the-1-crm/ /insights/why-salesforce-is-the-1-crm/ 301
+/my-crazy-business-turnaround-strategy-from-bankrupt-dumpster-fire-to-12-million/ /insights/business-turnaround-strategy-bankrupt-to-12m/ 301
+/creating-a-seamless-brand-experience-how-to-maintain-consistency-across-social-media-channels/ /insights/creating-a-seamless-brand-experience-consistency/ 301
 
-# Legacy pages with no current equivalent (campaign landers, thank-you pages,
-# and one bogus post) — send to the homepage rather than 404, to preserve
-# any residual link equity.
-/thank-you/ / 301
-/thank-you-lead-generation/ / 301
-/lp/ / 301
-/lp-sumolab-admin-services/ / 301
-/lp-sumolab-salesforce-audit/ / 301
-/lp-lead-generation-services-phoenix/ / 301
-/5-ways-to-find-a-huge-lippafoygle/ / 301
+# Fractional CMO service URL redirects
+/fractional-cmo/ /services/fractional-cmo/ 301
+/fractional-cmo-chandler-az/ /services/fractional-cmo/chandler/ 301
+/service/fractional-cmo-scottsdale-az/ /services/fractional-cmo/scottsdale/ 301
+/service/fractional-cmo-phoenix-az/ /services/fractional-cmo/phoenix/ 301
+/service/fractional-marketing-director-phoenix-az/ /services/fractional-marketing-director/phoenix/ 301
+/service/fractional-marketing-director-tempe-az/ /services/fractional-marketing-director/tempe/ 301
+/service/fractional-marketing-director-chandler-az/ /services/fractional-marketing-director/chandler/ 301
