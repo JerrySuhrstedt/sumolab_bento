@@ -1,11 +1,15 @@
 ---
 const faqs = [
 	{
-		q: 'How is this different from hiring a full-time CMO or Marketing Director?',
-		a: 'A full-time CMO costs $150,000–$300,000 per year before benefits and overhead, plus 6–9 months before they\'re fully productive. With SumoLab, you get the same senior-level leadership at a fraction of the cost, productive from week one, with no long-term payroll commitment.',
+		q: 'What is a fractional CMO?',
+		a: 'A fractional CMO — a fractional chief marketing officer — is a senior marketing executive who leads your strategy, budget, vendors, and team on a part-time basis. You get proven marketing leadership and accountability for revenue, without adding a full-time executive to your payroll.',
 	},
 	{
-		q: 'Who is this for?',
+		q: 'What does a fractional CMO cost compared to a full-time hire?',
+		a: 'A full-time CMO costs $150,000–$300,000 per year once salary, benefits, bonuses, and overhead are included, plus 6–9 months before they\'re fully productive. Fractional CMO cost is a fraction of that: you pay only for the leadership time you need, get productivity from week one, and carry no long-term payroll commitment.',
+	},
+	{
+		q: 'Who should hire a fractional CMO?',
 		a: 'Established businesses generating $5M–$50M in revenue that have outgrown tactical marketing but aren\'t ready — or don\'t need — a full-time marketing executive. You likely have a coordinator or an agency, but no one owning the strategy and connecting it to revenue. That\'s the gap I close.',
 	},
 	{
@@ -14,34 +18,49 @@ const faqs = [
 	},
 	{
 		q: 'Will you do the work or just advise?',
-		a: 'Both, in proportion to what\'s needed. I lead the strategy, make the decisions, and own the outcomes. I also step in on systems, CRM, content, and AI implementation when execution is the constraint. The goal is progress, not slide decks.',
+		a: 'Both, in proportion to what\'s needed. I lead the strategy, make the decisions, and own the outcomes — and I step in on systems, CRM, content, and AI implementation when execution is the constraint. When the gap is more operational than executive, a <a href="/services/fractional-marketing-director/">fractional marketing director</a> engagement fits better: same model, closer to the day-to-day.',
 	},
 	{
 		q: 'Is AI actually practical for my business right now?',
-		a: 'For most $5M–$50M businesses, yes — but only when it\'s aimed at the right problem. The companies getting real return from AI aren\'t the ones who bought the most tools. They\'re the ones who had someone with enough business judgment to know where to point them. That\'s what I do.',
+		a: 'For most $5M–$50M businesses, yes — but only when it\'s aimed at the right problem. The companies getting real return from AI aren\'t the ones who bought the most tools; they\'re the ones with someone who knew where to point them. That\'s what I do, within the CMO engagement or as a dedicated <a href="/services/fractional-ai-advisor/">AI marketing consultant</a>.',
 	},
 	{
 		q: 'How quickly will I see results?',
 		a: 'Most clients get strategic clarity within the first 30 days — clear positioning, aligned messaging, a prioritized roadmap. Revenue impact from lead generation typically shows in 60–90 days depending on your sales cycle. The first conversation is free, and I\'ll tell you honestly if this is the right fit.',
 	},
 ];
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqs.map((item) => ({
+		'@type': 'Question',
+		name: item.q,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: item.a.replace(/<[^>]+>/g, ''),
+		},
+	})),
+};
 ---
 <div class="card faq">
 	<div class="eyebrow">FAQs</div>
-	<h2>Common questions.</h2>
+	<h2>Questions about hiring a fractional CMO.</h2>
 	<div class="list">
 		{faqs.map((item) => (
 			<div class="item">
-				<div class="q">{item.q}</div>
-				<div class="a">{item.a}</div>
+				<h3 class="q">{item.q}</h3>
+				<div class="a" set:html={item.a} />
 			</div>
 		))}
 	</div>
 </div>
 
+<script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+
 <div class="final-cta">
 	<h2>Ready to turn your marketing into a revenue engine?</h2>
-	<a href="/contact" class="cta">Book a Strategy Call →</a>
+	<a href="/contact/" class="cta">Book a Strategy Call →</a>
 </div>
 
 <style>

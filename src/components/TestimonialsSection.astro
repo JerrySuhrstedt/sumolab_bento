@@ -11,7 +11,7 @@ import { testimonials } from '../data/testimonials';
 			{testimonials.map((t, i) => (
 				<div class={`tile${i % 5 === 2 ? ' dark' : ''}`}>
 					{t.photoSrc
-						? <img src={t.photoSrc} alt={t.name} class="avatar" loading="lazy" />
+						? <img src={t.photoSrc} alt={`Photo of ${t.name}, ${t.title}`} class="avatar" loading="lazy" />
 						: <div class="avatar-init" aria-hidden="true">{t.name.charAt(0)}</div>
 					}
 					<div class="stars" aria-hidden="true">★★★★★</div>

@@ -10,14 +10,16 @@ import FounderFeatures from '../components/FounderFeatures.astro';
 import FAQCTA from '../components/FAQCTA.astro';
 import { contact } from '../data/contact';
 import { cities } from '../data/cities';
+import { founder } from '../data/founder';
 
 const structuredData = {
 	'@context': 'https://schema.org',
 	'@type': 'ProfessionalService',
 	name: 'SumoLab',
-	description: 'SumoLab provides fractional CMO and marketing leadership for established businesses generating $5M+ in annual revenue.',
-	url: 'https://sumolab-bento.sumolab.workers.dev',
+	description: 'SumoLab provides fractional CMO services and senior marketing leadership for established businesses generating $5M–$50M in annual revenue.',
+	url: 'https://sumolab.co',
 	telephone: contact.phoneHref ?? undefined,
+	email: contact.email ?? undefined,
 	address: contact.location
 		? {
 				'@type': 'PostalAddress',
@@ -26,12 +28,31 @@ const structuredData = {
 				addressCountry: 'US',
 			}
 		: undefined,
-	areaServed: cities.map((city) => ({ '@type': 'City', name: `${city.name}, ${city.state}` })),
+	areaServed: [
+		...cities.map((city) => ({ '@type': 'City', name: `${city.name}, ${city.state}` })),
+		{ '@type': 'Country', name: 'United States' },
+	],
+	sameAs: founder.linkedinUrl ? [founder.linkedinUrl] : undefined,
+	founder: {
+		'@type': 'Person',
+		name: founder.name ?? 'Jerry Suhrstedt',
+		jobTitle: 'Founder & Fractional CMO',
+		sameAs: founder.linkedinUrl ?? undefined,
+		worksFor: { '@type': 'Organization', name: 'SumoLab' },
+	},
+	knowsAbout: [
+		'Fractional CMO services',
+		'Marketing strategy',
+		'Lead generation systems',
+		'AI marketing implementation',
+		'CRM and marketing automation',
+		'Brand positioning and messaging',
+	],
 };
 ---
 <Layout
-	title="Hire a Fractional CMO | SumoLab"
-	description="Ready to hire a fractional CMO? SumoLab brings 28 years of operator experience and practical AI to $5M–$50M businesses. Senior marketing leadership without the full-time cost."
+	title="Hire a Fractional CMO for Your $5M–$50M Business | SumoLab"
+	description="Hire a fractional CMO backed by 28 years of operator experience. SumoLab gives $5M–$50M businesses senior marketing leadership without the full-time cost."
 	structuredData={structuredData}
 	transparentHeader
 >

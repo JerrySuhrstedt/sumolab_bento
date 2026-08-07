@@ -12,48 +12,48 @@ export interface NavItem {
 export const primaryNav: NavItem[] = [
 	{
 		label: "Services",
-		href: "/services",
+		href: "/services/",
 		children: [
-			{ label: "Fractional CMO", href: "/services/fractional-cmo" },
-			{ label: "Fractional Marketing Director", href: "/services/fractional-marketing-director" },
-			{ label: "Fractional AI Advisor", href: "/services/fractional-ai-advisor" },
+			{ label: "Fractional CMO", href: "/services/fractional-cmo/" },
+			{ label: "Fractional Marketing Director", href: "/services/fractional-marketing-director/" },
+			{ label: "Fractional AI Advisor", href: "/services/fractional-ai-advisor/" },
 		],
 	},
 	{
 		label: "About",
-		href: "/about",
+		href: "/about/",
 		children: [
-			{ label: "About Jerry", href: "/about" },
-			{ label: "Approach", href: "/approach" },
-			{ label: "Who It's For", href: "/who-its-for" },
+			{ label: "About Jerry", href: "/about/" },
+			{ label: "Approach", href: "/approach/" },
+			{ label: "Who It's For", href: "/who-its-for/" },
 		],
 	},
-	{ label: "Case Studies", href: "/case-studies" },
-	{ label: "Insights", href: "/blog" },
+	{ label: "Case Studies", href: "/case-studies/" },
+	{ label: "Insights", href: "/blog/" },
 ];
 
 export const primaryCta: NavLink = {
 	label: "Book a Strategy Call",
-	href: "/contact",
+	href: "/contact/",
 };
 
 export const footerNav = {
 	company: [
-		{ label: "About", href: "/about" },
-		{ label: "Approach", href: "/approach" },
-		{ label: "Who It's For", href: "/who-its-for" },
-		{ label: "Case Studies", href: "/case-studies" },
-		{ label: "Insights", href: "/blog" },
-		{ label: "Contact", href: "/contact" },
+		{ label: "About", href: "/about/" },
+		{ label: "Approach", href: "/approach/" },
+		{ label: "Who It's For", href: "/who-its-for/" },
+		{ label: "Case Studies", href: "/case-studies/" },
+		{ label: "Insights", href: "/blog/" },
+		{ label: "Contact", href: "/contact/" },
 	] satisfies NavLink[],
 	services: [
-		{ label: "Fractional CMO", href: "/services/fractional-cmo" },
-		{ label: "Fractional Marketing Director", href: "/services/fractional-marketing-director" },
-		{ label: "Fractional AI Advisor", href: "/services/fractional-ai-advisor" },
+		{ label: "Fractional CMO", href: "/services/fractional-cmo/" },
+		{ label: "Fractional Marketing Director", href: "/services/fractional-marketing-director/" },
+		{ label: "Fractional AI Advisor", href: "/services/fractional-ai-advisor/" },
 	] satisfies NavLink[],
 };
 
 export const legalNav: NavLink[] = [
-	{ label: "Privacy Policy", href: "/privacy" },
-	{ label: "Terms", href: "/terms" },
+	{ label: "Privacy Policy", href: "/privacy/" },
+	{ label: "Terms", href: "/terms/" },
 ];

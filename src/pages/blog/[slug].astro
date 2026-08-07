@@ -71,9 +71,10 @@ if (insight.slug === 'trellivance') {
 }
 ---
 
-<Layout title={`${insight.title} | SumoLab Insights`} description={insight.excerpt} structuredData={structuredData}>
+<Layout title={insight.seoTitle ?? `${insight.title} | SumoLab Insights`} description={insight.excerpt} structuredData={structuredData}>
 	<PageHero
 		image={insight.imageSrc}
+		imageAlt={insight.title}
 		eyebrow={`${insight.category} · ${publishedDate}`}
 		align="left"
 	>
@@ -84,7 +85,7 @@ if (insight.slug === 'trellivance') {
 	<Section tone="white">
 		<div class="article-wrap">
 			<div class="article-header">
-				<h2 class="page-h2">{insight.title}</h2>
+				<p class="page-h2" style="margin:0">{insight.title}</p>
 				<p class="lede">{insight.excerpt}</p>
 				<div class="byline">
 					{founder.headshotSrc && (
@@ -102,7 +103,7 @@ if (insight.slug === 'trellivance') {
 			</div>
 			<div class="article-body">
 				{insight.body.map((para) =>
-					para.startsWith('<h3')
+					para.startsWith('<h3') || para.startsWith('<h2')
 						? <Fragment set:html={para} />
 						: <p class="lede" set:html={para}></p>
 				)}
@@ -172,7 +173,8 @@ if (insight.slug === 'trellivance') {
 		flex-direction: column;
 		gap: 20px;
 	}
-	.article-body h3 {
+	.article-body :global(h2),
+	.article-body :global(h3) {
 		font-family: var(--font-display);
 		font-weight: 600;
 		font-size: 1.25rem;

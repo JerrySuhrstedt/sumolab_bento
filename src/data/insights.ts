@@ -1,6 +1,7 @@
 export interface InsightArticle {
 	slug: string;
 	title: string;
+	seoTitle?: string;
 	imageSrc: string;
 	category: string;
 	publishedAt: string;
@@ -443,34 +444,6 @@ export const insights: InsightArticle[] = [
 			`A Salesforce consulting partner is a certified administrator who solves problems and proposes new solutions for a business, brought in on a contract or hourly basis rather than as a full-time employee, and able to interact with a team as much or as little as a given project needs. Once you've purchased a license, <a href="/blog/i-bought-salesforce-now-what/">what to do after buying Salesforce</a> covers the first decisions a new customer typically faces.`,
 			`<h3>Not All Partners Are Equal</h3>`,
 			`Not every partner is equal: Salesforce requires applicants to meet specific criteria and agree to the Consulting Partner Program terms before becoming a certified partner, and partner tiers are ranked by a Trailblazer Score that measures innovation, growth, customer success, and impact. A well-executed implementation can move the needle significantly — see how <a href="/blog/how-a-home-builder-implemented-salesforce-and-boosted-sales/">a home builder's Salesforce project drove 50% sales growth</a> year over year. If you're building toward an independent consulting career, read more about <a href="/blog/start-your-salesforce-career/">how to start a Salesforce career</a>.`,
-		],
-	},
-	{
-		slug: "5-ways-to-find-a-huge-lippafoygle",
-		imageSrc: "/blog/seo-tools-for-website-traffic-discover-secrets.jpg",
-		title: "5 Ways to Find a Huge Lippafoygle",
-		category: "Digital Marketing",
-		publishedAt: "2024-06-27",
-		excerpt:
-			"We invented a word. Then we ranked #1 for it in 7 days. Here's what that experiment proves about how SEO actually works.",
-		body: [
-			`In the deep, enchanted woods of Whimsyland, where trees whisper secrets and rivers sing lullabies, there exists a creature so rare that its very name evokes a sense of wonder and delight. This creature is none other than the legendary Lippafoygle.`,
-			`Standing at approximately three feet tall, it has a fluffy, iridescent coat that shimmers with all the colors of the rainbow. Its eyes are as large as saucers, brimming with mischief and curiosity, and its ears — which resemble oversized tulip petals — twitch at the slightest sound. Its long tail ends in a glowing orb that changes color with its mood: bright yellow when happy, deep blue when sad.`,
-			`<h3>Wait — Why Did We Write a Children's Story?</h3>`,
-			`Fair question. Before we published this article, if you searched "Lippafoygle" in Google, you'd get zero results. The word didn't exist. We made it up.`,
-			`Then we wrote this story. Within seven days, we were ranking #1 for it.`,
-			`That's the point. This entire piece is an SEO experiment designed to show exactly how <a href="/blog/seo-tools-for-website-traffic-discover-secrets/">search engine optimization works</a> — even for a brand-new keyword that has never existed before. Google found the page, indexed it, and ranked it. Not because of tricks or black-hat tactics. Because of well-structured, original content on a site that Google trusts.`,
-			`<h3>What This Proves About SEO</h3>`,
-			`<strong>Content + structure + credibility = rankings.</strong> The mechanics are the same whether you're targeting "Lippafoygle" or "hire fractional CMO." Google needs to be able to crawl your page, understand what it's about, confirm that the site is legitimate, and match your content to a search query. That's the whole algorithm in plain English.`,
-			`Most businesses overcomplicate it. They spend money on technical audits for sites that haven't earned authority, or they publish content with no clear keyword target. The Lippafoygle experiment cuts through all of that. Start with a specific topic. Write something original. Publish it on a trustworthy site. <a href="/blog/digital-marketing-strategies-tips-best-practices/">Good SEO strategy</a> isn't magic — it's consistent, deliberate execution.`,
-			`<h3>The Bigger Lesson</h3>`,
-			`If you can rank for a word you invented, you can rank for the words your customers are actually searching. The constraint isn't Google's algorithm — it's whether your site has the authority and your content has the quality to deserve the ranking. That's a leadership and strategy problem, not a technical one. It's exactly the kind of problem a <a href="/services/fractional-cmo/">Fractional CMO</a> is built to solve.`,
-		],
-		keyPoints: [
-			"We invented a word, published an article, and ranked #1 for it within 7 days",
-			"SEO works when content is original, well-structured, and published on a credible site",
-			"The algorithm is the same for made-up keywords as real commercial ones — content + structure + authority",
-			"Most SEO failures are strategy failures, not technical ones",
 		],
 	},
 	{
@@ -3081,6 +3054,7 @@ export const insights: InsightArticle[] = [
 		`Donald Miller: <em>Building a StoryBrand</em>`,
 		`Unbounce: CTA Conversion Study`,
 		`Nielsen Trust in Advertising Report`,
+		`Your home page has one job: reach the moment of genuine relevance before the visitor leaves — what I now call <a href="/blog/trellivance/">trellivance</a>. And if you want senior help applying this formula to your site, that's exactly the kind of work my <a href="/services/fractional-cmo/">fractional CMO service</a> covers.`,
 		],
 	},
 	{
@@ -3131,6 +3105,7 @@ export const insights: InsightArticle[] = [
 		`It’s not always easy. But neither is job hunting. The difference? When you build a consulting business, every step forward is <em>yours</em>… and that’s a whole lot better than waiting around for an interview that may never come.`,
 		`So what’s stopping you?`,
 		`Drop a comment if you’re thinking about making the leap... I’d love to hear your thoughts.`,
+		`I've lived this path myself — twelve companies over 28 years, the last chapter of which became SumoLab. The full story is on the <a href="/about/">about page</a>.`,
 		],
 	},
 	{
@@ -3245,6 +3220,7 @@ export const insights: InsightArticle[] = [
 		`Entrepreneurship is a wild ride, full of ups and downs, but with the right mindset and strategies, you can navigate the challenges and come out on top. If you’re ready to take your business to the next level, sign up for my newsletter. I share insights, tips, and stories like this one to help entrepreneurs like you build, grow, and thrive.`,
 		`So, what are you waiting for? Let’s tackle those business challenges together!`,
 		`SumoLab · Total Business Marketing · Jerry-Rigged Business Marketing Podcast`,
+		`That turnaround is one of several documented in SumoLab's <a href="/case-studies/">case studies</a>. If your business needs the same kind of marketing leadership, here's what it looks like to <a href="/">hire a fractional CMO</a>.`,
 		],
 	},
 	{
@@ -3570,6 +3546,7 @@ export const insights: InsightArticle[] = [
 		`<strong>Outro</strong>`,
 		`Thank you for reading! Stay tuned for my next article on Business Analyst fundamentals, especially for Salesforce Administrators aspiring to delve into BA work.`,
 		`Remember, in the world of business and technology, staying informed and adaptable is key to staying ahead.`,
+		`Choosing the platform is half the battle — making it pay is the other half. See <a href="/blog/5-reasons-your-business-needs-a-crm/">5 Reasons Your Business Needs a CRM</a>, and if you want AI and automation aimed at the problems that actually move profit, that's what an <a href="/services/fractional-ai-advisor/">AI marketing consultant</a> is for.`,
 		],
 	},
 	{
@@ -3636,7 +3613,7 @@ export const insights: InsightArticle[] = [
 		`<strong>Don’t forget to rate, review, and subscribe! Go to </strong><a href="https://sumolab.co" target="_blank"><strong>https://sumolab.co</strong></a><strong> to learn more! You can also hear Jerry-Rigged at: </strong><a href="https://jerryrigged.me" target="_blank"><strong>https://jerryrigged.me</strong></a><strong> Leave Some Feedback:</strong>`,
 		`What should we talk about next? Please let us know in the comments below`,
 		`Did you enjoy this episode? If so, please leave a short review.`,
-		`Connect with Us:&nbsp;Jerry's Salesforce, CRM &amp; Technology consultancy: <a href="https://sumolab.coLinkedIn" target="_blank">https://sumolab.coLinkedIn</a>: https://www.linkedin.com/in/jerrysuhrstedtLinkedIn: https://www.linkedin.com/company/getsumolab`,
+		`Connect with Us:&nbsp;Jerry's Salesforce, CRM &amp; Technology consultancy: <a href="https://sumolab.co">sumolab.co</a>: https://www.linkedin.com/in/jerrysuhrstedtLinkedIn: https://www.linkedin.com/company/getsumolab`,
 		`Listen on: Apple Podcasts · Spotify · Google Podcasts`,
 		`SumoLab · Salesforce · Salesforce News, Jobs &amp; Blog`,
 		],
@@ -3658,7 +3635,6 @@ export const insights: InsightArticle[] = [
 		`🌳 Visualize a tree, with certifications forming the sturdy roots and bedrock, while the extensive, multi-faceted professional journey constructs the expansive branches, adorned with leaves of sagacity. This harmony ensures Salesforce tools are wielded not just for adeptness but for seasoned, insightful business strategies. 🌲🛠️`,
 		`In this digital realm of data scrutiny and interpretation, where a universal solution is nothing but a fable, the fusion of time-honed skill and accredited learning emerges as an incomparable forte.📊🎯`,
 		`So, here's a salute 🥂 to the seasoned, wise, and resilient Salesforce Business Analysts among us. We dive into the data ocean with an age-refined tenacity, merging an undying fervor for learning with the erudition time has gifted us, ensuring our influence resonates deeply within every endeavor we undertake! 🚀🌟`,
-		`<a href="https://lnkd.in/gNbr2hwR.Clicked" target="_blank">https://lnkd.in/gNbr2hwR.Clicked</a>`,
 		],
 	},
 	{
@@ -3750,6 +3726,7 @@ export const insights: InsightArticle[] = [
 		`We are perpetually connected to mobile devices, advertising, television, and the Internet.&nbsp;We are bombarded by constant advertising with everyone screaming to buy their product.&nbsp;In order to be heard, and get your product noticed, you have to make a lot of noise and do it every single day.`,
 		`Small business marketing takes time and patience and before you know it, customers will start trickling in, then that trickle becomes a steady flow.`,
 		`Next thing you know, you’ll be taking frequent vacations to Hawaii.`,
+		`These fundamentals haven't changed — but executing them consistently takes leadership. That's the gap a <a href="/services/fractional-marketing-director/">fractional marketing director</a> closes for growing businesses. For more of the foundations, see <a href="/blog/tried-and-true-marketing-basics/">Tried &amp; True Marketing Basics</a>.`,
 		],
 	},
 	{
@@ -3778,6 +3755,7 @@ export const insights: InsightArticle[] = [
 		`Benjamin Franklin said: "If you fail to plan, you are planning to fail".`,
 		`Your marketing strategy and implementation of that strategy via tactics are tried and true fundamentals that have been around for hundreds of years.&nbsp;The only thing that has really changed is the tactics to reach your target audience. (think Internet)`,
 		`Ignore at your peril.`,
+		`If the basics are where you're stuck, start with the <a href="/blog/small-business-marketing-startup-guide/">Small Business Marketing Startup Guide</a> — and when you're ready for someone to own the whole function, that's what a <a href="/services/fractional-cmo/">fractional CMO</a> does.`,
 		],
 	},
 	{
@@ -3801,6 +3779,7 @@ export const insights: InsightArticle[] = [
 		`In many organizations, ownership and upper management can get blinded by their brilliance. I mean hey... we got the company to where it is now, aren't we brilliant? When management gets this type of attitude, your days are numbered. Gary Vaynerchuk touts the old adage: "Innovate or die!" Innovation comes with everyone chipping in ideas, and by listening to more ideas from outside sources. In my opinion, when upper management doesn't want to change and doesn't want to listen, it's time to retire upper management.`,
 		`So what happens next? Well, I sincerely hope this company wakes up to smell the roses as they have a long rich history. But typically what happens is one of their competitors will notice they are asleep at the wheel and begin to chip away at their account base. Next thing you know their industry rankings begin to slip, they lose accounts, and then it becomes a slippery slope.`,
 		`Just ask Blockbuster Video and ToysRUs.`,
+		`Real leadership shows up in the numbers. If your marketing function needs an executive at the table — without the executive payroll — that's the case for <a href="/services/fractional-cmo/">fractional CMO services</a>.`,
 		],
 	},
 
@@ -3845,25 +3824,33 @@ export const insights: InsightArticle[] = [
 		`<h3>Uhhh, now why did you guys post this article?</h3>`,
 		`You may ask, why did we write this article? To illustrate a point about Search Engine Optimization (SEO) and how it works, we created a word that was totally made up. In other words, before we started if you had did a search on the keyword "Lippafoygle", Google would have show zero results.`,
 		`So we used that keyword for our test. Within 7 days we were ranking for that keyword. The story? We simply asked ChatGPT to write a fictitious children's story about a Lippafoygle… voila!`,
+		`P.S. We liked this experiment so much we ran it again — this time with a word for the moment marketing finally lands: <a href="/blog/trellivance/">trellivance</a>. And if you'd rather point this kind of thinking at the keywords your customers actually search, that's a <a href="/services/fractional-cmo/">fractional CMO</a> conversation.`,
+		],
+		keyPoints: [
+			"We invented a word, published an article, and ranked #1 for it within 7 days",
+			"SEO works when content is original, well-structured, and published on a credible site",
+			"The algorithm is the same for made-up keywords as real commercial ones — content + structure + authority",
+			"Most SEO failures are strategy failures, not technical ones",
 		],
 	},
 
 	{
 		slug: "trellivance",
+		seoTitle: "Trellivance: When Marketing Finally Lands | SumoLab",
 		imageSrc: "/blog/trellivance.jpg",
 		title: "Trellivance: The Word for the Moment Your Marketing Finally Lands",
 		category: "Marketing & Growth",
 		publishedAt: "2026-08-07",
 		excerpt: "Trellivance (noun): the point at which a message becomes genuinely relevant. What the new marketing term means, why it matters, and how to reach trellivance sooner.",
 		body: [
-		`Trellivance is the word I coined for the moment a marketing message finally lands. After <a href="/about">28 years of building businesses</a>, I've watched more good companies lose to bad messaging than to bad products. The product works. The service is real. The team is capable. And still the marketing falls flat — not because the message is wrong, but because it never reaches the one moment that matters. There wasn't a clean word for that moment, so I made one.`,
+		`Trellivance is the word I coined for the moment a marketing message finally lands. After <a href="/about/">28 years of building businesses</a>, I've watched more good companies lose to bad messaging than to bad products. The product works. The service is real. The team is capable. And still the marketing falls flat — not because the message is wrong, but because it never reaches the one moment that matters. There wasn't a clean word for that moment, so I made one.`,
 		`<strong>Trellivance</strong> <em>(treh-LIV-ance)</em> — noun. The point at which a message becomes genuinely relevant.`,
 		`Not relevant in the box-ticking, technically-on-topic sense. Genuinely relevant — the instant a message stops being about your company and becomes about the person reading it, right now, in a way they can feel. Everything before that instant is noise. Everything after it is possibility. The whole job of marketing is getting the reader to that point before they leave.`,
 		`The word is built on purpose. "Trelli-" borrows the shape of <em>trellis</em> — a structure a growing thing climbs and takes form on. "-vance" pulls from <em>relevance</em>, <em>resonance</em>, and <em>advance</em>. Put together, it means exactly what it says: the structured moment a message climbs into relevance and moves the reader forward.`,
-		`<h3>Why We Needed a Word for Trellivance</h3>`,
+		`<h2>Why We Needed a Word for Trellivance</h2>`,
 		`Naming a thing changes how you work with it. Before "user experience" was a phrase, teams shipped confusing products with no shared way to point at the problem. A precise word turns a vague feeling into something you can measure, discuss, and deliberately engineer.`,
 		`"Make it more relevant" is the kind of feedback that means nothing, because it points at a whole atmosphere instead of a specific event. Relevance is a <em>state</em>. Trellivance is a <em>moment</em> — the exact point where the fog burns off and the reader sees themselves in your words. You can't optimize a state directly. You can optimize the moment you reach it. You can make it come sooner, hit harder, and happen more often. That distinction is the difference between marketing you can only critique and marketing you can actually fix.`,
-		`<h3>How to Use Trellivance</h3>`,
+		`<h2>How to Use Trellivance</h2>`,
 		`Trellivance is a noun for the moment itself, and it flexes into a small, useful word family:`,
 		`<strong>Trellivance</strong> <em>(noun)</em> — the point of genuine relevance. <em>"The email didn't hit trellivance until the third paragraph — two paragraphs too late."</em>`,
 		`<strong>Trellivant</strong> <em>(adjective)</em> — having reached that point. <em>"That opening line is instantly trellivant."</em>`,
@@ -3872,7 +3859,7 @@ export const insights: InsightArticle[] = [
 		`<strong>As a diagnostic.</strong> Instead of "this copy is weak," you ask a precise question — where does this hit trellivance, and how long does it take to get there? Most underperforming marketing has the same disease: trellivance arrives too late, buried under company history, credentials, and throat-clearing. Name the moment and you can drag it to the front.`,
 		`<strong>As a metric.</strong> Time-to-trellivance is a real thing you can shorten. A great cold email reaches it in the first line. A great landing page reaches it before the fold. A great pitch reaches it before the prospect's patience runs out. "How fast do we hit trellivance?" is a sharper question than "is this good?"`,
 		`<strong>As a shared language for your team.</strong> "Make it pop" is untestable. "This section doesn't reach trellivance until the reader has already scrolled past it" is a note someone can act on Monday morning.`,
-		`<h3>What Trellivance Looks Like in Practice</h3>`,
+		`<h2>What Trellivance Looks Like in Practice</h2>`,
 		`Let me show you with an illustration — a composite of a pattern I've seen play out in dozens of companies. Call the company DeskDrop: software that automatically files and tags the messy attachments piling up in a support team's inbox. Real problem, real product, and for months, almost no traction.`,
 		`Here's how their cold outreach opened:`,
 		`<em>"Hi {Name}, I'm the founder of DeskDrop, an AI-powered document management platform that leverages intelligent tagging to streamline your operational workflows. We work with companies like yours to optimize efficiency..."</em>`,
@@ -3881,11 +3868,11 @@ export const insights: InsightArticle[] = [
 		`<em>"Hi {Name} — quick guess: your support team has a shared inbox with about 300 unfiled attachments in it right now, and nobody wants to be the one to sort them. That specific pile is the thing we make disappear. Worth two minutes?"</em>`,
 		`Same founder. Same product. Same length. The reply rate went from a rounding error to double digits. The only thing that changed was <em>when</em> the message reached trellivance. The first version delayed it forever behind a wall of self-description. The second reached it in the first sentence — "300 unfiled attachments nobody wants to sort" — because that line isn't about the software. It's about the reader's actual, specific, felt reality. The moment she recognizes her own inbox in those words, the message becomes trellivant, and a trellivant message gets a reply.`,
 		`That team started using the word as a working tool. Every draft got the same edit note: <em>where's the trellivance, and why isn't it in line one?</em> Their <a href="/blog/ultimate-home-page-formula-stop-guessing/">homepage got the same treatment</a> — they cut three paragraphs of company history off the top and led with the customer's problem. Time on page climbed. One word gave them a single, sharp target instead of a vague instruction to "be more compelling."`,
-		`<h3>The One Question Worth Stapling to Your Desk</h3>`,
+		`<h2>The One Question Worth Stapling to Your Desk</h2>`,
 		`Every message you send is a race between two clocks: the reader's patience running down, and your message climbing toward relevance. Trellivance is the moment those two lines cross. Win that race and you get read, remembered, and answered. Lose it and it genuinely does not matter how good your product, your offer, or your prose is — nobody got far enough to find out.`,
 		`So for every email, headline, landing page, and pitch, ask the same thing:`,
 		`<strong>Where does this hit trellivance — and can I make it happen sooner?</strong>`,
-		`That's the word. Steal it, use it, <a href="/services/fractional-marketing-director/">build better messages</a> with it. And the next time a piece of marketing just won't land, you'll finally have the language to say exactly what's wrong: it never reached trellivance.`,
+		`That's the word. Steal it, use it, <a href="/services/fractional-marketing-director/">build better messages</a> with it. And the next time a piece of marketing just won't land, you'll finally have the language to say exactly what's wrong: it never reached trellivance. (And if you're wondering whether an article about a coined word can even rank in search — we've <a href="/blog/5-ways-to-find-a-huge-lippafoygle/">run that experiment before</a>.)`,
 		],
 		keyPoints: [
 			"Trellivance (noun): the point at which a message becomes genuinely relevant to the reader.",
