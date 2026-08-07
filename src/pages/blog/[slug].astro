@@ -21,9 +21,57 @@ const publishedDate = new Date(insight.publishedAt).toLocaleDateString('en-US', 
 	day: 'numeric',
 	timeZone: 'UTC',
 });
+
+const articleUrl = new URL(`/blog/${insight.slug}/`, Astro.site).toString();
+const structuredData: Record<string, unknown>[] = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BlogPosting',
+		headline: insight.title,
+		description: insight.excerpt,
+		image: new URL(insight.imageSrc, Astro.site).toString(),
+		datePublished: insight.publishedAt,
+		author: {
+			'@type': 'Person',
+			name: founder.name,
+			jobTitle: 'Fractional CMO',
+			url: new URL('/about', Astro.site).toString(),
+		},
+		publisher: {
+			'@type': 'Organization',
+			name: 'SumoLab',
+			url: Astro.site?.toString(),
+			logo: {
+				'@type': 'ImageObject',
+				url: new URL('/logos/sumolab-bento.svg', Astro.site).toString(),
+			},
+		},
+		mainEntityOfPage: articleUrl,
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'Home', item: Astro.site?.toString() },
+			{ '@type': 'ListItem', position: 2, name: 'Insights', item: new URL('/blog/', Astro.site).toString() },
+			{ '@type': 'ListItem', position: 3, name: insight.title, item: articleUrl },
+		],
+	},
+];
+
+if (insight.slug === 'trellivance') {
+	structuredData.push({
+		'@context': 'https://schema.org',
+		'@type': 'DefinedTerm',
+		name: 'Trellivance',
+		description:
+			'Trellivance (noun, treh-LIV-ance): the point at which a message becomes genuinely relevant — the moment a marketing message stops being about the company and becomes about the person reading it. Coined by Jerry Suhrstedt of SumoLab.',
+		url: articleUrl,
+	});
+}
 ---
 
-<Layout title={`${insight.title} | SumoLab Insights`} description={insight.excerpt}>
+<Layout title={`${insight.title} | SumoLab Insights`} description={insight.excerpt} structuredData={structuredData}>
 	<PageHero
 		image={insight.imageSrc}
 		eyebrow={`${insight.category} · ${publishedDate}`}
