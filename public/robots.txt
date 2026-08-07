@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://sumolab.co/sitemap_index.xml
 Sitemap: https://sumolab.co/sitemap-index.xml
