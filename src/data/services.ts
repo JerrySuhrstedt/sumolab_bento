@@ -86,7 +86,7 @@ export const fractionalCMO: Service = {
 		{
 			title: "Team and vendor direction",
 			description:
-				"You stop managing marketing like a collection of projects. We lead the function, set priorities, run cadence, and keep execution moving across internal staff and outside partners.",
+				"You stop managing marketing like a collection of projects. I lead the function, set priorities, run cadence, and keep execution moving across internal staff and outside partners.",
 		},
 		{
 			title: "Performance tracking and optimization",
@@ -305,7 +305,7 @@ export const fractionalAIAdvisor: Service = {
 	howItWorks: [
 		"Start with a full read of your business — finance, operations, marketing, sales, HR — to find where AI can actually move profit.",
 		"Get a focused starting point and an AI marketing strategy within the first weeks, not a 40-page roadmap.",
-		"I put the tools to work directly and prove the return before we expand further.",
+		"I put the tools to work directly and prove the return before I expand further.",
 		"Scale to the next highest-payoff area once the first one is earning its keep.",
 	],
 	outcomes: [
@@ -334,7 +334,7 @@ export const fractionalAIAdvisor: Service = {
 		{
 			question: "What does AI adoption for marketing teams look like in practice?",
 			answer:
-				"It usually starts with repetitive, high-volume work: content drafting, campaign reporting, lead follow-up, and research. We pick marketing AI tools that fit your existing stack, train the team on real workflows, and measure time and cost before and after — so adoption is proven, not assumed.",
+				"It usually starts with repetitive, high-volume work: content drafting, campaign reporting, lead follow-up, and research. I pick marketing AI tools that fit your existing stack, train your team on real workflows, and measure time and cost before and after — so adoption is proven, not assumed.",
 		},
 		{
 			question: "How is this different from a fractional CMO or fractional marketing director?",
