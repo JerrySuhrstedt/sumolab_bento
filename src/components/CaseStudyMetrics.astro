@@ -39,15 +39,8 @@ const metrics = [
 	<div class="metrics">
 		{metrics.map((m) => (
 			<div class="metric">
-				<div class="number-row">
-					{m.before && (
-						<>
-							<span class="num before">{m.before}</span>
-							<span class="arrow" aria-hidden="true">→</span>
-						</>
-					)}
-					<span class="num after">{m.after}</span>
-				</div>
+				<p class="was">{m.before ? `Was ${m.before}` : ' '}</p>
+				<span class="num after">{m.after}</span>
 				<p class="unit">{m.unit}</p>
 				<p class="client">{m.client} · {m.context}</p>
 			</div>
@@ -115,33 +108,22 @@ const metrics = [
 		padding: 32px 28px;
 	}
 
-	.number-row {
-		display: flex;
-		align-items: baseline;
-		gap: 10px;
-		flex-wrap: wrap;
-		margin-bottom: 4px;
+	.was {
+		font-family: var(--font-body);
+		font-size: 13px;
+		color: rgba(255, 255, 255, 0.4);
+		margin: 0 0 8px;
+		line-height: 1.3;
 	}
 
 	.num {
 		font: var(--text-stat);
 		line-height: 1;
+		display: block;
 	}
 
 	.num.after {
 		color: var(--orange-500);
-	}
-
-	.num.before {
-		color: rgba(255, 255, 255, 0.22);
-		font-size: 42px;
-	}
-
-	.arrow {
-		color: rgba(255, 255, 255, 0.2);
-		font-size: 22px;
-		font-weight: 300;
-		line-height: 1;
 	}
 
 	.unit {
