@@ -13,15 +13,17 @@ const features = [
 ];
 ---
 <div class="card about">
-	<img src="/team/jerry-suhrstedt.png" alt="Jerry Suhrstedt, founder and fractional CMO at SumoLab" class="portrait" />
-	<div>
+	<div class="portrait-wrap">
+		<img src="/team/jerry-suhrstedt-cutout.png" alt="Jerry Suhrstedt, founder and fractional CMO at SumoLab" class="portrait" />
+	</div>
+	<div class="about-content">
 		<div class="eyebrow">About</div>
 		<h2>28 years of running businesses. Not advising about them.</h2>
 		<p>
 			28 years of building, running, and rescuing companies — twelve of them — across marketing,
 			technology, construction, and professional services. Fractional CMO and marketing operator
 			who uses AI to help $5M–$50M businesses grow faster than their competition. Based in
-			Chandler, Arizona — if you're searching for a
+			Chandler, Arizona — if you're searching for a{' '}
 			<a href="/fractional-cmo-near-me/">fractional CMO near you</a>, start there.
 		</p>
 		<a href="/about/" class="link">About Jerry →</a>
@@ -68,16 +70,26 @@ const features = [
 		color: #fff;
 		display: grid;
 		grid-template-columns: 1fr 1.2fr;
-		gap: 40px;
-		align-items: center;
+		align-items: stretch;
+		min-height: 480px;
+		padding: 0;
+		overflow: hidden;
+	}
+	.portrait-wrap {
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		height: 100%;
 	}
 	.portrait {
+		display: block;
 		width: 100%;
-		aspect-ratio: 1 / 1;
-		height: auto;
-		object-fit: cover;
-		border-radius: var(--radius-md);
-		background: var(--grey-400);
+		height: 100%;
+		object-fit: contain;
+		object-position: bottom center;
+	}
+	.about-content {
+		padding: 48px 48px 48px 0;
 	}
 	.about p {
 		font-size: 15px;
@@ -127,8 +139,15 @@ const features = [
 	@media (max-width: 780px) {
 		.about {
 			grid-template-columns: 1fr;
+			min-height: 0;
 		}
-		.card {
+		.portrait-wrap {
+			height: 360px;
+		}
+		.about-content {
+			padding: 32px 24px;
+		}
+		.features {
 			padding: 32px 24px;
 		}
 		h2 {
