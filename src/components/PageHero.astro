@@ -10,19 +10,25 @@ interface Props {
 
 const { image, mobileImage, imageAlt = "", eyebrow, align = "left", imagePosition = "center" } = Astro.props;
 const srcset = mobileImage ? `${mobileImage} 800w, ${image} 1600w` : undefined;
+const sizes = srcset ? "(min-width: 1260px) 1180px, 100vw" : undefined;
+const toWebp = (path: string) => path.replace(/\.jpe?g$/i, ".webp");
+const webpSrcset = mobileImage ? `${toWebp(mobileImage)} 800w, ${toWebp(image)} 1600w` : undefined;
 ---
 
 <section class="page-hero-wrap">
 	<div class:list={["page-hero", align]}>
-		<img
-			src={image}
-			srcset={srcset}
-			sizes={srcset ? "(min-width: 1260px) 1180px, 100vw" : undefined}
-			alt={imageAlt}
-			class="bg"
-			style={`object-position: ${imagePosition}`}
-			fetchpriority="high"
-		/>
+		<picture>
+			{webpSrcset && <source type="image/webp" srcset={webpSrcset} sizes={sizes} />}
+			<img
+				src={image}
+				srcset={srcset}
+				sizes={sizes}
+				alt={imageAlt}
+				class="bg"
+				style={`object-position: ${imagePosition}`}
+				fetchpriority="high"
+			/>
+		</picture>
 		<div class="overlay" aria-hidden="true"></div>
 		<div class="content">
 			<p class="eyebrow">

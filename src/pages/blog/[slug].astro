@@ -90,9 +90,12 @@ if (insight.slug === 'trellivance') {
 				<div class="byline">
 					{founder.headshotSrc && (
 						<img
-							src={founder.headshotSrc}
+							src="/team/jerry-suhrstedt-avatar.webp"
 							alt={founder.name && founder.title ? `${founder.name}, ${founder.title}` : founder.name ?? 'Author'}
 							class="byline-avatar"
+							loading="lazy"
+							width="48"
+							height="48"
 						/>
 					)}
 					<div>

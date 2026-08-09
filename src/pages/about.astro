@@ -46,6 +46,7 @@ import { founder } from '../data/founder';
 					src={founder.headshotSrc ?? undefined}
 					alt={founder.name && founder.title ? `${founder.name}, ${founder.title}` : founder.name ?? 'Founder'}
 					class="founder-photo"
+					loading="lazy"
 				/>
 			</div>
 			<div>
