@@ -47,11 +47,14 @@ const faqSchema = {
 	<div class="eyebrow">FAQs</div>
 	<h2>Questions about hiring a fractional CMO.</h2>
 	<div class="list">
-		{faqs.map((item) => (
-			<div class="item">
-				<h3 class="q">{item.q}</h3>
+		{faqs.map((item, index) => (
+			<details class="item" open={index === 0}>
+				<summary class="q">
+					<span>{item.q}</span>
+					<span class="icon" aria-hidden="true">+</span>
+				</summary>
 				<div class="a" set:html={item.a} />
-			</div>
+			</details>
 		))}
 	</div>
 </div>
@@ -90,21 +93,38 @@ const faqSchema = {
 	.list {
 		display: flex;
 		flex-direction: column;
+		border-top: 1px solid var(--hairline);
 	}
 	.item {
 		padding: 18px 0;
-		border-top: 1px solid var(--hairline);
-	}
-	.item:last-child {
 		border-bottom: 1px solid var(--hairline);
 	}
 	.q {
+		cursor: pointer;
+		list-style: none;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
 		font-family: var(--font-display);
 		font-weight: 600;
 		font-size: 16px;
-		margin-bottom: 8px;
+		color: var(--text-primary);
+	}
+	.q::-webkit-details-marker {
+		display: none;
+	}
+	.icon {
+		color: var(--orange-500);
+		font-size: 20px;
+		flex-shrink: 0;
+		transition: transform 0.2s ease;
+	}
+	.item[open] .icon {
+		transform: rotate(45deg);
 	}
 	.a {
+		margin: 12px 0 0;
 		font-size: 14px;
 		line-height: 1.6;
 		color: var(--text-secondary);
