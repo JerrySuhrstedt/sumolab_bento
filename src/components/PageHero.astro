@@ -1,18 +1,28 @@
 ---
 interface Props {
 	image: string;
+	mobileImage?: string;
 	imageAlt?: string;
 	eyebrow: string;
 	align?: "left" | "right";
 	imagePosition?: string;
 }
 
-const { image, imageAlt = "", eyebrow, align = "left", imagePosition = "center" } = Astro.props;
+const { image, mobileImage, imageAlt = "", eyebrow, align = "left", imagePosition = "center" } = Astro.props;
+const srcset = mobileImage ? `${mobileImage} 800w, ${image} 1600w` : undefined;
 ---
 
 <section class="page-hero-wrap">
 	<div class:list={["page-hero", align]}>
-		<img src={image} alt={imageAlt} class="bg" style={`object-position: ${imagePosition}`} fetchpriority="high" />
+		<img
+			src={image}
+			srcset={srcset}
+			sizes={srcset ? "(min-width: 1260px) 1180px, 100vw" : undefined}
+			alt={imageAlt}
+			class="bg"
+			style={`object-position: ${imagePosition}`}
+			fetchpriority="high"
+		/>
 		<div class="overlay" aria-hidden="true"></div>
 		<div class="content">
 			<p class="eyebrow">
