@@ -12,6 +12,7 @@ import { founder } from '../data/founder';
 >
 	<PageHero
 		image="/photos/about-hero.jpg"
+		imageAlt="Jerry Suhrstedt, fractional CMO and founder of SumoLab, working in his Chandler, Arizona office"
 		eyebrow="About"
 		align="left"
 		imagePosition="65% top"
@@ -42,7 +43,7 @@ import { founder } from '../data/founder';
 			<div>
 				<img
 					src={founder.headshotSrc ?? undefined}
-					alt={founder.name ?? 'Founder'}
+					alt={founder.name && founder.title ? `${founder.name}, ${founder.title}` : founder.name ?? 'Founder'}
 					class="founder-photo"
 				/>
 			</div>

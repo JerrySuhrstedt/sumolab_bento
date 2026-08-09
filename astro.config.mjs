@@ -8,4 +8,8 @@ export default defineConfig({
 	integrations: [
 		sitemap(),
 	],
+	prefetch: {
+		defaultStrategy: 'hover',
+		prefetchAll: true,
+	},
 });

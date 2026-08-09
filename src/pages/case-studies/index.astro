@@ -12,6 +12,7 @@ import { caseStudies } from '../../data/case-studies';
 >
 	<PageHero
 		image="/photos/case-studies-hero.jpg"
+		imageAlt="Charts and metrics showing measurable results from marketing engagements"
 		eyebrow="Case Studies"
 		align="left"
 		imagePosition="80% center"
@@ -25,7 +26,7 @@ import { caseStudies } from '../../data/case-studies';
 			{caseStudies.map((cs) => (
 				<a href={`/case-studies/${cs.slug}/`} class="cs-card">
 					<div class="cs-img-wrap">
-						<img src={cs.image} alt="" class="cs-img" loading="lazy" />
+						<img src={cs.image} alt={`${cs.title} — ${cs.client}`} class="cs-img" loading="lazy" />
 					</div>
 					<div class="cs-body">
 						<p class="cs-client">{cs.client}</p>

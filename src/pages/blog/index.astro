@@ -21,6 +21,7 @@ const categories = [
 >
 	<PageHero
 		image="/photos/insights-hero.jpg"
+		imageAlt="Business strategy notes and marketing planning materials laid out for review"
 		eyebrow="Insights"
 		align="left"
 		imagePosition="80% center"
@@ -50,7 +51,7 @@ const categories = [
 			{sortedInsights.map((article) => (
 				<a href={`/blog/${article.slug}/`} data-category={article.category} class="article-card">
 					<div class="article-img-wrap">
-						<img src={article.imageSrc} alt="" class="article-img" loading="lazy" />
+						<img src={article.imageSrc} alt={article.title} class="article-img" loading="lazy" />
 					</div>
 					<div class="article-body">
 						<p class="article-cat">{article.category}</p>

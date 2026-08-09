@@ -91,7 +91,7 @@ if (insight.slug === 'trellivance') {
 					{founder.headshotSrc && (
 						<img
 							src={founder.headshotSrc}
-							alt={founder.name ?? 'Author'}
+							alt={founder.name && founder.title ? `${founder.name}, ${founder.title}` : founder.name ?? 'Author'}
 							class="byline-avatar"
 						/>
 					)}

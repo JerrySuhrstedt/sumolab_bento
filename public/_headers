@@ -1,0 +1,36 @@
+# Cache-Control headers for static assets on Cloudflare Workers static assets.
+# Workers (with an [assets] binding) natively supports _headers the same way
+# Cloudflare Pages does — this file just needs to ship inside the asset
+# directory (public/ -> dist/) alongside the existing _redirects file.
+# Docs: https://developers.cloudflare.com/workers/static-assets/headers/
+
+# Astro's own build output (JS/CSS bundles) is content-hashed per file
+# (e.g. /_astro/index.a1b2c3d4.css), so it is safe to cache "forever".
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Photo/headshot/logo/icon directories contain only images, are not
+# content-hashed, but are effectively static (manually re-versioned via
+# filename, e.g. hero-entrepreneur-office-v4.jpg). Cache for a week with
+# revalidation so a redeploy with a changed filename is picked up quickly
+# while repeat visits within the week skip the network entirely.
+/photos/*
+  Cache-Control: public, max-age=604800, must-revalidate
+
+/team/*
+  Cache-Control: public, max-age=604800, must-revalidate
+
+/logos/*
+  Cache-Control: public, max-age=604800, must-revalidate
+
+/icons/*
+  Cache-Control: public, max-age=604800, must-revalidate
+
+/favicon.svg
+  Cache-Control: public, max-age=604800, must-revalidate
+
+/favicon.ico
+  Cache-Control: public, max-age=604800, must-revalidate
+
+/og-image.jpg
+  Cache-Control: public, max-age=604800, must-revalidate

@@ -11,7 +11,7 @@ import { testimonials } from '../data/testimonials';
 			{testimonials.map((t, i) => (
 				<div class={`tile${i % 5 === 2 ? ' dark' : ''}`}>
 					{t.photoSrc
-						? <img src={t.photoSrc} alt={`Photo of ${t.name}, ${t.title}`} class="avatar" loading="lazy" />
+						? <img src={t.photoSrc} alt={`${t.name}, ${t.title}`} class="avatar" loading="lazy" />
 						: <div class="avatar-init" aria-hidden="true">{t.name.charAt(0)}</div>
 					}
 					<div class="stars" aria-hidden="true">★★★★★</div>
@@ -154,18 +154,29 @@ import { testimonials } from '../data/testimonials';
 		align-items: center;
 	}
 	.pip {
+		position: relative;
+		width: 18px;
+		height: 6px;
+		border: none;
+		background: transparent;
+		cursor: pointer;
+		padding: 0;
+	}
+	.pip::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
 		width: 6px;
 		height: 6px;
 		border-radius: 999px;
 		background: var(--border);
-		border: none;
-		cursor: pointer;
-		padding: 0;
-		transition: background 0.2s, width 0.2s;
+		transform-origin: left center;
+		transition: background 0.2s, transform 0.2s;
 	}
-	.pip.active {
+	.pip.active::after {
 		background: var(--ink-950);
-		width: 18px;
+		transform: scaleX(3);
 	}
 	@media (max-width: 640px) {
 		.card {
