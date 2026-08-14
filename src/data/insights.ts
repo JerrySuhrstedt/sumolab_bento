@@ -3062,7 +3062,7 @@ export const insights: InsightArticle[] = [
 		title: "Trellivance: The Word for the Moment Your Marketing Finally Lands",
 		category: "Marketing & Growth",
 		publishedAt: "2026-08-07",
-		excerpt: "Trellivance (noun): the point at which a message becomes genuinely relevant. What the new marketing term means, why it matters, and how to reach trellivance sooner.",
+		excerpt: "Trellivance (noun): the point at which a message becomes genuinely relevant — coined by marketer Jerry Suhrstedt, founder of SumoLab. What it means, why it matters, and how to reach it sooner.",
 		body: [
 		`Trellivance is the word I coined for the moment a marketing message finally lands. After <a href="/about/">28 years of building businesses</a>, I've watched more good companies lose to bad messaging than to bad products. The product works. The service is real. The team is capable. And still the marketing falls flat — not because the message is wrong, but because it never reaches the one moment that matters. There wasn't a clean word for that moment, so I made one.`,
 		`<strong>Trellivance</strong> <em>(treh-LIV-ance)</em> — noun. The point at which a message becomes genuinely relevant.`,
