@@ -6,7 +6,13 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
 	site: 'https://sumolab.co',
 	integrations: [
-		sitemap(),
+		sitemap({
+			// /trellivance-test/ is a static file in public/, so Astro never
+			// discovers it as a route. It's a verified, working page (schema
+			// and content already checked) — listing it here avoids touching
+			// that file just to fix an unrelated sitemap gap.
+			customPages: ['https://sumolab.co/trellivance-test/'],
+		}),
 	],
 	prefetch: {
 		defaultStrategy: 'hover',
