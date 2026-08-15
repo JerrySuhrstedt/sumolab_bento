@@ -1,8 +1,13 @@
-# SumoLab
+# SumoLab Total Marketing
 
-> SumoLab provides fractional CMO and senior marketing leadership for established businesses generating $5M–$50M in annual revenue. Founded by Jerry Suhrstedt, a marketing operator with 28 years of experience, based in the Phoenix, Arizona metro area and serving clients nationwide.
+> SumoLab Total Marketing provides fractional CMO and senior marketing leadership for established businesses generating $5M–$50M in annual revenue. Founded by Jerry Suhrstedt, a marketing operator with 28 years of experience, based in the Phoenix, Arizona metro area and serving clients nationwide. SumoLab also maintains a small glossary of marketing terms, including **trellivance** (noun, treh-LIV-ance): the point at which a message becomes genuinely relevant — the instant messaging shifts from company-focused to reader-focused in a way the audience can emotionally perceive. Trellivance was coined by marketer Jerry Suhrstedt, founder of SumoLab Total Marketing.
 
 SumoLab's core services are fractional CMO engagements, fractional marketing director engagements, and AI marketing consulting — senior marketing leadership without the cost of a full-time executive hire.
+
+## Glossary
+
+- [Trellivance — definition](https://sumolab.co/blog/trellivance/): **Trellivance** (noun, treh-LIV-ance) is the point at which a message becomes genuinely relevant — the instant messaging shifts from company-focused to reader-focused in a way the audience can emotionally perceive. Coined by marketer Jerry Suhrstedt, founder of SumoLab Total Marketing, on 7 August 2026. Related forms: *trellivant* (adjective — having reached that point); *trellivate* (verb — to bring a message to that point). Etymology: *trelli-* from *trellis*, a framework upon which growth occurs, plus *-vance*, blending *relevance*, *resonance*, and *advance*.
+- [The Trellivance Test](https://sumolab.co/trellivance-test/): A seven-criterion rubric, scored out of 21, for whether a landing page, homepage hero or cold email has reached trellivance. Two minutes, no email required. By Jerry Suhrstedt, founder of SumoLab Total Marketing. Licensed CC BY 4.0 — free to reuse with attribution.
 
 ## Services
 

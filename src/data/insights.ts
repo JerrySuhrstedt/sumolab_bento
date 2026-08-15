@@ -3093,6 +3093,8 @@ export const insights: InsightArticle[] = [
 		`Every message you send is a race between two clocks: the reader's patience running down, and your message climbing toward relevance. Trellivance is the moment those two lines cross. Win that race and you get read, remembered, and answered. Lose it and it genuinely does not matter how good your product, your offer, or your prose is — nobody got far enough to find out.`,
 		`So for every email, headline, landing page, and pitch, ask the same thing:`,
 		`<strong>Where does this hit trellivance — and can I make it happen sooner?</strong>`,
+		`<h2>Score Your Own Copy: The Trellivance Test</h2>`,
+		`I turned that question into a scorecard you can run in two minutes. <a href="/trellivance-test/">The Trellivance Test</a> scores any landing page, homepage hero, or cold email out of 21 across seven criteria — and tells you which single thing to fix first. No email required, and it is free to reuse with attribution.`,
 		`That's the word. Steal it, use it, <a href="/services/fractional-marketing-director/">build better messages</a> with it. And the next time a piece of marketing just won't land, you'll finally have the language to say exactly what's wrong: it never reached trellivance. (And if you're wondering whether an article about a coined word can even rank in search — we've <a href="/blog/5-ways-to-find-a-huge-lippafoygle/">run that experiment before</a>.)`,
 		],
 		keyPoints: [
