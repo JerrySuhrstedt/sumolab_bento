@@ -1,0 +1,456 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { founder } from '../data/founder';
+import { contact } from '../data/contact';
+
+const pageUrl = new URL('/milliondollarlp/', Astro.site).toString();
+const lastUpdated = '2026-08-17';
+
+const faqs = [
+	{
+		q: 'What does a fractional marketing director actually do?',
+		a: 'I run your marketing function part time: planning, budget, vendors, campaigns, and reporting, the way an employee would, on a set number of hours a week. I join your operating rhythm instead of sending you a deck and disappearing.',
+	},
+	{
+		q: 'How is this different from a marketing agency?',
+		a: "An agency executes tasks you hand them. I set the strategy, coordinate everyone executing it, including your agencies, and I'm accountable for whether it actually produces leads. Nationally, 73% of marketing budgets can't be directly tied to business outcomes, and 47% of clients have ended an agency relationship over transparency issues. That's the gap this closes.",
+	},
+	{
+		q: 'What if I only need part-time help, not a full engagement?',
+		a: "That's an option, not a downgrade. A 15 to 20 hour a week engagement covers the same function at a lighter cadence: someone senior running your marketing part time instead of full scope. Same person, same accountability, fewer hours.",
+	},
+	{
+		q: 'Do you only work with home builders?',
+		a: "Home builders and trade contractors are where I have the deepest, most direct experience. I've founded two home building companies myself, spent 16 years in the industry, wrote a book on it, and ran a home-builder marketing consultancy for close to 20 years. I also work with other established owner-led businesses, but this is the niche I know from the inside.",
+	},
+	{
+		q: 'How fast can we start?',
+		a: 'Most engagements start within days of a signed agreement, not the three to six months a full-time hire takes to find and ramp up.',
+	},
+];
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqs.map((f) => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
+const serviceSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Service',
+	name: 'Fractional Marketing Director for Home Builders and Trade Contractors',
+	serviceType: 'Fractional marketing director services',
+	description:
+		'Part-time marketing director services for home builders and trade contractors generating $2M to $20M in annual revenue, run by an operator with 16 years of direct home-building experience.',
+	url: pageUrl,
+	provider: {
+		'@type': 'ProfessionalService',
+		name: 'SumoLab',
+		url: 'https://sumolab.co',
+		founder: {
+			'@type': 'Person',
+			name: founder.name,
+			jobTitle: founder.title,
+			url: new URL('/about/', Astro.site).toString(),
+		},
+	},
+	areaServed: { '@type': 'Country', name: 'United States' },
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'Home', item: Astro.site?.toString() },
+		{ '@type': 'ListItem', position: 2, name: 'Marketing Director for Home Builders', item: pageUrl },
+	],
+};
+
+const structuredData = [serviceSchema, faqSchema, breadcrumbSchema];
+
+const comparison = [
+	{ label: 'Annual cost', fullTime: '$120,000–$200,000+ (salary, benefits, overhead)', agency: 'Ongoing retainer, cost varies', us: 'Custom-scoped, month to month, no long-term contract' },
+	{ label: 'Who owns the outcome', fullTime: 'One person, if you hired well', agency: 'No one owns the full result', us: 'One senior operator, accountable for the whole function' },
+	{ label: 'Time to start', fullTime: '3–6 months to hire and ramp up', agency: 'Weeks to onboard', us: 'Days' },
+	{ label: 'Runs it or just executes', fullTime: 'Runs it', agency: 'Executes tasks only', us: 'Runs it' },
+	{ label: 'Home building / trades experience', fullTime: 'Varies by hire', agency: 'Varies by account', us: '16 years, two companies founded' },
+];
+---
+
+<Layout
+	title="Marketing Director for Home Builders & Contractors | SumoLab"
+	description="A fractional marketing director for home builders and trade contractors, without the full-time hire. Real leads, real accountability, from an operator with 16 years in home building."
+	structuredData={structuredData}
+>
+	<main class="lp">
+		<section class="hero">
+			<p class="eyebrow">For home builders &amp; trade contractors, $2M–$20M in revenue</p>
+			<h1>Marketing Director for Home Builders and Trade Contractors, Without the Full-Time Hire</h1>
+			<p class="subhead">More qualified leads to your sales team, marketing that finally makes sense, and one person accountable for all of it.</p>
+
+			<div class="byline">
+				<img src={founder.headshotSrc ?? ''} alt={founder.name ?? 'Founder'} class="byline-photo" />
+				<div>
+					<p class="byline-name">{founder.name}</p>
+					<p class="byline-title">30 years in marketing, 16 in home building &middot; <a href="/about/">About Jerry →</a></p>
+				</div>
+			</div>
+
+			<p class="answer">
+				A fractional marketing director runs your marketing function part time: planning, vendors, campaigns, and
+				reporting. You get a senior operator who's actually run home building and trade businesses, not just
+				advised them, for a fraction of a full-time salary, starting within days.
+			</p>
+
+			<a href="/contact/" class="cta">Book a Strategy Call →</a>
+		</section>
+
+		<section class="block problem">
+			<p class="eyebrow">The problem</p>
+			<h2>Why does your marketing feel busy but never move the needle?</h2>
+			<p>
+				You've got a coordinator, maybe an agency, maybe both. Leads used to come from referrals and they still
+				mostly do, which means growth stalls the moment referrals slow down. Nobody owns the whole picture, so
+				budget goes out the door without a clear line back to a closed deal. The decisions still land on you.
+			</p>
+			<p>
+				That's not unusual. Nationally, <strong>73% of marketing budgets can't be directly tied to business
+				outcomes</strong>, and <strong>47% of clients have ended an agency relationship over transparency
+				issues</strong>. The problem most owners have isn't a lack of activity. It's a lack of someone senior
+				enough to own it.
+			</p>
+		</section>
+
+		<section class="block solution">
+			<p class="eyebrow" style="color:var(--orange-400)">The fix</p>
+			<h2 style="color:#fff">How does a fractional marketing director fix this?</h2>
+			<p style="color:rgba(255,255,255,.8)">
+				I join your business the way a real marketing director would, just part time. I set priorities, run the
+				weekly cadence, coordinate your team and vendors, and report plainly on what's working and what isn't.
+				I use AI where it actually saves time, not because it's trendy. The goal is the same one you'd give any
+				employee: more qualified leads to your sales team, on a budget you can defend.
+			</p>
+			<a href="/contact/" class="cta">Book a Strategy Call →</a>
+		</section>
+
+		<section class="block">
+			<p class="eyebrow">What if part time is a better fit?</p>
+			<h2>What if I only need 15 to 20 hours a week, not a full engagement?</h2>
+			<p>
+				That's a real option here, not a scaled-down version of the offer. Some businesses need someone running
+				the full function five days a week. Others need senior direction on a lighter cadence: the same person,
+				the same accountability, fewer hours. We scope it to what your marketing actually needs, not a
+				one-size package.
+			</p>
+		</section>
+
+		<section class="block proof">
+			<p class="eyebrow">Proof</p>
+			<h2>What's the proof this works?</h2>
+			<div class="proof-grid">
+				<div class="proof-card">
+					<p class="proof-stat">12–20 → 150–200</p>
+					<p class="proof-label">Weekly sales leads per office</p>
+					<p class="proof-context">HiLine Homes &middot; grew from 60–70 homes a year to over 800 within three years</p>
+				</div>
+				<div class="proof-card">
+					<p class="proof-stat">$3M → $11M</p>
+					<p class="proof-label">Annual revenue, under three years</p>
+					<p class="proof-context">Stanbrooke Custom Homes &middot; ranked #6 on Washington State's 100 fastest-growing companies</p>
+				</div>
+			</div>
+			<a href="/case-studies/" class="link">See the full case studies →</a>
+		</section>
+
+		<section class="block">
+			<p class="eyebrow">Compare</p>
+			<h2>How does this compare to hiring full time or using an agency?</h2>
+			<div class="table-wrap">
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>Full-time hire</th>
+							<th>Marketing agency</th>
+							<th>Fractional marketing director</th>
+						</tr>
+					</thead>
+					<tbody>
+						{comparison.map((row) => (
+							<tr>
+								<th>{row.label}</th>
+								<td>{row.fullTime}</td>
+								<td>{row.agency}</td>
+								<td class="us">{row.us}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="block faq">
+			<p class="eyebrow">Common questions</p>
+			<h2>Questions before you book a call</h2>
+			<div class="faq-list">
+				{faqs.map((f, i) => (
+					<details class="faq-item" open={i === 0}>
+						<summary>
+							<span>{f.q}</span>
+							<span class="icon" aria-hidden="true">+</span>
+						</summary>
+						<p>{f.a}</p>
+					</details>
+				))}
+			</div>
+		</section>
+
+		<section class="block final-cta">
+			<h2 style="color:#fff">Ready for marketing leadership that actually runs the function?</h2>
+			<a href="/contact/" class="cta">Book a Strategy Call →</a>
+			<p class="updated">Last updated {lastUpdated}</p>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	.lp {
+		max-width: 780px;
+		margin: 0 auto;
+		padding: 56px 24px 80px;
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+	.eyebrow {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 12.5px;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--orange-500);
+		margin: 0 0 12px;
+	}
+	.hero h1 {
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: clamp(2rem, 5vw, 3rem);
+		line-height: 1.1;
+		margin: 0 0 16px;
+		color: var(--text-primary);
+	}
+	.subhead {
+		font-size: 1.15rem;
+		font-weight: 500;
+		color: var(--text-secondary);
+		margin: 0 0 24px;
+		max-width: 620px;
+	}
+	.byline {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		margin-bottom: 24px;
+	}
+	.byline-photo {
+		width: 48px;
+		height: 48px;
+		border-radius: 999px;
+		object-fit: cover;
+	}
+	.byline-name {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 15px;
+		margin: 0;
+	}
+	.byline-title {
+		font-size: 13px;
+		color: var(--text-secondary);
+		margin: 0;
+	}
+	.byline-title a {
+		color: var(--orange-500);
+	}
+	.answer {
+		font-size: 17px;
+		line-height: 1.6;
+		color: var(--text-primary);
+		background: var(--surface-sunken);
+		border-radius: var(--radius-md);
+		padding: 20px 24px;
+		margin: 0 0 28px;
+	}
+	.cta {
+		display: inline-block;
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 15px;
+		background: var(--orange-500);
+		color: #fff;
+		border-radius: var(--radius-sm);
+		padding: 14px 26px;
+	}
+	.cta:hover {
+		background: var(--orange-600);
+	}
+	.block {
+		border-radius: var(--radius-lg);
+		padding: 40px;
+		background: var(--white);
+		border: 1px solid var(--border);
+	}
+	.block h2 {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: clamp(1.5rem, 3vw, 2.25rem);
+		line-height: 1.15;
+		margin: 0 0 16px;
+		max-width: 640px;
+	}
+	.block p {
+		font-size: 16px;
+		line-height: 1.65;
+		color: var(--text-secondary);
+		margin: 0 0 14px;
+	}
+	.block p:last-child {
+		margin-bottom: 0;
+	}
+	.solution {
+		background: var(--ink-950);
+		border: none;
+	}
+	.proof-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 16px;
+		margin: 24px 0;
+	}
+	.proof-card {
+		background: var(--surface-sunken);
+		border-radius: var(--radius-md);
+		padding: 24px;
+	}
+	.proof-stat {
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: 2rem;
+		color: var(--orange-500);
+		margin: 0 0 6px;
+	}
+	.proof-label {
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: 14px;
+		color: var(--text-primary);
+		margin: 0 0 4px;
+	}
+	.proof-context {
+		font-size: 12.5px;
+		color: var(--text-muted);
+		margin: 0;
+	}
+	.link {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 14px;
+		color: var(--orange-500);
+	}
+	.table-wrap {
+		overflow-x: auto;
+		margin-top: 20px;
+	}
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 13.5px;
+	}
+	th, td {
+		text-align: left;
+		padding: 12px 14px;
+		border-bottom: 1px solid var(--hairline);
+		vertical-align: top;
+	}
+	thead th {
+		font-family: var(--font-display);
+		font-weight: 600;
+		color: var(--text-primary);
+	}
+	tbody th {
+		font-family: var(--font-display);
+		font-weight: 600;
+		color: var(--text-secondary);
+		white-space: nowrap;
+	}
+	td.us {
+		color: var(--orange-600);
+		font-weight: 500;
+	}
+	.faq-list {
+		border-top: 1px solid var(--hairline);
+	}
+	.faq-item {
+		border-bottom: 1px solid var(--hairline);
+		padding: 16px 0;
+	}
+	.faq-item summary {
+		cursor: pointer;
+		list-style: none;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 15px;
+		color: var(--text-primary);
+	}
+	.faq-item summary::-webkit-details-marker {
+		display: none;
+	}
+	.faq-item .icon {
+		color: var(--orange-500);
+		font-size: 18px;
+		flex-shrink: 0;
+		transition: transform 0.2s ease;
+	}
+	.faq-item[open] .icon {
+		transform: rotate(45deg);
+	}
+	.faq-item p {
+		margin: 10px 0 0;
+	}
+	.final-cta {
+		background: var(--ink-950);
+		border: none;
+		text-align: center;
+	}
+	.final-cta h2 {
+		max-width: none;
+	}
+	.final-cta .cta {
+		margin-top: 8px;
+	}
+	.updated {
+		font-size: 12px;
+		color: rgba(255, 255, 255, 0.4);
+		margin: 20px 0 0;
+	}
+	@media (max-width: 640px) {
+		.lp {
+			padding: 32px 20px 56px;
+			gap: 28px;
+		}
+		.block {
+			padding: 28px 24px;
+		}
+		.proof-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
