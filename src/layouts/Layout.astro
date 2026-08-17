@@ -9,6 +9,7 @@ interface Props {
 	description?: string;
 	structuredData?: Record<string, unknown> | Record<string, unknown>[];
 	transparentHeader?: boolean;
+	showNav?: boolean;
 }
 
 const {
@@ -16,6 +17,7 @@ const {
 	description = "SumoLab provides fractional marketing direction and strategic consulting for established businesses ready to create focus, alignment, and accountable growth.",
 	structuredData,
 	transparentHeader = false,
+	showNav = true,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -59,8 +61,12 @@ const structuredDataList = structuredData ? (Array.isArray(structuredData) ? str
 		</script>
 	</head>
 	<body>
-		<SiteHeader transparentOnHero={transparentHeader} />
-		<MobileMenuPanel />
+		{showNav && (
+			<>
+				<SiteHeader transparentOnHero={transparentHeader} />
+				<MobileMenuPanel />
+			</>
+		)}
 		<slot />
 		<SiteFooter />
 	</body>

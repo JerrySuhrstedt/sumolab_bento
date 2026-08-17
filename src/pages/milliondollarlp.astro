@@ -85,28 +85,42 @@ const comparison = [
 	title="Marketing Director for Home Builders & Contractors | SumoLab"
 	description="A fractional marketing director for home builders and trade contractors, without the full-time hire. Real leads, real accountability, from an operator with 16 years in home building."
 	structuredData={structuredData}
+	showNav={false}
 >
 	<main class="lp">
 		<section class="hero">
-			<p class="eyebrow">For home builders &amp; trade contractors, $2M–$20M in revenue</p>
-			<h1>Marketing Director for<br />Home Builders and<br />Trade Contractors,<br />Without the Full-Time Hire</h1>
-			<p class="subhead">More qualified leads to your sales team, marketing that finally makes sense, and one person accountable for all of it.</p>
+			<div class="hero-grid">
+				<div class="hero-copy">
+					<p class="eyebrow">For home builders &amp; trade contractors, $2M–$20M in revenue</p>
+					<h1>Marketing Director for<br />Home Builders and<br />Trade Contractors,<br />Without the Full-Time Hire</h1>
+					<p class="subhead">More qualified leads to your sales team, marketing that finally makes sense, and one person accountable for all of it.</p>
 
-			<div class="byline">
-				<img src={founder.headshotSrc ?? ''} alt={founder.name ?? 'Founder'} class="byline-photo" />
-				<div>
-					<p class="byline-name">{founder.name}</p>
-					<p class="byline-title">30 years in marketing, 16 in home building &middot; <a href="/about/">About Jerry →</a></p>
+					<div class="byline">
+						<img src={founder.headshotSrc ?? ''} alt={founder.name ?? 'Founder'} class="byline-photo" />
+						<div>
+							<p class="byline-name">{founder.name}</p>
+							<p class="byline-title">30 years in marketing, 16 in home building &middot; <a href="/about/">About Jerry →</a></p>
+						</div>
+					</div>
+
+					<p class="answer">
+						A fractional marketing director runs your marketing function part time: planning, vendors, campaigns, and
+						reporting. You get a senior operator who's actually run home building and trade businesses, not just
+						advised them, for a fraction of a full-time salary, starting within days.
+					</p>
+				</div>
+
+				<div class="hero-form">
+					<script is:inline src="https://js-na2.hsforms.net/forms/embed/244692534.js" defer></script>
+					<div
+						class="hs-form-frame"
+						data-region="na2"
+						data-form-id="f9445925-a2ec-4b85-82d4-45192a42e60d"
+						data-portal-id="244692534"
+					>
+					</div>
 				</div>
 			</div>
-
-			<p class="answer">
-				A fractional marketing director runs your marketing function part time: planning, vendors, campaigns, and
-				reporting. You get a senior operator who's actually run home building and trade businesses, not just
-				advised them, for a fraction of a full-time salary, starting within days.
-			</p>
-
-			<a href="/contact/" class="cta">Book a Strategy Call →</a>
 		</section>
 
 		<section class="block problem">
@@ -219,12 +233,31 @@ const comparison = [
 
 <style>
 	.lp {
-		max-width: 780px;
+		max-width: 1180px;
 		margin: 0 auto;
 		padding: 56px 24px 80px;
 		display: flex;
 		flex-direction: column;
 		gap: 40px;
+	}
+	.block {
+		max-width: 780px;
+		width: 100%;
+		margin: 0 auto;
+	}
+	.hero-grid {
+		display: grid;
+		grid-template-columns: 1.1fr 0.9fr;
+		gap: 56px;
+		align-items: start;
+	}
+	.hero-form {
+		background: var(--white);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+		padding: 28px;
+		position: sticky;
+		top: 24px;
 	}
 	.eyebrow {
 		font-family: var(--font-display);
@@ -440,6 +473,15 @@ const comparison = [
 		font-size: 12px;
 		color: rgba(255, 255, 255, 0.4);
 		margin: 20px 0 0;
+	}
+	@media (max-width: 900px) {
+		.hero-grid {
+			grid-template-columns: 1fr;
+			gap: 32px;
+		}
+		.hero-form {
+			position: static;
+		}
 	}
 	@media (max-width: 640px) {
 		.lp {
