@@ -87,6 +87,12 @@ const comparison = [
 	structuredData={structuredData}
 	showNav={false}
 >
+	<header class="lp-header">
+		<div class="lp-header-inner">
+			<img src="/logos/sumolab-bento.svg" alt="SumoLab" class="lp-logo" />
+			<a href={`tel:${contact.phoneHref}`} class="lp-phone">{contact.phone}</a>
+		</div>
+	</header>
 	<main class="lp">
 		<section class="hero">
 			<div class="hero-grid">
@@ -232,6 +238,37 @@ const comparison = [
 </Layout>
 
 <style>
+	.lp-header {
+		background: var(--ink-950);
+	}
+	.lp-header-inner {
+		max-width: 1180px;
+		margin: 0 auto;
+		padding: 20px 40px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+	}
+	.lp-logo {
+		height: 26px;
+		width: auto;
+		filter: brightness(0) invert(1);
+	}
+	.lp-phone {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 15px;
+		color: #fff;
+	}
+	.lp-phone:hover {
+		color: var(--orange-500);
+	}
+	@media (max-width: 640px) {
+		.lp-header-inner {
+			padding: 16px 20px;
+		}
+	}
 	.lp {
 		max-width: 1180px;
 		margin: 0 auto;
