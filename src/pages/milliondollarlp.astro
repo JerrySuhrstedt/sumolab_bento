@@ -98,7 +98,7 @@ const comparison = [
 			<div class="hero-grid">
 				<div class="hero-copy">
 					<p class="eyebrow">For home builders &amp; trade contractors, $2M–$20M in revenue</p>
-					<h1>Marketing Director for<br />Home Builders and<br />Trade Contractors,<br />Without the Full-Time Hire</h1>
+					<h1>Marketing Director<br />for Home Builders &amp;<br />Trade Contractors,<br />Without the<br />Full-Time Hire</h1>
 					<p class="subhead">More qualified leads to your sales team, marketing that finally makes sense, and one person accountable for all of it.</p>
 
 					<div class="byline">
@@ -109,11 +109,16 @@ const comparison = [
 						</div>
 					</div>
 
-					<p class="answer">
-						A fractional marketing director runs your marketing function part time: planning, vendors, campaigns, and
-						reporting. You get a senior operator who's actually run home building and trade businesses, not just
-						advised them, for a fraction of a full-time salary, starting within days.
-					</p>
+					<div class="answer">
+						<p>A fractional marketing director runs your marketing function part time, for a fraction of a full-time
+						salary, starting within days:</p>
+						<ul class="dot-list">
+							<li><span class="dot"></span>One senior operator accountable for planning, vendors, campaigns, and reporting</li>
+							<li><span class="dot"></span>Someone who's actually run home building and trade businesses, not just advised them</li>
+							<li><span class="dot"></span>More qualified leads to your sales team, without the $150K–$250K full-time salary commitment</li>
+							<li><span class="dot"></span>Scoped to your business, from a light part-time cadence up to a full engagement</li>
+						</ul>
+					</div>
 				</div>
 
 				<div class="hero-form">
@@ -280,12 +285,12 @@ const comparison = [
 		display: grid;
 		grid-template-columns: 1.1fr 0.9fr;
 		gap: 56px;
-		align-items: stretch;
+		align-items: start;
 	}
 	.hero-copy {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: flex-start;
 	}
 	.hero-form {
 		background: var(--white);
@@ -305,23 +310,23 @@ const comparison = [
 	.hero h1 {
 		font-family: var(--font-display);
 		font-weight: 700;
-		font-size: clamp(2rem, 5vw, 3rem);
-		line-height: 1.1;
-		margin: 0 0 16px;
+		font-size: clamp(2.25rem, 4.6vw, 3.15rem);
+		line-height: 1.16;
+		margin: 0 0 28px;
 		color: var(--text-primary);
 	}
 	.subhead {
-		font-size: 1.15rem;
+		font-size: 1.5rem;
 		font-weight: 500;
 		color: var(--text-secondary);
-		margin: 0 0 24px;
+		margin: 0 0 56px;
 		max-width: 620px;
 	}
 	.byline {
 		display: flex;
 		align-items: center;
 		gap: 12px;
-		margin-bottom: 24px;
+		margin-bottom: 40px;
 	}
 	.byline-photo {
 		width: 48px;
@@ -344,13 +349,22 @@ const comparison = [
 		color: var(--orange-500);
 	}
 	.answer {
-		font-size: 17px;
+		font-size: 16px;
 		line-height: 1.6;
 		color: var(--text-primary);
 		background: var(--surface-sunken);
 		border-radius: var(--radius-md);
-		padding: 20px 24px;
+		padding: 28px 24px;
 		margin: 0 0 28px;
+	}
+	.answer p {
+		margin: 0 0 16px;
+	}
+	.answer .dot-list {
+		gap: 12px;
+	}
+	.answer .dot-list li {
+		font-size: 15px;
 	}
 	.cta {
 		display: inline-block;
