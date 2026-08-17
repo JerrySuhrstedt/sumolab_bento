@@ -286,15 +286,18 @@ const comparison = [
 		display: grid;
 		grid-template-columns: 1.1fr 0.9fr;
 		gap: 56px;
-		align-items: start;
+		align-items: stretch;
+	}
+	.hero-copy {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 	.hero-form {
 		background: var(--white);
 		border: 1px solid var(--border);
 		border-radius: var(--radius-lg);
 		padding: 28px;
-		position: sticky;
-		top: 24px;
 	}
 	.eyebrow {
 		font-family: var(--font-display);
@@ -515,9 +518,6 @@ const comparison = [
 		.hero-grid {
 			grid-template-columns: 1fr;
 			gap: 32px;
-		}
-		.hero-form {
-			position: static;
 		}
 	}
 	@media (max-width: 640px) {
