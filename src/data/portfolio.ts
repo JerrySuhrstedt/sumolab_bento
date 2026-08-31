@@ -117,15 +117,15 @@ export const portfolioProjects: PortfolioProject[] = [
 	},
 	{
 		slug: "hiline-homes-radio-jingle",
-		name: "HiLine Homes Radio & Jingle",
+		name: "HiLine Homes Marketing Campaign",
 		category: "Marketing Strategy",
 		sample: false,
 		problem:
-			"HiLine Homes ran offices across Washington, Oregon, and Northern California, and spent real money on TV and radio, but the name wasn't sticking. Prospects couldn't remember who to call.",
+			"HiLine Homes, a semi-custom home builder with 14 offices across Washington, Oregon, Idaho, and California, was facing declining sales. Beyond their website, they had almost no online presence, and each office was pulling only 12 to 20 leads a week, mostly from referrals.",
 		action:
-			"Wrote and produced a radio spot, then closed it with a jingle built specifically to be memorable, part of the broader marketing strategy I ran for HiLine.",
+			"Built an aggressive, multi-channel lead generation plan: direct mail, radio, TV, email, and a full Google Ads PPC program with dedicated landing pages, run in partnership with Point-It, a Seattle PPC agency. Wrote and produced the TV and radio spots myself, closing them with a jingle built to be memorable. Designed and distributed over 20,000 branded t-shirts at state fairs and home and garden shows, and worked trade shows across all four states.",
 		result:
-			"The jingle became a real brand asset, memorable enough that a passenger once sang it to the owner on a flight, and it was part of the campaign that took HiLine from 12 to 20 weekly leads per office to 150 to 200, and from 60 to 70 homes a year to over 800 within three years.",
+			"The jingle became a real brand asset, memorable enough that a passenger once sang it to the owner on a flight. Weekly leads per office rose from 12 to 20, up to 150 to 200, and within 18 months annual home sales climbed from 60 to 70 units to over 800 within three years, establishing HiLine as a leading name in semi-custom home building.",
 		thumb: "/jerry/hiline-homes-radio-jingle/hiline-logo.png",
 		artifacts: [
 			{ kind: "image", src: "/jerry/hiline-homes-radio-jingle/hiline-logo.png", caption: "HiLine Homes" },
@@ -153,5 +153,31 @@ export const portfolioProjects: PortfolioProject[] = [
 		result: "Design Build NW got a site built around how homeowners actually shop for a custom builder: dream big, then see the design and build process spelled out clearly.",
 		thumb: "/jerry/design-build-nw/homepage-top.jpg",
 		artifacts: [{ kind: "image", src: "/jerry/design-build-nw/homepage-top.jpg", caption: "Homepage" }],
+	},
+	{
+		slug: "altair-global-reporting",
+		name: "Altair Global: Board Reporting Dashboard",
+		category: "Salesforce & Business Analysis",
+		sample: false,
+		problem:
+			"Altair Global, a Dallas-based mobility provider, struggled to get quarterly and year-to-date metrics in front of its Board of Directors. Every meeting meant a stressful two-week scramble to gather, compile, and present the numbers, and it was getting in the way of clear communication and decision-making.",
+		action:
+			"As Altair's Salesforce Administrator and Business Analyst, I sat down with the stakeholders who actually used these numbers to find out what the Board needed to see and why, then built a custom Salesforce dashboard with the charts and metrics that mattered, live and on demand, so nobody had to compile anything by hand before a meeting again.",
+		result:
+			"The two-week scramble before every Board meeting is gone. The dashboard gives leadership real-time data whenever they need it, and the Board now gets a clear, consistent view of the company's performance instead of a rushed presentation stitched together the week before.",
+		artifacts: [],
+	},
+	{
+		slug: "stanbrooke-contractor-shortage",
+		name: "Stanbrooke Custom Homes: Contractor Shortage",
+		category: "Marketing Strategy",
+		sample: false,
+		problem:
+			"Stanbrooke Custom Homes, a Northwest custom home builder, had a severe shortage of framing contractors. They'd pour a foundation and then have nowhere to send the crew, which meant no billing, stalled projects, and clients whose bank loans were sitting on hold.",
+		action:
+			"Instead of a typical trade ad, I wrote a flier that sold the job the way marketing sells a product: \"Looking for quality framing contractors to work with the Northwest's #1 Home Builder. Free nails included with every job, and pizza delivered by our project superintendents on Friday.\" Sent it directly to every framing contractor in the service area.",
+		result:
+			"Contractors responded fast. Every job had lumber delivered and framing crews on site within 45 days, the standstill was over, and Stanbrooke came out of it known as a builder contractors actually wanted to work for.",
+		artifacts: [],
 	},
 ];
