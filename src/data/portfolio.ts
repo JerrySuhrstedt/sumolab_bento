@@ -165,7 +165,8 @@ export const portfolioProjects: PortfolioProject[] = [
 			"As Altair's Salesforce Administrator and Business Analyst, I sat down with the stakeholders who actually used these numbers to find out what the Board needed to see and why, then built a custom Salesforce dashboard with the charts and metrics that mattered, live and on demand, so nobody had to compile anything by hand before a meeting again.",
 		result:
 			"The two-week scramble before every Board meeting is gone. The dashboard gives leadership real-time data whenever they need it, and the Board now gets a clear, consistent view of the company's performance instead of a rushed presentation stitched together the week before.",
-		artifacts: [],
+		thumb: "/jerry/altair-global-reporting/altair-logo.svg",
+		artifacts: [{ kind: "image", src: "/jerry/altair-global-reporting/altair-logo.svg", caption: "Altair Global" }],
 	},
 	{
 		slug: "stanbrooke-contractor-shortage",
