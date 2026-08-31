@@ -19,21 +19,18 @@ export interface PortfolioProject {
 
 export const portfolioProjects: PortfolioProject[] = [
 	{
-		slug: "chumley",
-		name: "Chumley",
-		category: "Branding & Product Development",
+		slug: "first-products-judy-trudy",
+		name: "First Products: Judy & Trudy",
+		category: "Graphic Design & Branding",
 		sample: false,
 		problem:
-			"Independent sales reps and small trade businesses need to track leads and follow up fast, but every CRM on the market is built for sales teams with a full-time admin, not someone running jobs from a truck. They'd sign up, hit the eleventh required field before they could write down a lead, and go back to a notebook.",
+			"First Products, a medical supply company in Tacoma, Washington, had been family-owned for 30 years, but its generic name wasn't sticking. Doctors, nurses, and hospital purchasing agents couldn't remember who to call.",
 		action:
-			"Built Chumley from the ground up: the branding, the marketing strategy, and the app itself. One screen. Deals are cards. A lead goes from zero to on the board in about ten seconds, and there's nothing to set up and nothing to learn.",
+			"Proposed two cartoon characters, Judy and Trudy, as the new faces of the brand, a Caucasian nurse and an African American nurse, friendly and professional enough to resonate with a medical audience. Worked with an illustrator to bring them to life, then commissioned Judy and Trudy bobblehead dolls and gave them away at medical conferences, trade shows, hospitals, and clinics.",
 		result:
-			"Chumley is live today at chumley.app, built specifically for the reps and trade businesses that more complicated CRMs were never built for.",
-		thumb: "/jerry/chumley/homepage.jpg",
-		artifacts: [
-			{ kind: "image", src: "/jerry/chumley/homepage.jpg", caption: "chumley.app" },
-			{ kind: "youtube", src: "https://www.youtube.com/embed/JIQ_53wlv9M", caption: "Chumley walkthrough" },
-		],
+			"The company's name became synonymous with the friendly cartoon nurses. The bobbleheads ended up sitting on nursing station desks and in administrative offices across hospitals, a constant physical reminder of the brand that fed a steady rise in sales and new customer acquisition.",
+		thumb: "/jerry/first-products-judy-trudy/judy-trudy.jpg",
+		artifacts: [{ kind: "image", src: "/jerry/first-products-judy-trudy/judy-trudy.jpg", caption: "Judy & Trudy bobblehead dolls" }],
 	},
 	{
 		slug: "addaroom",
@@ -50,6 +47,23 @@ export const portfolioProjects: PortfolioProject[] = [
 		artifacts: [
 			{ kind: "youtube", src: "https://www.youtube.com/embed/dcbud2la4dI", caption: "AddaRoom brand video" },
 			{ kind: "image", src: "/jerry/addaroom/fb-ad-01.png", caption: "Paid social ad extending the campaign" },
+		],
+	},
+	{
+		slug: "chumley",
+		name: "Chumley",
+		category: "Branding & Product Development",
+		sample: false,
+		problem:
+			"Independent sales reps and small trade businesses need to track leads and follow up fast, but every CRM on the market is built for sales teams with a full-time admin, not someone running jobs from a truck. They'd sign up, hit the eleventh required field before they could write down a lead, and go back to a notebook.",
+		action:
+			"Built Chumley from the ground up: the branding, the marketing strategy, and the app itself. One screen. Deals are cards. A lead goes from zero to on the board in about ten seconds, and there's nothing to set up and nothing to learn.",
+		result:
+			"Chumley is live today at chumley.app, built specifically for the reps and trade businesses that more complicated CRMs were never built for.",
+		thumb: "/jerry/chumley/homepage.jpg",
+		artifacts: [
+			{ kind: "image", src: "/jerry/chumley/homepage.jpg", caption: "chumley.app" },
+			{ kind: "youtube", src: "https://www.youtube.com/embed/JIQ_53wlv9M", caption: "Chumley walkthrough" },
 		],
 	},
 	{
@@ -134,19 +148,5 @@ export const portfolioProjects: PortfolioProject[] = [
 		result: "Design Build NW got a site built around how homeowners actually shop for a custom builder: dream big, then see the design and build process spelled out clearly.",
 		thumb: "/jerry/design-build-nw/homepage-top.jpg",
 		artifacts: [{ kind: "image", src: "/jerry/design-build-nw/homepage-top.jpg", caption: "Homepage" }],
-	},
-	{
-		slug: "first-products-judy-trudy",
-		name: "First Products: Judy & Trudy",
-		category: "Graphic Design & Branding",
-		sample: false,
-		problem:
-			"First Products, a medical supply company in Tacoma, Washington, had been family-owned for 30 years, but its generic name wasn't sticking. Doctors, nurses, and hospital purchasing agents couldn't remember who to call.",
-		action:
-			"Proposed two cartoon characters, Judy and Trudy, as the new faces of the brand, a Caucasian nurse and an African American nurse, friendly and professional enough to resonate with a medical audience. Worked with an illustrator to bring them to life, then commissioned Judy and Trudy bobblehead dolls and gave them away at medical conferences, trade shows, hospitals, and clinics.",
-		result:
-			"The company's name became synonymous with the friendly cartoon nurses. The bobbleheads ended up sitting on nursing station desks and in administrative offices across hospitals, a constant physical reminder of the brand that fed a steady rise in sales and new customer acquisition.",
-		thumb: "/jerry/first-products-judy-trudy/judy-trudy.jpg",
-		artifacts: [{ kind: "image", src: "/jerry/first-products-judy-trudy/judy-trudy.jpg", caption: "Judy & Trudy bobblehead dolls" }],
 	},
 ];
