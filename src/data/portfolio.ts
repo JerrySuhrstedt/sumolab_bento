@@ -179,6 +179,11 @@ export const portfolioProjects: PortfolioProject[] = [
 			"Instead of a typical trade ad, I wrote a flier that sold the job the way marketing sells a product: \"Looking for quality framing contractors to work with the Northwest's #1 Home Builder. Free nails included with every job, and pizza delivered by our project superintendents on Friday.\" Sent it directly to every framing contractor in the service area.",
 		result:
 			"Contractors responded fast. Every job had lumber delivered and framing crews on site within 45 days, the standstill was over, and Stanbrooke came out of it known as a builder contractors actually wanted to work for.",
-		artifacts: [],
+		thumb: "/jerry/stanbrooke-contractor-shortage/logo.jpg",
+		artifacts: [
+			{ kind: "image", src: "/jerry/stanbrooke-contractor-shortage/logo.jpg", caption: "Stanbrooke Custom Homes" },
+			{ kind: "image", src: "/jerry/stanbrooke-contractor-shortage/office.jpg", caption: "Stanbrooke office" },
+			{ kind: "image", src: "/jerry/stanbrooke-contractor-shortage/home.png", caption: "A Stanbrooke custom home" },
+		],
 	},
 ];
