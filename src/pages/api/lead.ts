@@ -70,7 +70,7 @@ export const POST: APIRoute = async (context) => {
 		await workerEnv.EMAIL.send({
 			to: NOTIFY_TO,
 			from: { email: NOTIFY_FROM, name: 'SumoLab Portfolio' },
-			subject: `New portfolio lead: ${name}`,
+			subject: 'Sumo Lab Form Submittal',
 			text: `${projectLine}Name: ${name}\nEmail: ${email}\n\n${message}`,
 			html: `${projectName ? `<p><strong>Project:</strong> ${projectName}</p>` : ''}<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong><br>${message.replace(/\n/g, '<br>')}</p>`,
 		});
