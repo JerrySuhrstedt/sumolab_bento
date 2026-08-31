@@ -19,7 +19,9 @@ export default defineConfig({
 			customPages: ['https://sumolab.co/trellivance-test/'],
 			// Client report pages are unlisted — shared directly with one
 			// client, never meant to be publicly discoverable or indexed.
-			filter: (page) => !page.includes('/clients/'),
+			// /testing/ pages are scratch pages for trying things out, not
+			// real site content.
+			filter: (page) => !page.includes('/clients/') && !page.includes('/testing/'),
 		}),
 	],
 	prefetch: {

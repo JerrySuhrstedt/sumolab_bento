@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+---
+
+<Layout title="Chumley Form Test | SumoLab" description="Testing page for the Chumley embed form." noindex>
+	<Section tone="plain" style="padding-top:68px">
+		<p class="eyebrow-label"><span class="dot"></span>Testing</p>
+		<h1 class="page-h1">Chumley form test</h1>
+	</Section>
+
+	<Section tone="white">
+		<div class="form-wrap">
+			<script src="https://chumley.app/embed.js" data-form="9d08c01e-a8f7-4ebb-9bf4-f8f479de33b8" async></script>
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.form-wrap {
+		min-height: 200px;
+	}
+</style>
