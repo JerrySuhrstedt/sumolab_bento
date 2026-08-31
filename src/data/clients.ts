@@ -7,6 +7,7 @@ export interface ClientItem {
 export interface Client {
 	slug: string;
 	name: string;
+	description: string;
 	items: ClientItem[];
 }
 
@@ -14,6 +15,8 @@ export const clients: Client[] = [
 	{
 		slug: "avec-amoore",
 		name: "Avec Amoore",
+		description:
+			"A web presence and SEO audit for Avec Amoore: where your Google, Instagram, and search rankings already stand, and the specific gaps on your website that are holding back the traffic those strong assets should be bringing in.",
 		items: [
 			{
 				title: "Report",
