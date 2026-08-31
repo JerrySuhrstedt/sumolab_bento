@@ -135,4 +135,18 @@ export const portfolioProjects: PortfolioProject[] = [
 		thumb: "/jerry/design-build-nw/homepage-top.jpg",
 		artifacts: [{ kind: "image", src: "/jerry/design-build-nw/homepage-top.jpg", caption: "Homepage" }],
 	},
+	{
+		slug: "first-products-judy-trudy",
+		name: "First Products: Judy & Trudy",
+		category: "Graphic Design & Branding",
+		sample: false,
+		problem:
+			"First Products, a medical supply company in Tacoma, Washington, had been family-owned for 30 years, but its generic name wasn't sticking. Doctors, nurses, and hospital purchasing agents couldn't remember who to call.",
+		action:
+			"Proposed two cartoon characters, Judy and Trudy, as the new faces of the brand, a Caucasian nurse and an African American nurse, friendly and professional enough to resonate with a medical audience. Worked with an illustrator to bring them to life, then commissioned Judy and Trudy bobblehead dolls and gave them away at medical conferences, trade shows, hospitals, and clinics.",
+		result:
+			"The company's name became synonymous with the friendly cartoon nurses. The bobbleheads ended up sitting on nursing station desks and in administrative offices across hospitals, a constant physical reminder of the brand that fed a steady rise in sales and new customer acquisition.",
+		thumb: "/jerry/first-products-judy-trudy/judy-trudy.jpg",
+		artifacts: [{ kind: "image", src: "/jerry/first-products-judy-trudy/judy-trudy.jpg", caption: "Judy & Trudy bobblehead dolls" }],
+	},
 ];
