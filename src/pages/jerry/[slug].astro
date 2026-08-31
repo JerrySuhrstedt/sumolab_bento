@@ -1,0 +1,198 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import LeadForm from '../../components/LeadForm.astro';
+import { portfolioProjects } from '../../data/portfolio';
+
+export function getStaticPaths() {
+	return portfolioProjects.map((project) => ({
+		params: { slug: project.slug },
+		props: { project },
+	}));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={`${project.name} | Portfolio | SumoLab`} description={project.problem}>
+	<Section tone="plain" style="padding-top:48px">
+		<a href="/jerry/" class="back-link">← All projects</a>
+		<p class="eyebrow-label" style="margin-top:24px">
+			<span class="dot"></span>
+			{project.category}
+			{project.sample && <span class="sample-tag">Sample project</span>}
+		</p>
+		<h1 class="page-h1">{project.name}</h1>
+	</Section>
+
+	<Section tone="white">
+		<div class="par-grid">
+			<div class="par-item">
+				<p class="par-label">Problem</p>
+				<p class="par-body">{project.problem}</p>
+			</div>
+			<div class="par-item">
+				<p class="par-label">Action</p>
+				<p class="par-body">{project.action}</p>
+			</div>
+			<div class="par-item">
+				<p class="par-label">Result</p>
+				<p class="par-body">{project.result}</p>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="plain">
+		<p class="eyebrow-label"><span class="dot"></span>The work</p>
+		<div class="artifact-gallery">
+			{project.artifacts.map((artifact) => (
+				<div class="artifact-tile">
+					{artifact.kind === 'image' && (
+						<a href={artifact.src} target="_blank" rel="noopener">
+							<img src={artifact.src} alt={artifact.caption ?? project.name} loading="lazy" />
+						</a>
+					)}
+					{artifact.kind === 'video' && <video src={artifact.src} controls />}
+					{artifact.kind === 'youtube' && (
+						<div class="video-embed">
+							<iframe src={artifact.src} title={artifact.caption ?? project.name} allowfullscreen loading="lazy" />
+						</div>
+					)}
+					{artifact.kind === 'audio' && (
+						<div class="audio-wrap">
+							<audio src={artifact.src} controls />
+						</div>
+					)}
+					{artifact.kind === 'pdf' && (
+						<a href={artifact.src} target="_blank" rel="noopener" class="pdf-tile">
+							<span>View PDF →</span>
+						</a>
+					)}
+					{artifact.caption && <p class="artifact-caption">{artifact.caption}</p>}
+				</div>
+			))}
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<div class="card-cta-row">
+			<h2 class="page-h2" style="color:#fff;margin:0">Want to talk about a project like this for your business?</h2>
+			<LeadForm projectSlug={project.slug} projectName={project.name} />
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.back-link {
+		display: block;
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 13.5px;
+		color: var(--text-secondary);
+	}
+	.back-link:hover {
+		color: var(--orange-500);
+	}
+	.sample-tag {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 10.5px;
+		letter-spacing: 0.03em;
+		text-transform: uppercase;
+		color: var(--text-secondary);
+		background: var(--surface-sunken);
+		border-radius: 999px;
+		padding: 3px 9px;
+		margin-left: 4px;
+	}
+	.par-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 40px;
+	}
+	.par-label {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 12.5px;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--orange-500);
+		margin: 0 0 14px;
+	}
+	.par-body {
+		font-family: var(--font-body);
+		font-size: 16px;
+		line-height: 1.7;
+		color: var(--text-primary);
+		margin: 0;
+	}
+	.artifact-gallery {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px;
+		margin-top: 24px;
+	}
+	.artifact-tile img,
+	.artifact-tile video {
+		width: 100%;
+		height: auto;
+		display: block;
+		border-radius: var(--radius-md);
+		border: 1px solid var(--border);
+	}
+	.artifact-tile audio {
+		width: 100%;
+		display: block;
+	}
+	.audio-wrap {
+		background: var(--surface-sunken);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-md);
+		padding: 32px 24px;
+	}
+	.video-embed {
+		position: relative;
+		aspect-ratio: 16 / 9;
+		border-radius: var(--radius-md);
+		overflow: hidden;
+		border: 1px solid var(--border);
+	}
+	.video-embed iframe {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
+	.pdf-tile {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		aspect-ratio: 4 / 3;
+		background: var(--surface-sunken);
+		border-radius: var(--radius-md);
+		border: 1px solid var(--border);
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 15px;
+		color: var(--text-primary);
+	}
+	.artifact-caption {
+		font-family: var(--font-body);
+		font-size: 13px;
+		line-height: 1.5;
+		color: var(--text-secondary);
+		margin: 10px 0 0;
+	}
+	@media (max-width: 780px) {
+		.par-grid {
+			grid-template-columns: 1fr;
+			gap: 32px;
+		}
+	}
+	@media (max-width: 640px) {
+		.artifact-gallery {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

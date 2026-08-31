@@ -1,0 +1,173 @@
+---
+interface Props {
+	projectSlug?: string;
+	projectName?: string;
+}
+
+const { projectSlug, projectName } = Astro.props;
+---
+
+<div class="lead-form" data-lead-form data-project-slug={projectSlug} data-project-name={projectName}>
+	<form>
+		<div class="field">
+			<label for="lead-name">Name</label>
+			<input id="lead-name" name="name" type="text" required autocomplete="name" />
+		</div>
+		<div class="field">
+			<label for="lead-email">Email</label>
+			<input id="lead-email" name="email" type="email" required autocomplete="email" />
+		</div>
+		<div class="field">
+			<label for="lead-message">Message</label>
+			<textarea id="lead-message" name="message" rows="4" required></textarea>
+		</div>
+		<div class="hp-field" aria-hidden="true">
+			<label for="lead-company">Company</label>
+			<input id="lead-company" name="company" type="text" tabindex="-1" autocomplete="off" />
+		</div>
+		<button type="submit" class="submit-btn">
+			<span class="label">Send Message</span>
+		</button>
+		<p class="status" role="status"></p>
+	</form>
+</div>
+
+<style>
+	.lead-form {
+		background: var(--white);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-md);
+		padding: 24px;
+		width: 100%;
+	}
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+	.field {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+	label {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 13px;
+		color: var(--text-primary);
+	}
+	input,
+	textarea {
+		font-family: var(--font-body);
+		font-size: 15px;
+		color: var(--text-primary);
+		background: var(--surface-page);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-sm);
+		padding: 10px 12px;
+		resize: vertical;
+	}
+	input:focus,
+	textarea:focus {
+		outline: none;
+		border-color: var(--orange-500);
+	}
+	.hp-field {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+	}
+	.submit-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 15px;
+		background: var(--orange-500);
+		color: #fff;
+		border: none;
+		border-radius: var(--radius-sm);
+		padding: 14px 26px;
+		cursor: pointer;
+		transition: background-color 0.15s ease;
+	}
+	.submit-btn:hover {
+		background: var(--orange-600);
+	}
+	.submit-btn:disabled {
+		opacity: 0.6;
+		cursor: default;
+	}
+	.status {
+		margin: 0;
+		font-size: 13.5px;
+		line-height: 1.5;
+		min-height: 1.2em;
+	}
+	.status[data-state='error'] {
+		color: #c0392b;
+	}
+	.status[data-state='success'] {
+		color: var(--orange-600);
+	}
+</style>
+
+<script>
+	function initLeadForms() {
+		document.querySelectorAll<HTMLElement>('[data-lead-form]').forEach((wrap) => {
+			const form = wrap.querySelector('form');
+			if (!form || form.dataset.wired === 'true') return;
+			form.dataset.wired = 'true';
+
+			const status = form.querySelector<HTMLParagraphElement>('.status');
+			const button = form.querySelector<HTMLButtonElement>('.submit-btn');
+
+			form.addEventListener('submit', async (e) => {
+				e.preventDefault();
+				if (!status || !button) return;
+
+				const formData = new FormData(form);
+				const payload = {
+					name: formData.get('name'),
+					email: formData.get('email'),
+					message: formData.get('message'),
+					company: formData.get('company'),
+					projectSlug: wrap.dataset.projectSlug || null,
+					projectName: wrap.dataset.projectName || null,
+					sourcePath: window.location.pathname,
+				};
+
+				button.disabled = true;
+				status.dataset.state = '';
+				status.textContent = '';
+
+				try {
+					const res = await fetch('/api/lead', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify(payload),
+					});
+					const data = await res.json().catch(() => ({}));
+					if (!res.ok || !data.ok) {
+						throw new Error(data.error || 'Something went wrong. Please try again.');
+					}
+					form.reset();
+					status.dataset.state = 'success';
+					status.textContent = "Thanks, I'll get back to you soon.";
+				} catch (err) {
+					status.dataset.state = 'error';
+					status.textContent = err instanceof Error ? err.message : 'Something went wrong. Please try again.';
+				} finally {
+					button.disabled = false;
+				}
+			});
+		});
+	}
+
+	initLeadForms();
+	document.addEventListener('astro:page-load', initLeadForms);
+</script>

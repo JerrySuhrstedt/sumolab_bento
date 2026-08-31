@@ -1,10 +1,15 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://sumolab.co',
+	// Astro's Cloudflare adapter auto-provisions a KV session driver unless
+	// disabled. Nothing on the site uses Astro sessions, so this avoids
+	// requiring a KV namespace binding that would otherwise go unused.
+	session: false,
 	integrations: [
 		sitemap({
 			// /trellivance-test/ is a static file in public/, so Astro never
@@ -18,4 +23,5 @@ export default defineConfig({
 		defaultStrategy: 'hover',
 		prefetchAll: true,
 	},
+	adapter: cloudflare(),
 });

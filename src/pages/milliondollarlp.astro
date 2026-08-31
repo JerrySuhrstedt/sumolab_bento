@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import LeadForm from '../components/LeadForm.astro';
 import { founder } from '../data/founder';
 import { contact } from '../data/contact';
 
@@ -105,7 +106,7 @@ const comparison = [
 						<img src={founder.headshotSrc ?? ''} alt={founder.name ?? 'Founder'} class="byline-photo" />
 						<div>
 							<p class="byline-name">{founder.name}</p>
-							<p class="byline-title">30 years in marketing, 16 in home building &middot; <a href="/about/">About Jerry →</a></p>
+							<p class="byline-title">26 years in marketing, 16 in home building &middot; <a href="/about/">About Jerry →</a></p>
 						</div>
 					</div>
 
@@ -122,8 +123,7 @@ const comparison = [
 				</div>
 
 				<div class="hero-form">
-					<div data-paperform-id="dwhasw8w"></div>
-					<script is:inline>(function() {var script = document.createElement('script'); script.src = "https://paperform.co/__embed.min.js"; document.body.appendChild(script); })()</script>
+					<LeadForm projectName="Million Dollar LP" />
 				</div>
 			</div>
 		</section>
@@ -293,10 +293,7 @@ const comparison = [
 		justify-content: flex-start;
 	}
 	.hero-form {
-		background: var(--white);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-lg);
-		padding: 28px;
+		width: 100%;
 	}
 	.eyebrow {
 		font-family: var(--font-display);

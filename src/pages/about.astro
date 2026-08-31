@@ -2,13 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import Section from '../components/Section.astro';
-import CTAForm from '../components/CTAForm.astro';
+import LeadForm from '../components/LeadForm.astro';
 import { founder } from '../data/founder';
 ---
 
 <Layout
 	title="About | SumoLab"
-	description="Most AI advice comes from people who've never had to make payroll. Mine comes from 28 years of building and running businesses, and going deep on AI."
+	description="Most AI advice comes from people who've never had to make payroll. Mine comes from 26 years of building and running businesses, and going deep on AI."
 >
 	<PageHero
 		image="/photos/about-hero.jpg"
@@ -19,7 +19,7 @@ import { founder } from '../data/founder';
 		imagePosition="65% top"
 	>
 		<h1>Marketing that runs.<br />Operations that scale.<br />AI that pays.</h1>
-		<p>Most AI advice comes from people who've never had to make payroll. Mine comes from 28 years of building and running businesses — and going deep on AI.</p>
+		<p>Most AI advice comes from people who've never had to make payroll. Mine comes from 26 years of building and running businesses — and going deep on AI.</p>
 	</PageHero>
 
 	<Section tone="white">
@@ -76,7 +76,7 @@ import { founder } from '../data/founder';
 	<Section tone="ink">
 		<div class="card-cta-row">
 			<h2 class="page-h2" style="color:#fff;margin:0">Ready to talk about your marketing leadership?</h2>
-			<CTAForm />
+			<LeadForm />
 		</div>
 	</Section>
 </Layout>

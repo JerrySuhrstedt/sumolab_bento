@@ -2,7 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import PageHero from '../../../components/PageHero.astro';
 import Section from '../../../components/Section.astro';
-import CTAForm from '../../../components/CTAForm.astro';
+import LeadForm from '../../../components/LeadForm.astro';
 import FaqAccordion from '../../../components/FaqAccordion.astro';
 import { services } from '../../../data/services';
 import { cities } from '../../../data/cities';
@@ -167,7 +167,7 @@ const structuredData = {
 	<Section tone="ink">
 		<div class="card-cta-row">
 			<h2 class="page-h2" style="color:#fff;margin:0">Let's talk about whether {service.shortName.toLowerCase()} is the right fit for your {city.name} business.</h2>
-			<CTAForm />
+			<LeadForm />
 		</div>
 	</Section>
 </Layout>

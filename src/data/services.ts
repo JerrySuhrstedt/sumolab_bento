@@ -47,11 +47,11 @@ export const fractionalCMO: Service = {
 	shortName: "Fractional CMO",
 	seoTitle: "Fractional CMO Services for $5M–$50M Companies",
 	seoDescription:
-		"Hire a fractional CMO with 28 years of marketing leadership. SumoLab gives $5M–$50M companies executive strategy, team direction, and accountable growth.",
+		"Hire a fractional CMO with 26 years of marketing leadership. SumoLab gives $5M–$50M companies executive strategy, team direction, and accountable growth.",
 	seoH1: "Fractional CMO Services for $5M–$50M Companies",
 	serviceType: "Fractional CMO services",
 	definition:
-		"A fractional CMO is a part-time chief marketing officer who owns marketing strategy, budget, team direction, and pipeline accountability for a set number of hours each month. SumoLab's version of the role gives $5M–$50M companies 28 years of executive marketing leadership at a fraction of the $150,000–$300,000 cost of a full-time hire.",
+		"A fractional CMO is a part-time chief marketing officer who owns marketing strategy, budget, team direction, and pipeline accountability for a set number of hours each month. SumoLab's version of the role gives $5M–$50M companies 26 years of executive marketing leadership at a fraction of the $150,000–$300,000 cost of a full-time hire.",
 	situationHeading: "Busy marketing. Random results.",
 	ctaPhrase: "a fractional CMO",
 	includesHeading: "What a fractional CMO does inside your business.",
@@ -259,7 +259,7 @@ export const fractionalAIAdvisor: Service = {
 	seoH1: "AI Marketing Consultant for Mid-Market Companies",
 	serviceType: "AI marketing consulting",
 	definition:
-		"An AI marketing consultant helps a company decide where AI belongs in its marketing — content, campaigns, analytics, automation — then puts the tools to work and measures the return. SumoLab's Fractional AI Advisor brings 28 years of operating judgment to practical AI adoption for $5M–$50M companies: marketing first, and the wider business wherever AI actually pays off.",
+		"An AI marketing consultant helps a company decide where AI belongs in its marketing — content, campaigns, analytics, automation — then puts the tools to work and measures the return. SumoLab's Fractional AI Advisor brings 26 years of operating judgment to practical AI adoption for $5M–$50M companies: marketing first, and the wider business wherever AI actually pays off.",
 	includesHeading: "What an AI marketing consultant actually does.",
 	howItWorksHeading: "How the AI marketing consulting engagement works.",
 	whoItsForHeading: "Who hires an AI marketing consultant",
@@ -273,7 +273,7 @@ export const fractionalAIAdvisor: Service = {
 	],
 	tagline: "An AI marketing consultant who brings senior operator judgment to AI — pointed at the one or two places it can actually move profit across your business.",
 	summary:
-		"An AI marketing consultant and business operator who brings 28 years of judgment to the one question most consultants can't answer: where AI actually belongs in your business. Not just marketing — finance, operations, sales, HR. I find the highest-payoff place to start, put AI to work, and prove the return. Not a technologist. An operator who's run twelve companies and knows what moves profit.",
+		"An AI marketing consultant and business operator who brings 26 years of judgment to the one question most consultants can't answer: where AI actually belongs in your business. Not just marketing — finance, operations, sales, HR. I find the highest-payoff place to start, put AI to work, and prove the return. Not a technologist. An operator who's run twelve companies and knows what moves profit.",
 	situationHeading: "Everyone's experimenting. Few are earning.",
 	ctaPhrase: "an AI marketing consultant",
 	situation:
@@ -329,7 +329,7 @@ export const fractionalAIAdvisor: Service = {
 		{
 			question: "How is an AI marketing consultant different from an AI agency?",
 			answer:
-				"An AI agency sells implementation: builds, integrations, retainers. AI marketing consulting services start with the business question — where will AI actually move profit? I bring 28 years of operating judgment, pick the highest-payoff starting point, put the tools to work, and prove the return before anything scales.",
+				"An AI agency sells implementation: builds, integrations, retainers. AI marketing consulting services start with the business question — where will AI actually move profit? I bring 26 years of operating judgment, pick the highest-payoff starting point, put the tools to work, and prove the return before anything scales.",
 		},
 		{
 			question: "What does AI adoption for marketing teams look like in practice?",

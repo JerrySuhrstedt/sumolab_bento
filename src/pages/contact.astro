@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Section from '../components/Section.astro';
-import PrimaryCTA from '../components/PrimaryCTA.astro';
+import LeadForm from '../components/LeadForm.astro';
 
 const callCovers = [
 	'Where your marketing stands today, and where the gaps are',
@@ -24,8 +24,7 @@ const callCovers = [
 	<Section tone="white">
 		<div class="two-col" style="align-items:start">
 			<div class="form-col">
-				<div data-paperform-id="vrhncs2i"></div>
-				<script is:inline>(function() {var script = document.createElement('script'); script.src = "https://paperform.co/__embed.min.js"; document.body.appendChild(script); })()</script>
+				<LeadForm />
 			</div>
 			<div style="padding-top:4px">
 				<p class="covers-label">What the call covers</p>

@@ -9,10 +9,14 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate-types": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^14.2.5",
     "@astrojs/sitemap": "^3.7.3",
-    "astro": "^7.1.6"
+    "@neondatabase/serverless": "^1.1.0",
+    "astro": "^7.1.6",
+    "wrangler": "^4.127.1"
   }
 }
