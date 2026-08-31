@@ -3,12 +3,13 @@ interface Props {
 	tone?: "white" | "ink" | "accent" | "plain";
 	class?: string;
 	id?: string;
+	style?: string;
 }
 
-const { tone = "white", class: className = "", id } = Astro.props;
+const { tone = "white", class: className = "", id, style } = Astro.props;
 ---
 
-<section id={id} class:list={["section-wrap", className]}>
+<section id={id} class:list={["section-wrap", className]} style={style}>
 	<div class:list={["card", tone]}>
 		<slot />
 	</div>

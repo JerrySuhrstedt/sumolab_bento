@@ -9,6 +9,8 @@ export interface PortfolioProject {
 	name: string;
 	category: string;
 	sample: boolean;
+	/** Starred on the overview grid as a must-see if time is short. */
+	featured?: boolean;
 	problem: string;
 	action: string;
 	result: string;
@@ -23,6 +25,7 @@ export const portfolioProjects: PortfolioProject[] = [
 		name: "First Products: Judy & Trudy",
 		category: "Graphic Design & Branding",
 		sample: false,
+		featured: true,
 		problem:
 			"First Products, a medical supply company in Tacoma, Washington, had been family-owned for 30 years, but its generic name wasn't sticking. Doctors, nurses, and hospital purchasing agents couldn't remember who to call.",
 		action:
@@ -37,6 +40,7 @@ export const portfolioProjects: PortfolioProject[] = [
 		name: "AddaRoom",
 		category: "Marketing Strategy & Video",
 		sample: false,
+		featured: true,
 		problem:
 			"AddaRoom, a Seattle-based home remodeling contractor, wanted to grow. Home additions were exactly the kind of project a lot of families needed, but the service wasn't getting any real attention next to their bigger remodel offerings.",
 		action:
@@ -54,6 +58,7 @@ export const portfolioProjects: PortfolioProject[] = [
 		name: "Chumley",
 		category: "Branding & Product Development",
 		sample: false,
+		featured: true,
 		problem:
 			"Independent sales reps and small trade businesses need to track leads and follow up fast, but every CRM on the market is built for sales teams with a full-time admin, not someone running jobs from a truck. They'd sign up, hit the eleventh required field before they could write down a lead, and go back to a notebook.",
 		action:

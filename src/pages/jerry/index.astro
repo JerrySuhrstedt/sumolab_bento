@@ -9,13 +9,14 @@ import { portfolioProjects } from '../../data/portfolio';
 	title="Portfolio | SumoLab"
 	description="Hi, I'm Jerry Suhrstedt. A sample of my marketing strategy work, personally ideated, designed, and built, drawn from 26 years of building and running businesses. The problem, the action, and the result for each project."
 >
-	<Section tone="plain" style="padding-top:48px">
+	<Section tone="plain" style="padding-top:68px">
 		<p class="eyebrow-label"><span class="dot"></span>Portfolio</p>
 		<h1 class="page-h1">Selected work.</h1>
 		<p class="lede">
 			<strong>Hi, I'm Jerry Suhrstedt.</strong> Here's a sample of my marketing strategy work. Everything on this page, I personally
 			ideated, designed, and built, drawing on 26 years of building and running businesses. Every project below
-			shows the problem, what I did about it, and what happened.
+			shows the problem, what I did about it, and what happened. If your time is limited, the projects marked
+			with a star are the ones to look at first.
 		</p>
 	</Section>
 
@@ -28,6 +29,11 @@ import { portfolioProjects } from '../../data/portfolio';
 							<img src={project.thumb} alt={project.name} loading="lazy" />
 						) : (
 							<div class="thumb-fallback">{project.category}</div>
+						)}
+						{project.featured && (
+							<span class="star-badge" title="Start here" aria-hidden="true">
+								<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.7z" /></svg>
+							</span>
 						)}
 					</div>
 					<div class="body">
@@ -88,9 +94,29 @@ import { portfolioProjects } from '../../data/portfolio';
 		inset: 0;
 		background: rgba(0, 0, 0, 0.5);
 		transition: background-color 0.2s ease;
+		z-index: 1;
 	}
 	.portfolio-card:hover .thumb::after {
 		background: rgba(0, 0, 0, 0);
+	}
+	.star-badge {
+		position: absolute;
+		top: 12px;
+		left: 12px;
+		z-index: 2;
+		width: 32px;
+		height: 32px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--white);
+		border-radius: 999px;
+		color: var(--orange-500);
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+	}
+	.star-badge svg {
+		width: 18px;
+		height: 18px;
 	}
 	.thumb-fallback {
 		width: 100%;
