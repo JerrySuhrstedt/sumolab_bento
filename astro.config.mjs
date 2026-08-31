@@ -17,6 +17,9 @@ export default defineConfig({
 			// and content already checked) — listing it here avoids touching
 			// that file just to fix an unrelated sitemap gap.
 			customPages: ['https://sumolab.co/trellivance-test/'],
+			// Client report pages are unlisted — shared directly with one
+			// client, never meant to be publicly discoverable or indexed.
+			filter: (page) => !page.includes('/clients/'),
 		}),
 	],
 	prefetch: {
