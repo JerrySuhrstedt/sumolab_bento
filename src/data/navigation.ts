@@ -30,6 +30,7 @@ export const primaryNav: NavItem[] = [
 	},
 	{ label: "Case Studies", href: "/case-studies/" },
 	{ label: "Insights", href: "/blog/" },
+	{ label: "Contact", href: "/contact/" },
 ];
 
 export const primaryCta: NavLink = {
