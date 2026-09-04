@@ -24,9 +24,8 @@ const cityFaq = {
 };
 const faqs = [cityFaq, ...service.faqs];
 
-const nearbyCities = city.nearby
-	.map((name: string) => cities.find((c) => c.name === name))
-	.filter((c): c is NonNullable<typeof c> => Boolean(c));
+const otherCities = cities.filter((c) => c.slug !== city.slug);
+const otherServices = services.filter((s) => s.slug !== service.slug);
 
 const title = `${service.name} in ${city.name}, ${city.state} | SumoLab`;
 const description = `${service.name} for established ${city.name}, ${city.state} businesses ready to scale. ${service.tagline}`;
@@ -148,21 +147,33 @@ const structuredData = {
 		</div>
 	</Section>
 
-	{nearbyCities.length > 0 && (
-		<Section tone="plain">
-			<p class="eyebrow-label"><span class="dot"></span>Also serving</p>
-			<h2 class="page-h3" style="margin-bottom:24px">{service.name} in nearby areas.</h2>
-			<ul class="city-list">
-				{nearbyCities.map((nearby) => (
-					<li>
-						<a href={`/services/${service.slug}/${nearby.slug}/`} class="city-link">
-							{nearby.name}, {nearby.state}
-						</a>
-					</li>
-				))}
-			</ul>
-		</Section>
-	)}
+	<Section tone="plain">
+		<p class="eyebrow-label"><span class="dot"></span>Also serving</p>
+		<h2 class="page-h3" style="margin-bottom:24px">{service.name} across the Phoenix metro.</h2>
+		<ul class="city-list">
+			{otherCities.map((other) => (
+				<li>
+					<a href={`/services/${service.slug}/${other.slug}/`} class="city-link">
+						{service.name} in {other.name}, {other.state}
+					</a>
+				</li>
+			))}
+			<li>
+				<a href="/fractional-cmo-near-me/" class="city-link">Fractional CMO near me</a>
+			</li>
+		</ul>
+
+		<p class="eyebrow-label" style="margin-top:40px"><span class="dot"></span>Other services in {city.name}</p>
+		<ul class="city-list">
+			{otherServices.map((other) => (
+				<li>
+					<a href={`/services/${other.slug}/${city.slug}/`} class="city-link">
+						{other.name} in {city.name}, {city.state}
+					</a>
+				</li>
+			))}
+		</ul>
+	</Section>
 
 	<Section tone="ink">
 		<div class="card-cta-row">

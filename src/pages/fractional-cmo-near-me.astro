@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import Section from '../components/Section.astro';
 import LeadForm from '../components/LeadForm.astro';
+import { cities } from '../data/cities';
 
 const faqs = [
 	{
@@ -110,6 +111,16 @@ const structuredData = [
 				<h2 class="page-h2">Chandler-based. Valley-wide. Nationwide.</h2>
 				<p class="lede" style="margin-top:24px">SumoLab is based in Chandler, in the heart of the East Valley, and serves the entire Phoenix metro in person — Phoenix, Scottsdale, Tempe, Mesa, Gilbert, and the surrounding cities. When a strategy session, leadership offsite, or team workshop works better face to face, it's a short drive across the Valley, not a flight.</p>
 				<p class="lede" style="margin-top:16px">Beyond Arizona, engagements run remotely with businesses across the US on the same weekly cadence: clear priorities, direct access, and no waiting on geography. And if you're not sure you need a full CMO yet, some teams are better served by a <a href="/services/fractional-marketing-director/">fractional marketing director</a> — a conversation will make the distinction clear.</p>
+				<p class="eyebrow-label" style="margin-top:32px"><span class="dot"></span>Fractional CMO by city</p>
+				<ul class="city-list">
+					{cities.map((city) => (
+						<li>
+							<a href={`/services/fractional-cmo/${city.slug}/`} class="city-link">
+								Fractional CMO in {city.name}, {city.state}
+							</a>
+						</li>
+					))}
+				</ul>
 			</div>
 		</div>
 	</Section>
@@ -174,6 +185,30 @@ const structuredData = [
 </Layout>
 
 <style>
+	.city-list {
+		list-style: none;
+		margin: 16px 0 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+	.city-link {
+		display: inline-flex;
+		align-items: center;
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: 14px;
+		color: var(--text-primary);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-sm);
+		padding: 10px 18px;
+		transition: border-color 0.15s, color 0.15s;
+	}
+	.city-link:hover {
+		border-color: var(--orange-500);
+		color: var(--orange-500);
+	}
 	.questions-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);

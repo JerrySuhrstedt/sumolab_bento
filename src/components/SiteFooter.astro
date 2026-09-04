@@ -3,8 +3,17 @@ import BrandLogo from "./BrandLogo.astro";
 import PrimaryCTA from "./PrimaryCTA.astro";
 import { footerNav, legalNav } from "../data/navigation";
 import { contact } from "../data/contact";
+import { services } from "../data/services";
+import { cities } from "../data/cities";
 
 const year = new Date().getFullYear();
+
+// Footer silo rows lead with the primary keyword, matching SEO priority
+// rather than the order services happen to be listed in services.ts.
+const seoRowOrder = ["fractional-cmo", "fractional-marketing-director", "fractional-ai-advisor"];
+const seoServices = seoRowOrder
+	.map((slug) => services.find((s) => s.slug === slug))
+	.filter((s): s is NonNullable<typeof s> => Boolean(s));
 ---
 
 <footer class="footer">
@@ -42,6 +51,17 @@ const year = new Date().getFullYear();
 				<li>{contact.linkedinUrl ? <a href={contact.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn</a> : null}</li>
 			</ul>
 		</div>
+	</div>
+	<div class="seo-links">
+		{seoServices.map((service) => (
+			<ul class="seo-row">
+				{cities.map((city) => (
+					<li>
+						<a href={`/services/${service.slug}/${city.slug}/`}>{service.name} {city.name} {city.state}</a>
+					</li>
+				))}
+			</ul>
+		))}
 	</div>
 	<div class="bottom">
 		<span>© {year} SumoLab LLC. All rights reserved.</span>
@@ -98,6 +118,26 @@ const year = new Date().getFullYear();
 	}
 	a:hover {
 		color: var(--orange-500);
+	}
+	.seo-links {
+		max-width: 1180px;
+		margin: 0 auto;
+		padding: 24px 40px 28px;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+	ul.seo-row {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 8px 28px;
+		font-size: 13px;
+	}
+	.seo-row a {
+		color: rgba(255, 255, 255, 0.55);
+		white-space: nowrap;
 	}
 	.bottom {
 		max-width: 1180px;
