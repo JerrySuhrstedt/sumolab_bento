@@ -115,19 +115,43 @@ Structured data (Schema.org `ProfessionalService`) is defined in `index.astro`, 
 - `astro.config.mjs` must keep `site: 'https://sumolab-bento.sumolab.workers.dev'` or canonical URL generation throws
 - Structured data URL in `index.astro` should be `https://sumolab-bento.sumolab.workers.dev`
 
-## SEO Keyword Targets (as of 2026-08-06)
+## SEO Keyword Targets (as of 2026-09-04, from Google Keyword Planner)
 
-Primary search terms to optimize for — one keyword per page, include exact phrase in page title, H1, first 100 words, and meta description:
+Source data: Jerry's Keyword Planner export (US, Aug 2025 to Jul 2026), parsed to
+`Jerry-AI-Context/03-projects/sumolab/sumolab-keyword-analysis_09-04-2026.csv`.
+One primary keyword per page: exact phrase in title tag, H1, first sentence, at
+least one H2/H3, and the meta description.
 
-| Keyword | Primary Page |
+| Keyword (monthly US searches) | Primary page |
 |---|---|
-| `fractional CMO near me` | `/fractional-cmo-near-me/` |
+| `fractional CMO` (2,900) + `part-time CMO` (390) + `outsourced CMO` (260) | `/services/fractional-cmo/` |
 | `fractional marketing director` | `/services/fractional-marketing-director/` |
-| `AI marketing consultant` | `/services/fractional-ai-advisor/` |
-| `hire fractional CMO` | Homepage (`/`) |
-| `fractional CMO` | `/services/fractional-cmo/` + articles |
+| `AI consultant for small business` (590) + `small business AI consultant` (170) + `AI marketing consultant` | `/services/fractional-ai-advisor/` |
+| `fractional CMO near me` | `/fractional-cmo-near-me/` |
+| `marketing consultant for small business` (590) | `/marketing-consultant-for-small-business/` |
+| `marketing for home builders` / `home builder marketing` (320 each) | `/marketing-for-home-builders/` |
+| `marketing for construction companies` (590) + `contractor lead generation` (320) | `/marketing-for-construction-companies/` |
+| `marketing for remodelers` (320) | `/marketing-for-remodelers/` |
+| `marketing strategy for small business` (1,300) + `marketing plan for a small business` (720) | `/blog/marketing-strategy-for-a-small-business/` |
+| `marketing manager vs marketing director` (70, competition 0) | `/blog/marketing-manager-vs-marketing-director/` |
+| `AI usage policy template` (70) | `/blog/ai-usage-policy-template-small-business/` (gated .docx) |
+| `AI for contractors` (110) | `/blog/ai-for-contractors/` |
+| `AI training for employees` (320) | section + FAQ on `/services/fractional-ai-advisor/` |
 
-**Do NOT target** (zero search volume): fractional CMO Arizona, fractional CMO Phoenix, fractional CMO Scottsdale, marketing consultant Chandler AZ, AI marketing consultant Arizona, fractional AI advisor, fractional CMO $5M business, AI strategy for small business.
+**Do NOT target** (zero search volume): fractional CMO Arizona, fractional CMO Phoenix,
+fractional CMO Scottsdale, marketing consultant Chandler AZ, AI marketing consultant
+Arizona, fractional AI advisor, fractional CMO $5M business, AI strategy for small
+business, and the question-phrased hiring terms ("how to hire a fractional CMO").
+Not worth chasing: HVAC/plumbing marketing (bids over $100), "how to get more customers".
+
+**Content rules for every page and article:** no em dashes; keyword in H1, first
+sentence, and an H2/H3; no banned words (delve, testament, beacon, revolutionize,
+moreover, furthermore, tapestry, crucial, paramount, "in today's digital age");
+internal links resolve to real pages; FAQPage schema on landing pages.
+
+**Deploy:** `npm run build && npx wrangler deploy --config dist/server/wrangler.json`
+then `git push origin main` (push also triggers a Workers Builds deploy). Root
+`wrangler.jsonc` must never contain `main`.
 
 ## Rules
 
