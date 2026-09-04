@@ -64,7 +64,8 @@ const structuredData = {
 		<div class="situation-grid">
 			<div>
 				<p class="eyebrow-label"><span class="dot"></span>The {city.name} landscape</p>
-				<h2 class="page-h2">{service.situation}</h2>
+				<h2 class="page-h2">{service.situationHeading ?? 'Sound familiar?'}</h2>
+				<p class="lede" style="margin-top:20px">{service.situation}</p>
 			</div>
 			<div>
 				<p class="lede">{city.landscape}</p>

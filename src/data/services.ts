@@ -59,15 +59,15 @@ export const fractionalCMO: Service = {
 	whoItsForHeading: "Who hires a fractional CMO",
 	faqHeading: "Fractional CMO cost, comparisons, and common questions.",
 	relatedLinks: [
-		{ href: "/services/fractional-marketing-director/", label: "Fractional marketing director — hands-on operational leadership" },
-		{ href: "/services/fractional-ai-advisor/", label: "AI marketing consultant — practical AI adoption" },
-		{ href: "/fractional-cmo-near-me/", label: "Fractional CMO near me — Phoenix metro" },
-		{ href: "/case-studies/", label: "Case studies — results from real engagements" },
+		{ href: "/services/fractional-marketing-director/", label: "Fractional marketing director: hands-on operational leadership" },
+		{ href: "/services/fractional-ai-advisor/", label: "AI marketing consultant: practical AI adoption" },
+		{ href: "/fractional-cmo-near-me/", label: "Fractional CMO near me: Phoenix metro" },
+		{ href: "/case-studies/", label: "Case studies: results from real engagements" },
 		{ href: "/contact/", label: "Book an intro call" },
 	],
 	tagline: "Executive-level marketing leadership to drive predictable growth, without the full-time CMO cost.",
 	summary:
-		"A fractional CMO gives you board-level marketing leadership: strategy, direction, and accountability at the executive table — a senior voice in your leadership discussions and long-term brand and growth strategy, without the cost of a full-time hire.",
+		"A fractional CMO gives you board-level marketing leadership: strategy, direction, and accountability at the executive table: a senior voice in your leadership discussions and long-term brand and growth strategy, without the cost of a full-time hire.",
 	situation:
 		"Your marketing looks busy, but results feel random. Leads fluctuate. Messaging changes by channel. Vendors execute without a unified plan. Sales and marketing operate on different assumptions. You end up paying for activity instead of outcomes.",
 	symptoms: [
@@ -155,7 +155,7 @@ export const fractionalMarketingDirector: Service = {
 	seoH1: "Fractional Marketing Director Services",
 	serviceType: "Fractional marketing director services",
 	definition:
-		"A fractional marketing director is a part-time marketing leader who sets strategy and directly manages execution — your team, agencies, freelancers, campaigns, and reporting — for a set number of hours each month. SumoLab's version gives $5M–$50M companies an experienced marketing department leader without the cost, delay, or risk of a full-time hire.",
+		"A fractional marketing director is a part-time marketing leader who sets strategy and directly manages execution (your team, agencies, freelancers, campaigns, and reporting) for a set number of hours each month. SumoLab's version gives $5M–$50M companies an experienced marketing department leader without the cost, delay, or risk of a full-time hire.",
 	situationHeading: "Activity everywhere. Ownership nowhere.",
 	ctaPhrase: "a fractional marketing director",
 	includesHeading: "What a fractional marketing director does day to day.",
@@ -163,17 +163,17 @@ export const fractionalMarketingDirector: Service = {
 	whoItsForHeading: "Who hires a fractional marketing director",
 	faqHeading: "Fractional marketing director cost, comparisons, and common questions.",
 	relatedLinks: [
-		{ href: "/services/fractional-cmo/", label: "Fractional CMO — board-level marketing strategy" },
-		{ href: "/services/fractional-ai-advisor/", label: "AI marketing consultant — practical AI adoption" },
-		{ href: "/fractional-cmo-near-me/", label: "Fractional CMO near me — Phoenix metro" },
-		{ href: "/case-studies/", label: "Case studies — results from real engagements" },
+		{ href: "/services/fractional-cmo/", label: "Fractional CMO: board-level marketing strategy" },
+		{ href: "/services/fractional-ai-advisor/", label: "AI marketing consultant: practical AI adoption" },
+		{ href: "/fractional-cmo-near-me/", label: "Fractional CMO near me: Phoenix metro" },
+		{ href: "/case-studies/", label: "Case studies: results from real engagements" },
 		{ href: "/contact/", label: "Book an intro call" },
 	],
-	tagline: "Senior, hands-on marketing department leadership that gets execution moving — without the full-time marketing director cost.",
+	tagline: "Senior, hands-on marketing department leadership that gets execution moving, without the full-time marketing director cost.",
 	summary:
-		"A fractional marketing director who sets strategy and oversees execution, systems, and day-to-day marketing operations on a part-time basis. You get senior marketing department leadership closer to the operational work — without the cost, delay, or risk of a full-time hire.",
+		"A fractional marketing director who sets strategy and oversees execution, systems, and day-to-day marketing operations on a part-time basis. You get senior marketing department leadership closer to the operational work, without the cost, delay, or risk of a full-time hire.",
 	situation:
-		"You have marketing activity — an agency, a coordinator, maybe both — but no one running the function. Campaigns launch late, vendors wait on decisions, and every priority call still lands on the founder's desk. The work is happening; the management of the work is the bottleneck.",
+		"You have marketing activity: an agency, a coordinator, maybe both. But no one is running the function. Campaigns launch late, vendors wait on decisions, and every priority call still lands on the founder's desk. The work is happening; the management of the work is the bottleneck.",
 	symptoms: [
 		"Marketing decisions still route through the founder or CEO",
 		"Multiple vendors and freelancers with no one coordinating the work",
@@ -185,7 +185,7 @@ export const fractionalMarketingDirector: Service = {
 		{
 			title: "A working leader, not another advisor",
 			description:
-				"Someone who joins your operating rhythm — weekly standups, campaign calendars, budget reviews — and runs the marketing department the way an employee would, on part-time hours.",
+				"Someone who joins your operating rhythm (weekly standups, campaign calendars, budget reviews) and runs the marketing department the way an employee would, on part-time hours.",
 		},
 		{
 			title: "Your team and vendors, coordinated",
@@ -195,12 +195,12 @@ export const fractionalMarketingDirector: Service = {
 		{
 			title: "An execution system that outlasts the engagement",
 			description:
-				"Documented processes, campaign templates, and reporting dashboards your team keeps using — the machinery of a real marketing department, built to run without me.",
+				"Documented processes, campaign templates, and reporting dashboards your team keeps using: the machinery of a real marketing department, built to run without me.",
 		},
 	],
 	howItWorks: [
 		"Start with an audit of the marketing function: team, vendors, tools, calendar, and pipeline.",
-		"Rebuild the operating rhythm — priorities, owners, and deadlines — in the first 30 days.",
+		"Rebuild the operating rhythm (priorities, owners, and deadlines) in the first 30 days.",
 		"Run the department week to week: campaigns, budgets, reviews, and course corrections.",
 		"Hand off a documented system, or scale hours to match the season.",
 	],
@@ -244,7 +244,7 @@ export const fractionalMarketingDirector: Service = {
 		},
 		{
 			question: "What size company is this built for?",
-			answer: "Established businesses generating $5M–$50M in annual revenue that already have marketing in motion — a team, an agency, or both — and need someone senior running it day to day.",
+			answer: "Established businesses generating $5M–$50M in annual revenue that already have marketing in motion (a team, an agency, or both) and need someone senior running it day to day.",
 		},
 	],
 };
@@ -255,31 +255,31 @@ export const fractionalAIAdvisor: Service = {
 	shortName: "Fractional AI Advisor",
 	seoTitle: "AI Marketing Consultant for Mid-Market Companies",
 	seoDescription:
-		"Work with an AI marketing consultant who has run twelve companies. Practical AI adoption for marketing teams at $5M–$50M businesses — measured returns, not hype.",
+		"Work with an AI marketing consultant who has run twelve companies. Practical AI adoption for marketing teams at $5M–$50M businesses: measured returns, not hype.",
 	seoH1: "AI Marketing Consultant for Mid-Market Companies",
 	serviceType: "AI marketing consulting",
 	definition:
-		"An AI marketing consultant helps a company decide where AI belongs in its marketing — content, campaigns, analytics, automation — then puts the tools to work and measures the return. SumoLab's Fractional AI Advisor brings 26 years of operating judgment to practical AI adoption for $5M–$50M companies: marketing first, and the wider business wherever AI actually pays off.",
+		"An AI marketing consultant helps a company decide where AI belongs in its marketing (content, campaigns, analytics, automation), then puts the tools to work and measures the return. SumoLab's Fractional AI Advisor brings 26 years of operating judgment to practical AI adoption for $5M–$50M companies: marketing first, and the wider business wherever AI actually pays off.",
 	includesHeading: "What an AI marketing consultant actually does.",
 	howItWorksHeading: "How the AI marketing consulting engagement works.",
 	whoItsForHeading: "Who hires an AI marketing consultant",
 	faqHeading: "AI marketing consultant vs. AI agency, and other common questions.",
 	relatedLinks: [
-		{ href: "/services/fractional-cmo/", label: "Fractional CMO — board-level marketing strategy" },
-		{ href: "/services/fractional-marketing-director/", label: "Fractional marketing director — hands-on operational leadership" },
-		{ href: "/fractional-cmo-near-me/", label: "Fractional CMO near me — Phoenix metro" },
-		{ href: "/case-studies/", label: "Case studies — results from real engagements" },
+		{ href: "/services/fractional-cmo/", label: "Fractional CMO: board-level marketing strategy" },
+		{ href: "/services/fractional-marketing-director/", label: "Fractional marketing director: hands-on operational leadership" },
+		{ href: "/fractional-cmo-near-me/", label: "Fractional CMO near me: Phoenix metro" },
+		{ href: "/case-studies/", label: "Case studies: results from real engagements" },
 		{ href: "/contact/", label: "Book an intro call" },
 	],
-	tagline: "An AI marketing consultant who brings senior operator judgment to AI — pointed at the one or two places it can actually move profit across your business.",
+	tagline: "An AI marketing consultant who brings senior operator judgment to AI, pointed at the one or two places it can actually move profit across your business.",
 	summary:
-		"An AI marketing consultant and business operator who brings 26 years of judgment to the one question most consultants can't answer: where AI actually belongs in your business. Not just marketing — finance, operations, sales, HR. I find the highest-payoff place to start, put AI to work, and prove the return. Not a technologist. An operator who's run twelve companies and knows what moves profit.",
+		"An AI marketing consultant and business operator who brings 26 years of judgment to the one question most consultants can't answer: where AI actually belongs in your business. Not just marketing: finance, operations, sales, HR. I find the highest-payoff place to start, put AI to work, and prove the return. Not a technologist. An operator who's run twelve companies and knows what moves profit.",
 	situationHeading: "Everyone's experimenting. Few are earning.",
 	ctaPhrase: "an AI marketing consultant",
 	situation:
-		"You've been told to \"experiment with AI,\" so you have: a chatbot pilot here, an automation tool there, a subscription finance never asked for. None of it is tied to a plan — and MIT's Project NANDA reported in its 2025 State of AI in Business study that 95% of corporate AI pilots like this return nothing. The tools aren't the problem. The absence of business judgment pointing them is.",
+		"You've been told to \"experiment with AI,\" so you have: a chatbot pilot here, an automation tool there, a subscription finance never asked for. None of it is tied to a plan, and MIT's Project NANDA reported in its 2025 State of AI in Business study that 95% of corporate AI pilots like this return nothing. The tools aren't the problem. The absence of business judgment pointing them is.",
 	symptoms: [
-		"AI initiatives exist in pockets — marketing, ops, support — with no one connecting them to a strategy",
+		"AI initiatives exist in pockets (marketing, ops, support) with no one connecting them to a strategy",
 		"Leadership feels pressure to \"do something with AI\" without a clear read on where it actually pays off",
 		"Tools get purchased before the problem they're solving is fully understood",
 		"No one senior enough is accountable for whether AI spend produces a return",
@@ -289,7 +289,7 @@ export const fractionalAIAdvisor: Service = {
 		{
 			title: "Business-wide AI opportunity mapping",
 			description:
-				"A full read of your business — finance, operations, marketing, sales, HR — to find the one or two places AI can actually move profit — an AI marketing strategy grounded in numbers, not a scattershot pilot with no plan behind it.",
+				"A full read of your business (finance, operations, marketing, sales, HR) to find the one or two places AI can actually move profit: an AI marketing strategy grounded in numbers, not a scattershot pilot with no plan behind it.",
 		},
 		{
 			title: "Practical implementation, not slide decks",
@@ -303,7 +303,7 @@ export const fractionalAIAdvisor: Service = {
 		},
 	],
 	howItWorks: [
-		"Start with a full read of your business — finance, operations, marketing, sales, HR — to find where AI can actually move profit.",
+		"Start with a full read of your business (finance, operations, marketing, sales, HR) to find where AI can actually move profit.",
 		"Get a focused starting point and an AI marketing strategy within the first weeks, not a 40-page roadmap.",
 		"I put the tools to work directly and prove the return before I expand further.",
 		"Scale to the next highest-payoff area once the first one is earning its keep.",
@@ -329,17 +329,17 @@ export const fractionalAIAdvisor: Service = {
 		{
 			question: "How is an AI marketing consultant different from an AI agency?",
 			answer:
-				"An AI agency sells implementation: builds, integrations, retainers. AI marketing consulting services start with the business question — where will AI actually move profit? I bring 26 years of operating judgment, pick the highest-payoff starting point, put the tools to work, and prove the return before anything scales.",
+				"An AI agency sells implementation: builds, integrations, retainers. AI marketing consulting services start with the business question: where will AI actually move profit? I bring 26 years of operating judgment, pick the highest-payoff starting point, put the tools to work, and prove the return before anything scales.",
 		},
 		{
 			question: "What does AI adoption for marketing teams look like in practice?",
 			answer:
-				"It usually starts with repetitive, high-volume work: content drafting, campaign reporting, lead follow-up, and research. I pick marketing AI tools that fit your existing stack, train your team on real workflows, and measure time and cost before and after — so adoption is proven, not assumed.",
+				"It usually starts with repetitive, high-volume work: content drafting, campaign reporting, lead follow-up, and research. I pick marketing AI tools that fit your existing stack, train your team on real workflows, and measure time and cost before and after, so adoption is proven, not assumed.",
 		},
 		{
 			question: "How is this different from a fractional CMO or fractional marketing director?",
 			answer:
-				"Those two are marketing-specific. A Fractional AI Advisor engagement looks across the whole business — finance, operations, marketing, sales, HR — to find where AI belongs, not just inside the marketing function.",
+				"Those two are marketing-specific. A Fractional AI Advisor engagement looks across the whole business (finance, operations, marketing, sales, HR) to find where AI belongs, not just inside the marketing function.",
 		},
 		{
 			question: "How is this different from hiring an AI consultant or technologist?",
