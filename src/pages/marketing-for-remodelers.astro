@@ -1,0 +1,186 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import LeadForm from '../components/LeadForm.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+
+const faqs = [
+	{
+		question: 'How to market a remodeling company when referrals slow down?',
+		answer:
+			'Start with what you already own: finished projects and happy homeowners. Photograph every job, before and after, and ask for the review the day you hand over the keys. Put those photos where homeowners actually shop for remodelers: your website, Google Business Profile, and Houzz. Then fix follow-up so nobody who inquires waits more than a day for a call. Only after that do you buy traffic.',
+	},
+	{
+		question: 'What is the best marketing for remodelers?',
+		answer:
+			'Proof, presented well. Remodeling is a visual, high-trust purchase. The homeowner is about to hand you their kitchen and six figures. The marketing that wins is the marketing that shows finished work, real reviews, and a clear process, and then answers the phone. Everything else supports that.',
+	},
+	{
+		question: 'Should a remodeler use Houzz, Instagram, or Google?',
+		answer:
+			'Google first, because that is where a homeowner with a budget and a timeline searches. Houzz second if you do design-forward work, since people browse it with intent. Instagram last, as a portfolio that supports the other two rather than a lead source on its own. The mistake is treating all three as equal and posting everywhere while the Google profile sits empty.',
+	},
+	{
+		question: 'How much should a remodeling company spend on marketing?',
+		answer:
+			'Work backward from the projects you want. Decide how many jobs of what size fill the year, work out how many design consultations that takes at your close rate, then price what a booked consultation costs in your market. Multiply and you have a budget tied to work you can actually deliver. A percentage of revenue tells you nothing about your crew capacity or your average ticket.',
+	},
+	{
+		question: 'Does a remodeler need a marketing person, or is an agency enough?',
+		answer:
+			'An agency produces the ads and the posts. Someone still decides which projects to chase, what the brand stands for, what to spend, and whether the leads are turning into signed design agreements. In most remodelers doing $5M to $50M, the owner is doing that at night. A part-time marketing director does it on a set number of hours a month, and the agency answers to them instead of to you.',
+	},
+];
+
+const structuredData = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'ProfessionalService',
+		name: 'SumoLab',
+		description:
+			'Marketing for remodelers, from an operator with 16 years in home building. Lead generation, positioning, and marketing leadership for remodeling companies doing $5M to $50M.',
+		url: 'https://sumolab.co/marketing-for-remodelers/',
+		telephone: '+14808269400',
+		email: 'jerry@sumolab.co',
+		address: {
+			'@type': 'PostalAddress',
+			addressLocality: 'Chandler',
+			addressRegion: 'AZ',
+			addressCountry: 'US',
+		},
+		founder: {
+			'@type': 'Person',
+			name: 'Jerry Suhrstedt',
+			jobTitle: 'Founder & Fractional CMO',
+			sameAs: 'https://www.linkedin.com/in/jerrysuhrstedt/',
+		},
+		areaServed: [
+			{ '@type': 'State', name: 'Arizona' },
+			{ '@type': 'Country', name: 'United States' },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqs.map((faq) => ({
+			'@type': 'Question',
+			name: faq.question,
+			acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+		})),
+	},
+];
+---
+
+<Layout
+	title="Marketing for Remodelers | SumoLab"
+	description="Marketing for remodelers, from an operator with 16 years in home building. Turn finished projects into a pipeline: lead generation, positioning, and marketing leadership for remodeling companies doing $5M to $50M."
+	structuredData={structuredData}
+>
+	<PageHero
+		image="/photos/remodelers-hero.jpg"
+		imageAlt="Remodeling contractor measuring a countertop during a kitchen renovation"
+		eyebrow="Marketing for remodelers"
+		align="left"
+		imagePosition="center center"
+	>
+		<h1>Marketing for Remodelers Whose Best Work Nobody Sees.</h1>
+		<p>Most marketing for remodelers ignores the one thing you have that no agency can invent: a hundred finished kitchens and a hundred homeowners who would say yes again. I spent 16 years in home building and founded three construction companies. This page is how you turn the work you have already done into the work you want next.</p>
+	</PageHero>
+
+	<Section tone="white">
+		<div class="two-col" style="align-items:start;gap:64px">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>The situation</p>
+				<h2 class="page-h2">The work is beautiful. The pipeline is a coin flip.</h2>
+				<p class="lede" style="margin-top:24px">A great kitchen gets you the neighbor. Sometimes. The rest of the year you are quoting against two other bids from homeowners who found you on a list, and the design consultations that do book are three weeks apart.</p>
+				<p class="lede" style="margin-top:16px">There is a website with a gallery from 2019. An Instagram someone updates when they remember. A Houzz profile nobody has touched. None of it is built to make the phone ring, and every decision about it lands on you, between a change order and a subcontractor who did not show.</p>
+			</div>
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>Common symptoms</p>
+				<ul class="dot-list" style="margin-top:24px">
+					<li><span class="dot" aria-hidden="true"></span>Referrals are the whole pipeline, and they arrive in bunches or not at all</li>
+					<li><span class="dot" aria-hidden="true"></span>Hundreds of finished projects, almost none of them photographed well</li>
+					<li><span class="dot" aria-hidden="true"></span>The Google Business Profile has eleven reviews from four years ago</li>
+					<li><span class="dot" aria-hidden="true"></span>Inquiries wait days for a callback, then book with whoever called first</li>
+					<li><span class="dot" aria-hidden="true"></span>You quote every job because you cannot tell which ones are worth chasing</li>
+				</ul>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="plain">
+		<p class="eyebrow-label"><span class="dot"></span>Proof</p>
+		<h2 class="page-h2">Remodeler marketing that found the buyer, not just the click.</h2>
+		<p class="lede" style="margin-top:24px;max-width:680px">Three companies in the remodel and design-build world, three different problems. Each one links to the work.</p>
+		<div class="grid-3" style="margin-top:40px">
+			<div class="pillar">
+				<h3 class="page-h3">AddaRoom: a story instead of a price</h3>
+				<p class="lede">A Seattle remodeler wanted to grow, and home additions were getting no attention next to the bigger jobs. Market research turned up a trend: adult kids moving back in with their parents. We built the whole campaign around it, wrote and produced the video, and extended it to paid social. A reason to call instead of a quote to compare. <a href="/jerry/addaroom/">Watch it.</a></p>
+			</div>
+			<div class="pillar">
+				<h3 class="page-h3">Design Build NW: a site that sells the process</h3>
+				<p class="lede">A Northwest design-build firm doing custom homes, additions, and remodels needed a website that matched the caliber of the work and walked a homeowner from "dream" to "here is how we do it." One of more than a hundred sites I have designed and built. <a href="/jerry/design-build-nw/">See it.</a></p>
+			</div>
+			<div class="pillar">
+				<h3 class="page-h3">Top Notch: a brand on a trade budget</h3>
+				<p class="lede">A construction cleaning company, the trade every remodel ends with, run by a local couple with no money for an agency. We built the brand around the owner himself, memorable at a glance. Distinct beats expensive. <a href="/jerry/top-notch-cleaning/">See the brand.</a></p>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<p class="eyebrow-label" style="color:var(--orange-400)"><span class="dot"></span>Why this works</p>
+		<h2 class="page-h2" style="color:#fff">I've been the one waiting on the sub, not just the one writing the ad.</h2>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:680px;margin-top:24px">Sixteen years in home building. Three construction companies founded, one of them taken <a href="/blog/business-turnaround-strategy-bankrupt-to-12m/" style="color:var(--orange-400)">from bankruptcy to $12M</a>. I ran a marketing consultancy focused on builders and remodelers for close to 20 years and wrote a book on it.</p>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:680px;margin-top:16px">I know that a remodel is sold in the first consultation and lost in the follow-up. That is why the plan below starts with photos, reviews, and response time instead of ad spend. It is the order that works when the product is trust.</p>
+	</Section>
+
+	<Section tone="white">
+		<div class="two-col" style="align-items:start;gap:64px">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>What we'd do first</p>
+				<h2 class="page-h2">Remodeling company marketing, in the right order.</h2>
+				<ul class="dot-list" style="margin-top:24px">
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Build the photo habit.</strong> Before and after, every job, shot in daylight. Your finished work is the product. Show it.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Turn on the reviews engine.</strong> Ask at the final walkthrough, every time. Google first, Houzz second. Recency beats volume.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Stop the leaks.</strong> Every inquiry into a CRM, a consultation booked within a day. The remodeler who calls first usually wins.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Pick a lane.</strong> Kitchens, baths, additions, or whole-home. "We do it all" is what everyone says. Say what you are best at.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>One paid channel, your ZIP codes.</strong> Google search aimed at homeowners with a budget and a timeline, landing on a page that shows your work and books a consult.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Report on consultations and signed design agreements.</strong> Not likes, not clicks. Those two numbers run the business.</span></li>
+				</ul>
+			</div>
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>Who runs it</p>
+				<h2 class="page-h2">Home remodeling marketing needs an owner. It shouldn't be you.</h2>
+				<p class="lede" style="margin-top:24px">Every item on that list is simple. None of it happens without someone accountable for it every week, and right now that someone is you, between a change order and a delivery that came in wrong.</p>
+				<p class="lede" style="margin-top:16px">If you are a remodeler or trade contractor in the $2M to $20M range, the <a href="/milliondollarlp/">part-time marketing director offer</a> was built for exactly that gap: a senior person running the plan on a set number of hours a month, with your agency and freelancers reporting to them. Larger firms usually fit a <a href="/services/fractional-marketing-director/">fractional marketing director</a> engagement.</p>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="white">
+		<p class="eyebrow-label"><span class="dot"></span>Common questions</p>
+		<h2 class="page-h2">What remodelers ask before they spend a dollar on marketing.</h2>
+		<div style="margin-top:32px;max-width:720px">
+			<FaqAccordion items={faqs} />
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<div class="card-cta-row">
+			<h2 class="page-h2" style="color:#fff;margin:0">Tell me what your best project last year looked like. I'll tell you how to get five more of them.</h2>
+			<LeadForm />
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.pillar {
+		border-top: 3px solid var(--orange-500);
+		padding-top: 20px;
+	}
+	.pillar a {
+		font-weight: 600;
+	}
+</style>
