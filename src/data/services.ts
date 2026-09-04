@@ -258,16 +258,16 @@ export const fractionalAIAdvisor: Service = {
 	slug: "fractional-ai-advisor",
 	name: "Fractional AI Advisor",
 	shortName: "Fractional AI Advisor",
-	seoTitle: "AI Marketing Consultant for Mid-Market Companies",
+	seoTitle: "AI Consultant for Small Business: AI Marketing Consulting",
 	seoDescription:
-		"Work with an AI marketing consultant who has run twelve companies. Practical AI adoption for marketing teams at $5M–$50M businesses: measured returns, not hype.",
-	seoH1: "AI Marketing Consultant for Mid-Market Companies",
+		"An AI consultant for small business owners who want a return, not another pilot. AI marketing strategy, hands-on implementation, and AI training for employees, from an operator with 26 years of judgment.",
+	seoH1: "AI Consultant for Small Business and Mid-Market Companies",
 	serviceType: "AI marketing consulting",
 	definition:
-		"An AI marketing consultant helps a company decide where AI belongs in its marketing (content, campaigns, analytics, automation), then puts the tools to work and measures the return. SumoLab's Fractional AI Advisor brings 26 years of operating judgment to practical AI adoption for $5M–$50M companies: marketing first, and the wider business wherever AI actually pays off.",
-	includesHeading: "What an AI marketing consultant actually does.",
+		"An AI consultant for small business helps a company decide where AI belongs, starting with marketing (content, campaigns, analytics, automation), then puts the tools to work, trains the people who use them, and measures the return. SumoLab's Fractional AI Advisor brings 26 years of operating judgment to practical AI adoption for $5M–$50M companies: marketing first, and the wider business wherever AI actually pays off.",
+	includesHeading: "What a small business AI consultant actually does.",
 	howItWorksHeading: "How the AI marketing consulting engagement works.",
-	whoItsForHeading: "Who hires an AI marketing consultant",
+	whoItsForHeading: "Who hires an AI consultant for small business",
 	faqHeading: "AI marketing consultant vs. AI agency, and other common questions.",
 	relatedLinks: [
 		{ href: "/services/fractional-cmo/", label: "Fractional CMO: board-level marketing strategy" },
@@ -276,7 +276,7 @@ export const fractionalAIAdvisor: Service = {
 		{ href: "/case-studies/", label: "Case studies: results from real engagements" },
 		{ href: "/contact/", label: "Book an intro call" },
 	],
-	tagline: "An AI marketing consultant who brings senior operator judgment to AI, pointed at the one or two places it can actually move profit across your business.",
+	tagline: "A small business AI consultant and AI marketing consultant who brings senior operator judgment to AI, pointed at the one or two places it can actually move profit across your business.",
 	summary:
 		"An AI marketing consultant and business operator who brings 26 years of judgment to the one question most consultants can't answer: where AI actually belongs in your business. Not just marketing: finance, operations, sales, HR. I find the highest-payoff place to start, put AI to work, and prove the return. Not a technologist. An operator who's run twelve companies and knows what moves profit.",
 	situationHeading: "Everyone's experimenting. Few are earning.",
@@ -297,9 +297,9 @@ export const fractionalAIAdvisor: Service = {
 				"A full read of your business (finance, operations, marketing, sales, HR) to find the one or two places AI can actually move profit: an AI marketing strategy grounded in numbers, not a scattershot pilot with no plan behind it.",
 		},
 		{
-			title: "Practical implementation, not slide decks",
+			title: "Implementation and AI training for employees",
 			description:
-				"I put the tools to work myself and stay until they're earning their keep. You get an operator in the work, not a strategy deck and a goodbye.",
+				"I put the tools to work myself, then build prompt libraries and workflows around the specific jobs your people do, so the team actually uses them. You get an operator in the work, not a strategy deck and a goodbye.",
 		},
 		{
 			title: "Measurable return, not hype",
@@ -310,7 +310,7 @@ export const fractionalAIAdvisor: Service = {
 	howItWorks: [
 		"Start with a full read of your business (finance, operations, marketing, sales, HR) to find where AI can actually move profit.",
 		"Get a focused starting point and an AI marketing strategy within the first weeks, not a 40-page roadmap.",
-		"I put the tools to work directly and prove the return before I expand further.",
+		"I put the tools to work directly, train the people who will use them, and prove the return before I expand further.",
 		"Scale to the next highest-payoff area once the first one is earning its keep.",
 	],
 	outcomes: [
@@ -340,6 +340,11 @@ export const fractionalAIAdvisor: Service = {
 			question: "What does AI adoption for marketing teams look like in practice?",
 			answer:
 				"It usually starts with repetitive, high-volume work: content drafting, campaign reporting, lead follow-up, and research. I pick marketing AI tools that fit your existing stack, train your team on real workflows, and measure time and cost before and after, so adoption is proven, not assumed.",
+		},
+		{
+			question: "Do you provide AI training for employees?",
+			answer:
+				"Yes, and it is not a seminar. AI training for employees works when it is built around the specific job each person does: saved prompt libraries, workflows that sit where they already work, and a review gate so the output still sounds like your company. At a $50M manufacturer this approach cut content production time 38% and got a skeptical team using the tools within weeks.",
 		},
 		{
 			question: "How is this different from a fractional CMO or fractional marketing director?",
