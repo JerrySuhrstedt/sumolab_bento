@@ -2,12 +2,25 @@
 interface Props {
 	projectSlug?: string;
 	projectName?: string;
+	/** When set, the message field is hidden and this text is sent instead. */
+	defaultMessage?: string;
+	/** When set, a download link appears after a successful submit. */
+	downloadHref?: string;
+	downloadLabel?: string;
+	buttonLabel?: string;
 }
 
-const { projectSlug, projectName } = Astro.props;
+const { projectSlug, projectName, defaultMessage, downloadHref, downloadLabel, buttonLabel } = Astro.props;
 ---
 
-<div class="lead-form" data-lead-form data-project-slug={projectSlug} data-project-name={projectName}>
+<div
+	class="lead-form"
+	data-lead-form
+	data-project-slug={projectSlug}
+	data-project-name={projectName}
+	data-download-href={downloadHref}
+	data-download-label={downloadLabel}
+>
 	<form>
 		<div class="field">
 			<label for="lead-name">Name</label>
@@ -17,16 +30,20 @@ const { projectSlug, projectName } = Astro.props;
 			<label for="lead-email">Email</label>
 			<input id="lead-email" name="email" type="email" required autocomplete="email" />
 		</div>
-		<div class="field">
-			<label for="lead-message">Message</label>
-			<textarea id="lead-message" name="message" rows="4" required></textarea>
-		</div>
+		{defaultMessage ? (
+			<input type="hidden" name="message" value={defaultMessage} />
+		) : (
+			<div class="field">
+				<label for="lead-message">Message</label>
+				<textarea id="lead-message" name="message" rows="4" required></textarea>
+			</div>
+		)}
 		<div class="hp-field" aria-hidden="true">
 			<label for="lead-company">Company</label>
 			<input id="lead-company" name="company" type="text" tabindex="-1" autocomplete="off" />
 		</div>
 		<button type="submit" class="submit-btn">
-			<span class="label">Send Message</span>
+			<span class="label">{buttonLabel ?? 'Send Message'}</span>
 		</button>
 		<p class="status" role="status"></p>
 	</form>
@@ -114,6 +131,11 @@ const { projectSlug, projectName } = Astro.props;
 	.status[data-state='success'] {
 		color: var(--orange-600);
 	}
+	.status a {
+		color: var(--orange-600);
+		font-weight: 600;
+		text-decoration: underline;
+	}
 </style>
 
 <script>
@@ -157,7 +179,17 @@ const { projectSlug, projectName } = Astro.props;
 					}
 					form.reset();
 					status.dataset.state = 'success';
-					status.textContent = "Thanks, I'll get back to you soon.";
+					const downloadHref = wrap.dataset.downloadHref;
+					if (downloadHref) {
+						status.textContent = 'Thanks. ';
+						const link = document.createElement('a');
+						link.href = downloadHref;
+						link.textContent = wrap.dataset.downloadLabel || 'Download the file';
+						link.setAttribute('download', '');
+						status.appendChild(link);
+					} else {
+						status.textContent = "Thanks, I'll get back to you soon.";
+					}
 				} catch (err) {
 					status.dataset.state = 'error';
 					status.textContent = err instanceof Error ? err.message : 'Something went wrong. Please try again.';

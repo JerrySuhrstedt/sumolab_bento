@@ -122,9 +122,23 @@ if (insight.slug === 'trellivance') {
 	</Section>
 
 	<Section tone="ink">
-		<div class="card-cta-row">
-			<h2 class="page-h2" style="color:#fff;margin:0">Want senior marketing leadership on your team?</h2>
-			<LeadForm />
+		<div class="card-cta-row" id="download-form">
+			{insight.download ? (
+				<div>
+					<h2 class="page-h2" style="color:#fff;margin:0">{insight.download.heading}</h2>
+					<p class="lede" style="color:rgba(255,255,255,0.85);margin-top:16px">{insight.download.blurb}</p>
+				</div>
+			) : (
+				<h2 class="page-h2" style="color:#fff;margin:0">Want senior marketing leadership on your team?</h2>
+			)}
+			<LeadForm
+				projectSlug={insight.download ? insight.slug : undefined}
+				projectName={insight.download ? `Download: ${insight.download.fileLabel}` : undefined}
+				defaultMessage={insight.download ? `Requested the ${insight.download.fileLabel} from /blog/${insight.slug}/` : undefined}
+				downloadHref={insight.download?.href}
+				downloadLabel={insight.download ? `Download the ${insight.download.fileLabel}` : undefined}
+				buttonLabel={insight.download?.buttonLabel}
+			/>
 		</div>
 	</Section>
 </Layout>

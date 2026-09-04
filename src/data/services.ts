@@ -260,7 +260,7 @@ export const fractionalAIAdvisor: Service = {
 	shortName: "Fractional AI Advisor",
 	seoTitle: "AI Consultant for Small Business: AI Marketing Consulting",
 	seoDescription:
-		"An AI consultant for small business owners who want a return, not another pilot. AI marketing strategy, hands-on implementation, and AI training for employees, from an operator with 26 years of judgment.",
+		"An AI consultant for small business owners who want a return, not another pilot. AI marketing strategy, hands-on implementation, and AI training for employees.",
 	seoH1: "AI Consultant for Small Business and Mid-Market Companies",
 	serviceType: "AI marketing consulting",
 	definition:

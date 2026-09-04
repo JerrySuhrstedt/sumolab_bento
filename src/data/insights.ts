@@ -8,9 +8,68 @@ export interface InsightArticle {
 	excerpt: string;
 	body: string[];
 	keyPoints?: string[];
+	/** Optional gated download rendered above the article CTA. */
+	download?: {
+		href: string;
+		fileLabel: string;
+		heading: string;
+		blurb: string;
+		buttonLabel: string;
+	};
 }
 
 export const insights: InsightArticle[] = [
+	{
+		slug: "ai-usage-policy-template-small-business",
+		imageSrc: "/blog/ai-usage-policy-template-small-business.jpg",
+		title: "AI Usage Policy Template for Small Businesses (Free Download)",
+		seoTitle: "AI Usage Policy Template for Small Businesses | Free Word Doc",
+		category: "Strategy & Leadership",
+		publishedAt: "2026-09-04",
+		excerpt:
+			"A free AI usage policy template for small businesses, written by an operator who rolled AI out across a $50M company. Thirteen sections, plain English, fill in the brackets and sign it. Here is what it covers and the three rules that matter most.",
+		body: [
+			"This AI usage policy template exists because your people are already using AI, with or without a policy. Somebody in your company pasted a customer list into a free chatbot last month. They were trying to be efficient. Nobody told them not to.",
+			"I spent a year rolling generative AI into the marketing organization at a $50M manufacturer. The policy came after the first scare, not before it. Do it in the other order. The template is at the bottom of this page. Fill in the brackets, have your attorney look at it, and get it signed.",
+			`<h3>Why a Small Business Needs an AI Policy Now</h3>`,
+			"Three reasons, and none of them are about the technology.",
+			"Data walks out. Free AI accounts can use what you type to train their models. Customer details, pricing, contracts, and payroll all count. Most people have no idea, and the tools do not warn them.",
+			"Average work ships. AI writes clean, correct, forgettable copy at volume. Without a review rule, that copy goes out under your name and you start sounding like every competitor with the same subscription.",
+			"Somebody owns the mistake. When an AI-drafted proposal quotes the wrong number, the tool does not get fired. A policy makes it clear that the person who pressed send owns the output. That one sentence prevents more problems than any software setting.",
+			`<h3>What the AI Usage Policy Template Covers</h3>`,
+			"Thirteen sections, each one short enough that people will actually read it.",
+			"Purpose and scope. Who it applies to, including contractors and agencies, on any device.",
+			"Approved tools. A table you fill in, with the account type for each. Free personal accounts are allowed only for work that touches no company data.",
+			"What AI may be used for. Drafting, summarizing, research, code, analysis. The policy says yes more than it says no, on purpose.",
+			"What may never go into an AI tool. Customer and employee personal data, financials, contracts, credentials, and anything under a non-disclosure agreement. This is the section to read out loud at the next team meeting.",
+			"Review and accountability. AI output is a draft. The person who uses the tool owns the result. Customer-facing content gets a human review before it goes out.",
+			"Brand voice, security, disclosure, training, violations, and a signature block. Bracketed placeholders throughout so you can fill it in without a lawyer, then send it to one.",
+			`<h3>The Three Rules That Matter Most</h3>`,
+			"If your team remembers nothing else from the AI usage policy, make it these.",
+			"Company accounts for company work. The single biggest data risk is a personal free account signed up with a Gmail address. Pay for the business tier of one or two tools, turn off training on your data, and make that the rule.",
+			"When in doubt, leave it out. Nobody can memorize a list of restricted data types. Everybody can remember one sentence.",
+			"Read it before it leaves your hands. AI states wrong things with total confidence. A number, a name, a date, a quote. Check it against a source. The person who sends it owns it.",
+			`<h3>How to Roll It Out Without a Revolt</h3>`,
+			`A policy on its own reads as a list of things people cannot do. Pair it with something they can. At the manufacturer, what actually changed behavior was not the memo. It was saved prompt libraries built for the specific job each person did, sitting where they already worked. <a href="/blog/ai-marketing-org-to-solo-product/">The full story of that rollout</a> is worth ten minutes if you are about to do the same thing.`,
+			"So: introduce the policy and the prompt library in the same meeting. Show one person's real task, half done by the tool, reviewed by them. Then hand out the policy. Adoption goes up and the restrictions land as common sense instead of as a threat.",
+			`If you want help doing that, building the tool list, the prompt library, and the <a href="/services/fractional-ai-advisor/">AI training for employees</a> that goes with it, that is most of what I do inside an AI advisor engagement. The policy is the easy part. Getting a skeptical team to use the tools well is the work.`,
+			`<h3>Download the AI Usage Policy Template</h3>`,
+			`The template is a Word document you can edit. Enter your name and email in the form below and the download link appears. I will not add you to a newsletter, because I do not have one. You may get a single email from me asking how the rollout went. <a href="#download-form">Get the template.</a>`,
+		],
+		keyPoints: [
+			"Your team is already using AI. The policy decides whether they do it on company accounts with rules, or on free accounts with none.",
+			"Thirteen short sections: scope, approved tools, allowed uses, restricted data, review, brand voice, security, disclosure, training, violations, and a signature block.",
+			"Three rules that matter most: company accounts for company work, when in doubt leave it out, and the person who sends it owns it.",
+			"Roll the policy out with a prompt library, not instead of one. Restrictions land as common sense when they arrive with something useful.",
+		],
+		download: {
+			href: "/downloads/ai-usage-policy-template-sumolab.docx",
+			fileLabel: "AI Usage Policy Template",
+			heading: "Get the AI usage policy template.",
+			blurb: "A 13-section Word document with bracketed placeholders. Fill it in, have your attorney review it, and get it signed. Name and email, then the download link appears.",
+			buttonLabel: "Send Me the Template",
+		},
+	},
 	{
 		slug: "marketing-manager-vs-marketing-director",
 		imageSrc: "/blog/marketing-manager-vs-marketing-director.jpg",
