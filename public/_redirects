@@ -24,3 +24,32 @@
 /service/fractional-marketing-director-phoenix-az/ /services/fractional-marketing-director/phoenix/ 301
 /service/fractional-marketing-director-tempe-az/ /services/fractional-marketing-director/tempe/ 301
 /service/fractional-marketing-director-chandler-az/ /services/fractional-marketing-director/chandler/ 301
+
+# 2026-09-04: Search Console not-indexed cleanup (old WordPress URLs that map to real pages)
+/creating-a-seamless-brand-experience-consistency/ /blog/creating-a-seamless-brand-experience-consistency/ 301
+/what-business-analysts-do/ /blog/what-business-analysts-do/ 301
+/i-bought-salesforce-now-what/ /blog/i-bought-salesforce-now-what/ 301
+/slack-5-reasons-its-better-for-internal-communication/ /blog/slack-5-reasons-its-better-for-internal-communication/ 301
+/start-your-salesforce-career/ /blog/start-your-salesforce-career/ 301
+/why-your-business-may-need-salesforce/ /blog/why-your-business-may-need-salesforce/ 301
+/how-to-podcast/ /blog/10-crazy-benefits-of-podcasting-for-your-business/ 301
+/lead-generation/ /blog/lead-generation-services-for-thriving-businesses-expert-solutions/ 301
+/marketing-automation/ /blog/5-powerful-reasons-you-need-marketing-automation/ 301
+/salesforce-consulting/ /blog/do-i-need-a-salesforce-consultant/ 301
+/lp-sumolab-salesforce-audit/ /blog/do-i-need-a-salesforce-consultant/ 301
+/about-jerry/ /about/ 301
+/what-is-sumolab/ /about/ 301
+/why-us/ /about/ 301
+/insights /blog/ 301
+/case-study/case-study-revitalizing-hiline-homes-sales-through-dynamic-marketing-strategies/ /case-studies/hiline-homes-sales-growth/ 301
+/case-study/case-study-turning-failure-into-a-multi-million-dollar-success/ /case-studies/turning-failure-into-success/ 301
+/showcase/revitalizing-custom-home-sales/ /case-studies/stanbrooke-salesforce-sales-process/ 301
+/fractional-marketing-director-lp/ /milliondollarlp/ 301
+/lp/fractional-marketing-director/ /milliondollarlp/ 301
+/service/fractional-cmo-chandler-az/ /services/fractional-cmo/chandler/ 301
+/services__trashed/marketing-strategy-consulting/ /services/fractional-cmo/ 301
+/marketing-strategy-consulting-phoenix-az/ /services/fractional-cmo/phoenix/ 301
+/marketing-strategy-consulting-scottsdale-az/ /services/fractional-cmo/scottsdale/ 301
+/marketing-strategy-consulting-tempe-az/ /services/fractional-cmo/tempe/ 301
+/marketing-strategy-consulting-gilbert-az/ /services/fractional-cmo/gilbert/ 301
+/marketing-strategy-consulting-mesa-az/ /services/fractional-cmo/mesa/ 301
