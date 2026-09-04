@@ -18,7 +18,7 @@ const { caseStudy } = Astro.props;
 <Layout title={`${caseStudy.title} | SumoLab Case Studies`} description={caseStudy.summary}>
 	<PageHero
 		image={caseStudy.image}
-		imageAlt={`${caseStudy.title} — ${caseStudy.client}`}
+		imageAlt={`${caseStudy.title}: ${caseStudy.client}`}
 		eyebrow={`Case Study · ${caseStudy.client}`}
 		align="left"
 		imagePosition="center center"

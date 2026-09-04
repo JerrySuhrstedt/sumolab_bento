@@ -8,7 +8,7 @@ import { caseStudies } from '../../data/case-studies';
 
 <Layout
 	title="Case Studies | SumoLab"
-	description="Real engagements across home building, medical supply, and enterprise mobility — the problem going in, the decision that changed it, and the result it produced."
+	description="Real engagements across home building, medical supply, and enterprise mobility: the problem going in, the decision that changed it, and the result it produced."
 >
 	<PageHero
 		image="/photos/case-studies-hero.jpg"
@@ -19,7 +19,7 @@ import { caseStudies } from '../../data/case-studies';
 		imagePosition="80% center"
 	>
 		<h1>Proof, in the numbers.</h1>
-		<p>Real engagements across home building, medical supply, and enterprise mobility — the problem going in, the decision that changed it, and the result it produced.</p>
+		<p>Real engagements across home building, medical supply, and enterprise mobility: the problem going in, the decision that changed it, and the result it produced.</p>
 	</PageHero>
 
 	<Section tone="white">
@@ -27,7 +27,7 @@ import { caseStudies } from '../../data/case-studies';
 			{caseStudies.map((cs) => (
 				<a href={`/case-studies/${cs.slug}/`} class="cs-card">
 					<div class="cs-img-wrap">
-						<img src={cs.image} alt={`${cs.title} — ${cs.client}`} class="cs-img" loading="lazy" />
+						<img src={cs.image} alt={`${cs.title}: ${cs.client}`} class="cs-img" loading="lazy" />
 					</div>
 					<div class="cs-body">
 						<p class="cs-client">{cs.client}</p>
