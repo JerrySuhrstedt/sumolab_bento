@@ -51,6 +51,9 @@ export const footerNav = {
 		{ label: "Fractional CMO", href: "/services/fractional-cmo/" },
 		{ label: "Fractional Marketing Director", href: "/services/fractional-marketing-director/" },
 		{ label: "Fractional AI Advisor", href: "/services/fractional-ai-advisor/" },
+		{ label: "Marketing Consultant for Small Business", href: "/marketing-consultant-for-small-business/" },
+		{ label: "Marketing for Home Builders", href: "/marketing-for-home-builders/" },
+		{ label: "Marketing for Construction Companies", href: "/marketing-for-construction-companies/" },
 	] satisfies NavLink[],
 };
 

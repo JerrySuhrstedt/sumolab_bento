@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import LeadForm from '../components/LeadForm.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+
+const faqs = [
+	{
+		question: 'What marketing works best for home builders right now?',
+		answer:
+			'The boring answer is the true one: the channels that reach people who already own a lot or are actively shopping for a new home, tied to a website and a follow-up process that do not leak. For most builders that means paid search with real landing pages, a Google Business Profile that is actually maintained, a model home or design center that captures every visitor into a CRM, and one or two brand channels that make the name stick. HiLine Homes went from 12 to 20 leads a week per office to 150 to 200 on a mix of radio, direct mail, paid search, and home shows. The mix changes by market. The discipline does not.',
+	},
+	{
+		question: 'How do I generate leads for a home builder without depending on referrals?',
+		answer:
+			'Start by capturing the demand you already have. Most builders lose model home visitors, website traffic, and inbound calls because nothing follows up. Fix that first, because it is the cheapest lead you will ever get. Then add one channel that finds buyers who do not know you yet, usually paid search aimed at lot owners or spec-home shoppers, with a landing page that answers their actual question instead of showing a logo and a phone number.',
+	},
+	{
+		question: 'How much should a home builder spend on marketing?',
+		answer:
+			'Back into it from closings, not from a percentage. Decide how many homes you need to close next year, work out how many qualified appointments that takes at your close rate, and price what a qualified appointment costs in your market. That number, times the appointments you need, is your budget. It is almost always less than builders fear and more than they are currently spending on things that produce nothing.',
+	},
+	{
+		question: 'Do you work with custom home builders or production builders?',
+		answer:
+			'Both, and the plans look different. Custom builders sell trust and process to lot owners on a long cycle. Production and semi-custom builders sell speed, price, and financing to buyers touring models. I have run marketing for both: a 14-office semi-custom builder and a custom builder that grew from $3M to $11M. The first call sorts out which playbook you need.',
+	},
+	{
+		question: 'Do I need a marketing director, or can an agency handle this?',
+		answer:
+			'An agency runs campaigns. Someone still has to decide which campaigns, set the budget, tell the agency what a qualified buyer looks like, and be accountable for closings. In most builders doing $5M to $50M that job is being done by the owner, badly, between draws and inspections. A part-time marketing director does that job on a set number of hours a month, and the agency reports to them instead of to you.',
+	},
+];
+
+const structuredData = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'ProfessionalService',
+		name: 'SumoLab',
+		description:
+			'Marketing for home builders, from an operator with 16 years in the industry. Strategy, lead generation, and marketing leadership for builders doing $5M to $50M.',
+		url: 'https://sumolab.co/marketing-for-home-builders/',
+		telephone: '+14808269400',
+		email: 'jerry@sumolab.co',
+		address: {
+			'@type': 'PostalAddress',
+			addressLocality: 'Chandler',
+			addressRegion: 'AZ',
+			addressCountry: 'US',
+		},
+		founder: {
+			'@type': 'Person',
+			name: 'Jerry Suhrstedt',
+			jobTitle: 'Founder & Fractional CMO',
+			sameAs: 'https://www.linkedin.com/in/jerrysuhrstedt/',
+		},
+		areaServed: [
+			{ '@type': 'State', name: 'Arizona' },
+			{ '@type': 'Country', name: 'United States' },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqs.map((faq) => ({
+			'@type': 'Question',
+			name: faq.question,
+			acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+		})),
+	},
+];
+---
+
+<Layout
+	title="Marketing for Home Builders | SumoLab"
+	description="Marketing for home builders, from someone who has built homes: 16 years in the industry, three construction companies founded, one builder taken from 60 to over 800 homes a year. Strategy and lead generation for builders doing $5M to $50M."
+	structuredData={structuredData}
+>
+	<PageHero
+		image="/photos/home-builders-hero.jpg"
+		imageAlt="New home under construction with framing complete, builder reviewing plans on site"
+		eyebrow="Marketing for home builders"
+		align="left"
+		imagePosition="center center"
+	>
+		<h1>Marketing for Home Builders, From Someone Who Has Actually Built Homes.</h1>
+		<p>Most marketing for home builders is written by people who have never poured a foundation. I spent 16 years in the industry, founded three construction companies, and took one builder from 60 homes a year to over 800. This page is what works, in the order I would do it.</p>
+	</PageHero>
+
+	<Section tone="white">
+		<div class="two-col" style="align-items:start;gap:64px">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>The situation</p>
+				<h2 class="page-h2">Referrals built the business. Referrals stopped growing it.</h2>
+				<p class="lede" style="margin-top:24px">For years the phone rang because a happy homeowner told a neighbor. It still rings. It just does not ring more than it did last year, and the sales team is sitting in a model home waiting on walk-ins.</p>
+				<p class="lede" style="margin-top:16px">Meanwhile there is money going out the door. Zillow. An agency running ads. A website redesign. None of it draws a straight line to a signed contract, and every decision about it lands on you, between a draw request and a failed inspection.</p>
+			</div>
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>Common symptoms</p>
+				<ul class="dot-list" style="margin-top:24px">
+					<li><span class="dot" aria-hidden="true"></span>The sales team lives on walk-ins and referrals, and both are flat</li>
+					<li><span class="dot" aria-hidden="true"></span>An agency is running ads without knowing what a qualified lot owner looks like</li>
+					<li><span class="dot" aria-hidden="true"></span>The website shows floor plans but captures almost nobody</li>
+					<li><span class="dot" aria-hidden="true"></span>Model home visitors leave and nothing follows up</li>
+					<li><span class="dot" aria-hidden="true"></span>Marketing decisions get made by the owner, in the truck, between job sites</li>
+				</ul>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="plain">
+		<p class="eyebrow-label"><span class="dot"></span>Proof</p>
+		<h2 class="page-h2">Home builder marketing that produced closings, not impressions.</h2>
+		<p class="lede" style="margin-top:24px;max-width:680px">Three builders, three different problems, real numbers. Each one links to the full story.</p>
+		<div class="grid-3" style="margin-top:40px">
+			<div class="pillar">
+				<h3 class="page-h3">HiLine Homes: 60 to 800 homes a year</h3>
+				<p class="lede">Fourteen offices in four states, 12 to 20 leads a week each, mostly referrals. Radio and TV with a jingle people still sing, direct mail, paid search with real landing pages, and 20,000 t-shirts at home shows. Leads went to 150 to 200 a week per office. Sales went from 60 to 70 homes a year to over 800 within three years. <a href="/case-studies/hiline-homes-sales-growth/">Read the case study.</a></p>
+			</div>
+			<div class="pillar">
+				<h3 class="page-h3">Diggs Custom Homes: selling off blueprints</h3>
+				<p class="lede">All they had were plans. Hard to fall in love with. We turned the blueprints into photorealistic 3D renderings and built Facebook campaigns around them, so buyers could see the home before ground was broken. Excellent return on ad spend, by their own numbers. <a href="/jerry/diggs-custom-homes/">See the campaign.</a></p>
+			</div>
+			<div class="pillar">
+				<h3 class="page-h3">AddaRoom: finding the buyer nobody was talking to</h3>
+				<p class="lede">A Seattle remodeler wanted to grow. Market research turned up a trend: adult kids moving back in with their parents. We built the whole campaign around home additions, wrote and produced the video, and extended it to paid social. A story to sell instead of a price to defend. <a href="/jerry/addaroom/">Watch it.</a></p>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<p class="eyebrow-label" style="color:var(--orange-400)"><span class="dot"></span>Why this works</p>
+		<h2 class="page-h2" style="color:#fff">I've sat on your side of the table.</h2>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:680px;margin-top:24px">Sixteen years in home building. Three construction companies founded. One of them I took <a href="/blog/business-turnaround-strategy-bankrupt-to-12m/" style="color:var(--orange-400)">from bankruptcy to $12M</a>. At Stanbrooke Custom Homes we rebuilt the sales process and the marketing behind it and <a href="/case-studies/stanbrooke-salesforce-sales-process/" style="color:var(--orange-400)">grew from $3M to $11M in under three years</a>. When Stanbrooke could not find framing crews, I wrote a recruiting flier that put <a href="/case-studies/stanbrooke-contractor-shortage/" style="color:var(--orange-400)">lumber and labor on every job within 45 days</a>.</p>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:680px;margin-top:16px">I wrote a book on home builder marketing and ran a builder-focused consultancy for close to 20 years. I know what a draw schedule does to a marketing budget, and what a bad quarter of lot inventory does to a sales team. That is the difference between advice and a plan you can run.</p>
+	</Section>
+
+	<Section tone="white">
+		<div class="two-col" style="align-items:start;gap:64px">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>What we'd do first</p>
+				<h2 class="page-h2">Lead generation for home builders, in the right order.</h2>
+				<ul class="dot-list" style="margin-top:24px">
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Stop the leaks.</strong> Every model home visitor, web inquiry, and inbound call lands in a CRM with a follow-up cadence. This is the cheapest lead you will ever buy.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Pick your buyer.</strong> Lot owners and spec-home shoppers are different people searching different things. Choose before you spend.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>One message.</strong> What you build, for whom, and why you. If it could be any builder's tagline, it fails.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Two channels, run well.</strong> Usually paid search with landing pages, plus one brand channel that makes the name stick.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Report on appointments, not clicks.</strong> Cost per qualified appointment is the number a builder can actually manage to.</span></li>
+				</ul>
+			</div>
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>Custom vs. production</p>
+				<h2 class="page-h2">Custom home builder marketing is a different problem.</h2>
+				<p class="lede" style="margin-top:24px">A custom builder sells trust and process to someone who already owns dirt and is about to spend a year of their life with you. Long cycle, high stakes, referral-heavy. A production or semi-custom builder sells speed, price, and financing to a buyer touring three models on a Saturday. Volume, model traffic, follow-up speed.</p>
+				<p class="lede" style="margin-top:16px">Same industry, different plan. The mistake is running one with the other's playbook. If you are a builder or trade contractor in the $2M to $20M range, the <a href="/milliondollarlp/">part-time marketing director offer</a> was built specifically for your operating rhythm. Larger builders usually fit a <a href="/services/fractional-marketing-director/">fractional marketing director</a> engagement.</p>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="white">
+		<p class="eyebrow-label"><span class="dot"></span>Common questions</p>
+		<h2 class="page-h2">Home builder marketing ideas that builders actually ask about.</h2>
+		<div style="margin-top:32px;max-width:720px">
+			<FaqAccordion items={faqs} />
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<div class="card-cta-row">
+			<h2 class="page-h2" style="color:#fff;margin:0">Tell me how many homes you want to close next year. I'll tell you what the marketing has to do.</h2>
+			<LeadForm />
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.pillar {
+		border-top: 3px solid var(--orange-500);
+		padding-top: 20px;
+	}
+	.pillar a {
+		font-weight: 600;
+	}
+</style>

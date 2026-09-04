@@ -45,13 +45,13 @@ export const fractionalCMO: Service = {
 	slug: "fractional-cmo",
 	name: "Fractional CMO",
 	shortName: "Fractional CMO",
-	seoTitle: "Fractional CMO Services for $5M–$50M Companies",
+	seoTitle: "Fractional CMO Services: Part-Time, Outsourced CMO",
 	seoDescription:
-		"Hire a fractional CMO with 26 years of marketing leadership. SumoLab gives $5M–$50M companies executive strategy, team direction, and accountable growth.",
+		"Fractional CMO, part-time CMO, outsourced CMO: same role, 26 years of marketing leadership. Executive strategy and accountable growth for $5M–$50M companies.",
 	seoH1: "Fractional CMO Services for $5M–$50M Companies",
 	serviceType: "Fractional CMO services",
 	definition:
-		"A fractional CMO is a part-time chief marketing officer who owns marketing strategy, budget, team direction, and pipeline accountability for a set number of hours each month. SumoLab's version of the role gives $5M–$50M companies 26 years of executive marketing leadership at a fraction of the $150,000–$300,000 cost of a full-time hire.",
+		"A fractional CMO is a part-time, outsourced chief marketing officer who owns marketing strategy, budget, team direction, and pipeline accountability for a set number of hours each month. SumoLab's version of the role gives $5M–$50M companies 26 years of executive marketing leadership at a fraction of the $150,000–$300,000 cost of a full-time hire.",
 	situationHeading: "Busy marketing. Random results.",
 	ctaPhrase: "a fractional CMO",
 	includesHeading: "What a fractional CMO does inside your business.",
@@ -65,7 +65,7 @@ export const fractionalCMO: Service = {
 		{ href: "/case-studies/", label: "Case studies: results from real engagements" },
 		{ href: "/contact/", label: "Book an intro call" },
 	],
-	tagline: "Executive-level marketing leadership to drive predictable growth, without the full-time CMO cost.",
+	tagline: "Call it a part-time CMO or an outsourced CMO. Same role: executive marketing leadership that drives predictable growth, without the full-time CMO cost.",
 	summary:
 		"A fractional CMO gives you board-level marketing leadership: strategy, direction, and accountability at the executive table: a senior voice in your leadership discussions and long-term brand and growth strategy, without the cost of a full-time hire.",
 	situation:
@@ -122,6 +122,11 @@ export const fractionalCMO: Service = {
 			question: "How much does a fractional CMO cost?",
 			answer:
 				"A full-time CMO typically costs $150,000–$300,000 per year once salary, benefits, bonuses, and overhead are included. The fractional engagement delivers the same senior-level thinking for a fraction of that, scaled to the hours your business actually needs, with no long-term contract.",
+		},
+		{
+			question: "Is a fractional CMO the same as a part-time CMO or an outsourced CMO?",
+			answer:
+				"Yes. Fractional CMO, part-time CMO, and outsourced CMO all describe the same arrangement: a senior marketing executive who leads your strategy and team on a set number of hours each month instead of a full-time salary. Fractional is the term the industry settled on. Owners usually say part-time or outsourced, and they mean exactly this.",
 		},
 		{
 			question: "How is a fractional CMO different from a fractional marketing director?",

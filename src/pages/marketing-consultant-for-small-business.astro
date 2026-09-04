@@ -1,0 +1,198 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import LeadForm from '../components/LeadForm.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+
+const faqs = [
+	{
+		question: 'What does a marketing consultant for a small business actually do?',
+		answer:
+			'The useful ones decide. They look at what you are already spending, kill what is not producing, set the priorities, and put a plan behind them. Then they direct the people doing the work, whether that is your coordinator, your agency, or a freelancer, and report back in plain numbers. The ones to avoid hand you a deck and leave.',
+	},
+	{
+		question: 'How much does a small business marketing consultant cost?',
+		answer:
+			'Senior engagements in the US typically run $5,000 to $15,000 a month depending on hours and scope. That is a fraction of the $150,000 to $300,000 a full-time marketing executive costs once salary, benefits, and overhead are included, with no long-term contract. SumoLab scopes each engagement to what your business actually needs, so you are not paying for hours you do not use.',
+	},
+	{
+		question: 'What is the difference between a marketing consultant and a marketing agency?',
+		answer:
+			'An agency sells execution: ads, content, websites, campaigns. A consultant owns the thinking above that: what to do, in what order, with what budget, and whether it is working. Most agency relationships go sideways because nobody is doing that second job. A good consultant is the person the agency answers to.',
+	},
+	{
+		question: 'Do you do the work, or just advise?',
+		answer:
+			'Both, in proportion to the problem. I lead the strategy, make the calls, and own the outcome. When execution is the bottleneck, I step in on systems, CRM, content, and AI implementation. When your team can execute and just needs direction, I stay out of the way and direct.',
+	},
+	{
+		question: 'What size business is this built for?',
+		answer:
+			'Established companies, usually $5M to $50M in revenue, with marketing already in motion: a coordinator, an agency, or both, but no one senior owning it. If you are earlier than that, I will say so on the first call and point you toward something more useful for your stage.',
+	},
+];
+
+const structuredData = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'ProfessionalService',
+		name: 'SumoLab',
+		description:
+			'Marketing consultant for small business owners who want strategy and accountability, not more activity. Based in Chandler, Arizona, serving clients nationwide.',
+		url: 'https://sumolab.co/marketing-consultant-for-small-business/',
+		telephone: '+14808269400',
+		email: 'jerry@sumolab.co',
+		address: {
+			'@type': 'PostalAddress',
+			addressLocality: 'Chandler',
+			addressRegion: 'AZ',
+			addressCountry: 'US',
+		},
+		founder: {
+			'@type': 'Person',
+			name: 'Jerry Suhrstedt',
+			jobTitle: 'Founder & Fractional CMO',
+			sameAs: 'https://www.linkedin.com/in/jerrysuhrstedt/',
+		},
+		areaServed: { '@type': 'Country', name: 'United States' },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqs.map((faq) => ({
+			'@type': 'Question',
+			name: faq.question,
+			acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+		})),
+	},
+];
+---
+
+<Layout
+	title="Marketing Consultant for Small Business | SumoLab"
+	description="A marketing consultant for small business owners who want strategy and accountability, not more activity. 26 years running companies. $5M to $50M businesses. Chandler, AZ, clients nationwide."
+	structuredData={structuredData}
+>
+	<PageHero
+		image="/photos/who-its-for-hero.jpg"
+		mobileImage="/photos/who-its-for-hero-mobile.jpg"
+		imageAlt="Small business leadership team working through a marketing plan with a consultant"
+		eyebrow="Marketing consultant for small business"
+		align="left"
+	>
+		<h1>A Marketing Consultant for Small Business Owners Who Are Done Guessing.</h1>
+		<p>If you searched for a marketing consultant for small business, here is the straight version. SumoLab is Jerry Suhrstedt: 26 years of building and running companies, twelve of them his own. You get strategy and someone accountable for the number, not another vendor invoicing you for activity.</p>
+	</PageHero>
+
+	<Section tone="white">
+		<div class="two-col" style="align-items:start;gap:64px">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>The situation</p>
+				<h2 class="page-h2">You have marketing. You don't have a marketer.</h2>
+				<p class="lede" style="margin-top:24px">There is an agency, or a coordinator, or both. Ads are running. Posts go out. The website got redesigned last year. And the leads still come mostly from referrals, the way they always have.</p>
+				<p class="lede" style="margin-top:16px">Nobody owns the number. Every marketing decision still lands on your desk, between payroll and the job that went sideways this morning. You are not short on activity. You are short on a person senior enough to run it.</p>
+			</div>
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>What a consultant does here</p>
+				<h2 class="page-h2">Decide. Direct. Report.</h2>
+				<ul class="dot-list" style="margin-top:24px">
+					<li><span class="dot" aria-hidden="true"></span>Decides what to stop spending on and what to double down on, with a written plan behind it</li>
+					<li><span class="dot" aria-hidden="true"></span>Directs your agency, freelancers, and staff so they pull in one direction</li>
+					<li><span class="dot" aria-hidden="true"></span>Owns lead flow and pipeline, not impressions and engagement</li>
+					<li><span class="dot" aria-hidden="true"></span>Reports in plain numbers: what worked, what didn't, what's next</li>
+					<li><span class="dot" aria-hidden="true"></span>Gets marketing decisions off your desk for good</li>
+				</ul>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="plain">
+		<p class="eyebrow-label"><span class="dot"></span>What to look for</p>
+		<h2 class="page-h2">Three questions before you hire any marketing consultant.</h2>
+		<p class="lede" style="margin-top:24px;max-width:680px">Most consultants come out of a marketing department. That is a different animal from someone who has owned the P&L. Ask these three and the field thins out fast.</p>
+		<div class="grid-3" style="margin-top:40px">
+			<div class="pillar">
+				<h3 class="page-h3">Have they made payroll?</h3>
+				<p class="lede">Strategy from someone who has carried a number is different from strategy from someone who has only presented one. Ask what they have founded, run, or turned around. The answer changes how they will think about your money.</p>
+			</div>
+			<div class="pillar">
+				<h3 class="page-h3">Do they know your size?</h3>
+				<p class="lede">A $5M business and a Fortune 500 do not share a playbook. Look for someone who has worked inside your revenue range and understands doing more with a smaller team and a real budget ceiling.</p>
+			</div>
+			<div class="pillar">
+				<h3 class="page-h3">Can they show numbers?</h3>
+				<p class="lede">Not "brand awareness." Lead volume. Revenue. Cost per acquisition. Ask for a company like yours, the problem they walked into, and what changed. If they cannot name one, keep looking.</p>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<p class="eyebrow-label" style="color:var(--orange-400)"><span class="dot"></span>Proof</p>
+		<h2 class="page-h2" style="color:#fff">Numbers, not adjectives.</h2>
+		<div class="grid-2" style="margin-top:32px;gap:40px">
+			<div>
+				<p class="stat">12 to 20 → 150 to 200</p>
+				<p class="stat-label">Weekly sales leads per office at HiLine Homes, a 14-office home builder. Annual sales went from 60 to 70 homes a year to over 800 within three years.</p>
+			</div>
+			<div>
+				<p class="stat">$3M → $11M</p>
+				<p class="stat-label">Stanbrooke Custom Homes, in under three years, after rebuilding the sales process and the marketing behind it.</p>
+			</div>
+		</div>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:680px;margin-top:32px">Twelve companies founded or co-founded. One taken from bankruptcy to $12M. The <a href="/case-studies/" style="color:var(--orange-400)">case studies</a> show the actual numbers, including the ones that were hard.</p>
+	</Section>
+
+	<Section tone="white">
+		<div class="two-col" style="align-items:start;gap:64px">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>How it works</p>
+				<h2 class="page-h2">Part-time hours. Full-time accountability.</h2>
+				<p class="lede" style="margin-top:24px">We start with a working session on your business, not your marketing. Revenue model, sales process, what is already running, who is doing it. From there you get a short list of priorities, a budget you can defend, and a weekly cadence where decisions actually get made.</p>
+				<p class="lede" style="margin-top:16px">Engagements run on a set number of hours a month with no long-term contract. Scale up for a launch. Scale down when the machine is running. Hand it to a full-time hire later if the business earns one.</p>
+			</div>
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>What the industry calls this</p>
+				<h2 class="page-h2">A senior marketer, on your terms.</h2>
+				<p class="lede" style="margin-top:24px">You searched for a marketing consultant. The industry has fancier names for the same arrangement: a <a href="/services/fractional-cmo/">fractional CMO</a> when the work is executive-level strategy, or a <a href="/services/fractional-marketing-director/">fractional marketing director</a> when it is closer to running the day-to-day. Some owners just say part-time CMO.</p>
+				<p class="lede" style="margin-top:16px">The label matters less than the fit. The first call is free, and it ends with a straight answer on whether this is the right move for your business, in either direction.</p>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="white">
+		<p class="eyebrow-label"><span class="dot"></span>Common questions</p>
+		<h2 class="page-h2">What owners ask before hiring a small business marketing consultant.</h2>
+		<div style="margin-top:32px;max-width:720px">
+			<FaqAccordion items={faqs} />
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<div class="card-cta-row">
+			<h2 class="page-h2" style="color:#fff;margin:0">Tell me what your marketing is doing right now. I'll tell you what I'd change.</h2>
+			<LeadForm />
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.pillar {
+		border-top: 3px solid var(--orange-500);
+		padding-top: 20px;
+	}
+	.stat {
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: 2.25rem;
+		line-height: 1.1;
+		color: #fff;
+		margin: 0 0 12px;
+	}
+	.stat-label {
+		font-size: 1rem;
+		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.8);
+		margin: 0;
+	}
+</style>

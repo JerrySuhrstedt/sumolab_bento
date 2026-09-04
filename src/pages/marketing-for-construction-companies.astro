@@ -1,0 +1,187 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import LeadForm from '../components/LeadForm.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+
+const faqs = [
+	{
+		question: 'How do I get more leads for my construction company?',
+		answer:
+			'Fix capture before you buy traffic. Most construction companies already get more inquiries than they realize, then lose them to a voicemail nobody returns and a contact form that emails an inbox nobody checks. Put every call and form into a CRM with a same-day follow-up, and you will find leads you were already paying for. After that, claim and work your Google Business Profile, build a reviews habit, and add one paid channel aimed at the buyer you actually want.',
+	},
+	{
+		question: 'What is the best marketing for a small construction company?',
+		answer:
+			'Reputation you can point to. For a company under $10M that means a Google Business Profile with real, recent reviews, a website that shows finished work and captures the inquiry, job-site signs and truck wraps that make the name familiar around town, and a follow-up process that treats every estimate request like money. Paid ads come after those, not instead of them.',
+	},
+	{
+		question: 'How much should a construction company spend on marketing?',
+		answer:
+			'Work backward from the jobs you need. Decide how many projects fill the year at your crew size, work out how many booked estimates that takes at your close rate, then price what a booked estimate costs in your market and channel. Multiply and you have a budget you can defend, tied to work you can actually staff. A percentage of revenue tells you nothing about that.',
+	},
+	{
+		question: 'Do Google Ads work for contractors?',
+		answer:
+			'Yes, when the buyer searches for what you do and the ad lands on a page that answers their question. They fail when a contractor bids on broad terms, sends the click to a homepage, and never calls the lead back. The ad was never the problem in those cases. What happens after the click is.',
+	},
+	{
+		question: 'Should a contractor hire a marketing agency or a marketing person?',
+		answer:
+			'An agency runs the campaigns. Someone still has to decide which campaigns, what to spend, what a good job looks like for your crews, and whether any of it is producing booked work. In most construction companies doing $5M to $50M, the owner is doing that job at night. A part-time marketing director does it on a set number of hours a month, and the agency answers to them instead of to you.',
+	},
+];
+
+const structuredData = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'ProfessionalService',
+		name: 'SumoLab',
+		description:
+			'Marketing for construction companies, from an operator who has founded three of them. Lead generation and marketing leadership for contractors doing $5M to $50M.',
+		url: 'https://sumolab.co/marketing-for-construction-companies/',
+		telephone: '+14808269400',
+		email: 'jerry@sumolab.co',
+		address: {
+			'@type': 'PostalAddress',
+			addressLocality: 'Chandler',
+			addressRegion: 'AZ',
+			addressCountry: 'US',
+		},
+		founder: {
+			'@type': 'Person',
+			name: 'Jerry Suhrstedt',
+			jobTitle: 'Founder & Fractional CMO',
+			sameAs: 'https://www.linkedin.com/in/jerrysuhrstedt/',
+		},
+		areaServed: [
+			{ '@type': 'State', name: 'Arizona' },
+			{ '@type': 'Country', name: 'United States' },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqs.map((faq) => ({
+			'@type': 'Question',
+			name: faq.question,
+			acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+		})),
+	},
+];
+---
+
+<Layout
+	title="Marketing for Construction Companies | SumoLab"
+	description="Marketing for construction companies, from an operator who has founded three of them. Contractor lead generation, bids that come to you, and marketing leadership for contractors doing $5M to $50M."
+	structuredData={structuredData}
+>
+	<PageHero
+		image="/photos/construction-companies-hero.jpg"
+		imageAlt="Construction crew in hard hats working on a commercial jobsite in the Southwest"
+		eyebrow="Marketing for construction companies"
+		align="left"
+		imagePosition="center center"
+	>
+		<h1>Marketing for Construction Companies That Are Tired of Living Bid to Bid.</h1>
+		<p>If you run a construction company, most marketing for construction companies has already failed you once: an agency, a new website, a few thousand dollars in ads, and the same phone. I founded three construction companies myself. This is what actually fills the pipeline, in the order I would do it.</p>
+	</PageHero>
+
+	<Section tone="white">
+		<div class="two-col" style="align-items:start;gap:64px">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>The situation</p>
+				<h2 class="page-h2">Great work. Feast-or-famine pipeline.</h2>
+				<p class="lede" style="margin-top:24px">The work speaks for itself. That is the problem. It only speaks to people who already know you, so the pipeline is word of mouth, a couple of general contractors who keep you busy, and whatever you can win by bidding on everything.</p>
+				<p class="lede" style="margin-top:16px">One good client is 40% of revenue. One slow quarter and you are doing estimates at nine at night to keep the crews on. There is no marketing person. There is you, and you are already the estimator.</p>
+			</div>
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>Common symptoms</p>
+				<ul class="dot-list" style="margin-top:24px">
+					<li><span class="dot" aria-hidden="true"></span>Referrals and repeat GCs are the entire pipeline</li>
+					<li><span class="dot" aria-hidden="true"></span>One or two clients make up most of the year's revenue</li>
+					<li><span class="dot" aria-hidden="true"></span>The website is a brochure that captures nobody</li>
+					<li><span class="dot" aria-hidden="true"></span>Trucks and job-site signs are the whole brand, and nobody is asking for reviews</li>
+					<li><span class="dot" aria-hidden="true"></span>You bid on everything because nothing comes in on its own</li>
+				</ul>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="plain">
+		<p class="eyebrow-label"><span class="dot"></span>Proof</p>
+		<h2 class="page-h2">Contractor lead generation, from three angles that worked.</h2>
+		<p class="lede" style="margin-top:24px;max-width:680px">Marketing in construction works on the demand side and the supply side. Here it is doing both, with numbers.</p>
+		<div class="grid-3" style="margin-top:40px">
+			<div class="pillar">
+				<h3 class="page-h3">Stanbrooke: crews on every job in 45 days</h3>
+				<p class="lede">A custom builder had foundations poured and no framing contractors to send. I wrote a recruiting flier that sold the job the way marketing sells a product, sent it to every framer in the service area, and every job had lumber and labor within 45 days. <a href="/case-studies/stanbrooke-contractor-shortage/">Read the case study.</a></p>
+			</div>
+			<div class="pillar">
+				<h3 class="page-h3">Top Notch: a brand on a trade budget</h3>
+				<p class="lede">A construction cleaning company run by a local couple, with no money for an agency. We built the brand around the owner himself, tongue in cheek, memorable at a glance. Distinct beats expensive, every time. <a href="/jerry/top-notch-cleaning/">See the brand.</a></p>
+			</div>
+			<div class="pillar">
+				<h3 class="page-h3">HiLine: from referrals to 150 leads a week</h3>
+				<p class="lede">A 14-office builder living on 12 to 20 referral leads a week per office. Radio, direct mail, paid search with real landing pages, and home shows took that to 150 to 200. Sales went from 60 homes a year to over 800. <a href="/case-studies/hiline-homes-sales-growth/">Read the case study.</a></p>
+			</div>
+		</div>
+		<p class="lede" style="margin-top:32px;max-width:680px">I have also run marketing for HVAC, electrical, and plumbing contractors. The trades share one thing with builders: the buyer decides on trust before price, and the marketing has to earn it.</p>
+	</Section>
+
+	<Section tone="ink">
+		<p class="eyebrow-label" style="color:var(--orange-400)"><span class="dot"></span>Why this works</p>
+		<h2 class="page-h2" style="color:#fff">I've founded three construction companies. I know what a slow March feels like.</h2>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:680px;margin-top:24px">Sixteen years in home building. Three construction companies founded, one of them taken <a href="/blog/business-turnaround-strategy-bankrupt-to-12m/" style="color:var(--orange-400)">from bankruptcy to $12M</a>. I have made payroll off a pipeline that was nothing but referrals, and I have built the pipeline that replaced it.</p>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:680px;margin-top:16px">That is why the plan below starts with capture and reputation instead of ad spend. It is the order that works when cash is real and crews need to stay busy.</p>
+	</Section>
+
+	<Section tone="white">
+		<div class="two-col" style="align-items:start;gap:64px">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>What we'd do first</p>
+				<h2 class="page-h2">How to market a construction company, in the right order.</h2>
+				<ul class="dot-list" style="margin-top:24px">
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Own your Google Business Profile.</strong> Recent reviews, real photos, correct services. It is the highest-return thing most contractors ignore.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Stop the leaks.</strong> Every call and form into a CRM with same-day follow-up. You are already paying for these leads.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Say what you're best at.</strong> One niche, in plain words, on the <a href="/blog/smart-web-design-for-contractors-in-chandler-arizona/">website</a> and the trucks. "General contractor" is not a niche.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>One paid channel, matched to your buyer.</strong> Homeowners search. GCs and property managers get referred. Spend where your buyer actually looks.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Build the photo habit.</strong> Job-site signs, before-and-afters, and a crew that takes pictures. Cheap brand that compounds for years.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Report on booked estimates.</strong> Not clicks, not impressions. Booked estimates and won jobs are the only numbers a contractor can manage to.</span></li>
+				</ul>
+			</div>
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>Who you sell to</p>
+				<h2 class="page-h2">Homeowners, GCs, and property managers do not buy the same way.</h2>
+				<p class="lede" style="margin-top:24px">Homeowners search and compare. General contractors ask each other. Property managers and developers want a track record and a bond. Three buyers, three different plans, and most construction company marketing tries to talk to all of them with one brochure.</p>
+				<p class="lede" style="margin-top:16px">Pick the buyer you want more of, and build for them. If you are a contractor in the $2M to $20M range, the <a href="/milliondollarlp/">part-time marketing director offer</a> was built for exactly that decision. Larger firms usually fit a <a href="/services/fractional-marketing-director/">fractional marketing director</a> engagement, on a set number of hours a month.</p>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="white">
+		<p class="eyebrow-label"><span class="dot"></span>Common questions</p>
+		<h2 class="page-h2">What contractors ask before they spend a dollar on marketing.</h2>
+		<div style="margin-top:32px;max-width:720px">
+			<FaqAccordion items={faqs} />
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<div class="card-cta-row">
+			<h2 class="page-h2" style="color:#fff;margin:0">Tell me what a good month looks like for your crews. I'll tell you what the marketing has to produce.</h2>
+			<LeadForm />
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.pillar {
+		border-top: 3px solid var(--orange-500);
+		padding-top: 20px;
+	}
+	.pillar a {
+		font-weight: 600;
+	}
+</style>
