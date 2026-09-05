@@ -1,6 +1,6 @@
 ---
 import AdminLayout from '../../../layouts/AdminLayout.astro';
-import { db, ACTIONS, STATUS_LABEL, CATEGORIES, transition, isStatus, slugify, fmtDate, type Article, type Event, type Question } from '../../../lib/editorial';
+import { db, ACTIONS, STATUS_LABEL, CATEGORIES, transition, isStatus, slugify, fmtDate, fmtDateTime, type Article, type Event, type Question } from '../../../lib/editorial';
 export const prerender = false;
 
 const id = Number(Astro.params.id);
@@ -108,6 +108,17 @@ const stageHint: Record<string, string> = {
 				{claudeActions.length > 0 && <p class="muted" style="font-size:13px;margin:8px 0 0">Waiting on Claude: {claudeActions.map((a) => a.label.toLowerCase()).join(', ')}.</p>}
 			</div>
 
+			{article.status === 'published' && (
+				<div class="card" style="margin-bottom:16px">
+					<h2>Publish checklist</h2>
+					<ul class="checklist">
+						<li class:list={[{ done: !!article.live_url }]}><span class="mark">{article.live_url ? '✓' : '○'}</span> Live on the site {article.published_at && <span class="muted">{fmtDateTime(article.published_at)}</span>}</li>
+						<li class:list={[{ done: !!article.indexing_requested_at }]}><span class="mark">{article.indexing_requested_at ? '✓' : '○'}</span> Indexing requested in Search Console {article.indexing_requested_at ? <span class="muted">{fmtDateTime(article.indexing_requested_at)}</span> : <span class="muted">waiting on Claude</span>}</li>
+						<li class:list={[{ done: !!article.indexed_at }]}><span class="mark">{article.indexed_at ? '✓' : '○'}</span> Google reports it indexed {article.indexed_at ? <span class="muted">{fmtDateTime(article.indexed_at)}</span> : <span class="muted">checked on later runs</span>}</li>
+					</ul>
+				</div>
+			)}
+
 			<div class="card" style="margin-bottom:16px">
 				<h2>Links</h2>
 				<p style="font-size:14px;margin:0 0 6px">Draft: {article.draft_url ? <a href={article.draft_url} target="_blank" rel="noopener">{article.draft_url}</a> : <span class="muted">not written yet</span>}</p>
@@ -120,7 +131,7 @@ const stageHint: Record<string, string> = {
 				<ul class="log">
 					{events.map((e) => (
 						<li>
-							<span class="muted">{fmtDate(e.created_at)}</span> <strong>{e.to_status === 'proposed' && !e.from_status ? 'Idea added' : STATUS_LABEL[e.to_status as keyof typeof STATUS_LABEL] ?? e.to_status}</strong>
+							<span class="muted">{fmtDateTime(e.created_at)}</span> <strong>{e.to_status === 'proposed' && !e.from_status ? 'Idea added' : STATUS_LABEL[e.to_status as keyof typeof STATUS_LABEL] ?? e.to_status}</strong>
 							{e.note && <div class="note">{e.note}</div>}
 						</li>
 					))}
@@ -142,5 +153,8 @@ const stageHint: Record<string, string> = {
 	.two { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 20px; align-items: start; }
 	.log { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; }
 	.log .note { margin-top: 4px; padding: 8px 10px; background: var(--surface-sunken); border-radius: 10px; }
+	.checklist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+	.checklist .mark { display: inline-block; width: 18px; font-weight: 700; color: var(--text-muted); }
+	.checklist li.done .mark { color: #1e7b3a; }
 	@media (max-width: 900px) { .two { grid-template-columns: 1fr; } }
 </style>

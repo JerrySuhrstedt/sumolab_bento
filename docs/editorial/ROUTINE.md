@@ -16,6 +16,9 @@ Steps, in order. Stop after step 6. Never do more than 2 outlines and 2 drafts p
    from drafts.ts, add one natural link to it from its target_page if a sentence fits,
    then `node scripts/editorial-cli.mjs set-live <id> https://sumolab.co/blog/<slug>/ "Published by the routine."`
    Append a row to docs/editorial/published-log.csv.
+   Indexing: the routine cannot drive Search Console. Leave indexing_requested_at empty; Claude
+   requests indexing in an interactive session and stamps it with `indexing-requested <id>`, then
+   `indexed <id>` once Search Console shows the URL on Google. The board shows which are pending.
 3. For each article in `idea_approved` (max 2): run `node scripts/editorial-cli.mjs context <id>`,
    read docs/editorial/article-prompt.md and docs/editorial/voice-rules.md, write the Phase 1
    brief to a temp file, then `node scripts/editorial-cli.mjs outline <id> <file> "<one-line note>"`.

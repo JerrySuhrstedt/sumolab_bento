@@ -135,6 +135,8 @@ export interface Article {
 	outline_approved_at: string | null;
 	draft_ready_at: string | null;
 	published_at: string | null;
+	indexing_requested_at: string | null;
+	indexed_at: string | null;
 }
 
 export interface Event {
@@ -180,6 +182,11 @@ export async function transition(id: number, to: Status, note: string | null, ac
 	if (to === 'rejected' || to === 'killed') {
 		await sql`UPDATE editorial_questions SET status = 'new', updated_at = now() WHERE id = (SELECT question_id FROM editorial_articles WHERE id = ${id})`;
 	}
+}
+
+export function fmtDateTime(iso: string | null) {
+	if (!iso) return '';
+	return new Date(iso).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZone: 'America/Phoenix' }) + ' AZ';
 }
 
 export function fmtDate(iso: string | null) {

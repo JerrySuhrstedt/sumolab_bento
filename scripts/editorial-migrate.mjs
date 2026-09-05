@@ -55,6 +55,8 @@ await sql`CREATE TABLE IF NOT EXISTS editorial_articles (
 	published_at TIMESTAMPTZ
 )`;
 await sql`CREATE INDEX IF NOT EXISTS editorial_articles_status_idx ON editorial_articles (status)`;
+await sql`ALTER TABLE editorial_articles ADD COLUMN IF NOT EXISTS indexing_requested_at TIMESTAMPTZ`;
+await sql`ALTER TABLE editorial_articles ADD COLUMN IF NOT EXISTS indexed_at TIMESTAMPTZ`;
 
 await sql`CREATE TABLE IF NOT EXISTS editorial_events (
 	id SERIAL PRIMARY KEY,

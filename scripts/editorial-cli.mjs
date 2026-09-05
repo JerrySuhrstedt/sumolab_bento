@@ -8,6 +8,8 @@
 //   node scripts/editorial-cli.mjs start <id>                # outline_approved -> in_progress
 //   node scripts/editorial-cli.mjs draft-ready <id> <url> "<note>"   # in_progress -> draft_ready
 //   node scripts/editorial-cli.mjs set-live <id> <url> "<note>"      # records live_url on a published article
+//   node scripts/editorial-cli.mjs indexing-requested <id> [note]   # stamps indexing_requested_at (Search Console request done)
+//   node scripts/editorial-cli.mjs indexed <id> [note]              # stamps indexed_at (Search Console shows URL is on Google)
 //   node scripts/editorial-cli.mjs note <id> "<note>"        # log a note without changing status
 import { readFileSync, existsSync } from 'node:fs';
 import { neon } from '@neondatabase/serverless';
@@ -37,9 +39,9 @@ async function move(from, to, note, extra = {}) {
 }
 
 if (cmd === 'board') {
-	const rows = await sql`SELECT id, status, working_title, target_keyword, slug, draft_url, live_url FROM editorial_articles WHERE status NOT IN ('rejected','killed') ORDER BY status, id`;
+	const rows = await sql`SELECT id, status, working_title, target_keyword, slug, draft_url, live_url, indexing_requested_at, indexed_at FROM editorial_articles WHERE status NOT IN ('rejected','killed') ORDER BY status, id`;
 	for (const r of rows) console.log(`#${r.id}\t${r.status.padEnd(16)}\t${r.working_title}${r.slug ? `\t[${r.slug}]` : ''}`);
-	const todo = rows.filter((r) => ['idea_approved', 'outline_approved', 'published'].includes(r.status) && !(r.status === 'published' && r.live_url));
+	const todo = rows.filter((r) => ['idea_approved', 'outline_approved'].includes(r.status) || (r.status === 'published' && (!r.live_url || !r.indexing_requested_at || !r.indexed_at)));
 	console.log(`\nClaude work: ${todo.length === 0 ? 'none' : todo.map((r) => `#${r.id} ${r.status}`).join(', ')}`);
 } else if (cmd === 'show') {
 	const [a] = await sql`SELECT * FROM editorial_articles WHERE id = ${id}`; console.log(JSON.stringify(a, null, 2));
@@ -69,6 +71,14 @@ if (cmd === 'board') {
 	await sql`UPDATE editorial_articles SET live_url = ${rest[0]}, published_at = COALESCE(published_at, now()), updated_at = now() WHERE id = ${id} AND status = 'published'`;
 	await sql`INSERT INTO editorial_events (article_id, from_status, to_status, note, actor) VALUES (${id}, 'published', 'published', ${rest[1] ?? 'Live.'}, ${ACTOR})`;
 	console.log(`#${id}: live_url set`);
+} else if (cmd === 'indexing-requested') {
+	await sql`UPDATE editorial_articles SET indexing_requested_at = now(), updated_at = now() WHERE id = ${id} AND status = 'published'`;
+	await sql`INSERT INTO editorial_events (article_id, from_status, to_status, note, actor) VALUES (${id}, 'published', 'published', ${rest[0] ?? 'Indexing requested in Google Search Console.'}, ${ACTOR})`;
+	console.log(`#${id}: indexing requested at ${new Date().toISOString()}`);
+} else if (cmd === 'indexed') {
+	await sql`UPDATE editorial_articles SET indexed_at = now(), updated_at = now() WHERE id = ${id} AND status = 'published'`;
+	await sql`INSERT INTO editorial_events (article_id, from_status, to_status, note, actor) VALUES (${id}, 'published', 'published', ${rest[0] ?? 'Google reports the URL is indexed.'}, ${ACTOR})`;
+	console.log(`#${id}: indexed at ${new Date().toISOString()}`);
 } else if (cmd === 'note') {
 	const [a] = await sql`SELECT status FROM editorial_articles WHERE id = ${id}`;
 	await sql`INSERT INTO editorial_events (article_id, from_status, to_status, note, actor) VALUES (${id}, ${a.status}, ${a.status}, ${rest[0]}, ${ACTOR})`;

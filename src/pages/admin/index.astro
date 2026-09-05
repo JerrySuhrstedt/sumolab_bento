@@ -35,7 +35,7 @@ const pillClass = (s: string) => (s === 'published' ? 'live' : s === 'rejected' 
 							<span class={`pill ${pillClass(a.status)}`}>{STATUS_LABEL[a.status]}</span>
 							<strong>{a.working_title}</strong>
 							<span class="meta">{a.category ?? 'Uncategorized'}{a.target_keyword ? ` · ${a.target_keyword}` : ''}</span>
-							<span class="meta muted">Updated {fmtDate(a.updated_at)}{a.draft_url ? ' · draft online' : ''}</span>
+							<span class="meta muted">Updated {fmtDate(a.updated_at)}{a.status === 'published' ? (a.indexed_at ? ' · indexed' : a.indexing_requested_at ? ' · indexing requested' : ' · indexing pending') : a.draft_url ? ' · draft online' : ''}</span>
 						</a>
 					))}
 				</section>
