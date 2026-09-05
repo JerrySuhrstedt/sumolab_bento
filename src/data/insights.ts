@@ -8,6 +8,8 @@ export interface InsightArticle {
 	excerpt: string;
 	/** Primary keyword for draft QA and SEO checks. */
 	targetKeyword?: string;
+	/** 3 to 5 prompt-shaped questions answered directly. Rendered as an accordion with FAQPage schema. */
+	faqs?: { question: string; answer: string }[];
 	body: string[];
 	keyPoints?: string[];
 	/** Optional gated download rendered above the article CTA. */

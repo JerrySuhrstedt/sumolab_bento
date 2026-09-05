@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
 import Section from '../../components/Section.astro';
 import LeadForm from '../../components/LeadForm.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
 import { insights } from '../../data/insights';
 import { founder } from '../../data/founder';
 
@@ -58,6 +59,14 @@ const structuredData: Record<string, unknown>[] = [
 		],
 	},
 ];
+
+if (insight.faqs && insight.faqs.length > 0) {
+	structuredData.push({
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: insight.faqs.map((f) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })),
+	});
+}
 
 if (insight.slug === 'trellivance') {
 	structuredData.push({
@@ -120,6 +129,16 @@ if (insight.slug === 'trellivance') {
 			</div>
 		</div>
 	</Section>
+
+	{insight.faqs && insight.faqs.length > 0 && (
+		<Section tone="white">
+			<div class="article-wrap">
+				<p class="eyebrow-label"><span class="dot"></span>Questions people ask</p>
+				<h2 class="page-h3" style="margin-bottom:16px">Straight answers on {insight.targetKeyword ?? 'this'}</h2>
+				<FaqAccordion items={insight.faqs} />
+			</div>
+		</Section>
+	)}
 
 	<Section tone="ink">
 		<div class="card-cta-row" id="download-form">
