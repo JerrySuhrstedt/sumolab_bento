@@ -6,7 +6,8 @@ import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { neon } from '@neondatabase/serverless';
 
-const DIR = '/Volumes/4TB ExtremePro/Dropbox/Jerrys Vault/Jerry-AI-Context/03-projects/sumolab/seo-content/01-keyword-exports';
+const ROOT = '/Volumes/4TB ExtremePro/Dropbox/Jerrys Vault/Jerry-AI-Context/03-projects/sumolab/seo-content';
+const DIRS = [ROOT + '/01-keyword-exports', ROOT + '/04-answer-the-public'];
 const vars = Object.fromEntries(readFileSync('.dev.vars', 'utf8').split('\n').filter((l) => l.includes('=')).map((l) => { const i = l.indexOf('='); return [l.slice(0, i).trim(), l.slice(i + 1).trim().replace(/^"|"$/g, '')]; }));
 const sql = neon(vars.DATABASE_URL);
 
@@ -86,7 +87,8 @@ function add(rec) {
 }
 
 let files = 0;
-for (const f of readdirSync(DIR)) {
+for (const DIR of DIRS) for (const f of readdirSync(DIR)) {
+	if (f.startsWith('.')) continue;
 	const p = join(DIR, f); const text = decode(readFileSync(p));
 	if (f.startsWith('atp-') && f.endsWith('.csv') && !f.includes('ai-prompts')) {
 		const rows = parseCsv(text); const h = rows[0].map((c) => c.trim());
