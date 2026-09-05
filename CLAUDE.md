@@ -75,6 +75,16 @@ git push origin main   # also triggers a Workers Builds deploy (same command as 
 - `src/pages/api/lead.ts`: the one SSR route: inserts into Neon `portfolio_leads`, emails Jerry via the EMAIL binding
 - `src/data/*.ts`: all page content; edit these for copy changes, never hardcode content in components
 
+## Editorial backend (sumolab.co/admin/)
+
+- **What it is:** the SEO content pipeline. Question bank → idea → outline → draft → final approval → publish. Jerry is the single approver at every gate; Claude does the outlining and writing. Astro SSR pages under `src/pages/admin/`, plain server-rendered forms, no client framework.
+- **Auth:** `src/middleware.ts` gates `/admin` with an HMAC cookie derived from the `ADMIN_PASSWORD` Worker secret (`src/lib/admin-auth.ts`). Local passphrase is in `.dev.vars`; production passphrase is recorded in the vault at `seo-content/README.md`. Rotate with `npx wrangler secret put ADMIN_PASSWORD`.
+- **Data:** Neon tables `editorial_questions`, `editorial_articles`, `editorial_events` (same database as `portfolio_leads`). Schema in `scripts/editorial-migrate.mjs` (idempotent, `npm run editorial:migrate`). Statuses, board columns, allowed transitions, and helpers live in `src/lib/editorial.ts`; change the pipeline there, nowhere else.
+- **Question bank import:** `npm run editorial:import` reads every Answer The Public and Keyword Planner export in the vault folder `03-projects/sumolab/seo-content/01-keyword-exports/`, keeps question-form rows only, drops off-topic ones, dedupes across platforms, scores (log volume × competition weight + 15 if it maps to a service page), categorizes by seed, and upserts. Reruns never change a question's status.
+- **Drafts:** `src/data/drafts.ts` holds articles awaiting final approval. They render at `/drafts/<slug>/` (noindex, robots-disallowed, excluded from sitemap and blog index) with a Draft QA panel. Final approval = move the object to `insights.ts`, set the article's `live_url`, push.
+- **Claude's job each session:** open the board (or query `editorial_articles`), write outlines for anything in `idea_approved`, write drafts for anything in `outline_approved`, mark statuses with `transition()` semantics (`outline_ready`, `in_progress`, `draft_ready`), and publish anything in `published` that is not yet in `insights.ts`.
+- **Cloudflare env in SSR:** always `await import('cloudflare:workers')` lazily (see `getEnv()`); a top-level import breaks prerendering.
+
 ## Data files (content lives here)
 
 | File | Controls |
