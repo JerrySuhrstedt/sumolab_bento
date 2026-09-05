@@ -9,6 +9,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "postbuild": "node scripts/trailing-slash-redirects.mjs",
+    "editorial:migrate": "node scripts/editorial-migrate.mjs",
+    "editorial:import": "node scripts/editorial-import.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "generate-types": "wrangler types"

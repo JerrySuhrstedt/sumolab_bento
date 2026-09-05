@@ -21,7 +21,7 @@ export default defineConfig({
 			// client, never meant to be publicly discoverable or indexed.
 			// /testing/ pages are scratch pages for trying things out, not
 			// real site content.
-			filter: (page) => !page.includes('/clients/') && !page.includes('/testing/'),
+			filter: (page) => !page.includes('/clients/') && !page.includes('/testing/') && !page.includes('/drafts/') && !page.includes('/admin/'),
 		}),
 	],
 	prefetch: {

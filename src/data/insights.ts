@@ -6,6 +6,8 @@ export interface InsightArticle {
 	category: string;
 	publishedAt: string;
 	excerpt: string;
+	/** Primary keyword for draft QA and SEO checks. */
+	targetKeyword?: string;
 	body: string[];
 	keyPoints?: string[];
 	/** Optional gated download rendered above the article CTA. */

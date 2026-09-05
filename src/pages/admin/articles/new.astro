@@ -1,0 +1,90 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+import { db, CATEGORIES, slugify, type Question } from '../../../lib/editorial';
+export const prerender = false;
+
+const sql = await db();
+let error = '';
+
+if (Astro.request.method === 'POST') {
+	const form = await Astro.request.formData();
+	const action = String(form.get('action') || 'create');
+	if (action === 'ignore') {
+		const qid = Number(form.get('question_id'));
+		await sql`UPDATE editorial_questions SET status = 'ignored', updated_at = now() WHERE id = ${qid}`;
+		return Astro.redirect('/admin/questions/', 303);
+	}
+	const subject = String(form.get('subject') || '').trim();
+	const working_title = String(form.get('working_title') || '').trim();
+	const target_keyword = String(form.get('target_keyword') || '').trim() || null;
+	const category = String(form.get('category') || '').trim() || null;
+	const target_page = String(form.get('target_page') || '').trim() || null;
+	const notes = String(form.get('notes') || '').trim() || null;
+	const question_id = form.get('question_id') ? Number(form.get('question_id')) : null;
+	if (!subject || !working_title) {
+		error = 'Subject and working title are required.';
+	} else {
+		const slug = slugify(working_title);
+		const [row] = (await sql`INSERT INTO editorial_articles (question_id, subject, working_title, target_keyword, category, target_page, slug, notes) VALUES (${question_id}, ${subject}, ${working_title}, ${target_keyword}, ${category}, ${target_page}, ${slug}, ${notes}) RETURNING id`) as { id: number }[];
+		await sql`INSERT INTO editorial_events (article_id, from_status, to_status, note) VALUES (${row.id}, NULL, 'proposed', ${notes})`;
+		if (question_id) await sql`UPDATE editorial_questions SET status = 'proposed', updated_at = now() WHERE id = ${question_id}`;
+		return Astro.redirect(`/admin/articles/${row.id}/`, 303);
+	}
+}
+
+const qid = Astro.url.searchParams.get('question');
+let question: Question | null = null;
+if (qid) {
+	const rows = (await sql`SELECT * FROM editorial_questions WHERE id = ${Number(qid)}`) as Question[];
+	question = rows[0] ?? null;
+}
+const titleCase = (s: string) => s.replace(/\b\w/g, (c) => c.toUpperCase()).replace(/\b(A|An|The|Of|For|To|In|On|And|Or|Vs|With|At|By)\b/g, (w) => w.toLowerCase()).replace(/^\w/, (c) => c.toUpperCase());
+const suggestedTitle = question ? titleCase(question.question.replace(/\?$/, '')) : '';
+---
+
+<AdminLayout title="New idea" section="article">
+	<h1>New article idea</h1>
+	<p class="sub">Stage 1 of the pipeline. Give it a subject and a working title; you approve or reject it on the next screen.</p>
+	{error && <div class="flash err">{error}</div>}
+	<form method="post" class="card" style="max-width:760px">
+		{question && <input type="hidden" name="question_id" value={question.id} />}
+		{question && (
+			<div class="flash">From the question bank: “{question.question}” · {question.volume ? `${question.volume}/mo` : 'no volume yet'}{question.competition ? ` · ${question.competition} competition` : ''}</div>
+		)}
+		<div class="field">
+			<label for="subject">Subject</label>
+			<input id="subject" name="subject" required value={question ? question.question : ''} />
+			<span class="hint">The question or topic in the reader's words.</span>
+		</div>
+		<div class="field">
+			<label for="working_title">Working title</label>
+			<input id="working_title" name="working_title" required value={suggestedTitle} />
+			<span class="hint">Editable until final review. The slug comes from this.</span>
+		</div>
+		<div class="field">
+			<label for="target_keyword">Target keyword</label>
+			<input id="target_keyword" name="target_keyword" value={question ? question.question : ''} />
+			<span class="hint">Goes in the H1, first sentence, and an H2 or H3.</span>
+		</div>
+		<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+			<div class="field">
+				<label for="category">Category</label>
+				<select id="category" name="category">
+					{CATEGORIES.map((c) => <option value={c} selected={question?.category === c}>{c}</option>)}
+				</select>
+			</div>
+			<div class="field">
+				<label for="target_page">Service page it should feed</label>
+				<input id="target_page" name="target_page" value={question?.target_page ?? ''} placeholder="/services/fractional-cmo/" />
+			</div>
+		</div>
+		<div class="field">
+			<label for="notes">Notes</label>
+			<textarea id="notes" name="notes" placeholder="Angle, proof to use, anything Claude should know before outlining."></textarea>
+		</div>
+		<div style="display:flex;gap:10px">
+			<button type="submit" class="btn go">Add to the board</button>
+			<a href="/admin/questions/" class="btn">Cancel</a>
+		</div>
+	</form>
+</AdminLayout>

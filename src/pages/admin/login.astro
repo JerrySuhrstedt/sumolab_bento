@@ -1,0 +1,42 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { getEnv } from '../../lib/editorial';
+import { tokenFor, cookieHeader, clearCookieHeader } from '../../lib/admin-auth';
+export const prerender = false;
+
+let error = '';
+const next = Astro.url.searchParams.get('next') || '/admin/';
+if (Astro.request.method === 'POST') {
+	const form = await Astro.request.formData();
+	if (form.get('action') === 'logout') {
+		return new Response(null, { status: 302, headers: { Location: '/admin/login/', 'Set-Cookie': clearCookieHeader() } });
+	}
+	const { ADMIN_PASSWORD } = await getEnv();
+	const given = String(form.get('password') ?? '');
+	if (ADMIN_PASSWORD && given === ADMIN_PASSWORD) {
+		const token = await tokenFor(ADMIN_PASSWORD);
+		const target = String(form.get('next') || '/admin/');
+		return new Response(null, {
+			status: 302,
+			headers: { Location: target.startsWith('/admin') ? target : '/admin/', 'Set-Cookie': cookieHeader(token, Astro.url.protocol === 'https:') },
+		});
+	}
+	error = 'That passphrase did not match.';
+}
+---
+
+<AdminLayout title="Sign in">
+	<div class="card" style="max-width:420px;margin:60px auto">
+		<h1>SumoLab Editorial</h1>
+		<p class="sub">Sign in with the admin passphrase.</p>
+		{error && <div class="flash err">{error}</div>}
+		<form method="post">
+			<input type="hidden" name="next" value={next} />
+			<div class="field">
+				<label for="password">Passphrase</label>
+				<input id="password" name="password" type="password" autocomplete="current-password" required autofocus />
+			</div>
+			<button type="submit" class="btn go">Sign in</button>
+		</form>
+	</div>
+</AdminLayout>

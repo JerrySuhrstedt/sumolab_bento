@@ -1,0 +1,88 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { db, CATEGORIES, fmtVol, type Question } from '../../lib/editorial';
+export const prerender = false;
+
+const sql = await db();
+const p = Astro.url.searchParams;
+const category = p.get('category') || '';
+const q = (p.get('q') || '').trim();
+const verifiedOnly = p.get('verified') === '1';
+const show = p.get('show') || 'new';
+const limit = Math.min(500, Number(p.get('limit') || 200));
+
+let rows: Question[];
+if (q) {
+	rows = (await sql`SELECT * FROM editorial_questions WHERE (${show} = 'all' OR status = ${show}) AND (${category} = '' OR category = ${category}) AND (${verifiedOnly} = false OR verified) AND question ILIKE ${'%' + q + '%'} ORDER BY score DESC, volume DESC LIMIT ${limit}`) as Question[];
+} else {
+	rows = (await sql`SELECT * FROM editorial_questions WHERE (${show} = 'all' OR status = ${show}) AND (${category} = '' OR category = ${category}) AND (${verifiedOnly} = false OR verified) ORDER BY score DESC, volume DESC LIMIT ${limit}`) as Question[];
+}
+const counts = (await sql`SELECT category, count(*)::int AS n, sum(CASE WHEN verified THEN 1 ELSE 0 END)::int AS v FROM editorial_questions WHERE status = 'new' GROUP BY category ORDER BY n DESC`) as { category: string; n: number; v: number }[];
+const total = counts.reduce((s, c) => s + c.n, 0);
+const compClass = (c: string | null) => (c === 'Low' ? 'live' : c === 'High' ? 'stop' : '');
+---
+
+<AdminLayout title="Question bank" section="questions">
+	<h1>Question bank</h1>
+	<p class="sub">{total} open questions from Answer The Public and Keyword Planner. Sorted by score: volume against competition, plus a bonus when the question sells a service page. Propose one to put it on the board.</p>
+
+	<div class="card" style="margin-bottom:20px">
+		<form method="get" class="filters">
+			<input type="search" name="q" value={q} placeholder="Search questions" />
+			<select name="category">
+				<option value="">All categories</option>
+				{CATEGORIES.map((c) => <option value={c} selected={c === category}>{c}</option>)}
+			</select>
+			<select name="show">
+				<option value="new" selected={show === 'new'}>Open</option>
+				<option value="proposed" selected={show === 'proposed'}>Already proposed</option>
+				<option value="ignored" selected={show === 'ignored'}>Ignored</option>
+				<option value="all" selected={show === 'all'}>Everything</option>
+			</select>
+			<label class="check"><input type="checkbox" name="verified" value="1" checked={verifiedOnly} /> Volume verified only</label>
+			<button type="submit" class="btn small">Filter</button>
+		</form>
+		<div class="counts">
+			{counts.map((c) => <a href={`/admin/questions/?category=${encodeURIComponent(c.category)}`} class="pill">{c.category}: {c.n} ({c.v} verified)</a>)}
+		</div>
+	</div>
+
+	<div class="card" style="padding:0;overflow-x:auto">
+		<table class="grid">
+			<thead>
+				<tr><th style="width:52%">Question</th><th>Volume</th><th>Competition</th><th>Score</th><th>Category</th><th></th></tr>
+			</thead>
+			<tbody>
+				{rows.length === 0 && <tr><td colspan="6" class="muted">No questions match. Import files with <span class="mono">npm run editorial:import</span>.</td></tr>}
+				{rows.map((r) => (
+					<tr>
+						<td>{r.question}{!r.verified && <span class="muted" title="No Keyword Planner volume yet"> · unverified</span>}</td>
+						<td>{r.volume ? fmtVol(r.volume) : <span class="muted">–</span>}</td>
+						<td>{r.competition ? <span class={`pill ${compClass(r.competition)}`}>{r.competition}{r.competition_index != null ? ` ${r.competition_index}` : ''}</span> : <span class="muted">–</span>}</td>
+						<td>{Number(r.score).toFixed(0)}</td>
+						<td class="muted">{r.category}</td>
+						<td style="white-space:nowrap">
+							{r.status === 'new' ? (
+								<>
+									<a href={`/admin/articles/new/?question=${r.id}`} class="btn small go">Propose</a>
+									<form method="post" action="/admin/articles/new/" style="display:inline"><input type="hidden" name="action" value="ignore" /><input type="hidden" name="question_id" value={r.id} /><button type="submit" class="btn small" title="Hide from the open list">Ignore</button></form>
+								</>
+							) : (
+								<span class="pill">{r.status}</span>
+							)}
+						</td>
+					</tr>
+				))}
+			</tbody>
+		</table>
+	</div>
+</AdminLayout>
+
+<style>
+	.filters { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+	.filters input[type="search"] { flex: 1; min-width: 220px; font-family: var(--font-body); font-size: 14px; padding: 9px 12px; border: 1px solid var(--border-strong); border-radius: 12px; }
+	.filters select { font-family: var(--font-body); font-size: 14px; padding: 9px 10px; border: 1px solid var(--border-strong); border-radius: 12px; background: #fff; }
+	.filters .check { font-size: 13.5px; display: flex; align-items: center; gap: 6px; }
+	.counts { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+	.counts .pill { text-decoration: none; }
+</style>

@@ -1,0 +1,146 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+import { db, ACTIONS, STATUS_LABEL, CATEGORIES, transition, isStatus, slugify, fmtDate, type Article, type Event, type Question } from '../../../lib/editorial';
+export const prerender = false;
+
+const id = Number(Astro.params.id);
+if (!Number.isInteger(id)) return Astro.redirect('/admin/', 302);
+const sql = await db();
+let flash = '';
+let error = '';
+
+if (Astro.request.method === 'POST') {
+	const form = await Astro.request.formData();
+	const action = String(form.get('action') || '');
+	try {
+		if (action === 'save') {
+			const subject = String(form.get('subject') || '').trim();
+			const working_title = String(form.get('working_title') || '').trim();
+			const target_keyword = String(form.get('target_keyword') || '').trim() || null;
+			const category = String(form.get('category') || '').trim() || null;
+			const target_page = String(form.get('target_page') || '').trim() || null;
+			const notes = String(form.get('notes') || '').trim() || null;
+			const outline = String(form.get('outline') || '').trim() || null;
+			const slugIn = String(form.get('slug') || '').trim();
+			const slug = slugIn ? slugify(slugIn) : slugify(working_title);
+			if (!subject || !working_title) throw new Error('Subject and working title are required.');
+			await sql`UPDATE editorial_articles SET subject = ${subject}, working_title = ${working_title}, target_keyword = ${target_keyword}, category = ${category}, target_page = ${target_page}, notes = ${notes}, outline = ${outline}, slug = ${slug}, updated_at = now() WHERE id = ${id}`;
+			flash = 'Saved.';
+		} else if (action === 'transition') {
+			const to = String(form.get('to') || '');
+			const note = String(form.get('note') || '').trim() || null;
+			if (!isStatus(to)) throw new Error('Unknown status.');
+			await transition(id, to, note);
+			return Astro.redirect(`/admin/articles/${id}/?moved=${to}`, 303);
+		} else if (action === 'delete') {
+			await sql`UPDATE editorial_questions SET status = 'new', updated_at = now() WHERE id = (SELECT question_id FROM editorial_articles WHERE id = ${id})`;
+			await sql`DELETE FROM editorial_articles WHERE id = ${id}`;
+			return Astro.redirect('/admin/', 303);
+		}
+	} catch (e) {
+		error = e instanceof Error ? e.message : 'Something went wrong.';
+	}
+}
+const moved = Astro.url.searchParams.get('moved');
+if (moved && isStatus(moved)) flash = `Moved to “${STATUS_LABEL[moved]}”.`;
+
+const [article] = (await sql`SELECT * FROM editorial_articles WHERE id = ${id}`) as Article[];
+if (!article) return Astro.redirect('/admin/', 302);
+const events = (await sql`SELECT * FROM editorial_events WHERE article_id = ${id} ORDER BY created_at DESC`) as Event[];
+const question = article.question_id ? ((await sql`SELECT * FROM editorial_questions WHERE id = ${article.question_id}`) as Question[])[0] : null;
+const actions = ACTIONS[article.status];
+const jerryActions = actions.filter((a) => a.who === 'jerry');
+const claudeActions = actions.filter((a) => a.who === 'claude');
+const stageHint: Record<string, string> = {
+	proposed: 'Approve the idea and Claude writes an outline. Reject it and the question goes back to the bank.',
+	idea_approved: 'Claude is outlining. The outline appears below when it is ready for your review.',
+	outline_ready: 'Read the outline below. Approve it to start the draft, or send it back with a note.',
+	outline_approved: 'Claude will write the draft against the approved outline.',
+	in_progress: 'Draft in progress. It will appear at the draft URL, noindexed, when ready.',
+	draft_ready: 'Read the draft on the site (link below), then give final approval or send it back with a note.',
+	published: 'Live. Any edits now happen on the live article.',
+	rejected: 'Not approved. Reopen if you change your mind.',
+	killed: 'Killed. Reopen if you change your mind.',
+};
+---
+
+<AdminLayout title={article.working_title} section="article">
+	<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap">
+		<div>
+			<p class="muted" style="margin:0 0 6px;font-size:13px"><a href="/admin/">Pipeline</a> › Article #{article.id}</p>
+			<h1>{article.working_title}</h1>
+			<p class="sub"><span class={`pill ${article.status === 'published' ? 'live' : article.status === 'rejected' || article.status === 'killed' ? 'stop' : 'go'}`}>{STATUS_LABEL[article.status]}</span> &nbsp; {stageHint[article.status]}</p>
+		</div>
+	</div>
+	{flash && <div class="flash">{flash}</div>}
+	{error && <div class="flash err">{error}</div>}
+
+	<div class="two">
+		<div>
+			<form method="post" class="card">
+				<input type="hidden" name="action" value="save" />
+				<div class="field"><label for="subject">Subject</label><input id="subject" name="subject" value={article.subject} required /></div>
+				<div class="field"><label for="working_title">Working title</label><input id="working_title" name="working_title" value={article.working_title} required /></div>
+				<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+					<div class="field"><label for="target_keyword">Target keyword</label><input id="target_keyword" name="target_keyword" value={article.target_keyword ?? ''} /></div>
+					<div class="field"><label for="slug">Slug</label><input id="slug" name="slug" value={article.slug ?? ''} class="mono" /></div>
+					<div class="field"><label for="category">Category</label><select id="category" name="category">{CATEGORIES.map((c) => <option value={c} selected={article.category === c}>{c}</option>)}</select></div>
+					<div class="field"><label for="target_page">Service page it feeds</label><input id="target_page" name="target_page" value={article.target_page ?? ''} /></div>
+				</div>
+				<div class="field"><label for="outline">Outline</label><textarea id="outline" name="outline" style="min-height:220px" placeholder="Claude fills this in after the idea is approved. You can edit it before approving.">{article.outline ?? ''}</textarea></div>
+				<div class="field"><label for="notes">Notes and feedback</label><textarea id="notes" name="notes">{article.notes ?? ''}</textarea><span class="hint">Angle, proof, things to avoid. Stage feedback also lands in the log on the right.</span></div>
+				<button type="submit" class="btn">Save changes</button>
+			</form>
+		</div>
+
+		<aside>
+			<div class="card" style="margin-bottom:16px">
+				<h2>Decision</h2>
+				{jerryActions.length === 0 && <p class="muted" style="font-size:14px">No decision needed at this stage.</p>}
+				{jerryActions.map((a) => (
+					<form method="post" style="margin-bottom:10px">
+						<input type="hidden" name="action" value="transition" />
+						<input type="hidden" name="to" value={a.to} />
+						{a.tone !== 'go' && <input name="note" placeholder="Reason or feedback (optional)" style="width:100%;box-sizing:border-box;margin-bottom:6px;padding:8px 10px;border:1px solid var(--border-strong);border-radius:10px;font-family:var(--font-body);font-size:13.5px" />}
+						<button type="submit" class={`btn ${a.tone}`} style="width:100%">{a.label}</button>
+					</form>
+				))}
+				{claudeActions.length > 0 && <p class="muted" style="font-size:13px;margin:8px 0 0">Waiting on Claude: {claudeActions.map((a) => a.label.toLowerCase()).join(', ')}.</p>}
+			</div>
+
+			<div class="card" style="margin-bottom:16px">
+				<h2>Links</h2>
+				<p style="font-size:14px;margin:0 0 6px">Draft: {article.draft_url ? <a href={article.draft_url} target="_blank" rel="noopener">{article.draft_url}</a> : <span class="muted">not written yet</span>}</p>
+				<p style="font-size:14px;margin:0">Live: {article.live_url ? <a href={article.live_url} target="_blank" rel="noopener">{article.live_url}</a> : <span class="muted">not published</span>}</p>
+				{question && <p style="font-size:13px;margin:12px 0 0" class="muted">Source question: “{question.question}” · {question.volume ? `${question.volume}/mo` : 'no volume'}{question.competition ? ` · ${question.competition}` : ''}</p>}
+			</div>
+
+			<div class="card" style="margin-bottom:16px">
+				<h2>Log</h2>
+				<ul class="log">
+					{events.map((e) => (
+						<li>
+							<span class="muted">{fmtDate(e.created_at)}</span> <strong>{e.to_status === 'proposed' && !e.from_status ? 'Idea added' : STATUS_LABEL[e.to_status as keyof typeof STATUS_LABEL] ?? e.to_status}</strong>
+							{e.note && <div class="note">{e.note}</div>}
+						</li>
+					))}
+				</ul>
+			</div>
+
+			<details>
+				<summary class="muted" style="cursor:pointer;font-size:13px">Danger zone</summary>
+				<form method="post" style="margin-top:8px" onsubmit="return confirm('Delete this article record? The question returns to the bank.')">
+					<input type="hidden" name="action" value="delete" />
+					<button type="submit" class="btn small stop">Delete record</button>
+				</form>
+			</details>
+		</aside>
+	</div>
+</AdminLayout>
+
+<style>
+	.two { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 20px; align-items: start; }
+	.log { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; }
+	.log .note { margin-top: 4px; padding: 8px 10px; background: var(--surface-sunken); border-radius: 10px; }
+	@media (max-width: 900px) { .two { grid-template-columns: 1fr; } }
+</style>

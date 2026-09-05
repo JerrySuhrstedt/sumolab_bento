@@ -1,0 +1,71 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { db, BOARD, STATUS_LABEL, fmtDate, type Article } from '../../lib/editorial';
+export const prerender = false;
+
+const sql = await db();
+const articles = (await sql`SELECT * FROM editorial_articles ORDER BY updated_at DESC`) as Article[];
+const [{ n: questionCount }] = (await sql`SELECT count(*)::int AS n FROM editorial_questions WHERE status = 'new'`) as { n: number }[];
+const byStatus = (statuses: string[]) => articles.filter((a) => statuses.includes(a.status));
+const exits = byStatus(['rejected', 'killed']);
+const pillClass = (s: string) => (s === 'published' ? 'live' : s === 'rejected' || s === 'killed' ? 'stop' : s.endsWith('approved') || s === 'draft_ready' || s === 'outline_ready' ? 'go' : '');
+---
+
+<AdminLayout title="Pipeline" section="board">
+	<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+		<div>
+			<h1>Editorial pipeline</h1>
+			<p class="sub">{articles.length} articles on the board. {questionCount} questions waiting in the bank.</p>
+		</div>
+		<div style="display:flex;gap:10px">
+			<a href="/admin/questions/" class="btn">Pick from the question bank</a>
+			<a href="/admin/articles/new/" class="btn go">+ New idea</a>
+		</div>
+	</div>
+
+	<div class="board">
+		{BOARD.map((col) => {
+			const items = byStatus(col.statuses);
+			return (
+				<section class="col">
+					<h2>{col.title} <span class="muted">{items.length}</span></h2>
+					{items.length === 0 && <p class="muted" style="font-size:13.5px">Nothing here.</p>}
+					{items.map((a) => (
+						<a href={`/admin/articles/${a.id}/`} class="item">
+							<span class={`pill ${pillClass(a.status)}`}>{STATUS_LABEL[a.status]}</span>
+							<strong>{a.working_title}</strong>
+							<span class="meta">{a.category ?? 'Uncategorized'}{a.target_keyword ? ` · ${a.target_keyword}` : ''}</span>
+							<span class="meta muted">Updated {fmtDate(a.updated_at)}{a.draft_url ? ' · draft online' : ''}</span>
+						</a>
+					))}
+				</section>
+			);
+		})}
+	</div>
+
+	{exits.length > 0 && (
+		<details style="margin-top:32px">
+			<summary class="muted" style="cursor:pointer;font-family:var(--font-display);font-weight:600">Not approved and killed ({exits.length})</summary>
+			<table class="grid" style="margin-top:12px">
+				<thead><tr><th>Title</th><th>Status</th><th>Updated</th></tr></thead>
+				<tbody>
+					{exits.map((a) => (
+						<tr><td><a href={`/admin/articles/${a.id}/`}>{a.working_title}</a></td><td><span class="pill stop">{STATUS_LABEL[a.status]}</span></td><td>{fmtDate(a.updated_at)}</td></tr>
+					))}
+				</tbody>
+			</table>
+		</details>
+	)}
+</AdminLayout>
+
+<style>
+	.board { display: grid; grid-template-columns: repeat(5, minmax(220px, 1fr)); gap: 16px; overflow-x: auto; }
+	.col { background: rgba(16,16,18,0.04); border-radius: 16px; padding: 14px; min-height: 240px; }
+	.col h2 { font-size: 0.95rem; display: flex; justify-content: space-between; }
+	.item { display: flex; flex-direction: column; gap: 6px; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; margin-bottom: 10px; text-decoration: none; color: inherit; }
+	.item:hover { border-color: var(--orange-500); }
+	.item strong { font-family: var(--font-display); font-weight: 600; font-size: 14.5px; line-height: 1.3; }
+	.item .meta { font-size: 12.5px; color: var(--text-secondary); }
+	@media (max-width: 1100px) { .board { grid-template-columns: repeat(2, 1fr); } }
+	@media (max-width: 640px) { .board { grid-template-columns: 1fr; } }
+</style>

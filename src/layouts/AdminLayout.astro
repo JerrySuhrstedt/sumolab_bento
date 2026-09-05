@@ -1,0 +1,81 @@
+---
+import '../styles/global.css';
+interface Props {
+	title: string;
+	section?: 'board' | 'questions' | 'article';
+}
+const { title, section } = Astro.props;
+const nav = [
+	{ href: '/admin/', label: 'Pipeline', key: 'board' },
+	{ href: '/admin/questions/', label: 'Question bank', key: 'questions' },
+	{ href: '/admin/articles/new/', label: 'New idea', key: 'article' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex, nofollow" />
+		<title>{title} · SumoLab Editorial</title>
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+	</head>
+	<body class="admin">
+		<header class="topbar">
+			<a href="/admin/" class="brand"><img src="/logos/sumolab-bento.svg" alt="SumoLab" height="22" /><span>Editorial</span></a>
+			<nav>
+				{nav.map((n) => (
+					<a href={n.href} class:list={[{ active: section === n.key }]}>{n.label}</a>
+				))}
+				<a href="/" target="_blank" rel="noopener">Live site ↗</a>
+				<form method="post" action="/admin/login/"><input type="hidden" name="action" value="logout" /><button type="submit" class="link">Sign out</button></form>
+			</nav>
+		</header>
+		<main class="admin-main">
+			<slot />
+		</main>
+	</body>
+</html>
+
+<style is:global>
+	body.admin { margin: 0; background: var(--paper-050); color: var(--text-primary); font-family: var(--font-body); }
+	.topbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 28px; background: var(--ink-950); color: #fff; }
+	.topbar .brand { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; font-family: var(--font-display); font-weight: 600; }
+	.topbar .brand img { filter: invert(1) brightness(2); }
+	.topbar nav { display: flex; align-items: center; gap: 22px; }
+	.topbar nav a, .topbar nav button.link { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-family: var(--font-display); font-weight: 500; background: none; border: 0; cursor: pointer; padding: 0; }
+	.topbar nav a.active { color: #fff; border-bottom: 2px solid var(--orange-500); padding-bottom: 2px; }
+	.topbar nav form { margin: 0; }
+	.admin-main { max-width: 1400px; margin: 0 auto; padding: 32px 28px 80px; }
+	.admin h1 { font-family: var(--font-display); font-weight: 600; font-size: 1.75rem; margin: 0 0 6px; }
+	.admin h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; margin: 0 0 12px; }
+	.admin .sub { color: var(--text-secondary); margin: 0 0 24px; font-size: 15px; }
+	.card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
+	.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-family: var(--font-display); font-weight: 600; font-size: 14px; padding: 10px 16px; border-radius: 12px; border: 1px solid var(--border-strong); background: #fff; color: var(--text-primary); cursor: pointer; text-decoration: none; }
+	.btn.go { background: var(--orange-500); border-color: var(--orange-500); color: #fff; }
+	.btn.go:hover { background: var(--orange-600); }
+	.btn.stop { color: #b3261e; border-color: rgba(179,38,30,0.35); }
+	.btn.small { padding: 6px 10px; font-size: 13px; border-radius: 10px; }
+	.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+	.field label { font-family: var(--font-display); font-weight: 600; font-size: 13px; }
+	.field input, .field textarea, .field select { font-family: var(--font-body); font-size: 15px; padding: 10px 12px; border: 1px solid var(--border-strong); border-radius: 12px; background: #fff; color: var(--text-primary); }
+	.field textarea { min-height: 120px; resize: vertical; }
+	.field .hint { font-size: 12.5px; color: var(--text-muted); }
+	table.grid { width: 100%; border-collapse: collapse; font-size: 14px; }
+	table.grid th { text-align: left; font-family: var(--font-display); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-secondary); padding: 10px 12px; border-bottom: 1px solid var(--hairline); }
+	table.grid td { padding: 10px 12px; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+	table.grid tr:hover td { background: rgba(16,16,18,0.025); }
+	.pill { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 11.5px; padding: 3px 9px; border-radius: 999px; background: var(--surface-sunken); color: var(--text-secondary); white-space: nowrap; }
+	.pill.go { background: var(--orange-100); color: var(--orange-600); }
+	.pill.live { background: #e6f4ea; color: #1e7b3a; }
+	.pill.stop { background: #fde8e6; color: #b3261e; }
+	.flash { padding: 12px 16px; border-radius: 12px; background: var(--orange-050); color: var(--orange-600); font-weight: 500; margin-bottom: 20px; font-size: 14px; }
+	.flash.err { background: #fde8e6; color: #b3261e; }
+	.muted { color: var(--text-muted); }
+	.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+	@media (max-width: 720px) { .topbar { flex-direction: column; align-items: flex-start; } .admin-main { padding: 20px 16px 60px; } }
+</style>
