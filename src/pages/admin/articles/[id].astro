@@ -58,7 +58,8 @@ const stageHint: Record<string, string> = {
 	outline_approved: 'Claude will write the draft against the approved outline.',
 	in_progress: 'Draft in progress. It will appear at the draft URL, noindexed, when ready.',
 	draft_ready: 'Read the draft on the site (link below), then give final approval or send it back with a note.',
-	published: 'Live. Any edits now happen on the live article.',
+	published: 'Live. Claude submits it to Google Search Console next and it moves to Indexed.',
+	indexed: 'Submitted to Google for indexing. The date and time are in the log. Any edits now happen on the live article.',
 	rejected: 'Not approved. Reopen if you change your mind.',
 	killed: 'Killed. Reopen if you change your mind.',
 };
@@ -69,7 +70,7 @@ const stageHint: Record<string, string> = {
 		<div>
 			<p class="muted" style="margin:0 0 6px;font-size:13px"><a href="/admin/">Pipeline</a> › Article #{article.id}</p>
 			<h1>{article.working_title}</h1>
-			<p class="sub"><span class={`pill ${article.status === 'published' ? 'live' : article.status === 'rejected' || article.status === 'killed' ? 'stop' : 'go'}`}>{STATUS_LABEL[article.status]}</span> &nbsp; {stageHint[article.status]}</p>
+			<p class="sub"><span class={`pill ${article.status === 'published' || article.status === 'indexed' ? 'live' : article.status === 'rejected' || article.status === 'killed' ? 'stop' : 'go'}`}>{STATUS_LABEL[article.status]}</span> &nbsp; {stageHint[article.status]}</p>
 		</div>
 	</div>
 	{flash && <div class="flash">{flash}</div>}
@@ -108,7 +109,7 @@ const stageHint: Record<string, string> = {
 				{claudeActions.length > 0 && <p class="muted" style="font-size:13px;margin:8px 0 0">Waiting on Claude: {claudeActions.map((a) => a.label.toLowerCase()).join(', ')}.</p>}
 			</div>
 
-			{article.status === 'published' && (
+			{(article.status === 'published' || article.status === 'indexed') && (
 				<div class="card" style="margin-bottom:16px">
 					<h2>Publish checklist</h2>
 					<ul class="checklist">

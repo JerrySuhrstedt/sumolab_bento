@@ -8,7 +8,7 @@ const articles = (await sql`SELECT * FROM editorial_articles ORDER BY updated_at
 const [{ n: questionCount }] = (await sql`SELECT count(*)::int AS n FROM editorial_questions WHERE status = 'new'`) as { n: number }[];
 const byStatus = (statuses: string[]) => articles.filter((a) => statuses.includes(a.status));
 const exits = byStatus(['rejected', 'killed']);
-const pillClass = (s: string) => (s === 'published' ? 'live' : s === 'rejected' || s === 'killed' ? 'stop' : s.endsWith('approved') || s === 'draft_ready' || s === 'outline_ready' ? 'go' : '');
+const pillClass = (s: string) => (s === 'published' || s === 'indexed' ? 'live' : s === 'rejected' || s === 'killed' ? 'stop' : s.endsWith('approved') || s === 'draft_ready' || s === 'outline_ready' ? 'go' : '');
 ---
 
 <AdminLayout title="Pipeline" section="board">
@@ -35,7 +35,7 @@ const pillClass = (s: string) => (s === 'published' ? 'live' : s === 'rejected' 
 							<span class={`pill ${pillClass(a.status)}`}>{STATUS_LABEL[a.status]}</span>
 							<strong>{a.working_title}</strong>
 							<span class="meta">{a.category ?? 'Uncategorized'}{a.target_keyword ? ` · ${a.target_keyword}` : ''}</span>
-							<span class="meta muted">Updated {fmtDate(a.updated_at)}{a.status === 'published' ? (a.indexed_at ? ' · indexed' : a.indexing_requested_at ? ' · indexing requested' : ' · indexing pending') : a.draft_url ? ' · draft online' : ''}</span>
+							<span class="meta muted">Updated {fmtDate(a.updated_at)}{a.status === 'published' ? ' · indexing pending' : a.status === 'indexed' ? (a.indexed_at ? ' · confirmed by Google' : ' · submitted ' + fmtDate(a.indexing_requested_at)) : a.draft_url ? ' · draft online' : ''}</span>
 						</a>
 					))}
 				</section>
@@ -59,13 +59,14 @@ const pillClass = (s: string) => (s === 'published' ? 'live' : s === 'rejected' 
 </AdminLayout>
 
 <style>
-	.board { display: grid; grid-template-columns: repeat(5, minmax(220px, 1fr)); gap: 16px; overflow-x: auto; }
+	.board { display: grid; grid-template-columns: repeat(6, minmax(200px, 1fr)); gap: 14px; overflow-x: auto; }
 	.col { background: rgba(16,16,18,0.04); border-radius: 16px; padding: 14px; min-height: 240px; }
 	.col h2 { font-size: 0.95rem; display: flex; justify-content: space-between; }
 	.item { display: flex; flex-direction: column; gap: 6px; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; margin-bottom: 10px; text-decoration: none; color: inherit; }
 	.item:hover { border-color: var(--orange-500); }
 	.item strong { font-family: var(--font-display); font-weight: 600; font-size: 14.5px; line-height: 1.3; }
 	.item .meta { font-size: 12.5px; color: var(--text-secondary); }
-	@media (max-width: 1100px) { .board { grid-template-columns: repeat(2, 1fr); } }
+	@media (max-width: 1200px) { .board { grid-template-columns: repeat(3, 1fr); } }
+	@media (max-width: 900px) { .board { grid-template-columns: repeat(2, 1fr); } }
 	@media (max-width: 640px) { .board { grid-template-columns: 1fr; } }
 </style>

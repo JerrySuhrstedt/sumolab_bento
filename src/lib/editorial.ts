@@ -25,6 +25,7 @@ export const STATUSES = [
 	'in_progress',
 	'draft_ready',
 	'published',
+	'indexed',
 	'rejected',
 	'killed',
 ] as const;
@@ -38,6 +39,7 @@ export const STATUS_LABEL: Record<Status, string> = {
 	in_progress: 'Writing',
 	draft_ready: 'Draft ready for final review',
 	published: 'Published',
+	indexed: 'Indexed',
 	rejected: 'Not approved',
 	killed: 'Killed',
 };
@@ -49,6 +51,7 @@ export const BOARD: { key: string; title: string; statuses: Status[] }[] = [
 	{ key: 'writing', title: '3. Writing', statuses: ['outline_approved', 'in_progress'] },
 	{ key: 'review', title: '4. Final review', statuses: ['draft_ready'] },
 	{ key: 'live', title: '5. Published', statuses: ['published'] },
+	{ key: 'indexed', title: '6. Indexed', statuses: ['indexed'] },
 ];
 
 /** Actions Jerry can take from each status. Claude moves the Claude-only ones. */
@@ -79,7 +82,8 @@ export const ACTIONS: Record<Status, { to: Status; label: string; tone: 'go' | '
 		{ to: 'in_progress', label: 'Send draft back', tone: 'neutral', who: 'jerry' },
 		{ to: 'killed', label: 'Kill', tone: 'stop', who: 'jerry' },
 	],
-	published: [],
+	published: [{ to: 'indexed', label: 'Submitted to Google for indexing', tone: 'neutral', who: 'claude' }],
+	indexed: [],
 	rejected: [{ to: 'proposed', label: 'Reopen idea', tone: 'neutral', who: 'jerry' }],
 	killed: [{ to: 'proposed', label: 'Reopen idea', tone: 'neutral', who: 'jerry' }],
 };
@@ -163,6 +167,7 @@ const STAMP: Partial<Record<Status, string>> = {
 	outline_approved: 'outline_approved_at',
 	draft_ready: 'draft_ready_at',
 	published: 'published_at',
+	indexed: 'indexing_requested_at',
 };
 
 /** Move an article to a new status and log the event. Returns the updated row. */
@@ -177,6 +182,7 @@ export async function transition(id: number, to: Status, note: string | null, ac
 	else if (stamp === 'outline_approved_at') await sql`UPDATE editorial_articles SET status = ${to}, outline_approved_at = now(), updated_at = now() WHERE id = ${id}`;
 	else if (stamp === 'draft_ready_at') await sql`UPDATE editorial_articles SET status = ${to}, draft_ready_at = now(), updated_at = now() WHERE id = ${id}`;
 	else if (stamp === 'published_at') await sql`UPDATE editorial_articles SET status = ${to}, published_at = now(), updated_at = now() WHERE id = ${id}`;
+	else if (stamp === 'indexing_requested_at') await sql`UPDATE editorial_articles SET status = ${to}, indexing_requested_at = now(), updated_at = now() WHERE id = ${id}`;
 	else await sql`UPDATE editorial_articles SET status = ${to}, updated_at = now() WHERE id = ${id}`;
 	await sql`INSERT INTO editorial_events (article_id, from_status, to_status, note, actor) VALUES (${id}, ${cur.status}, ${to}, ${note}, ${actor})`;
 	if (to === 'rejected' || to === 'killed') {
