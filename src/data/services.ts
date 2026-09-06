@@ -59,6 +59,7 @@ export const fractionalCMO: Service = {
 	whoItsForHeading: "Who hires a fractional CMO",
 	faqHeading: "Fractional CMO cost, comparisons, and common questions.",
 	relatedLinks: [
+		{ href: "/blog/what-is-a-fractional-cmo/", label: "What is a fractional CMO? Duties and the first 90 days" },
 		{ href: "/services/fractional-marketing-director/", label: "Fractional marketing director: hands-on operational leadership" },
 		{ href: "/services/fractional-ai-advisor/", label: "AI marketing consultant: practical AI adoption" },
 		{ href: "/fractional-cmo-near-me/", label: "Fractional CMO near me: Phoenix metro" },
@@ -270,6 +271,9 @@ export const fractionalAIAdvisor: Service = {
 	whoItsForHeading: "Who hires an AI consultant for small business",
 	faqHeading: "AI marketing consultant vs. AI agency, and other common questions.",
 	relatedLinks: [
+		{ href: "/blog/what-is-an-ai-consultant/", label: "What is an AI consultant, and does a $5M company need one?" },
+		{ href: "/blog/ai-integration-small-business/", label: "AI integration: what to connect first" },
+		{ href: "/blog/how-to-use-ai-for-marketing/", label: "How to use AI for marketing: five jobs and one rule" },
 		{ href: "/services/fractional-cmo/", label: "Fractional CMO: board-level marketing strategy" },
 		{ href: "/services/fractional-marketing-director/", label: "Fractional marketing director: hands-on operational leadership" },
 		{ href: "/fractional-cmo-near-me/", label: "Fractional CMO near me: Phoenix metro" },
