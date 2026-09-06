@@ -8,6 +8,19 @@ const articles = (await sql`SELECT * FROM editorial_articles ORDER BY updated_at
 const [{ n: questionCount }] = (await sql`SELECT count(*)::int AS n FROM editorial_questions WHERE status = 'new'`) as { n: number }[];
 const byStatus = (statuses: string[]) => articles.filter((a) => statuses.includes(a.status));
 const exits = byStatus(['rejected', 'killed']);
+const CATEGORY_ORDER = ['AI adoption', 'Industry', 'Hiring and team', 'Marketing strategy', 'Lead generation', 'Sales and CRM', 'Other'];
+const groupByCategory = (items: Article[]) => {
+	const map = new Map<string, Article[]>();
+	for (const a of items) {
+		const key = a.category ?? 'Other';
+		if (!map.has(key)) map.set(key, []);
+		map.get(key)!.push(a);
+	}
+	return [...map.entries()].sort((x, y) => {
+		const ix = CATEGORY_ORDER.indexOf(x[0]); const iy = CATEGORY_ORDER.indexOf(y[0]);
+		return (ix === -1 ? 99 : ix) - (iy === -1 ? 99 : iy);
+	});
+};
 const pillClass = (s: string) => (s === 'published' || s === 'indexed' ? 'live' : s === 'rejected' || s === 'killed' ? 'stop' : s.endsWith('approved') || s === 'draft_ready' || s === 'outline_ready' ? 'go' : '');
 ---
 
@@ -26,17 +39,23 @@ const pillClass = (s: string) => (s === 'published' || s === 'indexed' ? 'live' 
 	<div class="board">
 		{BOARD.map((col) => {
 			const items = byStatus(col.statuses);
+			const card = (a: Article) => (
+				<a href={`/admin/articles/${a.id}/`} class="item">
+					<span class={`pill ${pillClass(a.status)}`}>{STATUS_LABEL[a.status]}</span>
+					<strong>{a.working_title}</strong>
+					<span class="meta">{a.category ?? 'Uncategorized'}{a.target_keyword ? ` · ${a.target_keyword}` : ''}</span>
+					<span class="meta muted">Updated {fmtDate(a.updated_at)}{a.status === 'published' ? ' · indexing pending' : a.status === 'indexed' ? (a.indexed_at ? ' · confirmed by Google' : ' · submitted ' + fmtDate(a.indexing_requested_at)) : a.draft_url ? ' · draft online' : ''}</span>
+				</a>
+			);
 			return (
 				<section class="col">
 					<h2>{col.title} <span class="muted">{items.length}</span></h2>
 					{items.length === 0 && <p class="muted" style="font-size:13.5px">Nothing here.</p>}
-					{items.map((a) => (
-						<a href={`/admin/articles/${a.id}/`} class="item">
-							<span class={`pill ${pillClass(a.status)}`}>{STATUS_LABEL[a.status]}</span>
-							<strong>{a.working_title}</strong>
-							<span class="meta">{a.category ?? 'Uncategorized'}{a.target_keyword ? ` · ${a.target_keyword}` : ''}</span>
-							<span class="meta muted">Updated {fmtDate(a.updated_at)}{a.status === 'published' ? ' · indexing pending' : a.status === 'indexed' ? (a.indexed_at ? ' · confirmed by Google' : ' · submitted ' + fmtDate(a.indexing_requested_at)) : a.draft_url ? ' · draft online' : ''}</span>
-						</a>
+					{groupByCategory(items).map(([category, group]) => (
+						<details class="group" data-group={`${col.key}:${category}`} open>
+							<summary><span>{category}</span><span class="count">{group.length}</span></summary>
+							{group.map(card)}
+						</details>
 					))}
 				</section>
 			);
@@ -58,10 +77,33 @@ const pillClass = (s: string) => (s === 'published' || s === 'indexed' ? 'live' 
 	)}
 </AdminLayout>
 
+<script>
+	// Remember which idea groups Jerry folded. Per-browser convenience only.
+	const KEY = 'sl-admin-idea-groups';
+	let state: Record<string, boolean> = {};
+	try { state = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch {}
+	document.querySelectorAll<HTMLDetailsElement>('details.group').forEach((d) => {
+		const name = d.dataset.group || '';
+		if (name in state) d.open = state[name];
+		d.addEventListener('toggle', () => {
+			state[name] = d.open;
+			try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {}
+		});
+	});
+</script>
+
 <style>
 	.board { display: grid; grid-template-columns: repeat(6, minmax(200px, 1fr)); gap: 14px; overflow-x: auto; }
 	.col { background: rgba(16,16,18,0.04); border-radius: 16px; padding: 14px; min-height: 240px; }
 	.col h2 { font-size: 0.95rem; display: flex; justify-content: space-between; }
+	.group { margin-bottom: 8px; }
+	.group summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-secondary); padding: 8px 10px; border-radius: 10px; background: rgba(16,16,18,0.05); margin-bottom: 8px; user-select: none; }
+	.group summary::-webkit-details-marker { display: none; }
+	.group summary::before { content: '▸'; font-size: 11px; margin-right: 6px; color: var(--orange-500); transition: transform 0.15s ease; }
+	.group[open] summary::before { transform: rotate(90deg); }
+	.group summary span:first-child { flex: 1; }
+	.group summary .count { background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px; font-size: 11.5px; color: var(--text-primary); }
+	.group[open] summary { margin-bottom: 10px; }
 	.item { display: flex; flex-direction: column; gap: 6px; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; margin-bottom: 10px; text-decoration: none; color: inherit; }
 	.item:hover { border-color: var(--orange-500); }
 	.item strong { font-family: var(--font-display); font-weight: 600; font-size: 14.5px; line-height: 1.3; }
