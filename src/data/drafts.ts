@@ -223,4 +223,221 @@ export const drafts: InsightArticle[] = [
 			},
 		],
 	},
+	{
+		slug: "what-is-a-fractional-cmo",
+		imageSrc: "/blog/what-is-a-fractional-cmo.jpg",
+		title: "What Is a Fractional CMO? Core Duties, the First 90 Days, and What It Is Not",
+		seoTitle: "What Is a Fractional CMO? Duties, First 90 Days",
+		category: "Strategy & Leadership",
+		publishedAt: "2026-09-06",
+		targetKeyword: "what is a fractional cmo",
+		excerpt:
+			"What is a fractional CMO? A chief marketing officer who works part of the week and owns the whole number. The duties, the first 90 days, and what it is not.",
+		body: [
+			"If you are asking what is a fractional CMO, here is the plain answer: a chief marketing officer who works for your company part of the week and is accountable for the whole number. Not an agency. Not a consultant with a deck. I have done the job for a 14-office home builder and a $50M manufacturer, and this is what it actually is.",
+			"The title gets used loosely, so this article does three things. It defines the job, it walks through the first 90 days month by month, and it names the three things people confuse it with.",
+			`<h3>What is a fractional CMO?</h3>`,
+			"A fractional CMO is a senior marketing executive who joins a company part-time, typically 8 to 20 hours a week, and owns the marketing function: strategy, budget, vendors, team, and the revenue number. The company gets executive-level leadership without the $170,000 to $300,000 cost of a full-time hire. Engagements run month to month, usually for $5,000 to $15,000.",
+			`<h3>The core duties of a fractional CMO, in the order they happen</h3>`,
+			"<strong>Own the number.</strong> Leads, pipeline, cost per customer. A fractional CMO reports to the owner on those, not on impressions. When the number misses, it is their miss.",
+			`<strong>Set the plan and the budget.</strong> Who you want more of, what you say, how you capture them, where you spend, how much, and what you measure. The six decisions in <a href="/blog/marketing-strategy-for-a-small-business/">the one-page strategy</a>, made on purpose and written down.`,
+			"<strong>Direct the people who execute.</strong> The agency, the coordinator, the freelancers. A fractional CMO briefs them, reviews them, and replaces them when they stop producing. The agency reports to the CMO, not to you.",
+			"<strong>Sit at the leadership table.</strong> Sales alignment, pricing, which products get pushed. The part a marketing manager never gets to do, and the part that separates a marketing function from a marketing department.",
+			"That is the job. Decisions and accountability. The deliverables are what the people under the CMO produce.",
+			`<h3>What a fractional CMO is not</h3>`,
+			`<strong>Not an agency.</strong> An agency sells execution: ads, content, websites. Somebody still has to decide which campaigns, what to spend, and whether any of it is working. A fractional CMO is the person the agency answers to. <a href="/blog/trusted-digital-marketing-agency-grow-your-business-online/">Here is the longer version</a> of that difference.`,
+			"<strong>Not a consultant.</strong> A consultant advises and leaves. A fractional CMO is still there next quarter, accountable for what the advice produced. The test is simple: when the campaign fails, who owns it? If the answer is you, you hired a consultant.",
+			`<strong>Not a marketing manager on a discount.</strong> A manager runs the work someone else planned. A CMO decides what the work is. <a href="/blog/marketing-manager-vs-marketing-director/">The difference matters more than the title</a>, and it is the reason a $90,000 manager cannot do a CMO's job at any number of hours.`,
+			`<h3>The first 90 days with a fractional CMO, month by month</h3>`,
+			"People ask how quickly a fractional CMO delivers results. The honest answer has dates on it.",
+			"<strong>Month one: audit and stop.</strong> Every dollar going out, every lead coming in, every vendor. The two numbers get a baseline. Something gets cut in the first two weeks, because something always should be.",
+			"<strong>Month two: plan and direct.</strong> The one-page plan is written. The agency is re-briefed or replaced. Capture is fixed so leads stop dying in a voicemail box. One channel launches, aimed at the buyer you actually want.",
+			"<strong>Month three: report and adjust.</strong> The two numbers by source, on one page, reviewed with you. The first decisions get made on data instead of instinct. From here the cadence is weekly and the plan runs itself.",
+			`At Stanbrooke Custom Homes the rebuild of the sales process and the marketing behind it took the company <a href="/case-studies/stanbrooke-salesforce-sales-process/">from $3M to $11M in under three years</a>. The first visible change, leads that got followed up, showed inside the first quarter. That is the pattern. Capture first, then growth.`,
+			`<h3>How to judge whether a fractional CMO is working</h3>`,
+			"Two numbers by source: cost per qualified lead and cost per new customer. Plus one leading indicator that nobody puts on a dashboard: decisions per month that used to sit on your desk and now do not.",
+			`When HiLine Homes went from 12 to 20 leads a week per office to 150 to 200, and from 60 homes a year to more than 800, the report that ran the business was one page long. <a href="/case-studies/hiline-homes-sales-growth/">That story is here.</a> Impressions and followers never made it onto that page.`,
+			`<h3>Who needs a fractional CMO, and who does not</h3>`,
+			`Companies between $5M and $50M with marketing already in motion and nobody senior owning it. An agency, a coordinator, or both, and the owner making every real decision at night. If that is you, <a href="/blog/do-i-need-a-fractional-cmo/">the five signals are here</a>.`,
+			`Under $3M, every dollar should go into execution, not leadership. Referral-only businesses and regulated markets with captive demand usually do not need one either. And if the timing is the question, <a href="/blog/when-to-hire-a-fractional-cmo/">hire before pressure forces it</a>, not after.`,
+			`<h3>What a fractional CMO costs, briefly</h3>`,
+			`Five to fifteen thousand a month, scoped to hours, no long-term contract, against $170,000 to $300,000 loaded for a full-time CMO who takes six months to be productive. <a href="/blog/fractional-cmo-cost/">The full cost breakdown</a> covers the comparison in detail. This article is about the job, not the invoice.`,
+			`<h3>Where to start</h3>`,
+			`The first call is a working session on the business, not the marketing. Revenue model, sales process, what is already running, who is doing it. It ends with a straight answer on whether this is the right move, in either direction. <a href="/services/fractional-cmo/">The engagement is described here.</a>`,
+			"Before that call, write down one thing: who currently decides what marketing does next. If the answer is you, between payroll and the job that went sideways this morning, that is the gap a fractional CMO fills.",
+		],
+		keyPoints: [
+			"A fractional CMO is a part-time chief marketing officer who owns the whole marketing function and the revenue number, for $5,000 to $15,000 a month instead of a $170,000 to $300,000 hire.",
+			"Four duties in order: own the number, set the plan and budget, direct the people who execute, sit at the leadership table.",
+			"It is not an agency (they execute), not a consultant (they leave), and not a marketing manager on a discount (they run someone else's plan).",
+			"The first 90 days: audit and stop, plan and direct, report and adjust. Capture gets fixed before growth gets bought.",
+			"Judge it on cost per qualified lead and cost per new customer by source, plus decisions that no longer land on your desk.",
+		],
+		faqs: [
+			{
+				question: "What is the difference between a fractional CMO and a marketing consultant?",
+				answer:
+					"A consultant advises and leaves; a fractional CMO stays and is accountable for what the advice produces. The test is who owns the result when a campaign fails. If it is still you, you hired a consultant. A fractional CMO also directs your agency and staff week to week, which a consultant does not.",
+			},
+			{
+				question: "How quickly can a fractional CMO start delivering results?",
+				answer:
+					"The first visible change usually lands inside the first month, because month one is an audit that cuts waste and fixes lead capture. A written plan and a re-briefed agency follow in month two, and by month three the two numbers that run marketing are reported by source. Revenue growth compounds from there.",
+			},
+			{
+				question: "What KPIs should I use to evaluate a fractional CMO?",
+				answer:
+					"Cost per qualified lead and cost per new customer, both by source, reviewed monthly. Add one leading indicator: how many marketing decisions have moved off your desk. Impressions, followers, and engagement are not KPIs for this role; they are what an agency reports when the real numbers are bad.",
+			},
+			{
+				question: "What skills should I look for in a fractional CMO?",
+				answer:
+					"Operating experience first: someone who has carried a revenue number, made payroll, and fired an agency. Then the ability to direct vendors and staff, set a budget by working backward from customers needed, and report in plain numbers. Channel expertise matters less; that is what the agency is for.",
+			},
+			{
+				question: "What is the difference between a fractional CMO and an agency?",
+				answer:
+					"An agency sells execution: ads, content, websites, campaigns. A fractional CMO owns the thinking above that: which campaigns, what budget, which vendors, and whether it is working. Most agency relationships fail because nobody is doing that second job. A good fractional CMO is the person the agency answers to.",
+			},
+		],
+	},
+	{
+		slug: "how-to-use-ai-for-marketing",
+		imageSrc: "/blog/how-to-use-ai-for-marketing.jpg",
+		title: "How to Use AI for Marketing in a Small Company: Five Jobs and One Rule",
+		seoTitle: "How to Use AI for Marketing in a Small Company: 5 Jobs",
+		category: "Systems & Automation",
+		publishedAt: "2026-09-06",
+		targetKeyword: "how to use ai for marketing",
+		excerpt:
+			"How to use AI for marketing in a small company: give it five jobs, keep one rule, and ignore the other forty tools. What survived a year across four brands.",
+		body: [
+			"Here is how to use AI for marketing in a company with four people and no marketing department: give it five jobs, keep one rule, and ignore the other forty tools. I ran that experiment for a year across four brands at a $50M manufacturer. The list below is what survived.",
+			"Every job on it has a number you can measure in 30 days. The rule is the reason the numbers hold up.",
+			`<h3>How do you use AI for marketing in a small business?</h3>`,
+			"Give AI the jobs that are typing, reading, and waiting: first drafts of emails and pages, lead follow-up replies, summaries of long documents and reviews, repurposing one piece of content into five, and research on competitors and keywords. A person reviews everything before it ships. Run it on company accounts with training turned off.",
+			`<h3>What a year of AI in a marketing department actually taught me</h3>`,
+			"The number that got attention was a 38% cut in content production time. It is a real number, and it is the least interesting thing that happened.",
+			`Adoption did not come from training sessions. It came from prompt libraries built for the specific job each person did, sitting where they already worked. And the risk turned out to be the opposite of what everyone feared. AI did not write badly. It wrote average copy at volume, and within three months all four brands sounded like the same company. <a href="/blog/ai-marketing-org-to-solo-product/">The full account is here.</a> Both lessons shape the five jobs below.`,
+			`<h3>How to use AI for marketing: five jobs it does well</h3>`,
+			"<strong>First drafts, never final drafts.</strong> Emails, landing pages, ad variants. Paste your voice profile and three samples of writing that sounds right, and the first draft arrives in a minute. The person who knows the customer fixes the two sentences that matter. The time saved is real; the voice is what you protect.",
+			`<strong>Lead follow-up in ten minutes.</strong> The highest-return job on this list. Every web form and missed call gets a drafted reply in your voice, reviewed by a person, out the door before the prospect has finished the next company's form. I laid the setup out in <a href="/blog/ai-for-contractors/">AI for contractors</a>, and it works the same in any business where the first to call wins.`,
+			"<strong>Reading the boring stuff.</strong> Sixty reviews, a survey with 200 open answers, a competitor's whole website, a 40-page proposal. Ask for a summary and a list of every decision, date, and dollar. Then read the parts that matter. This is where most owners get their first hour back.",
+			"<strong>One piece into five.</strong> A finished case study becomes an email, a social post, a one-page leave-behind, a video script, and a FAQ. The thinking was done once. AI does the reshaping. This is the photo habit from the trades applied to writing: shoot it once, use it everywhere.",
+			"<strong>Research and keyword work.</strong> What people actually ask, in their words, before you write a page. I built this site's content plan from a few thousand real questions pulled from search data and sorted by AI in an afternoon. The judgment about which ones to answer was mine. The sorting was the tool's.",
+			`<h3>Three uses of AI in marketing that waste money</h3>`,
+			`AI images of your team, your product, or your finished work. Chatbots on the homepage that cannot book or quote. Dashboards with the word intelligent in the name that restate the CRM. Each one fails the same test I use on the <a href="/services/fractional-ai-advisor/">AI advisor page</a>: no data changes hands and no decision gets faster.`,
+			`<h3>What is the best AI for marketing?</h3>`,
+			"The honest answer is that the model matters less than the account and the workflow. Claude, ChatGPT, and Gemini all write well enough for a small company. Gemini is already inside Google Workspace. Copilot is already inside Microsoft 365. Pick the one inside the tools you already pay for, on a business tier, with data training turned off.",
+			"Anyone selling you a separate AI marketing platform is selling the login, not the result. The result comes from the five jobs and the rule.",
+			`<h3>The one rule: company accounts, and a human clicks send</h3>`,
+			`Two halves. First, no company work on a free personal account, because free accounts can train on what you type and your customer list is exactly what you do not want in someone else's model. Second, a person with the voice profile reads everything before it ships, because average copy at volume is the real risk. <a href="/blog/ai-usage-policy-template-small-business/">The policy template</a> writes both halves down in a page.`,
+			`<h3>How to start using AI for marketing: one job, one number, thirty days</h3>`,
+			"Pick lead follow-up. Write down the five questions every prospect asks and the answers you give. Put them into a paid account and ask for replies in your words. Fix three drafts. You now have a template that answers in ten minutes instead of two days.",
+			"Count booked appointments or reply time for 30 days. If the number moved, add the next job. If it did not, you learned something for the price of a month. Companies that try all five at once usually finish none.",
+			`<h3>Who owns AI in a company with no marketing department</h3>`,
+			`The owner, by default, which is why <a href="/services/fractional-ai-advisor/">AI training for employees and the advisor engagement</a> exist. Someone has to build the prompt library, set the rule, and read the number. It is a few hours a month once it runs, and it is most of what I do inside one of those engagements.`,
+			"Start today. The five questions every prospect asks, pasted into a paid account, is the whole first step. It costs nothing and it is the one job AI already does better than the way you are doing it now.",
+		],
+		keyPoints: [
+			"Five jobs AI does well in marketing: first drafts, lead follow-up in ten minutes, reading long documents, turning one piece into five, and research.",
+			"The real risk is not bad copy. It is average copy at volume. A voice profile and a human review fix it.",
+			"The best AI for marketing is the one already inside the software you pay for, on a company account with training off.",
+			"Skip AI images of your work, homepage chatbots, and dashboards that restate the CRM.",
+			"Start with lead follow-up, measure one number for 30 days, and add the next job only if it moved.",
+		],
+		faqs: [
+			{
+				question: "What is the best AI tool for writing marketing emails and subject lines?",
+				answer:
+					"Whichever model sits inside the email tool you already use, run on a business account. Give it your voice profile, three emails you are proud of, and the one thing you never promise in writing. Ask for five subject lines and pick one. The tool choice moves results less than the examples you feed it.",
+			},
+			{
+				question: "Can AI automate social media marketing for a small business?",
+				answer:
+					"It can draft and schedule posts from content you already have, which is where the time goes. It cannot decide what is worth saying or whether social media is the right channel for your buyer. Use it to reshape a case study into five posts, review them, and schedule. Do not let it post unread.",
+			},
+			{
+				question: "How do AI tools help with SEO keyword research?",
+				answer:
+					"They sort. Pull real questions from search data and a keyword planner, hand the list to the model, and ask it to group by topic and intent and flag which map to what you sell. That turns a day of spreadsheet work into an hour. Deciding which questions deserve an article is still a person's call.",
+			},
+			{
+				question: "What is the return on investment from AI in marketing?",
+				answer:
+					"Measurable in the first month if you pick one job and one number. Reply time on inquiries drops from days to minutes, which shows up as booked appointments. Content production time falls, in my experience by roughly a third. The return disappears when the tool is used for everything and measured on nothing.",
+			},
+			{
+				question: "Are free AI marketing tools good enough for a small business?",
+				answer:
+					"For drafting, yes. For anything that touches customer data, no, because free tiers can train on what you type. Pay for the business tier of one model, turn off training, and use it for all five jobs. The subscription costs less than a single lost lead.",
+			},
+		],
+	},
+	{
+		slug: "questions-to-ask-a-marketing-consultant",
+		imageSrc: "/blog/questions-to-ask-a-marketing-consultant.jpg",
+		title: "Seven Questions to Ask a Marketing Consultant Before You Sign Anything",
+		seoTitle: "7 Questions to Ask a Marketing Consultant Before Signing",
+		category: "Strategy & Leadership",
+		publishedAt: "2026-09-06",
+		targetKeyword: "questions to ask a marketing consultant",
+		excerpt:
+			"Seven questions to ask a marketing consultant in the first meeting, and the answers a good one gives. Most come from a marketing department, not a P&L.",
+		body: [
+			"Here are seven questions to ask a marketing consultant before you sign anything, and the reason they matter. Most marketing consultants come out of a marketing department, not a P&L. That is the difference you are hiring for, and none of them will volunteer it, so the questions get it on the table in the first meeting.",
+			"I have sat on both sides of this table for 26 years. Here is what I would ask, and what I answer when it is asked of me.",
+			`<h3>What should I ask a marketing consultant in the first meeting?</h3>`,
+			"Ask what they have owned, not what they have done. Have they made payroll, carried a revenue number, fired an agency? Ask for one client your size, the problem they walked into, and the number that changed. Ask who does the work, how you will know it is working, and how the engagement ends.",
+			`<h3>Questions to ask a marketing consultant: why the first meeting is an interview</h3>`,
+			"The consultant has run this meeting a hundred times. You have run it twice. The fix is not to be tougher. It is to bring questions that require a specific answer, so the meeting cannot be carried by confidence alone. Seven of them, in the order I would ask.",
+			`<h3>Question 1: Have you made payroll?</h3>`,
+			`Strategy from someone who has carried a number is different in kind from strategy from someone who has presented one. A consultant who has owned a company knows what a slow March does to a budget. Ask what they have founded, run, or turned around. My answer: three construction companies, one of them taken <a href="/blog/business-turnaround-strategy-bankrupt-to-12m/">from bankruptcy to $12M</a>. The bad answer sounds like a résumé.`,
+			`<h3>Question 2: Show me a company my size, the problem, and the number</h3>`,
+			`"Brand awareness" is not a number. Lead volume is. Revenue is. Cost per customer is. Ask for one client in your revenue range, what they walked into, and what changed. Then ask what went wrong along the way, because something always did. My two: HiLine Homes, <a href="/case-studies/hiline-homes-sales-growth/">12 to 20 leads a week per office to 150 to 200</a>, and Stanbrooke, <a href="/case-studies/stanbrooke-salesforce-sales-process/">$3M to $11M in under three years</a>.`,
+			`<h3>Question 3: Who actually does the work?</h3>`,
+			"The consultant, a junior, an offshore team, or your own staff under direction. Any of those answers is fine. A vague answer is not. You are paying for judgment; find out whose. A related question worth asking in the same breath: who will I actually talk to each week? If the senior person sells the engagement and a coordinator runs it, the price should say so. I lead the strategy and make the calls, and when execution is the bottleneck I step into it. When your team can execute, I direct and stay out of the way.",
+			`<h3>Question 4: What will you tell me to stop doing?</h3>`,
+			"A real consultant cuts spend before adding it. If the answer is \"we will build on what you have,\" they are selling hours. Every owner is paying for at least one thing that produces nothing: a directory listing, a social channel nobody reads, an agency retainer that has quietly become a maintenance fee. A consultant who cannot name it in the first month will not name it in the sixth. Ask them to guess in the first meeting. The guess tells you how they think.",
+			`<h3>Question 5: How will I know in 90 days whether this is working?</h3>`,
+			"Two numbers by source, cost per qualified lead and cost per new customer, with a date and a name on who reports them. Not a dashboard of impressions. If the consultant cannot describe the 90-day report in one sentence, you will never see it.",
+			`<h3>Question 6: What does this cost, and what does the alternative cost?</h3>`,
+			`Senior fractional work runs $5,000 to $15,000 a month in the US, scoped to hours. A full-time marketing executive runs $150,000 to $300,000 loaded and takes six months to be productive. <a href="/blog/fractional-cmo-cost/">The comparison is here.</a> Ask for the number in writing, and ask what happens to the number when you scale down.`,
+			`<h3>Question 7: How does this end?</h3>`,
+			"A good engagement hands off to a full-time hire, scales down when the machine runs, or ends on a date you both agreed to. A bad one becomes a permanent retainer nobody reviews. Ask on day one. The consultant who has a good answer has thought about your business past the invoice.",
+			`<h3>The answers a fractional CMO gives to all seven</h3>`,
+			`Made payroll: yes, twelve companies founded or co-founded. A company your size: HiLine and Stanbrooke, with the numbers above. Who does the work: me, with your team or your agency reporting to me. What to stop: I will tell you in month one. The 90-day report: two numbers, one page, my name on it. Cost: $5,000 to $15,000 a month, no long-term contract. How it ends: a hire, a scale-down, or a date. That is the whole pitch, and it is on the <a href="/marketing-consultant-for-small-business/">consultant page</a> in longer form.`,
+			`If what you are really weighing is a hire instead of a consultant, <a href="/blog/marketing-manager-vs-marketing-director/">marketing manager vs marketing director</a> settles which title fits which problem. And if the work is executive-level strategy across the whole business, that is <a href="/services/fractional-cmo/">fractional CMO</a> territory.`,
+			"Book one call and bring the seven. The answers take ten minutes and they tell you more than any proposal will.",
+		],
+		keyPoints: [
+			"Most marketing consultants come from a marketing department, not a P&L. The seven questions surface that in ten minutes.",
+			"Ask what they have owned: payroll, a revenue number, a fired agency. Then ask for one client your size, the problem, and the number that changed.",
+			"Find out who does the work, what they will tell you to stop, and how you will know in 90 days.",
+			"Get the cost and the alternative cost in writing: $5,000 to $15,000 a month fractional against $150,000 to $300,000 loaded for a hire.",
+			"Ask how it ends on day one. A good engagement hands off, scales down, or stops on a date.",
+		],
+		faqs: [
+			{
+				question: "How much does it cost to hire a marketing consultant?",
+				answer:
+					"Senior engagements in the US typically run $5,000 to $15,000 a month, scoped to a set number of hours with no long-term contract. Hourly consultants charge $150 to $400. The comparison that matters is against a full-time marketing executive at $150,000 to $300,000 loaded, who takes six months to become productive.",
+			},
+			{
+				question: "What is the difference between a marketing consultant and a marketing agency?",
+				answer:
+					"An agency sells execution: ads, content, websites, campaigns. A consultant owns the thinking above it: what to do, in what order, with what budget, and whether it is working. Most agency relationships go sideways because nobody is doing that second job. A good consultant is the person the agency answers to.",
+			},
+			{
+				question: "How do I find a marketing consultant for a small business?",
+				answer:
+					"Start with referrals from owners in your revenue range, then check the consultant's own record rather than their client list: what they have founded, run, or turned around. Read one case study with a number in it. Then book a first call and ask the seven questions. The answers sort the field faster than any directory.",
+			},
+			{
+				question: "What makes a good marketing consultant?",
+				answer:
+					"Operating experience, a client your size with a number attached, a clear answer on who does the work, the willingness to tell you what to stop spending on, and a 90-day report described in one sentence. Channel expertise matters less than judgment; the agency supplies channels.",
+			},
+		],
+	},
 ];
