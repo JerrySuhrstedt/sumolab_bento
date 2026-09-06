@@ -142,9 +142,9 @@ for (const rec of bank.values()) {
 	const text = rec.question; const target = targetFor(text); const category = categoryFor(rec.seed, text);
 	const verified = rec.volume > 0; const sc = score(rec.volume, rec.competition, target, verified, rec.source);
 	const key = norm(text); const platforms = [...rec.platforms].join(',');
-	const res = await sql`INSERT INTO editorial_questions (question, question_key, seed, source, platforms, category, volume, competition, competition_index, cpc, score, verified, target_page)
-		VALUES (${text}, ${key}, ${rec.seed}, ${rec.source}, ${platforms}, ${category}, ${rec.volume}, ${rec.competition}, ${rec.competition_index}, ${rec.cpc}, ${sc}, ${verified}, ${target})
-		ON CONFLICT (question_key) DO UPDATE SET question = EXCLUDED.question, seed = COALESCE(editorial_questions.seed, EXCLUDED.seed), source = EXCLUDED.source, platforms = EXCLUDED.platforms, volume = EXCLUDED.volume, competition = EXCLUDED.competition, competition_index = EXCLUDED.competition_index, cpc = EXCLUDED.cpc, score = EXCLUDED.score, verified = EXCLUDED.verified, target_page = EXCLUDED.target_page, category = EXCLUDED.category, updated_at = now()
+	const res = await sql`INSERT INTO editorial_questions (question, question_key, seed, source, platforms, category, volume, competition, competition_index, cpc, score, verified, target_page, volume_updated_at)
+		VALUES (${text}, ${key}, ${rec.seed}, ${rec.source}, ${platforms}, ${category}, ${rec.volume}, ${rec.competition}, ${rec.competition_index}, ${rec.cpc}, ${sc}, ${verified}, ${target}, ${verified ? new Date() : null})
+		ON CONFLICT (question_key) DO UPDATE SET question = EXCLUDED.question, seed = COALESCE(editorial_questions.seed, EXCLUDED.seed), source = EXCLUDED.source, platforms = EXCLUDED.platforms, volume = EXCLUDED.volume, competition = EXCLUDED.competition, competition_index = EXCLUDED.competition_index, cpc = EXCLUDED.cpc, score = EXCLUDED.score, verified = EXCLUDED.verified, target_page = EXCLUDED.target_page, category = EXCLUDED.category, updated_at = now(), volume_updated_at = CASE WHEN EXCLUDED.verified THEN now() ELSE editorial_questions.volume_updated_at END
 		RETURNING (xmax = 0) AS inserted`;
 	if (res[0]?.inserted) inserted++; else updated++;
 }

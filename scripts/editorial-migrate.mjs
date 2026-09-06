@@ -57,6 +57,16 @@ await sql`CREATE TABLE IF NOT EXISTS editorial_articles (
 await sql`CREATE INDEX IF NOT EXISTS editorial_articles_status_idx ON editorial_articles (status)`;
 await sql`ALTER TABLE editorial_articles ADD COLUMN IF NOT EXISTS indexing_requested_at TIMESTAMPTZ`;
 await sql`ALTER TABLE editorial_articles ADD COLUMN IF NOT EXISTS indexed_at TIMESTAMPTZ`;
+// Why-this-topic snapshot: the keyword numbers as they stood when the idea was proposed.
+await sql`ALTER TABLE editorial_articles ADD COLUMN IF NOT EXISTS snapshot_volume INTEGER`;
+await sql`ALTER TABLE editorial_articles ADD COLUMN IF NOT EXISTS snapshot_competition TEXT`;
+await sql`ALTER TABLE editorial_articles ADD COLUMN IF NOT EXISTS snapshot_competition_index INTEGER`;
+await sql`ALTER TABLE editorial_articles ADD COLUMN IF NOT EXISTS snapshot_score NUMERIC`;
+await sql`ALTER TABLE editorial_articles ADD COLUMN IF NOT EXISTS snapshot_verified BOOLEAN`;
+await sql`ALTER TABLE editorial_articles ADD COLUMN IF NOT EXISTS snapshot_taken_at TIMESTAMPTZ`;
+await sql`ALTER TABLE editorial_articles ADD COLUMN IF NOT EXISTS snapshot_source TEXT`;
+await sql`ALTER TABLE editorial_articles ADD COLUMN IF NOT EXISTS intent TEXT`;
+await sql`ALTER TABLE editorial_questions ADD COLUMN IF NOT EXISTS volume_updated_at TIMESTAMPTZ`;
 
 await sql`CREATE TABLE IF NOT EXISTS editorial_events (
 	id SERIAL PRIMARY KEY,

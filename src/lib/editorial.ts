@@ -117,6 +117,7 @@ export interface Question {
 	verified: boolean;
 	target_page: string | null;
 	status: string;
+	volume_updated_at: string | null;
 }
 
 export interface Article {
@@ -141,6 +142,14 @@ export interface Article {
 	published_at: string | null;
 	indexing_requested_at: string | null;
 	indexed_at: string | null;
+	snapshot_volume: number | null;
+	snapshot_competition: string | null;
+	snapshot_competition_index: number | null;
+	snapshot_score: string | null;
+	snapshot_verified: boolean | null;
+	snapshot_taken_at: string | null;
+	snapshot_source: string | null;
+	intent: string | null;
 }
 
 export interface Event {
@@ -188,6 +197,18 @@ export async function transition(id: number, to: Status, note: string | null, ac
 	if (to === 'rejected' || to === 'killed') {
 		await sql`UPDATE editorial_questions SET status = 'new', updated_at = now() WHERE id = (SELECT question_id FROM editorial_articles WHERE id = ${id})`;
 	}
+}
+
+/** Keyword volume ages. Past 90 days the number is a guess; past 180 it is history. */
+export const STALE_DAYS = 90;
+export const VERY_STALE_DAYS = 180;
+
+export function staleness(iso: string | null): { days: number | null; level: 'fresh' | 'aging' | 'stale' | 'unknown'; label: string } {
+	if (!iso) return { days: null, level: 'unknown', label: 'no snapshot recorded' };
+	const days = Math.floor((Date.now() - new Date(iso).getTime()) / 86400000);
+	if (days >= VERY_STALE_DAYS) return { days, level: 'stale', label: `${days} days old, re-pull before writing` };
+	if (days >= STALE_DAYS) return { days, level: 'aging', label: `${days} days old, worth re-checking` };
+	return { days, level: 'fresh', label: days <= 1 ? 'pulled today' : `${days} days old` };
 }
 
 export function fmtDateTime(iso: string | null) {

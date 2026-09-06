@@ -1,6 +1,6 @@
 ---
 import AdminLayout from '../../layouts/AdminLayout.astro';
-import { db, BOARD, STATUS_LABEL, fmtDate, type Article } from '../../lib/editorial';
+import { db, BOARD, STATUS_LABEL, fmtDate, fmtVol, staleness, type Article } from '../../lib/editorial';
 export const prerender = false;
 
 const sql = await db();
@@ -44,6 +44,7 @@ const pillClass = (s: string) => (s === 'published' || s === 'indexed' ? 'live' 
 					<span class={`pill ${pillClass(a.status)}`}>{STATUS_LABEL[a.status]}</span>
 					<strong>{a.working_title}</strong>
 					<span class="meta">{a.category ?? 'Uncategorized'}{a.target_keyword ? ` · ${a.target_keyword}` : ''}</span>
+					<span class="meta">{a.snapshot_volume ? `${fmtVol(a.snapshot_volume)}/mo` : 'no volume'}{a.snapshot_competition ? ` · ${a.snapshot_competition} competition` : ''}{staleness(a.snapshot_taken_at).level !== 'fresh' && <span class={`stale-dot ${staleness(a.snapshot_taken_at).level}`} title={staleness(a.snapshot_taken_at).label}>●</span>}</span>
 					<span class="meta muted">Updated {fmtDate(a.updated_at)}{a.status === 'published' ? ' · indexing pending' : a.status === 'indexed' ? (a.indexed_at ? ' · confirmed by Google' : ' · submitted ' + fmtDate(a.indexing_requested_at)) : a.draft_url ? ' · draft online' : ''}</span>
 				</a>
 			);
@@ -108,6 +109,10 @@ const pillClass = (s: string) => (s === 'published' || s === 'indexed' ? 'live' 
 	.item:hover { border-color: var(--orange-500); }
 	.item strong { font-family: var(--font-display); font-weight: 600; font-size: 14.5px; line-height: 1.3; }
 	.item .meta { font-size: 12.5px; color: var(--text-secondary); }
+	.stale-dot { margin-left: 6px; font-size: 10px; }
+	.stale-dot.aging { color: var(--orange-500); }
+	.stale-dot.stale { color: #b3261e; }
+	.stale-dot.unknown { color: var(--grey-400); }
 	@media (max-width: 1200px) { .board { grid-template-columns: repeat(3, 1fr); } }
 	@media (max-width: 900px) { .board { grid-template-columns: repeat(2, 1fr); } }
 	@media (max-width: 640px) { .board { grid-template-columns: 1fr; } }

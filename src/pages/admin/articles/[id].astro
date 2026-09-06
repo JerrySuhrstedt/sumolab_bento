@@ -1,6 +1,6 @@
 ---
 import AdminLayout from '../../../layouts/AdminLayout.astro';
-import { db, ACTIONS, STATUS_LABEL, CATEGORIES, transition, isStatus, slugify, fmtDate, fmtDateTime, type Article, type Event, type Question } from '../../../lib/editorial';
+import { db, ACTIONS, STATUS_LABEL, CATEGORIES, transition, isStatus, slugify, fmtDate, fmtDateTime, fmtVol, staleness, type Article, type Event, type Question } from '../../../lib/editorial';
 export const prerender = false;
 
 const id = Number(Astro.params.id);
@@ -48,6 +48,9 @@ const [article] = (await sql`SELECT * FROM editorial_articles WHERE id = ${id}`)
 if (!article) return Astro.redirect('/admin/', 302);
 const events = (await sql`SELECT * FROM editorial_events WHERE article_id = ${id} ORDER BY created_at DESC`) as Event[];
 const question = article.question_id ? ((await sql`SELECT * FROM editorial_questions WHERE id = ${article.question_id}`) as Question[])[0] : null;
+const liveQuestion = question;
+const snapshot = article;
+const stale = staleness(article.snapshot_taken_at);
 const actions = ACTIONS[article.status];
 const jerryActions = actions.filter((a) => a.who === 'jerry');
 const claudeActions = actions.filter((a) => a.who === 'claude');
@@ -120,6 +123,30 @@ const stageHint: Record<string, string> = {
 				</div>
 			)}
 
+			<div class="card why" style="margin-bottom:16px">
+				<h2>Why this topic</h2>
+				{snapshot.snapshot_taken_at || question ? (
+					<>
+						<dl>
+							<dt>Question</dt><dd>{question ? `“${question.question}”` : <span class="muted">source question deleted</span>}</dd>
+							<dt>Volume</dt><dd>{snapshot.snapshot_volume ? `${fmtVol(snapshot.snapshot_volume)}/mo` : <span class="muted">no Keyword Planner volume</span>}{snapshot.snapshot_verified === false && <span class="muted"> (unverified)</span>}</dd>
+							<dt>Competition</dt><dd>{snapshot.snapshot_competition ?? <span class="muted">not measured</span>}{snapshot.snapshot_competition_index != null ? ` (index ${snapshot.snapshot_competition_index})` : ''}</dd>
+							<dt>Score</dt><dd>{snapshot.snapshot_score != null ? Number(snapshot.snapshot_score).toFixed(0) : <span class="muted">n/a</span>}{snapshot.snapshot_source ? <span class="muted"> · from {snapshot.snapshot_source === 'ai-prompt' ? 'ChatGPT/Gemini prompts' : snapshot.snapshot_source === 'kp' ? 'Keyword Planner' : 'Answer The Public'}</span> : ''}</dd>
+							<dt>Feeds</dt><dd>{article.target_page ? <a href={article.target_page} target="_blank" rel="noopener">{article.target_page}</a> : <span class="muted">no target page set</span>}</dd>
+							<dt>Data age</dt><dd><span class={`stale ${stale.level}`}>{stale.label}</span>{snapshot.snapshot_taken_at ? <span class="muted"> · {fmtDate(snapshot.snapshot_taken_at)}</span> : ''}</dd>
+						</dl>
+						{stale.level !== 'fresh' && stale.level !== 'unknown' && (
+							<p class="stale-note">Volume and competition were pulled {stale.days} days ago. Re-run <span class="mono">npm run editorial:import</span> with a fresh Keyword Planner export before writing against these numbers.</p>
+						)}
+						{liveQuestion && question && (liveQuestion.volume !== snapshot.snapshot_volume || liveQuestion.competition !== snapshot.snapshot_competition) && (
+							<p class="stale-note changed">The bank now shows {liveQuestion.volume ? `${fmtVol(liveQuestion.volume)}/mo` : 'no volume'}{liveQuestion.competition ? ` · ${liveQuestion.competition}` : ''}, different from the snapshot above.</p>
+						)}
+					</>
+				) : (
+					<p class="muted" style="font-size:14px">Added by hand, with no source question. Volume and competition were never recorded for this idea.</p>
+				)}
+			</div>
+
 			<div class="card" style="margin-bottom:16px">
 				<h2>Links</h2>
 				<p style="font-size:14px;margin:0 0 6px">Draft: {article.draft_url ? <a href={article.draft_url} target="_blank" rel="noopener">{article.draft_url}</a> : <span class="muted">not written yet</span>}</p>
@@ -157,5 +184,15 @@ const stageHint: Record<string, string> = {
 	.checklist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
 	.checklist .mark { display: inline-block; width: 18px; font-weight: 700; color: var(--text-muted); }
 	.checklist li.done .mark { color: #1e7b3a; }
+	.why dl { display: grid; grid-template-columns: 88px 1fr; gap: 6px 12px; margin: 0; font-size: 13.5px; }
+	.why dt { font-family: var(--font-display); font-weight: 600; color: var(--text-secondary); }
+	.why dd { margin: 0; }
+	.stale { font-weight: 600; }
+	.stale.fresh { color: #1e7b3a; }
+	.stale.aging { color: var(--orange-600); }
+	.stale.stale { color: #b3261e; }
+	.stale.unknown { color: var(--text-muted); }
+	.stale-note { margin: 12px 0 0; padding: 8px 10px; background: var(--orange-050); color: var(--orange-600); border-radius: 10px; font-size: 12.5px; line-height: 1.45; }
+	.stale-note.changed { background: var(--surface-sunken); color: var(--text-primary); }
 	@media (max-width: 900px) { .two { grid-template-columns: 1fr; } }
 </style>
