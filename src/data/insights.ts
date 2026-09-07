@@ -5,6 +5,14 @@ export interface InsightArticle {
 	imageSrc: string;
 	category: string;
 	publishedAt: string;
+	/**
+	 * Set only when an already-published article's content is materially
+	 * rewritten. Drives <lastmod> in the sitemap, which is how Google decides
+	 * a page is worth re-crawling. Leave undefined if the article has not
+	 * changed since it was published; a fabricated date makes Google ignore
+	 * lastmod site-wide.
+	 */
+	updatedAt?: string;
 	excerpt: string;
 	/** Primary keyword for draft QA and SEO checks. */
 	targetKeyword?: string;
@@ -30,6 +38,7 @@ export const insights: InsightArticle[] = [
 		seoTitle: "What Is the Best AI for Marketing? The Honest Answer",
 		category: "Systems & Automation",
 		publishedAt: "2026-09-06",
+		updatedAt: "2026-09-06",
 		targetKeyword: "what is the best ai for marketing",
 		excerpt:
 			"What is the best AI for marketing? The one already inside the software you pay for. Here's what happened when I ran all four across a real marketing department.",
@@ -108,6 +117,7 @@ export const insights: InsightArticle[] = [
 		seoTitle: "What Is an AI Consultant? Does a $5M Company Need One",
 		category: "Strategy & Leadership",
 		publishedAt: "2026-09-06",
+		updatedAt: "2026-09-06",
 		targetKeyword: "what is an ai consultant",
 		excerpt:
 			"What is an AI consultant? Somebody you pay to find where AI actually makes you money, then go make it happen. Four kinds use the title. One is useful.",
@@ -182,6 +192,7 @@ export const insights: InsightArticle[] = [
 		seoTitle: "AI Integration for a Small Business: What to Connect First",
 		category: "Systems & Automation",
 		publishedAt: "2026-09-06",
+		updatedAt: "2026-09-06",
 		targetKeyword: "ai integration",
 		excerpt:
 			"AI integration for a small business is a sequencing problem, not a shopping problem. Four places to connect it, three to leave alone, and the one rule.",
@@ -257,6 +268,7 @@ export const insights: InsightArticle[] = [
 		seoTitle: "Contractor Leads: Buy Them, Earn Them, or Build a Machine",
 		category: "Lead Generation",
 		publishedAt: "2026-09-06",
+		updatedAt: "2026-09-06",
 		targetKeyword: "contractor leads",
 		excerpt:
 			"Contractor leads come from three places: you buy them, you earn them, or you build a machine. The order matters more than the budget. I've done all three.",
@@ -330,6 +342,7 @@ export const insights: InsightArticle[] = [
 		seoTitle: "What Is a Fractional CMO? Duties, First 90 Days",
 		category: "Strategy & Leadership",
 		publishedAt: "2026-09-06",
+		updatedAt: "2026-09-06",
 		targetKeyword: "what is a fractional cmo",
 		excerpt:
 			"What is a fractional CMO? A chief marketing officer who works part of the week and owns the whole number. The duties, the first 90 days, what it is not.",
@@ -408,6 +421,7 @@ export const insights: InsightArticle[] = [
 		seoTitle: "How to Use AI for Marketing in a Small Company: 5 Jobs",
 		category: "Systems & Automation",
 		publishedAt: "2026-09-06",
+		updatedAt: "2026-09-06",
 		targetKeyword: "how to use ai for marketing",
 		excerpt:
 			"How to use AI for marketing in a small company: five jobs, one rule, forty tools you can ignore. What survived a year at a $50M manufacturer.",
@@ -486,6 +500,7 @@ export const insights: InsightArticle[] = [
 		seoTitle: "7 Questions to Ask a Marketing Consultant Before Signing",
 		category: "Strategy & Leadership",
 		publishedAt: "2026-09-06",
+		updatedAt: "2026-09-06",
 		targetKeyword: "questions to ask a marketing consultant",
 		excerpt:
 			"Seven questions to ask a marketing consultant in the first meeting, and the answers a good one gives. Most came out of a marketing department, not a P&L.",
@@ -562,6 +577,7 @@ export const insights: InsightArticle[] = [
 		seoTitle: "Remodeler Marketing: Start With Your Past Clients",
 		category: "Marketing & Growth",
 		publishedAt: "2026-09-05",
+		updatedAt: "2026-09-06",
 		targetKeyword: "remodeler marketing",
 		excerpt:
 			"Remodeler marketing that works starts with the clients you already have: the annual touch, the review ask, the photo habit, and two numbers that prove it.",
@@ -640,6 +656,7 @@ export const insights: InsightArticle[] = [
 		seoTitle: "Marketing Strategy for a Small Business: A One-Page Plan",
 		category: "Marketing & Growth",
 		publishedAt: "2026-09-04",
+		updatedAt: "2026-09-06",
 		targetKeyword: "marketing strategy for a small business",
 		excerpt:
 			"A marketing strategy for a small business is six decisions, not a 40-page document. Here's each one, in order, from somebody who has run this at $3M and at $50M.",
@@ -701,6 +718,7 @@ export const insights: InsightArticle[] = [
 		seoTitle: "AI for Contractors: What Saves Time and What Is a Waste",
 		category: "Systems & Automation",
 		publishedAt: "2026-09-04",
+		updatedAt: "2026-09-06",
 		targetKeyword: "ai for contractors",
 		excerpt:
 			"AI for contractors is useful in about five places and a waste almost everywhere else. Five jobs worth handing over, three that aren't, and how to start free.",
@@ -744,6 +762,7 @@ export const insights: InsightArticle[] = [
 		seoTitle: "AI Usage Policy Template for Small Businesses | Free Word Doc",
 		category: "Strategy & Leadership",
 		publishedAt: "2026-09-04",
+		updatedAt: "2026-09-06",
 		targetKeyword: "ai usage policy template",
 		excerpt:
 			"A free AI usage policy template for small business, from somebody who rolled AI out across a $50M company. Thirteen sections, plain English, fill the brackets.",
@@ -796,6 +815,7 @@ export const insights: InsightArticle[] = [
 		seoTitle: "Marketing Manager vs Marketing Director: Which Do You Need?",
 		category: "Strategy & Leadership",
 		publishedAt: "2026-09-04",
+		updatedAt: "2026-09-06",
 		targetKeyword: "marketing manager vs marketing director",
 		excerpt:
 			"Marketing manager vs marketing director comes down to one question: do you need somebody to run the work, or somebody to decide what the work is?",
