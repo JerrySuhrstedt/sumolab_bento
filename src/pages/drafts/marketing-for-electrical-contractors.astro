@@ -1,0 +1,198 @@
+---
+// DRAFT of the live page /marketing-for-electrical-contractors/ (pipeline #15).
+// Under /drafts/ so it is noindexed, robots-disallowed, and out of the sitemap
+// while Jerry reviews. On approval, move to src/pages/, drop noindex, add the
+// footer Services link in navigation.ts.
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Section from '../../components/Section.astro';
+import LeadForm from '../../components/LeadForm.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+
+const faqs = [
+	{
+		question: 'How do electrical contractors get more commercial work?',
+		answer:
+			'By being easy to bid with, not by being easy to find. Turn RFQs around inside a day, keep a one-page capability sheet with your license, bond limit, and three comparable jobs, and give the superintendent a cell number that gets answered. General contractors pick from a short list of subs they trust to show up. You get on that list by being reliable in the small moments, repeatedly.',
+	},
+	{
+		question: 'Is SEO worth it for an electrical contractor?',
+		answer:
+			'For the residential half, yes. Panel upgrades, EV charger installs, and troubleshooting are all searched by homeowners with a credit card and a problem. For commercial and GC work, no. Nobody awards a tenant improvement package because you ranked. Spend on search for the side that searches, and spend on relationships for the side that does not.',
+	},
+	{
+		question: 'How much should an electrical contractor spend on marketing?',
+		answer:
+			'Budget the residential side and the commercial side separately, because they behave nothing alike. For residential, work backward: jobs you want, divided by close rate, times what a booked estimate costs in your market. For commercial, the spend is mostly time, not money. A capability sheet, faster bid turnaround, and showing up. Blending them into one number is why most electrical marketing budgets feel arbitrary.',
+	},
+	{
+		question: 'How do I market EV charger installation?',
+		answer:
+			'Lead with the panel, not the charger. Most homes that need a charger also need capacity, and the homeowner does not know that yet. If they find you after somebody else quoted the charger alone, you are the bad news. If they find you first, you are the one who explained it. Same job, completely different conversation.',
+	},
+];
+
+const structuredData = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'ProfessionalService',
+		name: 'SumoLab',
+		description:
+			'Electrical contractor marketing from an operator who has run marketing for HVAC, electrical, and plumbing companies. Residential demand and commercial bid-list work, planned separately.',
+		url: 'https://sumolab.co/marketing-for-electrical-contractors/',
+		telephone: '+14808269400',
+		email: 'jerry@sumolab.co',
+		address: {
+			'@type': 'PostalAddress',
+			addressLocality: 'Chandler',
+			addressRegion: 'AZ',
+			addressCountry: 'US',
+		},
+		founder: {
+			'@type': 'Person',
+			name: 'Jerry Suhrstedt',
+			jobTitle: 'Founder & Fractional CMO',
+			sameAs: 'https://www.linkedin.com/in/jerrysuhrstedt/',
+		},
+		areaServed: [
+			{ '@type': 'State', name: 'Arizona' },
+			{ '@type': 'Country', name: 'United States' },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqs.map((faq) => ({
+			'@type': 'Question',
+			name: faq.question,
+			acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+		})),
+	},
+];
+---
+
+<Layout
+	title="DRAFT · Electrical Contractor Marketing | SumoLab"
+	description="Electrical contractor marketing for both halves of your business: the residential work Google can find, and the commercial bid list it can't touch."
+	noindex={true}
+	structuredData={structuredData}
+>
+	<PageHero
+		image="/photos/electrical-contractors-hero.jpg"
+		imageAlt="Electrician testing a breaker with a multimeter inside an open residential electrical panel"
+		eyebrow="Electrical contractor marketing"
+		align="left"
+		imagePosition="center center"
+	>
+		<h1>Electrical Contractor Marketing for the Half of Your Business Google Can't Find.</h1>
+		<p>Most electrical contractor marketing sells you the residential half of your business and ignores the half that pays your overhead. Panel upgrades and EV chargers come from Google. Tenant improvement work comes from eight general contractors deciding you're the one who answers the phone... and no amount of SEO puts you on that bid list.</p>
+	</PageHero>
+
+	<Section tone="plain">
+		<p class="eyebrow-label"><span class="dot"></span>The short answer</p>
+		<h2 class="page-h2">What is the best marketing for an electrical contractor?</h2>
+		<p class="lede" style="margin-top:24px;max-width:720px">The best electrical contractor marketing runs on two tracks. Residential service, panel upgrades, and EV charger installs come from Google search, reviews, and the map pack. Commercial and GC work comes from being on a bid list, which is won with fast RFQ turnaround and a capability sheet, not with ads.</p>
+	</Section>
+
+	<Section tone="white">
+		<div class="two-col" style="align-items:start;gap:64px">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>The situation</p>
+				<h2 class="page-h2">You run two businesses on one license.</h2>
+				<p class="lede" style="margin-top:24px">One is residential service. A homeowner has a dead outlet, a panel from 1978, or a new EV in the driveway. They search, they compare, they call three people. That business behaves like any local trade and it responds to the usual levers.</p>
+				<p class="lede" style="margin-top:16px">The other is commercial and GC work. Tenant improvement, new construction rough-in, service agreements with property managers. Nobody searches for that. It comes from a general contractor with a short list, and you are either on it or you aren't.</p>
+				<p class="lede" style="margin-top:16px">Almost every marketing pitch you'll get is built for the first one. It's the half that's easy to sell you, and it's usually the smaller half of your revenue.</p>
+			</div>
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>Common symptoms</p>
+				<ul class="dot-list" style="margin-top:24px">
+					<li><span class="dot" aria-hidden="true"></span>One marketing budget covering two businesses that behave nothing alike</li>
+					<li><span class="dot" aria-hidden="true"></span>Bidding commercial work you never hear back on, with no idea what your award rate is</li>
+					<li><span class="dot" aria-hidden="true"></span>EV charger calls that turn into panel conversations you didn't get to frame</li>
+					<li><span class="dot" aria-hidden="true"></span>An agency reporting residential leads while the commercial pipeline quietly thins out</li>
+					<li><span class="dot" aria-hidden="true"></span>Competing with handymen on small jobs and losing on price instead of on scope</li>
+				</ul>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<p class="eyebrow-label" style="color:var(--orange-400)"><span class="dot"></span>The opening most electricians miss</p>
+		<h2 class="page-h2" style="color:#fff">Electrification is the demand event nobody is marketing to.</h2>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:720px;margin-top:24px">EV chargers, heat pumps, induction ranges, and a home office full of equipment are all landing on 100-amp panels installed when the house was built. That's a capacity problem arriving at millions of homes at the same time, and the homeowner has no idea it's coming.</p>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:720px;margin-top:16px">The panel upgrade is one of the highest-margin residential jobs you do. Most electricians never market it. They wait for the EV buyer to call about a charger, discover the service can't carry it, and then deliver the upgrade as bad news attached to a bigger invoice.</p>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:720px;margin-top:16px">Flip the order. Market the panel first. Be the one who explains capacity before somebody else quotes a charger and leaves you holding the awkward conversation. Same job, same money, completely different position.</p>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:720px;margin-top:16px">Oh yeah, definitely worth a page of its own on your site, with real photos of real panels and a straight price range. Not a form that says "contact us for a quote."</p>
+	</Section>
+
+	<Section tone="white">
+		<p class="eyebrow-label"><span class="dot"></span>The other half</p>
+		<h2 class="page-h2">The bid list is marketing. It just doesn't look like it.</h2>
+		<p class="lede" style="margin-top:24px;max-width:760px">You don't rank your way onto a general contractor's short list. You get there by being the sub who returns the RFQ inside a day, has the license and bond numbers ready without hunting for them, and picks up when the superintendent calls at 6:40 in the morning.</p>
+		<p class="lede" style="margin-top:16px;max-width:760px">That's eight relationships, not eight thousand impressions. And it's still marketing, it just gets filed under "operations" so nobody measures it or invests in it.</p>
+		<div class="grid-3" style="margin-top:40px">
+			<div class="pillar">
+				<h3 class="page-h3">Turn bids around in a day</h3>
+				<p class="lede">The sub who answers first gets asked first next time. If your bids take a week because they're squeezed in after hours, that's not a manpower problem, that's a marketing problem wearing a different hat.</p>
+			</div>
+			<div class="pillar">
+				<h3 class="page-h3">One page they can forward</h3>
+				<p class="lede">License, bond limit, insurance, service area, and three comparable jobs with square footage and scope. A GC has to justify you to an owner. Make that easy and you get the call.</p>
+			</div>
+			<div class="pillar">
+				<h3 class="page-h3">Track bid-to-award</h3>
+				<p class="lede">Most electrical contractors cannot tell you what percentage of their bids get awarded, or which GCs award them. That number tells you where to spend your time faster than any ad report will.</p>
+			</div>
+		</div>
+		<p class="lede" style="margin-top:36px;max-width:760px">I've run the campaign from the other side of that relationship. At Stanbrooke Custom Homes we couldn't get framing crews, so we marketed to subcontractors instead of to buyers, and had crews on every job in 45 days. <a href="/case-studies/stanbrooke-contractor-shortage/">That's the story here.</a> I know what makes a GC pick one sub over another, because I was the one picking.</p>
+	</Section>
+
+	<Section tone="white">
+		<div class="two-col" style="align-items:start;gap:64px">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>What we'd do first</p>
+				<h2 class="page-h2">Where electrical contractor marketing should actually start.</h2>
+				<ul class="dot-list" style="margin-top:24px">
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Split the two pipelines on paper.</strong> Residential and commercial get their own plan, own budget, own numbers. One combined list is why neither one works.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Own the panel conversation.</strong> A real page on capacity and upgrades, with photos and a price range, aimed at homeowners before they shop the charger.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Get RFQ turnaround under 24 hours.</strong> The single highest-return change on the commercial side, and it costs nothing but a decision about who owns it.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Write the capability sheet.</strong> One page, forwardable, current. Update it when a job finishes, not when a GC asks.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Fix residential capture, don't reinvent it.</strong> Answer the phone, ask for reviews, hold the map pack. The <a href="/marketing-for-hvac-contractors/">HVAC page</a> lays that out and it works the same here.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Report two numbers, not one.</strong> Cost per booked residential job, and bid-to-award rate on commercial. A single blended number hides which half is broken.</span></li>
+				</ul>
+			</div>
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>Who runs it</p>
+				<h2 class="page-h2">Somebody has to own both halves.</h2>
+				<p class="lede" style="margin-top:24px">An agency can run the residential side. None of them will touch the bid list, because there's nothing to invoice against it. So the commercial half stays unowned, which is exactly why it drifts.</p>
+				<p class="lede" style="margin-top:16px">That's the seat I fill. A senior marketing person on a set number of hours a month who plans both tracks and holds the two numbers, with your agency reporting to me instead of to you. For most electrical contractors that's a <a href="/services/fractional-marketing-director/">fractional marketing director</a>. When the question is which markets to be in rather than how to run the plan, it's a <a href="/services/fractional-cmo/">fractional CMO</a>.</p>
+				<p class="lede" style="margin-top:16px">Doing new construction or working under GCs across several trades? <a href="/marketing-for-construction-companies/">Marketing for construction companies</a> covers that. And before you sign another lead contract, read <a href="/blog/contractor-leads/">contractor leads: buy them, earn them, or build the machine</a>.</p>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="white">
+		<p class="eyebrow-label"><span class="dot"></span>Common questions</p>
+		<h2 class="page-h2">What electrical contractors ask before they spend a dollar.</h2>
+		<div style="margin-top:32px;max-width:720px">
+			<FaqAccordion items={faqs} />
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<div class="card-cta-row">
+			<h2 class="page-h2" style="color:#fff;margin:0">Tell me your bid-to-award rate and your residential job count. I'll tell you which half to fix first.</h2>
+			<LeadForm />
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.pillar {
+		border-top: 3px solid var(--orange-500);
+		padding-top: 20px;
+	}
+	.pillar a {
+		font-weight: 600;
+	}
+</style>
