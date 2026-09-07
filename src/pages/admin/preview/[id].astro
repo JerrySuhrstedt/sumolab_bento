@@ -1,0 +1,149 @@
+---
+/**
+ * Front-end preview of an article that has not been written yet.
+ *
+ * Renders the approved outline inside the real site chrome (Layout, PageHero,
+ * Section) so Jerry can see the shape of the page at the idea and outline
+ * stages, before a draft exists. Once a draft or live URL is recorded, the
+ * card's Preview button points at the real page instead and this route just
+ * says so.
+ *
+ * Lives under /admin/ so it inherits the Cloudflare Access application and the
+ * passphrase middleware. Noindexed as well, belt and braces.
+ */
+import Layout from '../../../layouts/Layout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import Section from '../../../components/Section.astro';
+import LeadForm from '../../../components/LeadForm.astro';
+import { db, STATUS_LABEL, type Article } from '../../../lib/editorial';
+import { parseOutline } from '../../../lib/outline-preview';
+export const prerender = false;
+
+const id = Number(Astro.params.id);
+if (!Number.isInteger(id)) return Astro.redirect('/admin/', 302);
+const sql = await db();
+const [article] = (await sql`SELECT * FROM editorial_articles WHERE id = ${id}`) as Article[];
+if (!article) return Astro.redirect('/admin/', 302);
+
+const o = parseOutline(article.outline);
+const h1 = o.h1 ?? article.working_title;
+const realUrl = article.live_url ?? article.draft_url ?? null;
+const backHref = `/admin/articles/${article.id}/`;
+---
+
+<Layout title={`Preview · ${article.working_title}`} description="Editorial preview" noindex={true} showNav={false}>
+	<div class="pv-bar">
+		<div class="pv-bar-in">
+			<div class="pv-left">
+				<span class="pv-tag">Preview</span>
+				<span class="pv-meta">#{article.id} · {STATUS_LABEL[article.status]}{o.found ? ' · built from the outline' : ' · outline not readable'}</span>
+			</div>
+			<div class="pv-right">
+				{realUrl && <a class="pv-btn" href={realUrl} target="_blank" rel="noopener">Open the real page</a>}
+				<a class="pv-btn pv-btn-solid" href={backHref}>Back to the card</a>
+			</div>
+		</div>
+	</div>
+
+	{realUrl && (
+		<div class="pv-note">
+			This article already has a page at <a href={realUrl} target="_blank" rel="noopener">{realUrl}</a>. What follows is the outline, not that page.
+		</div>
+	)}
+
+	{!o.found && (
+		<div class="pv-note pv-warn">
+			No outline to preview yet. This is the working title in the real page layout, so you can see the shape. The rest fills in once Claude writes the outline.
+		</div>
+	)}
+
+	<PageHero
+		image="/photos/remodelers-hero.jpg"
+		imageAlt="Placeholder hero. The real image is generated when the draft is written."
+		eyebrow={article.category ?? 'SumoLab'}
+		align="left"
+		imagePosition="center center"
+	>
+		<h1>{h1}</h1>
+		{o.hook ? <p>{o.hook}</p> : <p class="pv-ph">The opening paragraph is written at the draft stage. The outline's approved hook appears here once it exists.</p>}
+	</PageHero>
+
+	{o.snippetQuestion && (
+		<Section tone="plain">
+			<p class="eyebrow-label"><span class="dot"></span>The short answer</p>
+			<h2 class="page-h2">{o.snippetQuestion}</h2>
+			{o.snippetAnswer && <p class="lede" style="margin-top:24px;max-width:720px">{o.snippetAnswer}</p>}
+		</Section>
+	)}
+
+	{o.headings.length > 0 ? (
+		<Section tone="white">
+			<p class="eyebrow-label"><span class="dot"></span>Section structure</p>
+			<h2 class="page-h2">{o.headings.length} sections, in this order.</h2>
+			<div class="pv-sections">
+				{o.headings.map((h) => (
+					<div class:list={['pv-sec', { sub: h.level === 3 }]}>
+						{h.level === 2 ? <h2 class="page-h2">{h.text}</h2> : <h3 class="page-h3">{h.text}</h3>}
+						{h.note && <p class="lede pv-sec-note">{h.note}</p>}
+						<p class="pv-ph">Body copy for this section is written at the draft stage.</p>
+					</div>
+				))}
+			</div>
+		</Section>
+	) : (
+		<Section tone="white">
+			<p class="eyebrow-label"><span class="dot"></span>Section structure</p>
+			<h2 class="page-h2">No sections yet.</h2>
+			<p class="lede" style="margin-top:16px;max-width:640px">Approve the idea and Claude writes the outline. The heading structure shows up here the moment it lands.</p>
+		</Section>
+	)}
+
+	<Section tone="ink">
+		<div class="card-cta-row">
+			<h2 class="page-h2" style="color:#fff;margin:0">Every page ends with the form. This is what it looks like in place.</h2>
+			<LeadForm />
+		</div>
+	</Section>
+
+	<div class="pv-foot">
+		<div>
+			<strong>Title tag:</strong> {o.titleTag ?? <span class="pv-dim">not set in the outline</span>}
+			{o.titleTag && <span class="pv-dim"> ({o.titleTag.length} characters)</span>}
+		</div>
+		<div><strong>Target keyword:</strong> {article.target_keyword ?? <span class="pv-dim">none</span>}</div>
+		<div><strong>Slug:</strong> <span class="pv-mono">/{article.slug ?? 'not-set'}/</span></div>
+		{o.wordCountNote && <div><strong>Length:</strong> {o.wordCountNote}</div>}
+	</div>
+</Layout>
+
+<style>
+	.pv-bar { position: sticky; top: 0; z-index: 50; background: var(--ink-950); color: #fff; }
+	.pv-bar-in { max-width: 1180px; margin: 0 auto; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+	.pv-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
+	.pv-tag { background: var(--orange-500); color: #fff; font-weight: 700; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+	.pv-meta { font-size: 13px; color: rgba(255,255,255,0.72); }
+	.pv-right { display: flex; gap: 8px; }
+	.pv-btn { font-size: 13px; font-weight: 600; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.28); color: #fff; text-decoration: none; white-space: nowrap; }
+	.pv-btn:hover { border-color: rgba(255,255,255,0.6); }
+	.pv-btn-solid { background: var(--orange-500); border-color: var(--orange-500); }
+	.pv-btn-solid:hover { background: var(--orange-600); border-color: var(--orange-600); }
+
+	.pv-note { max-width: 1180px; margin: 16px auto 0; padding: 12px 20px; background: #fff; border: 1px solid var(--border); border-left: 3px solid var(--orange-500); border-radius: var(--radius-sm); font-size: 14px; }
+	.pv-warn { border-left-color: #c8860a; }
+
+	.pv-sections { margin-top: 32px; }
+	.pv-sec { padding: 24px 0; border-top: 1px solid var(--hairline); }
+	.pv-sec.sub { padding-left: 28px; border-left: 2px solid var(--orange-500); margin-left: 4px; }
+	.pv-sec-note { margin-top: 10px; max-width: 720px; }
+
+	.pv-ph { margin-top: 10px; color: var(--text-muted); font-size: 14px; font-style: italic; }
+
+	.pv-foot { max-width: 1180px; margin: 0 auto; padding: 28px 24px 64px; display: grid; gap: 8px; font-size: 14px; }
+	.pv-dim { color: var(--text-muted); font-weight: 400; }
+	.pv-mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+
+	@media (max-width: 640px) {
+		.pv-bar-in { padding: 10px 16px; }
+		.pv-meta { display: none; }
+	}
+</style>

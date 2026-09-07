@@ -66,6 +66,14 @@ const stageHint: Record<string, string> = {
 	rejected: 'Not approved. Reopen if you change your mind.',
 	killed: 'Killed. Reopen if you change your mind.',
 };
+
+// Preview button target, by what actually exists for this article. Live page
+// first, then the draft, then the outline rendered in the real site chrome.
+const preview = article.live_url
+	? { href: article.live_url, label: 'View live page', external: true, hint: 'Opens the published page.' }
+	: article.draft_url
+		? { href: article.draft_url, label: 'Preview draft', external: true, hint: 'Opens the draft at its noindexed URL.' }
+		: { href: `/admin/preview/${article.id}/`, label: 'Preview layout', external: false, hint: article.outline ? 'Renders the approved outline in the real page layout.' : 'Shows the working title in the real page layout. Fills in as the outline lands.' };
 ---
 
 <AdminLayout title={article.working_title} section="article">
@@ -74,6 +82,15 @@ const stageHint: Record<string, string> = {
 			<p class="muted" style="margin:0 0 6px;font-size:13px"><a href="/admin/">Pipeline</a> › Article #{article.id}</p>
 			<h1>{article.working_title}</h1>
 			<p class="sub"><span class={`pill ${article.status === 'published' || article.status === 'indexed' ? 'live' : article.status === 'rejected' || article.status === 'killed' ? 'stop' : 'go'}`}>{STATUS_LABEL[article.status]}</span> &nbsp; {stageHint[article.status]}</p>
+		</div>
+		<div class="preview-cta">
+			<a
+				class="btn go"
+				href={preview.href}
+				target={preview.external ? '_blank' : null}
+				rel={preview.external ? 'noopener' : null}
+			>{preview.label}</a>
+			<span class="hint">{preview.hint}</span>
 		</div>
 	</div>
 	{flash && <div class="flash">{flash}</div>}
@@ -178,6 +195,12 @@ const stageHint: Record<string, string> = {
 </AdminLayout>
 
 <style>
+	.preview-cta { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right; }
+	.preview-cta .hint { max-width: 240px; }
+	@media (max-width: 720px) {
+		.preview-cta { align-items: flex-start; text-align: left; }
+	}
+
 	.two { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 20px; align-items: start; }
 	.log { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; }
 	.log .note { margin-top: 4px; padding: 8px 10px; background: var(--surface-sunken); border-radius: 10px; }
