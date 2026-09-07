@@ -13,6 +13,69 @@
 /my-crazy-business-turnaround-strategy-from-bankrupt-dumpster-fire-to-12-million/ /blog/business-turnaround-strategy-bankrupt-to-12m/ 301
 /creating-a-seamless-brand-experience-how-to-maintain-consistency-across-social-media-channels/ /blog/creating-a-seamless-brand-experience-consistency/ 301
 
+# --- Recovered from Search Console "Not found (404)", 2026-09-07 ---
+# Old WordPress taxonomy, author, and date archives. All of that content now
+# lives in one place, so send it to the blog index rather than 404.
+/category/* /blog/ 301
+/tag/* /blog/ 301
+/author/* /about/ 301
+/2024/* /blog/ 301
+/2025/* /blog/ 301
+
+# Old case-study path that was missed in the first pass.
+/case-study/case-study-rebranding-first-products-with-memorable-cartoon-characters/ /case-studies/rebranding-first-products/ 301
+
+# Retired city service pages. Marketing automation is the closest live
+# equivalent to the fractional marketing director work, so those map to the
+# matching city page. Web design and podcast production are no longer offered
+# and go to the services index.
+/marketing-automation-chandler-az/ /services/fractional-marketing-director/chandler/ 301
+/marketing-automation-gilbert-az/ /services/fractional-marketing-director/gilbert/ 301
+/marketing-automation-mesa-az/ /services/fractional-marketing-director/mesa/ 301
+/marketing-automation-phoenix-az/ /services/fractional-marketing-director/phoenix/ 301
+/marketing-automation-scottsdale-az/ /services/fractional-marketing-director/scottsdale/ 301
+/marketing-automation-tempe-az/ /services/fractional-marketing-director/tempe/ 301
+/services__trashed/marketing-automation-chandler-az/ /services/fractional-marketing-director/chandler/ 301
+/services__trashed/marketing-automation-gilbert-az/ /services/fractional-marketing-director/gilbert/ 301
+/services__trashed/marketing-automation-mesa-az/ /services/fractional-marketing-director/mesa/ 301
+/services__trashed/marketing-automation-phoenix-az/ /services/fractional-marketing-director/phoenix/ 301
+/services__trashed/marketing-automation-scottsdale-az/ /services/fractional-marketing-director/scottsdale/ 301
+/services__trashed/marketing-automation-tempe-az/ /services/fractional-marketing-director/tempe/ 301
+/web-design-development-chandler-az/ /services/ 301
+/web-design-development-gilbert-az/ /services/ 301
+/web-design-development-mesa-az/ /services/ 301
+/web-design-development-phoenix-az/ /services/ 301
+/web-design-development-scottsdale-az/ /services/ 301
+/web-design-development-tempe-az/ /services/ 301
+/services__trashed/web-design-development-chandler-az/ /services/ 301
+/services__trashed/web-design-development-gilbert-az/ /services/ 301
+/services__trashed/web-design-development-mesa-az/ /services/ 301
+/services__trashed/web-design-development-phoenix-az/ /services/ 301
+/services__trashed/web-design-development-scottsdale-az/ /services/ 301
+/services__trashed/web-design-development-tempe-az/ /services/ 301
+/podcast-production-chandler-az/ /services/ 301
+/podcast-production-gilbert-az/ /services/ 301
+/podcast-production-mesa-az/ /services/ 301
+/podcast-production-phoenix-az/ /services/ 301
+/podcast-production-scottsdale-az/ /services/ 301
+/podcast-production-tempe-az/ /services/ 301
+/services__trashed/podcast-production-chandler-az/ /services/ 301
+/services__trashed/podcast-production-gilbert-az/ /services/ 301
+/services__trashed/podcast-production-mesa-az/ /services/ 301
+/services__trashed/podcast-production-phoenix-az/ /services/ 301
+/services__trashed/podcast-production-scottsdale-az/ /services/ 301
+/services__trashed/podcast-production-tempe-az/ /services/ 301
+
+# Retired WordPress membership page.
+/student-public-account/ / 301
+
+# Deliberately NOT redirected, because 404 is the correct answer:
+#   /blog/sandbox-*        demo content that was never real
+#   /*/feed/               RSS endpoints; pointing a feed at an HTML page is a
+#                          soft-404 pattern Google penalises
+#   /wp-admin/, /wp-json/, /wp-content/, /wp-includes/, /wp_social_reviews/
+#                          WordPress plumbing that must stay gone
+
 # Catch-all: any /insights/* traffic → /blog/*
 /insights/* /blog/:splat 301
 
