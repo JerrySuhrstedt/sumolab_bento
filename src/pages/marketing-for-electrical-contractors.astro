@@ -1,13 +1,9 @@
 ---
-// DRAFT of the live page /marketing-for-electrical-contractors/ (pipeline #15).
-// Under /drafts/ so it is noindexed, robots-disallowed, and out of the sitemap
-// while Jerry reviews. On approval, move to src/pages/, drop noindex, add the
-// footer Services link in navigation.ts.
-import Layout from '../../layouts/Layout.astro';
-import PageHero from '../../components/PageHero.astro';
-import Section from '../../components/Section.astro';
-import LeadForm from '../../components/LeadForm.astro';
-import FaqAccordion from '../../components/FaqAccordion.astro';
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import LeadForm from '../components/LeadForm.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
 
 const faqs = [
 	{
@@ -72,9 +68,8 @@ const structuredData = [
 ---
 
 <Layout
-	title="DRAFT · Electrical Contractor Marketing | SumoLab"
+	title="Electrical Contractor Marketing | SumoLab"
 	description="Electrical contractor marketing for both halves of your business: the residential work Google can find, and the commercial bid list it can't touch."
-	noindex={true}
 	structuredData={structuredData}
 >
 	<PageHero
