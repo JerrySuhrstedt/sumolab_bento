@@ -1,14 +1,9 @@
 ---
-// DRAFT of the live page /marketing-for-hvac-contractors/ (editorial pipeline #14).
-// Lives under /drafts/ so it is noindexed, robots-disallowed, and kept out of the
-// sitemap while Jerry reviews it. On final approval, move this file to
-// src/pages/marketing-for-hvac-contractors.astro, drop noindex, and add the
-// footer Services link in navigation.ts.
-import Layout from '../../layouts/Layout.astro';
-import PageHero from '../../components/PageHero.astro';
-import Section from '../../components/Section.astro';
-import LeadForm from '../../components/LeadForm.astro';
-import FaqAccordion from '../../components/FaqAccordion.astro';
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import LeadForm from '../components/LeadForm.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
 
 const faqs = [
 	{
@@ -73,9 +68,8 @@ const structuredData = [
 ---
 
 <Layout
-	title="DRAFT · Marketing for HVAC Contractors | SumoLab"
+	title="Marketing for HVAC Contractors | SumoLab"
 	description="Marketing for HVAC contractors from an operator, not an agency. Why your real ceiling is techs and not leads, and the order that actually books installs."
-	noindex={true}
 	structuredData={structuredData}
 >
 	<PageHero
