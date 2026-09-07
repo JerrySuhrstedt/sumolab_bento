@@ -1,0 +1,205 @@
+---
+// DRAFT of the live page /marketing-for-hvac-contractors/ (editorial pipeline #14).
+// Lives under /drafts/ so it is noindexed, robots-disallowed, and kept out of the
+// sitemap while Jerry reviews it. On final approval, move this file to
+// src/pages/marketing-for-hvac-contractors.astro, drop noindex, and add the
+// footer Services link in navigation.ts.
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Section from '../../components/Section.astro';
+import LeadForm from '../../components/LeadForm.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+
+const faqs = [
+	{
+		question: 'How much should an HVAC company spend on marketing?',
+		answer:
+			'Work backward from installs. Decide how many replacements you want next year, divide by your close rate to get booked estimates, then price what a booked estimate costs in your market. Multiply. That gives you a budget tied to crew capacity instead of a percentage of revenue, which tells you nothing about whether you can actually install the work you sell.',
+	},
+	{
+		question: 'Do HVAC lead services like Angi actually work?',
+		answer:
+			'They work the way renting works. You get at-bats today and own nothing tomorrow, and the same homeowner is sold to three of your competitors. Use them to fill a soft month if the cost per install holds up. Just do not let them become the pipeline, because the day you stop paying, it stops.',
+	},
+	{
+		question: 'Does an HVAC contractor need a marketing agency or a marketing director?',
+		answer:
+			'Different jobs. An agency produces the ads and manages the spend. A marketing director decides what to spend it on, which channel to cut, and whether leads are turning into installs. Plenty of shops have three vendors and nobody holding the number. Hire the director first, and the agency answers to them.',
+	},
+	{
+		question: 'What is the fastest way to get more HVAC installs?',
+		answer:
+			'Call your maintenance agreement list, sorted by system age. Those are homeowners who already pay you, already trust you, and are sitting on equipment with a known install date. It costs nothing but phone time and it books work this month. Most shops go buy leads instead.',
+	},
+];
+
+const structuredData = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'ProfessionalService',
+		name: 'SumoLab',
+		description:
+			'Marketing for HVAC contractors, from an operator who has run marketing for HVAC, electrical, and plumbing companies. Lead generation, positioning, and marketing leadership for contractors doing $2M to $30M.',
+		url: 'https://sumolab.co/marketing-for-hvac-contractors/',
+		telephone: '+14808269400',
+		email: 'jerry@sumolab.co',
+		address: {
+			'@type': 'PostalAddress',
+			addressLocality: 'Chandler',
+			addressRegion: 'AZ',
+			addressCountry: 'US',
+		},
+		founder: {
+			'@type': 'Person',
+			name: 'Jerry Suhrstedt',
+			jobTitle: 'Founder & Fractional CMO',
+			sameAs: 'https://www.linkedin.com/in/jerrysuhrstedt/',
+		},
+		areaServed: [
+			{ '@type': 'State', name: 'Arizona' },
+			{ '@type': 'Country', name: 'United States' },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqs.map((faq) => ({
+			'@type': 'Question',
+			name: faq.question,
+			acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+		})),
+	},
+];
+---
+
+<Layout
+	title="DRAFT · Marketing for HVAC Contractors | SumoLab"
+	description="Marketing for HVAC contractors from an operator, not an agency. Why your real ceiling is techs and not leads, and the order that actually books installs."
+	noindex={true}
+	structuredData={structuredData}
+>
+	<PageHero
+		image="/photos/hvac-contractors-hero.jpg"
+		imageAlt="HVAC service technician checking refrigerant gauges on a residential condenser unit outside a home at dusk"
+		eyebrow="Marketing for HVAC contractors"
+		align="left"
+		imagePosition="center center"
+	>
+		<h1>Marketing for HVAC Contractors Who Are Tired of Renting Their Leads.</h1>
+		<p>Most marketing for HVAC contractors is somebody selling you a lead you're going to pay for twice. Once to the lead service, and once again to beat the two competitors who bought the same homeowner ten seconds later. I'm not an agency and I'm not going to run your Google Ads... I'm the guy who tells you which half of that spend to kill.</p>
+	</PageHero>
+
+	<Section tone="plain">
+		<p class="eyebrow-label"><span class="dot"></span>The short answer</p>
+		<h2 class="page-h2">What is the best marketing for HVAC contractors?</h2>
+		<p class="lede" style="margin-top:24px;max-width:720px">The best marketing for HVAC contractors isn't more leads. It's answering the phone faster, working the maintenance agreement base you already have, and keeping reviews current so you hold the map pack. Buy traffic after those three are fixed, in the shoulder season, when clicks are cheapest and your schedule has room.</p>
+	</Section>
+
+	<Section tone="white">
+		<div class="two-col" style="align-items:start;gap:64px">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>The situation</p>
+				<h2 class="page-h2">You're not buying leads. You're renting them.</h2>
+				<p class="lede" style="margin-top:24px">Angi, Thumbtack, Networx. You pay per lead, and so do the three shops down the road, for the same homeowner. The lead was never yours. It's a footrace, and the prize is a job you had to discount to win.</p>
+				<p class="lede" style="margin-top:16px">So you raise the spend to get more at-bats. Lead count goes up, close rate goes down, cost per install climbs, and somebody sends you a report congratulating you on the lead count. Then the season ends and you start at zero again, because none of it built anything you own.</p>
+			</div>
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>Common symptoms</p>
+				<ul class="dot-list" style="margin-top:24px">
+					<li><span class="dot" aria-hidden="true"></span>Half the pipeline comes from a lead service that sells to your competitors too</li>
+					<li><span class="dot" aria-hidden="true"></span>After-hours calls go to voicemail, which is exactly when the AC dies</li>
+					<li><span class="dot" aria-hidden="true"></span>A maintenance agreement list nobody has called in over a year</li>
+					<li><span class="dot" aria-hidden="true"></span>Good reviews, all of them two years old, while the shop across town posts forty from last month</li>
+					<li><span class="dot" aria-hidden="true"></span>Ad spend peaks in July, when clicks cost the most and you're booked out anyway</li>
+				</ul>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<p class="eyebrow-label" style="color:var(--orange-400)"><span class="dot"></span>The part nobody sells you</p>
+		<h2 class="page-h2" style="color:#fff">Your ceiling is techs, not leads.</h2>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:720px;margin-top:24px">Nobody selling HVAC marketing wants to say this out loud, so I will. If your schedule is four weeks out in July, more leads isn't growth. It's a longer list of homeowners who called somebody else while they waited.</p>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:720px;margin-top:16px">I've watched companies buy their way straight into that wall and then blame the marketing. The marketing worked fine. That was the problem.</p>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:720px;margin-top:16px">Which means recruiting techs is marketing. Same muscle, different audience. Almost nobody treats it that way.</p>
+		<h3 class="page-h3" style="color:#fff;margin-top:40px">A flier and a pizza got framing crews moving in 45 days</h3>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:720px;margin-top:16px">At Stanbrooke Custom Homes we were pouring foundations we couldn't frame. No crews available. Every job stalled, and you can't bill for a house that isn't going up.</p>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:720px;margin-top:16px">So we ran it as a campaign instead of a hiring problem. Positioned the company as the preferred general contractor to work for, and the flier said it plainly: quality framing contractors wanted, free nails with every job, and pizza delivered by our project superintendents on Friday.</p>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:720px;margin-top:16px">Crews mobilized in 45 days. Free nails and pizza. Not exactly a brand campaign, but it was aimed at the right person with something they actually wanted. <a href="/case-studies/stanbrooke-contractor-shortage/" style="color:var(--orange-400)">The whole story is here.</a> Point your recruiting at techs the same way and the ceiling moves.</p>
+	</Section>
+
+	<Section tone="white">
+		<p class="eyebrow-label"><span class="dot"></span>Before you spend another dollar</p>
+		<h2 class="page-h2">Three things that are usually broken before the ad spend is.</h2>
+		<div class="grid-3" style="margin-top:40px">
+			<div class="pillar">
+				<h3 class="page-h3">Speed to lead</h3>
+				<p class="lede">No cooling in Phoenix in July and the homeowner calls three companies in a row. First human voice wins, and it isn't close. If your after-hours calls land in voicemail, you are funding your competitor's summer.</p>
+			</div>
+			<div class="pillar">
+				<h3 class="page-h3">The base you already own</h3>
+				<p class="lede">Every maintenance agreement on that list is a system with an age on it. That's your install pipeline, already paid for, and most shops never touch it until the unit dies on the hottest day of the year. Sort by install date, not by who complains loudest.</p>
+			</div>
+			<div class="pillar">
+				<h3 class="page-h3">Reviews and the map pack</h3>
+				<p class="lede">"AC repair near me" resolves in the map pack, and the map pack runs on proximity and recent reviews. Not on your website. Ask at the end of every completed call, and know that recency beats total count.</p>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="white">
+		<div class="two-col" style="align-items:start;gap:64px">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>What we'd do first</p>
+				<h2 class="page-h2">HVAC marketing, in the right order.</h2>
+				<ul class="dot-list" style="margin-top:24px">
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Answer the phone.</strong> After hours and weekends, a human or a service that books on your calendar. Nothing else here matters if you skip it.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Work the maintenance list.</strong> Sorted by system age. A phone call, not a postcard.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Turn the review engine on.</strong> Every completed service call, every time. Google first, and recency is the whole game.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Pick your work.</strong> Replacement, service, new construction, commercial. "We do it all" is what everybody says.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>One paid channel, your service area.</strong> Google search aimed at replacement intent, landing on a page that books an appointment.</span></li>
+					<li><span class="dot" aria-hidden="true"></span><span><strong>Report cost per booked install.</strong> Not leads, not clicks, not impressions. That one number runs the business.</span></li>
+				</ul>
+			</div>
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>Who runs it</p>
+				<h2 class="page-h2">I'm not an agency, and that's the point.</h2>
+				<p class="lede" style="margin-top:24px">An agency makes the ads. Somebody still has to decide what to spend, which vendor to fire, whether leads are becoming installs, and what your company stands for when a homeowner is holding three bids. Right now that somebody is you, at nine at night, between a callback and a warranty claim.</p>
+				<p class="lede" style="margin-top:16px">That's the seat I fill. A senior marketing person on a set number of hours a month, with your agency and lead vendors reporting to me instead of to you. For most shops in the $2M to $30M range that's a <a href="/services/fractional-marketing-director/">fractional marketing director</a>. When the question is strategy rather than running the plan, it's a <a href="/services/fractional-cmo/">fractional CMO</a>.</p>
+				<p class="lede" style="margin-top:16px">Run new construction or commercial work too? <a href="/marketing-for-construction-companies/">Marketing for construction companies</a> covers that side. Before you renew a lead contract, read <a href="/blog/contractor-leads/">contractor leads: buy them, earn them, or build the machine</a>. And if you want the admin hours back, <a href="/blog/ai-for-contractors/">AI for contractors</a> lays out what saves time and what's a waste of money.</p>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="plain">
+		<p class="eyebrow-label"><span class="dot"></span>Timing</p>
+		<h2 class="page-h2">Spend in the shoulder season. Everybody else spends in July.</h2>
+		<p class="lede" style="margin-top:24px;max-width:720px">First heat wave hits and every HVAC company in the valley switches the ads on the same week. Clicks cost the most they'll cost all year, your schedule is already full, and you're paying a premium to book work into September. What were you thinking?</p>
+		<p class="lede" style="margin-top:16px;max-width:720px">April and October are cheap, and your crews have room. That's when you buy the replacement conversations that turn into July installs. Same money, different month, and you're not bidding against every competitor at once.</p>
+	</Section>
+
+	<Section tone="white">
+		<p class="eyebrow-label"><span class="dot"></span>Common questions</p>
+		<h2 class="page-h2">What HVAC contractors ask before they spend a dollar.</h2>
+		<div style="margin-top:32px;max-width:720px">
+			<FaqAccordion items={faqs} />
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<div class="card-cta-row">
+			<h2 class="page-h2" style="color:#fff;margin:0">Tell me your cost per booked install. If you don't know it, that's where we start.</h2>
+			<LeadForm />
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.pillar {
+		border-top: 3px solid var(--orange-500);
+		padding-top: 20px;
+	}
+	.pillar a {
+		font-weight: 600;
+	}
+</style>
