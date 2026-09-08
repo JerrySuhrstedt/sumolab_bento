@@ -5,9 +5,9 @@ import cloudflare from '@astrojs/cloudflare';
 import { insights } from './src/data/insights.ts';
 import { portfolioProjects } from './src/data/portfolio.ts';
 
-// <lastmod> per article URL, so Google can tell a rewritten post from one that
-// has not moved in two years. Articles are the only pages with a trustworthy
-// modification date in the data; every other route is emitted without a
+// <lastmod> per URL, so Google can tell a rewritten page from one that has not
+// moved in two years. Articles carry updatedAt/publishedAt; portfolio projects
+// carry updatedAt seeded from git blame. Every other route is emitted without a
 // lastmod on purpose. A date we cannot back up (a build timestamp, say) makes
 // Google distrust and ignore lastmod across the whole sitemap.
 // Portfolio pages whose canonical points at a case study. Listing a
@@ -17,9 +17,12 @@ const nonCanonicalPaths = new Set(
 	portfolioProjects.filter((p) => p.caseStudySlug).map((p) => `/jerry/${p.slug}/`),
 );
 
-const articleLastmod = new Map(
-	insights.map((a) => [`/blog/${a.slug}/`, `${a.updatedAt ?? a.publishedAt}T00:00:00.000Z`]),
-);
+const lastmodByPath = new Map([
+	...insights.map((a) => [`/blog/${a.slug}/`, `${a.updatedAt ?? a.publishedAt}T00:00:00.000Z`]),
+	...portfolioProjects
+		.filter((p) => p.updatedAt)
+		.map((p) => [`/jerry/${p.slug}/`, `${p.updatedAt}T00:00:00.000Z`]),
+]);
 
 // https://astro.build/config
 export default defineConfig({
@@ -43,7 +46,7 @@ export default defineConfig({
 			serialize: (item) => {
 				const path = new URL(item.url).pathname;
 				if (nonCanonicalPaths.has(path)) return undefined;
-				const lastmod = articleLastmod.get(path);
+				const lastmod = lastmodByPath.get(path);
 				return lastmod ? { ...item, lastmod } : item;
 			},
 		}),

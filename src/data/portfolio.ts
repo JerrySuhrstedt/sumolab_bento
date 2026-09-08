@@ -29,12 +29,21 @@ export interface PortfolioProject {
 	 * rather than a business outcome. Optional; rendered only when present.
 	 */
 	takeaway?: string;
+	/**
+	 * Last real change to this project's entry, as a UTC date. Drives <lastmod>
+	 * in the sitemap. Seeded from `git blame` on this file, not invented: a
+	 * lastmod Google cannot corroborate makes it distrust lastmod site-wide.
+	 * Update it when you materially change the copy or artifacts, and leave it
+	 * alone for a typo fix.
+	 */
+	updatedAt?: string;
 	artifacts: PortfolioArtifact[];
 }
 
 export const portfolioProjects: PortfolioProject[] = [
 	{
 		slug: "first-products-judy-trudy",
+		updatedAt: "2026-09-08",
 		caseStudySlug: "rebranding-first-products",
 		name: "First Products: Judy & Trudy",
 		category: "Graphic Design & Branding",
@@ -51,6 +60,7 @@ export const portfolioProjects: PortfolioProject[] = [
 	},
 	{
 		slug: "addaroom",
+		updatedAt: "2026-08-31",
 		name: "AddaRoom",
 		category: "Marketing Strategy & Video",
 		sample: false,
@@ -69,6 +79,7 @@ export const portfolioProjects: PortfolioProject[] = [
 	},
 	{
 		slug: "chumley",
+		updatedAt: "2026-08-31",
 		name: "Chumley",
 		category: "Branding & Product Development",
 		sample: false,
@@ -87,6 +98,7 @@ export const portfolioProjects: PortfolioProject[] = [
 	},
 	{
 		slug: "diggs-custom-homes",
+		updatedAt: "2026-08-31",
 		name: "Diggs Custom Homes",
 		category: "Marketing Campaign",
 		sample: false,
@@ -103,6 +115,7 @@ export const portfolioProjects: PortfolioProject[] = [
 	},
 	{
 		slug: "osista-outer-wear",
+		updatedAt: "2026-08-31",
 		name: "Osista Outer Wear",
 		category: "Graphic Design & Branding",
 		sample: false,
@@ -119,6 +132,7 @@ export const portfolioProjects: PortfolioProject[] = [
 	},
 	{
 		slug: "top-notch-cleaning",
+		updatedAt: "2026-09-08",
 		name: "Top Notch Construction Cleaning",
 		category: "Graphic Design & Branding",
 		sample: false,
@@ -133,6 +147,7 @@ export const portfolioProjects: PortfolioProject[] = [
 	},
 	{
 		slug: "hiline-homes-radio-jingle",
+		updatedAt: "2026-09-08",
 		caseStudySlug: "hiline-homes-sales-growth",
 		name: "HiLine Homes Marketing Campaign",
 		category: "Marketing Strategy",
@@ -151,6 +166,7 @@ export const portfolioProjects: PortfolioProject[] = [
 	},
 	{
 		slug: "small-diggs",
+		updatedAt: "2026-08-31",
 		name: "Small Diggs",
 		category: "Marketing & Branding",
 		sample: false,
@@ -162,6 +178,7 @@ export const portfolioProjects: PortfolioProject[] = [
 	},
 	{
 		slug: "design-build-nw",
+		updatedAt: "2026-08-31",
 		name: "Design Build NW",
 		category: "Web Design",
 		sample: false,
@@ -173,6 +190,7 @@ export const portfolioProjects: PortfolioProject[] = [
 	},
 	{
 		slug: "altair-global-reporting",
+		updatedAt: "2026-09-08",
 		caseStudySlug: "altair-global-reporting",
 		name: "Altair Global: Board Reporting Dashboard",
 		category: "Salesforce & Business Analysis",
@@ -188,6 +206,7 @@ export const portfolioProjects: PortfolioProject[] = [
 	},
 	{
 		slug: "stanbrooke-contractor-shortage",
+		updatedAt: "2026-09-08",
 		caseStudySlug: "stanbrooke-contractor-shortage",
 		name: "Stanbrooke Custom Homes: Contractor Shortage",
 		category: "Marketing Strategy",
