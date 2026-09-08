@@ -1,0 +1,186 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Section from '../components/Section.astro';
+import LeadForm from '../components/LeadForm.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+
+const faqs = [
+	{
+		question: 'How do plumbers get more customers?',
+		answer:
+			'Be the one who answers and the one who says the price. Emergency plumbing is decided in about a minute by somebody watching water spread across a floor, and they pick whoever removes the most uncertainty fastest. A human on the phone, a visible price range, and recent reviews that mention honesty will beat a better website every time.',
+	},
+	{
+		question: 'Should a plumbing company publish its prices?',
+		answer:
+			'A range, yes. Not a full price book. "Water heater replacement, most homes land between X and Y, and we tell you the number before we start" removes the single biggest fear a homeowner has about calling a plumber. Competitors who hide behind "call for a quote" look like they have something to hide, because in the customer\'s experience they usually do.',
+	},
+	{
+		question: 'Are Google Local Services Ads worth it for plumbers?',
+		answer:
+			'For emergency work, they are usually the best paid channel available. They sit above regular search results, they are priced per lead rather than per click, and the Google Guaranteed badge does trust work that your own website cannot. Get the badge before you spend heavily on regular search ads.',
+	},
+	{
+		question: 'How do I get more planned plumbing work instead of emergencies?',
+		answer:
+			'Mine the jobs you already did. Water heaters last eight to twelve years and you have the install dates in your records. Repipe candidates are the houses you were already under. A list sorted by age, worked by phone, produces scheduled work at a decent margin instead of another 11pm call.',
+	},
+];
+
+const structuredData = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'ProfessionalService',
+		name: 'SumoLab',
+		description:
+			'Plumbing contractor marketing from an operator who has run marketing for HVAC, electrical, and plumbing companies. Winning the emergency call, then turning it into planned work.',
+		url: 'https://sumolab.co/marketing-for-plumbing-contractors/',
+		telephone: '+14808269400',
+		email: 'jerry@sumolab.co',
+		address: {
+			'@type': 'PostalAddress',
+			addressLocality: 'Chandler',
+			addressRegion: 'AZ',
+			addressCountry: 'US',
+		},
+		founder: {
+			'@type': 'Person',
+			name: 'Jerry Suhrstedt',
+			jobTitle: 'Founder & Fractional CMO',
+			sameAs: 'https://www.linkedin.com/in/jerrysuhrstedt/',
+		},
+		areaServed: [
+			{ '@type': 'State', name: 'Arizona' },
+			{ '@type': 'Country', name: 'United States' },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqs.map((faq) => ({
+			'@type': 'Question',
+			name: faq.question,
+			acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+		})),
+	},
+];
+---
+
+<Layout
+	title="Plumbing Contractor Marketing | SumoLab"
+	description="Plumbing contractor marketing built on how people actually hire a plumber: they panic and pick. Win the call, publish the price, then turn it into planned work."
+	structuredData={structuredData}
+>
+	<PageHero
+		image="/photos/plumbing-contractors-hero.jpg"
+		imageAlt="Plumber working under a residential kitchen sink with a wrench and headlamp"
+		eyebrow="Plumbing contractor marketing"
+		align="left"
+		imagePosition="center center"
+	>
+		<h1>Plumbing Contractor Marketing for a Customer Who Isn't Shopping.</h1>
+		<p>Nobody shops for a plumber. They panic and pick. Most plumbing contractor marketing is built as if a homeowner is calmly comparing three companies on a laptop, when what's really happening is somebody standing in two inches of water, phone in hand, picking whoever sounds least frightening... in about ninety seconds.</p>
+	</PageHero>
+
+	<Section tone="plain">
+		<p class="eyebrow-label"><span class="dot"></span>The short answer</p>
+		<h2 class="page-h2">What works in plumbing contractor marketing?</h2>
+		<p class="lede" style="margin-top:24px;max-width:720px">Plumbing contractor marketing works when it removes uncertainty faster than the competition. A human answering the phone, a published price range, the Google Guaranteed badge, and recent reviews that mention honesty. Win the emergency call that way, then mine your own install records for the planned work that actually carries margin.</p>
+	</Section>
+
+	<Section tone="white">
+		<div class="two-col" style="align-items:start;gap:64px">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>The situation</p>
+				<h2 class="page-h2">Yours is the only trade called while the house is being damaged.</h2>
+				<p class="lede" style="margin-top:24px">A dead outlet can wait until Tuesday. No cooling is miserable but survivable. A supply line letting go at eleven at night is different in kind, not degree, and the person calling you knows it.</p>
+				<p class="lede" style="margin-top:16px">That changes everything about how you get hired. There's no comparison shopping, no reading your About page, no weighing your twenty years against somebody's fifteen. There's a search, a list, and a thumb.</p>
+				<p class="lede" style="margin-top:16px">It also means you're being chosen by somebody who is afraid of two things at once: the water, and you. Which brings us to the part most plumbers refuse to fix.</p>
+			</div>
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>Common symptoms</p>
+				<ul class="dot-list" style="margin-top:24px">
+					<li><span class="dot" aria-hidden="true"></span>Busy every night and thin at the end of the year</li>
+					<li><span class="dot" aria-hidden="true"></span>Every price conversation starts with the customer bracing to be taken</li>
+					<li><span class="dot" aria-hidden="true"></span>Hundreds of water heaters installed, no idea which ones are due</li>
+					<li><span class="dot" aria-hidden="true"></span>No Google Guaranteed badge while three competitors have one</li>
+					<li><span class="dot" aria-hidden="true"></span>Reviews that say "great job" and never say "fair price"</li>
+				</ul>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<p class="eyebrow-label" style="color:var(--orange-400)"><span class="dot"></span>The part most plumbers won't do</p>
+		<h2 class="page-h2" style="color:#fff">Publish your prices. At least a range.</h2>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:720px;margin-top:24px">"Plumber ripped me off" is a cultural punchline. It isn't fair to you, and it's the single largest thing standing between a scared homeowner and your phone number.</p>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:720px;margin-top:16px">Every competitor in your market answers that fear with "call for a free estimate." Which, to somebody who has been burned once, reads as: we'll tell you the number when you're least able to say no.</p>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:720px;margin-top:16px">So say it out loud instead. Water heater replacement, most homes land between this and this. Drain clearing, flat rate, this. We give you the number before any work starts. Not a full price book, just enough that the fear has somewhere to go.</p>
+		<p class="lede" style="color:rgba(255,255,255,0.85);max-width:720px;margin-top:16px">Every plumber I've said this to has told me no way this is going to work, the jobs vary too much. The range is how you handle that. And the ones who do it stop competing on being cheapest and start competing on being the one who told the truth first.</p>
+	</Section>
+
+	<Section tone="white">
+		<p class="eyebrow-label"><span class="dot"></span>Winning the call</p>
+		<h2 class="page-h2">Three things decide it, and none of them are your website.</h2>
+		<div class="grid-3" style="margin-top:40px">
+			<div class="pillar">
+				<h3 class="page-h3">The Google Guaranteed badge</h3>
+				<p class="lede">Local Services Ads sit above everything else, charge per lead instead of per click, and put a Google-backed badge next to your name. For emergency plumbing it's usually the best paid channel there is. Get the badge before you spend a dollar on regular search ads.</p>
+			</div>
+			<div class="pillar">
+				<h3 class="page-h3">Reviews that mention money</h3>
+				<p class="lede">"Great job" reassures nobody. "Told me the price up front and it didn't change" answers the exact fear. Ask for that specifically at the end of the call. Say the words you want back.</p>
+			</div>
+			<div class="pillar">
+				<h3 class="page-h3">A person, not a voicemail</h3>
+				<p class="lede">Table stakes at this point, and the <a href="/marketing-for-hvac-contractors/">HVAC page</a> covers the mechanics. In plumbing the stakes are just higher, because the caller is watching damage happen while your phone rings.</p>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="white">
+		<div class="two-col" style="align-items:start;gap:64px">
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>The half that pays better</p>
+				<h2 class="page-h2">Turn last year's emergencies into this year's schedule.</h2>
+				<p class="lede" style="margin-top:24px">Emergency work pays today and builds nothing. The customer was never loyal to you, they were loyal to whoever answered, and by Friday they've forgotten your name.</p>
+				<p class="lede" style="margin-top:16px">The planned work is where the margin and the sanity live. Repipes, water heater replacements, fixture upgrades, remodel rough-in. It schedules during daylight and it doesn't compete on panic.</p>
+				<p class="lede" style="margin-top:16px">And you already know exactly who to call. Water heaters last eight to twelve years, you installed them, and the dates are sitting in your records. Sort by age and start dialing the ones past year eight. That's a list nobody else in your market has.</p>
+				<p class="lede" style="margin-top:16px">This is the whole reason I built <a href="/jerry/chumley/">Chumley</a>, a CRM for people running jobs out of a truck. Every tool on the market wanted eleven fields before you could write down a lead, so tradespeople went back to a notebook and the follow-up never happened.</p>
+			</div>
+			<div>
+				<p class="eyebrow-label"><span class="dot"></span>Who runs it</p>
+				<h2 class="page-h2">This doesn't get done at nine at night.</h2>
+				<p class="lede" style="margin-top:24px">Publishing prices is a decision, not a task. So is deciding the badge is worth the money, or that somebody is going to work the water heater list every Tuesday. None of it happens while you're under a sink.</p>
+				<p class="lede" style="margin-top:16px">That's the seat I fill. A senior marketing person on a set number of hours a month who owns those calls, with your agency and lead vendors answering to me instead of to you. For most plumbing companies that's a <a href="/services/fractional-marketing-director/">fractional marketing director</a>. When the question is which work you want more of rather than how to get it, it's a <a href="/services/fractional-cmo/">fractional CMO</a>.</p>
+				<p class="lede" style="margin-top:16px">Doing rough-in for builders and remodelers too? <a href="/marketing-for-construction-companies/">Marketing for construction companies</a> covers the bid-list side. Running other trades under one roof? There's a page for <a href="/marketing-for-electrical-contractors/">electrical contractors</a> as well. And before you renew a lead contract, read <a href="/blog/contractor-leads/">contractor leads: buy them, earn them, or build the machine</a>.</p>
+			</div>
+		</div>
+	</Section>
+
+	<Section tone="white">
+		<p class="eyebrow-label"><span class="dot"></span>Common questions</p>
+		<h2 class="page-h2">What plumbing contractors ask before they spend a dollar.</h2>
+		<div style="margin-top:32px;max-width:720px">
+			<FaqAccordion items={faqs} />
+		</div>
+	</Section>
+
+	<Section tone="ink">
+		<div class="card-cta-row">
+			<h2 class="page-h2" style="color:#fff;margin:0">Tell me what percentage of your year is emergency work. That number is the whole conversation.</h2>
+			<LeadForm />
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.pillar {
+		border-top: 3px solid var(--orange-500);
+		padding-top: 20px;
+	}
+	.pillar a {
+		font-weight: 600;
+	}
+</style>

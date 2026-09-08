@@ -57,6 +57,7 @@ export const footerNav = {
 		{ label: "Marketing for Remodelers", href: "/marketing-for-remodelers/" },
 		{ label: "Marketing for HVAC Contractors", href: "/marketing-for-hvac-contractors/" },
 		{ label: "Marketing for Electrical Contractors", href: "/marketing-for-electrical-contractors/" },
+		{ label: "Marketing for Plumbing Contractors", href: "/marketing-for-plumbing-contractors/" },
 	] satisfies NavLink[],
 };
 
