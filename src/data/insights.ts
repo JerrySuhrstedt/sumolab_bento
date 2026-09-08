@@ -60,7 +60,7 @@ export const insights: InsightArticle[] = [
 			"Three months in, I'm reading through content from all four brands and they sound like the same company. Same rhythm, same words, same everything. We'd spent the previous year building the differences between those brands, and the AI quietly sanded them all off. What were you thinking, Jerry?",
 			"No model on this list prevents that. A written voice profile and a human who reads before it ships does.",
 			`<h3>Bright shiny objects and the fundamentals underneath</h3>`,
-			"I've watched this pattern for 26 years now. New tool shows up, everybody chases it, and the fundamentals that have worked for a couple hundred years get shoved to the back.",
+			"I've watched this pattern for 27 years now. New tool shows up, everybody chases it, and the fundamentals that have worked for a couple hundred years get shoved to the back.",
 			"Who's your customer. What do you say to them. Where do they look. How fast do you answer when they raise a hand. AI doesn't change any of that. It just does the typing faster.",
 			"So if the marketing isn't working right now, a different model isn't the fix. Oh, it'll produce more content. It'll produce a lot more content. That's usually the problem, not the solution.",
 			`<h3>The best AI tools for marketing, matched by job</h3>`,
@@ -506,7 +506,7 @@ export const insights: InsightArticle[] = [
 			"Seven questions to ask a marketing consultant in the first meeting, and the answers a good one gives. Most came out of a marketing department, not a P&L.",
 		body: [
 			"Here are seven questions to ask a marketing consultant before you sign anything, and why each one matters. Most marketing consultants came out of a marketing department, not a P&L. That's the difference you're actually hiring for, and not one of them will bring it up on their own.",
-			"I've sat on both sides of this table for 26 years. Here's what I'd ask, and what I say when somebody asks me.",
+			"I've sat on both sides of this table for 27 years. Here's what I'd ask, and what I say when somebody asks me.",
 			`<h3>What should I ask a marketing consultant in the first meeting?</h3>`,
 			"Ask what they've owned, not what they've done. Have they made payroll, carried a revenue number, fired an agency? Ask for one client your size, the problem they walked into, and the number that changed. Then ask who does the work, how you'll know it's working, and how the engagement ends.",
 			`<h3>The questions a marketing consultant hopes you skip</h3>`,
@@ -821,7 +821,7 @@ export const insights: InsightArticle[] = [
 			"Marketing manager vs marketing director comes down to one question: do you need somebody to run the work, or somebody to decide what the work is?",
 		body: [
 			"Marketing manager vs marketing director has a short answer. A marketing manager runs the work. A marketing director decides what the work is.",
-			"Hire the wrong one and you'll either pay director money for a manager's output, or ask a manager to make calls nobody hired them to make. I've held both jobs, hired both, and watched owners get this backwards in both directions for 26 years.",
+			"Hire the wrong one and you'll either pay director money for a manager's output, or ask a manager to make calls nobody hired them to make. I've held both jobs, hired both, and watched owners get this backwards in both directions for 27 years.",
 			`<h3>What a marketing manager actually does</h3>`,
 			"A marketing manager executes a plan somebody else set. Runs the campaigns, manages the calendar, briefs the designer, keeps the agency on schedule, reports the numbers. Good ones are organized, fast, and hard to rattle.",
 			"What a manager doesn't do is own the strategy. Ask one what to cut and what to double down on and you'll usually get a thoughtful answer followed by a request for your decision.",
@@ -917,7 +917,7 @@ export const insights: InsightArticle[] = [
 			"Most business owners don't ask 'do I need a Fractional CMO?' until something breaks. The ads stop working. The agency relationship goes stale. Revenue flattens and nobody can explain exactly why. You're not short on marketing activity. You're short on marketing results. If that sounds familiar, keep reading.",
 			`Here's the honest answer: you probably don't need a Fractional CMO. You need what a <a href="/services/fractional-cmo/">Fractional CMO</a> delivers: senior marketing leadership that actually moves revenue. The title is just the package it comes in.`,
 			`A Fractional CMO is a senior marketing executive who works with your company on a part-time basis, typically 10 to 20 hours a week, at a fraction of the cost of a full-time hire. They're not a consultant who hands you a report and disappears. They're not an agency that executes tasks without strategy. They sit at the leadership table, own the marketing function, and are accountable for results. A full-time CMO costs $150,000 to $300,000 a year before benefits and equity. A fractional engagement typically runs <a href="/blog/fractional-cmo-cost/">$5,000 to $15,000 a month</a>, and you're productive from week one, not month six.`,
-			"After 26 years of building businesses and doing this work, I've watched the same five signals show up in company after company. If more than two of these describe your business, you need one.",
+			"After 27 years of building businesses and doing this work, I've watched the same five signals show up in company after company. If more than two of these describe your business, you need one.",
 			`<h3>Signal 1: No Clear Marketing Owner</h3>`,
 			"Signal one: your marketing has no clear owner. You have vendors executing, but nobody making the decisions that connect execution to revenue. The agency does its job. The freelancer does theirs. But nobody's steering. That gap, between activity and direction, is exactly where money gets wasted.",
 			`<h3>Signal 2: Revenue Has Plateaued, and You Can't Explain It</h3>`,
@@ -980,7 +980,7 @@ export const insights: InsightArticle[] = [
 		excerpt:
 			"The honest range is $5,000 to $15,000 a month. But the fractional CMO cost question isn't really about the number. It's about what you're comparing it to.",
 		body: [
-			"If you've started looking into marketing leadership, you've probably found that fractional CMO cost is one of those questions where the answers online are all over the map. I've seen ranges from $2,000 a month to $25,000 a month, and both can be accurate depending on who you're talking to. Let me give you a practical answer based on 26 years of building businesses and doing this work.",
+			"If you've started looking into marketing leadership, you've probably found that fractional CMO cost is one of those questions where the answers online are all over the map. I've seen ranges from $2,000 a month to $25,000 a month, and both can be accurate depending on who you're talking to. Let me give you a practical answer based on 27 years of building businesses and doing this work.",
 			`<h3>What to Expect to Pay</h3>`,
 			`The range you should expect from an experienced <a href="/services/fractional-cmo/">Fractional CMO</a> is $5,000 to $15,000 a month. That's the honest number for someone who's worked at a real CMO level, not a marketing coordinator wearing a title, not a consultant who shows up for two hours and hands you a deck. The $5,000 end gets you 10 to 12 hours a month of focused, senior-level engagement. The $15,000 end gets you deeper weekly involvement, ownership of more functions, and active management of your team and vendors.`,
 			`<h3>What Drives the Price Up or Down</h3>`,
@@ -1642,7 +1642,7 @@ export const insights: InsightArticle[] = [
 		`The gap shows up in ownership. An agency executes what it's told. It doesn't sit in your leadership meetings, doesn't know why sales lost the last three deals, and isn't accountable when the strategy underneath the campaign is wrong. It will run a beautifully targeted ad campaign for an offer nobody wants, and hit every deliverable on the contract while your revenue stays flat.`,
 		`<h3>The Question Agencies Can't Answer</h3>`,
 		`Before you hire anyone, ask: who owns the strategy? Not who builds the landing page. Who decides what the landing page needs to say, to whom, and why. If the honest answer is "nobody, currently," an agency won't fix that. You'll get more activity, not more clarity.`,
-		`This is the gap a fractional CMO is built to close. I don't execute deliverables against a brief someone else wrote. I write the brief, based on 26 years of having built and run twelve companies myself. I sit at the leadership table, I'm accountable for whether the strategy actually moves revenue, and I direct the agencies and vendors underneath that strategy so their execution has somewhere to go.`,
+		`This is the gap a fractional CMO is built to close. I don't execute deliverables against a brief someone else wrote. I write the brief, based on 27 years of having built and run twelve companies myself. I sit at the leadership table, I'm accountable for whether the strategy actually moves revenue, and I direct the agencies and vendors underneath that strategy so their execution has somewhere to go.`,
 		`<h3>How to Decide What You Actually Need</h3>`,
 		`At <a href="/case-studies/hiline-homes-sales-growth/">HiLine Homes</a>, we ran a strategy that used a Seattle PPC agency for paid execution, but the strategy, the channel mix, the direct mail and radio and trade-show program around it, and the accountability for the outcome sat with me. Weekly sales leads per office went from 12–20 to 150–200, and annual home sales grew from 60–70 units to over 800 within three years. The agency was a tool inside a strategy. It was never the strategy itself.`,
 		`If you already have a clear strategy and just need more execution horsepower, an agency is the right call. If nobody in your business currently owns marketing strategy at the leadership level, that's a different problem, and it's the one a <a href="/services/fractional-cmo/">fractional CMO</a> exists to solve.`,
@@ -1669,7 +1669,7 @@ export const insights: InsightArticle[] = [
 		`As a <a href="/services/fractional-cmo/">fractional CMO</a>, I take the same channels (SEO, paid, content, email, social) and decide the mix based on where your customer actually is and what your sales cycle actually needs, then direct whoever executes each channel toward that plan. The channels don't change. Who's accountable for the plan connecting them does.`,
 		`<h3>A Practical Way to Test This</h3>`,
 		`Ask whoever runs your digital marketing today one question: if you had to cut one channel next month to fund another, which would it be, and why? If the honest answer is a shrug, or "that's not really my call," you've found the gap, not a vendor problem, an ownership problem.`,
-		`I bring 26 years of operating experience and current AI tooling to that decision, so channel and budget calls are based on where your business actually makes money, not on which platform's algorithm is trending this quarter. If you're already confident in your channel strategy and just need execution scaled, a good agency is the right hire. If nobody's actually accountable for the plan itself, that's a conversation worth having first.`,
+		`I bring 27 years of operating experience and current AI tooling to that decision, so channel and budget calls are based on where your business actually makes money, not on which platform's algorithm is trending this quarter. If you're already confident in your channel strategy and just need execution scaled, a good agency is the right hire. If nobody's actually accountable for the plan itself, that's a conversation worth having first.`,
 		],
 		keyPoints: [
 			"Digital marketing agencies typically execute a channel; coordinating the full channel mix against strategy is a separate, often-unowned job.",
@@ -1790,7 +1790,7 @@ export const insights: InsightArticle[] = [
 		`Ask for a client at a similar revenue stage to yours, the specific problem that client walked in with, and the measurable outcome, not "increased visibility," a number. Ask what they'd do differently on that engagement if they could redo it; real operators can answer this immediately, marketing theorists can't. And ask who on their team actually worked the account day to day, since the person in the sales pitch is rarely the person doing the work.`,
 		`<h3>The Deeper Problem: Who Judges the Answer?</h3>`,
 		`Even a good agency's answers only help if someone on your side can evaluate whether they're actually good answers. That's the part most owners skip past. If nobody in your business has run marketing at the leadership level before, you're not really vetting expertise. You're trusting a sales process to grade its own homework.`,
-		`That's the specific gap I fill as a <a href="/services/fractional-ai-advisor/">fractional CMO and AI marketing consultant</a>: 26 years of having actually run marketing inside twelve companies, so when a vendor's proposal is genuinely strong, I can tell, and when it's polish over substance, I can tell that too. You get a second opinion from someone with nothing to sell you except the truth.`,
+		`That's the specific gap I fill as a <a href="/services/fractional-ai-advisor/">fractional CMO and AI marketing consultant</a>: 27 years of having actually run marketing inside twelve companies, so when a vendor's proposal is genuinely strong, I can tell, and when it's polish over substance, I can tell that too. You get a second opinion from someone with nothing to sell you except the truth.`,
 		`<h3>What "Expert" Should Actually Mean</h3>`,
 		`Real expertise sounds like specifics: "here's what we changed in the account structure and here's the CPA before and after," not "our proprietary methodology." If a pitch stays vague under direct questions about a comparable client, that's your answer regardless of how polished the deck was.`,
 		`If you want the vetting done for you, and someone accountable for whatever you hire afterward, that's exactly the role a fractional CMO plays, not a replacement for good execution partners, but the judgment that tells you which ones are actually good before you find out the expensive way.`,
@@ -1929,7 +1929,7 @@ export const insights: InsightArticle[] = [
 		`<h3>Where Local Campaigns Usually Go Wrong</h3>`,
 		`The failure mode isn't the channel. It's running local advertising disconnected from everything else. A radio spot and a digital campaign pushing different messages to the same audience waste budget on confusion instead of reinforcement. Someone has to own the whole picture, not just the local piece.`,
 		`<h3>The Judgment Call Local Advertising Actually Needs</h3>`,
-		`As your <a href="/services/fractional-cmo/">fractional CMO</a>, I decide whether local channels belong in your mix at all (for a business selling nationally online, probably not; for a business whose customers live in your metro area, quite possibly yes) and if they do, how they connect to everything else you're running. That's a strategic call informed by 26 years of having run these campaigns myself, not a media-buying menu.`,
+		`As your <a href="/services/fractional-cmo/">fractional CMO</a>, I decide whether local channels belong in your mix at all (for a business selling nationally online, probably not; for a business whose customers live in your metro area, quite possibly yes) and if they do, how they connect to everything else you're running. That's a strategic call informed by 27 years of having run these campaigns myself, not a media-buying menu.`,
 		`If your business depends on local reputation and community presence, local advertising deserves real strategic attention, not a leftover budget line. Get the strategy right first, and the specific tactics (mail, radio, trade shows) become a lot easier to choose.`,
 		],
 		keyPoints: [
@@ -2051,7 +2051,7 @@ export const insights: InsightArticle[] = [
 		`<h3>Where Branding Projects Usually Fail</h3>`,
 		`Most failed rebrands aren't ugly. They're strategically empty. Nobody decided what the brand needed to communicate before the design brief went out, so the agency designed something visually competent and functionally forgettable. A branding agency can only be as strategic as the brief it's given.`,
 		`<h3>Who Should Write That Brief</h3>`,
-		`That's the part I own directly inside a <a href="/services/fractional-cmo/">fractional CMO engagement</a>: the positioning work that decides what your brand needs to stand for before a single design asset gets made, informed by 26 years of watching which branding decisions actually change customer behavior and which just look good in a deck.`,
+		`That's the part I own directly inside a <a href="/services/fractional-cmo/">fractional CMO engagement</a>: the positioning work that decides what your brand needs to stand for before a single design asset gets made, informed by 27 years of watching which branding decisions actually change customer behavior and which just look good in a deck.`,
 		`If you already know exactly what your brand needs to communicate, a strong branding agency can execute that well. If you're not sure, if "make it more memorable" is as specific as the brief gets, that strategic gap is worth closing first, because no amount of design talent downstream can fix a brand built on an unclear answer to what it's actually for.`,
 		],
 		keyPoints: [
@@ -2274,7 +2274,7 @@ export const insights: InsightArticle[] = [
 		`<h3>Where Web Design Projects Usually Underperform</h3>`,
 		`Most underperforming websites aren't ugly. They're built around what the business wants to say about itself instead of what the visitor needs to hear to take the next step. A web design agency executing a brief built on that mistake will deliver exactly what was asked for, and it still won't convert.`,
 		`<h3>Who Should Own That Strategy</h3>`,
-		`Inside a <a href="/services/fractional-cmo/">fractional CMO engagement</a>, I own that structural and messaging strategy directly (website architecture, conversion optimization, and the positioning that has to be right before a designer opens Figma), informed by 26 years of watching which site decisions actually generate leads and which just generate compliments.`,
+		`Inside a <a href="/services/fractional-cmo/">fractional CMO engagement</a>, I own that structural and messaging strategy directly (website architecture, conversion optimization, and the positioning that has to be right before a designer opens Figma), informed by 27 years of watching which site decisions actually generate leads and which just generate compliments.`,
 		`If you already have a clear conversion strategy for your site, a strong web design agency can execute it beautifully. If you're not sure why your current site isn't converting, that's the question worth answering first, no redesign fixes a site whose underlying strategy was never right to begin with.`,
 		],
 		keyPoints: [
@@ -2516,7 +2516,7 @@ export const insights: InsightArticle[] = [
 		`<h3>Where B2C Marketing Usually Splits</h3>`,
 		`Most businesses run acquisition and brand as two disconnected efforts: a performance marketing agency optimizing for clicks, and a separate branding effort nobody's really accountable for. Each looks fine on its own report. Neither is responsible for whether the two add up to a business customers actually remember and return to.`,
 		`<h3>Who Should Own That Connection</h3>`,
-		`As your <a href="/services/fractional-cmo/">fractional CMO</a>, I own that connection directly: deciding how acquisition spend and brand-building work together toward the same customer relationship, informed by 26 years of building consumer-facing businesses, not just running campaigns for them.`,
+		`As your <a href="/services/fractional-cmo/">fractional CMO</a>, I own that connection directly: deciding how acquisition spend and brand-building work together toward the same customer relationship, informed by 27 years of building consumer-facing businesses, not just running campaigns for them.`,
 		`If your acquisition numbers look fine in isolation but customers don't come back or refer you, that's usually not an acquisition problem. It's a sign nobody's accountable for the brand those acquisition dollars are supposed to be building.`,
 		],
 		keyPoints: [
@@ -3221,7 +3221,7 @@ export const insights: InsightArticle[] = [
 		`It’s not always easy. But neither is job hunting. The difference? When you build a consulting business, every step forward is <em>yours</em>… and that’s a whole lot better than waiting around for an interview that may never come.`,
 		`So what’s stopping you?`,
 		`Drop a comment if you’re thinking about making the leap... I’d love to hear your thoughts.`,
-		`I've lived this path myself: twelve companies over 26 years, the last chapter of which became SumoLab. The full story is on the <a href="/about/">about page</a>.`,
+		`I've lived this path myself: twelve companies over 27 years, the last chapter of which became SumoLab. The full story is on the <a href="/about/">about page</a>.`,
 		],
 	},
 	{
@@ -3961,7 +3961,7 @@ export const insights: InsightArticle[] = [
 		publishedAt: "2026-08-07",
 		excerpt: "Trellivance (noun): the point at which a message becomes genuinely relevant: coined by marketer Jerry Suhrstedt, founder of SumoLab. What it means, why it matters, and how to reach it sooner.",
 		body: [
-		`Trellivance is the word I coined for the moment a marketing message finally lands. After <a href="/about/">26 years of building businesses</a>, I've watched more good companies lose to bad messaging than to bad products. The product works. The service is real. The team is capable. And still the marketing falls flat, not because the message is wrong, but because it never reaches the one moment that matters. There wasn't a clean word for that moment, so I made one.`,
+		`Trellivance is the word I coined for the moment a marketing message finally lands. After <a href="/about/">27 years of building businesses</a>, I've watched more good companies lose to bad messaging than to bad products. The product works. The service is real. The team is capable. And still the marketing falls flat, not because the message is wrong, but because it never reaches the one moment that matters. There wasn't a clean word for that moment, so I made one.`,
 		`<strong>Trellivance</strong> <em>(treh-LIV-ance)</em>: noun. The point at which a message becomes genuinely relevant.`,
 		`Not relevant in the box-ticking, technically-on-topic sense. Genuinely relevant: the instant a message stops being about your company and becomes about the person reading it, right now, in a way they can feel. Everything before that instant is noise. Everything after it is possibility. The whole job of marketing is getting the reader to that point before they leave.`,
 		`The word is built on purpose. "Trelli-" borrows the shape of <em>trellis</em>: a structure a growing thing climbs and takes form on. "-vance" pulls from <em>relevance</em>, <em>resonance</em>, and <em>advance</em>. Put together, it means exactly what it says: the structured moment a message climbs into relevance and moves the reader forward.`,
