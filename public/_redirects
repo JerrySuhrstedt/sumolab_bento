@@ -13,6 +13,28 @@
 /my-crazy-business-turnaround-strategy-from-bankrupt-dumpster-fire-to-12-million/ /blog/business-turnaround-strategy-bankrupt-to-12m/ 301
 /creating-a-seamless-brand-experience-how-to-maintain-consistency-across-social-media-channels/ /blog/creating-a-seamless-brand-experience-consistency/ 301
 
+# --- Indexed URLs that were still 404ing, found 2026-09-07 by diffing the
+# Search Console indexed list against the sitemap. Google has these in its
+# index, so a visitor clicking a result was landing on a 404. Completed the
+# old /case-study/ and /service/ sets rather than patching one at a time.
+/case-study/case-study-resolving-contractor-shortage-at-stanbrooke-custom-homes/ /case-studies/stanbrooke-contractor-shortage/ 301
+/case-study/case-study-seamless-transition-from-marketo-to-salesforce-account-engagement-pardot/ /case-studies/marketo-to-pardot-migration/ 301
+/case-study/case-study-streamlining-altair-globals-reporting-process-with-salesforce-dashboards/ /case-studies/altair-global-reporting/ 301
+/case-study/case-study-transforming-stanbrooke-custom-homes-sales-process-with-salesforce/ /case-studies/stanbrooke-salesforce-sales-process/ 301
+
+/service/fractional-cmo-gilbert-az/ /services/fractional-cmo/gilbert/ 301
+/service/fractional-cmo-mesa-az/ /services/fractional-cmo/mesa/ 301
+/service/fractional-cmo-tempe-az/ /services/fractional-cmo/tempe/ 301
+/service/fractional-marketing-director-gilbert-az/ /services/fractional-marketing-director/gilbert/ 301
+/service/fractional-marketing-director-mesa-az/ /services/fractional-marketing-director/mesa/ 301
+/service/fractional-marketing-director-scottsdale-az/ /services/fractional-marketing-director/scottsdale/ 301
+/service/fractional-ai-advisor-chandler-az/ /services/fractional-ai-advisor/chandler/ 301
+/service/fractional-ai-advisor-gilbert-az/ /services/fractional-ai-advisor/gilbert/ 301
+/service/fractional-ai-advisor-mesa-az/ /services/fractional-ai-advisor/mesa/ 301
+/service/fractional-ai-advisor-phoenix-az/ /services/fractional-ai-advisor/phoenix/ 301
+/service/fractional-ai-advisor-scottsdale-az/ /services/fractional-ai-advisor/scottsdale/ 301
+/service/fractional-ai-advisor-tempe-az/ /services/fractional-ai-advisor/tempe/ 301
+
 # --- Recovered from the Search Console Performance report, 2026-09-07 ---
 # /what-is-a-fractional-marketing-director/ is the single largest source of
 # impressions on the whole site: 2,961 in three months at position 65, and it
