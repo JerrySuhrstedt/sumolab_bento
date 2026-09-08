@@ -5,6 +5,7 @@ import Section from '../../components/Section.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import LeadForm from '../../components/LeadForm.astro';
 import { services } from '../../data/services';
+import { industries } from '../../data/industries';
 ---
 
 <Layout
@@ -29,6 +30,20 @@ import { services } from '../../data/services';
 		</div>
 	</Section>
 
+	<Section tone="plain">
+		<p class="eyebrow-label"><span class="dot"></span>Industries</p>
+		<h2 class="page-h2">Six industries I know from the inside.</h2>
+		<p class="lede" style="margin-top:24px;max-width:720px">Sixteen years in home building and three construction companies founded. The trades and the builders are where I have run the marketing, not just advised on it.</p>
+		<div class="grid-3" style="margin-top:40px">
+			{industries.map((industry) => (
+				<div class="industry">
+					<h3 class="page-h3"><a href={industry.href}>{industry.name}</a></h3>
+					<p class="lede">{industry.line}</p>
+				</div>
+			))}
+		</div>
+	</Section>
+
 	<Section tone="ink">
 		<div class="card-cta-row">
 			<h2 class="page-h2" style="color:#fff;margin:0">Not sure which one fits your situation?</h2>
@@ -36,3 +51,16 @@ import { services } from '../../data/services';
 		</div>
 	</Section>
 </Layout>
+
+<style>
+	.industry {
+		border-top: 3px solid var(--orange-500);
+		padding-top: 20px;
+	}
+	.industry a {
+		text-decoration: none;
+	}
+	.industry a:hover {
+		color: var(--orange-600);
+	}
+</style>
