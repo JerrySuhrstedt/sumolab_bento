@@ -13,6 +13,15 @@
 /my-crazy-business-turnaround-strategy-from-bankrupt-dumpster-fire-to-12-million/ /blog/business-turnaround-strategy-bankrupt-to-12m/ 301
 /creating-a-seamless-brand-experience-how-to-maintain-consistency-across-social-media-channels/ /blog/creating-a-seamless-brand-experience-consistency/ 301
 
+# --- Recovered from the Search Console Performance report, 2026-09-07 ---
+# /what-is-a-fractional-marketing-director/ is the single largest source of
+# impressions on the whole site: 2,961 in three months at position 65, and it
+# has been returning 404 the entire time. It never surfaced in the "Not found"
+# report because Google had not recrawled it. Sending it to the service page
+# that answers the same question.
+/what-is-a-fractional-marketing-director/ /services/fractional-marketing-director/ 301
+/what-is-a-fractional-cmo/ /blog/what-is-a-fractional-cmo/ 301
+
 # --- Recovered from Search Console "Not found (404)", 2026-09-07 ---
 # Old WordPress taxonomy, author, and date archives. All of that content now
 # lives in one place, so send it to the blog index rather than 404.
