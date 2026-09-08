@@ -63,7 +63,7 @@ export const primaryNav: NavItem[] = [
 ];
 
 export const primaryCta: NavLink = {
-	label: "Book a Strategy Call",
+	label: "Book a Fit Call",
 	href: "/contact/",
 };
 
