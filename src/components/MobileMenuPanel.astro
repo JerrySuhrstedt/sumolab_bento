@@ -1,21 +1,33 @@
 ---
 import { primaryNav } from "../data/navigation";
 import PrimaryCTA from "./PrimaryCTA.astro";
+
+// Same normalisation as DesktopNavigation: one shape, one flat conditional.
+const nav = primaryNav.map((item) => ({
+	label: item.label,
+	href: item.href,
+	groups: item.groups ?? (item.children ? [{ label: "", links: item.children }] : null),
+}));
 ---
 
 <div id="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation" class="mobile-panel" hidden>
 	<nav aria-label="Mobile primary">
 		<ul>
-			{primaryNav.map((item) => (
+			{nav.map((item) => (
 				<li>
-					{item.children ? (
+					{item.groups ? (
 						<div class="mobile-group">
 							<a href={item.href} class="group-label">{item.label}</a>
-							<ul class="sub-list">
-								{item.children.map((child) => (
-									<li><a href={child.href} class="sub-link">{child.label}</a></li>
-								))}
-							</ul>
+							{item.groups.map((group) => (
+								<div class="mobile-subgroup">
+									{group.label && <p class="sub-heading">{group.label}</p>}
+									<ul class="sub-list">
+										{group.links.map((child) => (
+											<li><a href={child.href} class="sub-link">{child.label}</a></li>
+										))}
+									</ul>
+								</div>
+							))}
 						</div>
 					) : (
 						<a href={item.href}>{item.label}</a>
@@ -30,6 +42,16 @@ import PrimaryCTA from "./PrimaryCTA.astro";
 </div>
 
 <style>
+	.sub-heading {
+		font-family: var(--font-body);
+		font-size: 11px;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		opacity: 0.5;
+		margin: 14px 0 4px;
+	}
+
 	.mobile-panel {
 		position: fixed;
 		inset: 0;

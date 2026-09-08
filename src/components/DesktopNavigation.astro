@@ -1,21 +1,35 @@
 ---
 import { primaryNav } from "../data/navigation";
+
+// Normalise every dropdown to the same grouped shape so the template stays a
+// single flat conditional. An ungrouped menu becomes one group with no label,
+// which renders exactly as it did before.
+const nav = primaryNav.map((item) => ({
+	label: item.label,
+	href: item.href,
+	groups: item.groups ?? (item.children ? [{ label: "", links: item.children }] : null),
+}));
 ---
 
 <nav aria-label="Primary" class="desktop-nav">
 	<ul>
-		{primaryNav.map((item) => (
-			<li class:list={["nav-item", item.children ? "has-dropdown" : ""]}>
-				{item.children ? (
+		{nav.map((item) => (
+			<li class:list={["nav-item", item.groups ? "has-dropdown" : ""]}>
+				{item.groups ? (
 					<button type="button" class="nav-btn" aria-haspopup="true" aria-expanded="false">
 						{item.label}
 						<svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
 							<path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 						</svg>
 					</button>
-					<div class="dropdown" role="menu">
-						{item.children.map((child) => (
-							<a href={child.href} class="dropdown-link" role="menuitem">{child.label}</a>
+					<div class:list={["dropdown", item.groups.length > 1 ? "dropdown-grouped" : ""]} role="menu">
+						{item.groups.map((group) => (
+							<div class="dropdown-col">
+								{group.label && <p class="dropdown-group-label">{group.label}</p>}
+								{group.links.map((child) => (
+									<a href={child.href} class="dropdown-link" role="menuitem">{child.label}</a>
+								))}
+							</div>
 						))}
 					</div>
 				) : (
@@ -112,6 +126,28 @@ import { primaryNav } from "../data/navigation";
 	.dropdown-link:hover {
 		background: var(--surface-sunken, #f5f2ee);
 		color: var(--orange-500);
+	}
+	.dropdown-col {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+	.dropdown-grouped {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(200px, auto));
+		gap: 4px 24px;
+		padding: 16px;
+		align-items: start;
+	}
+	.dropdown-group-label {
+		font-family: var(--font-body);
+		font-size: 11px;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--text-muted, #8a857e);
+		margin: 0 0 6px;
+		padding: 0 14px;
 	}
 </style>
 
