@@ -25,7 +25,8 @@ const points = [
 	<div class="hero-content">
 		<div class="accent-bar"></div>
 		<h1>Still running the marketing yourself?</h1>
-		<p class="subhead">You built the company. That doesn't mean you should be its marketing department too. I take marketing off your plate the way a real hire would… own the numbers, build the system, teach your team.</p>
+		<p class="subhead">You built the company. That doesn't mean you should be its marketing department too.</p>
+		<p class="subhead">I take marketing off your plate the way a real hire would… own the numbers, build the system, teach your team.</p>
 		<ul>
 			{points.map((t) => (
 				<li>
@@ -92,8 +93,11 @@ const points = [
 		font-weight: 500;
 		line-height: 1.5;
 		color: rgba(255, 255, 255, 0.85);
-		margin: 0 0 24px;
+		margin: 0 0 15px;
 		max-width: 520px;
+	}
+	.subhead:last-of-type {
+		margin-bottom: 24px;
 	}
 	ul {
 		list-style: none;
