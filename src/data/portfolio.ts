@@ -16,12 +16,21 @@ export interface PortfolioProject {
 	result: string;
 	/** 1:1-friendly image for the overview grid. Omit if no image artifact exists (e.g. audio-only projects). */
 	thumb?: string;
+	/**
+	 * Set when a case study covers the same project. Search Console showed
+	 * Google crawling both and indexing neither reliably: 48% to 67% vocabulary
+	 * overlap, and the portfolio page is always the shorter of the two. The
+	 * canonical points at the case study so the signals consolidate there. The
+	 * portfolio page stays live and browsable, it just stops competing.
+	 */
+	caseStudySlug?: string;
 	artifacts: PortfolioArtifact[];
 }
 
 export const portfolioProjects: PortfolioProject[] = [
 	{
 		slug: "first-products-judy-trudy",
+		caseStudySlug: "rebranding-first-products",
 		name: "First Products: Judy & Trudy",
 		category: "Graphic Design & Branding",
 		sample: false,
@@ -117,6 +126,7 @@ export const portfolioProjects: PortfolioProject[] = [
 	},
 	{
 		slug: "hiline-homes-radio-jingle",
+		caseStudySlug: "hiline-homes-sales-growth",
 		name: "HiLine Homes Marketing Campaign",
 		category: "Marketing Strategy",
 		sample: false,
@@ -156,6 +166,7 @@ export const portfolioProjects: PortfolioProject[] = [
 	},
 	{
 		slug: "altair-global-reporting",
+		caseStudySlug: "altair-global-reporting",
 		name: "Altair Global: Board Reporting Dashboard",
 		category: "Salesforce & Business Analysis",
 		sample: false,
@@ -170,6 +181,7 @@ export const portfolioProjects: PortfolioProject[] = [
 	},
 	{
 		slug: "stanbrooke-contractor-shortage",
+		caseStudySlug: "stanbrooke-contractor-shortage",
 		name: "Stanbrooke Custom Homes: Contractor Shortage",
 		category: "Marketing Strategy",
 		sample: false,

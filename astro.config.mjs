@@ -3,12 +3,20 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import cloudflare from '@astrojs/cloudflare';
 import { insights } from './src/data/insights.ts';
+import { portfolioProjects } from './src/data/portfolio.ts';
 
 // <lastmod> per article URL, so Google can tell a rewritten post from one that
 // has not moved in two years. Articles are the only pages with a trustworthy
 // modification date in the data; every other route is emitted without a
 // lastmod on purpose. A date we cannot back up (a build timestamp, say) makes
 // Google distrust and ignore lastmod across the whole sitemap.
+// Portfolio pages whose canonical points at a case study. Listing a
+// non-canonical URL in the sitemap sends Google a signal that contradicts the
+// canonical tag, so they are filtered out below. The pages stay live.
+const nonCanonicalPaths = new Set(
+	portfolioProjects.filter((p) => p.caseStudySlug).map((p) => `/jerry/${p.slug}/`),
+);
+
 const articleLastmod = new Map(
 	insights.map((a) => [`/blog/${a.slug}/`, `${a.updatedAt ?? a.publishedAt}T00:00:00.000Z`]),
 );
@@ -33,7 +41,9 @@ export default defineConfig({
 			// real site content.
 			filter: (page) => !page.includes('/clients/') && !page.includes('/testing/') && !page.includes('/drafts/') && !page.includes('/admin/'),
 			serialize: (item) => {
-				const lastmod = articleLastmod.get(new URL(item.url).pathname);
+				const path = new URL(item.url).pathname;
+				if (nonCanonicalPaths.has(path)) return undefined;
+				const lastmod = articleLastmod.get(path);
 				return lastmod ? { ...item, lastmod } : item;
 			},
 		}),

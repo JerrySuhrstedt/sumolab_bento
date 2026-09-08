@@ -14,7 +14,11 @@ export function getStaticPaths() {
 const { project } = Astro.props;
 ---
 
-<Layout title={`${project.name} | Portfolio | SumoLab`} description={project.problem}>
+<Layout
+	title={`${project.name} | Portfolio | SumoLab`}
+	description={project.problem}
+	canonicalPath={project.caseStudySlug ? `/case-studies/${project.caseStudySlug}/` : undefined}
+>
 	<Section tone="plain" style="padding-top:48px">
 		<a href="/jerry/" class="back-link">← All projects</a>
 		<p class="eyebrow-label" style="margin-top:24px">
@@ -23,6 +27,11 @@ const { project } = Astro.props;
 			{project.sample && <span class="sample-tag">Sample project</span>}
 		</p>
 		<h1 class="page-h1">{project.name}</h1>
+		{project.caseStudySlug && (
+			<p class="lede" style="margin-top:16px">
+				This is the work itself. <a href={`/case-studies/${project.caseStudySlug}/`}>Read the full case study</a> for the problem, the plan, and the numbers.
+			</p>
+		)}
 	</Section>
 
 	<Section tone="white">

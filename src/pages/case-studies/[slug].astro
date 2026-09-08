@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { portfolioProjects } from '../../data/portfolio';
 import PageHero from '../../components/PageHero.astro';
 import Section from '../../components/Section.astro';
 import LeadForm from '../../components/LeadForm.astro';
@@ -13,6 +14,7 @@ export function getStaticPaths() {
 }
 
 const { caseStudy } = Astro.props;
+const portfolioPiece = portfolioProjects.find((p) => p.caseStudySlug === caseStudy.slug);
 ---
 
 <Layout title={`${caseStudy.title} | SumoLab Case Studies`} description={caseStudy.summary}>
@@ -62,6 +64,16 @@ const { caseStudy } = Astro.props;
 					<li><span class="dot" aria-hidden="true"></span>{item}</li>
 				))}
 			</ul>
+		</Section>
+	)}
+
+	{portfolioPiece && (
+		<Section tone="plain">
+			<p class="eyebrow-label"><span class="dot"></span>See the work</p>
+			<h2 class="page-h2">The actual pieces from this project.</h2>
+			<p class="lede" style="margin-top:16px;max-width:680px">
+				Ads, brand work, video, and documents produced for this engagement live on the portfolio page. <a href={`/jerry/${portfolioPiece.slug}/`}>{portfolioPiece.name}</a>
+			</p>
 		</Section>
 	)}
 

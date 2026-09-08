@@ -11,6 +11,12 @@ interface Props {
 	transparentHeader?: boolean;
 	showNav?: boolean;
 	noindex?: boolean;
+	/**
+	 * Point the canonical at a different URL. Used where two pages cover the
+	 * same project and only one should compete in search (a portfolio piece and
+	 * its case study). Give it a site-root-relative path.
+	 */
+	canonicalPath?: string;
 }
 
 const {
@@ -20,9 +26,10 @@ const {
 	transparentHeader = false,
 	showNav = true,
 	noindex = false,
+	canonicalPath,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(canonicalPath ?? Astro.url.pathname, Astro.site);
 const structuredDataList = structuredData ? (Array.isArray(structuredData) ? structuredData : [structuredData]) : [];
 ---
 
