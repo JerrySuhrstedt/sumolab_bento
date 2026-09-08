@@ -51,6 +51,13 @@ const { project } = Astro.props;
 		</div>
 	</Section>
 
+	{project.takeaway && (
+		<Section tone="white">
+			<p class="eyebrow-label"><span class="dot"></span>Why it worked</p>
+			<p class="lede" style="margin-top:16px;max-width:720px">{project.takeaway}</p>
+		</Section>
+	)}
+
 	<Section tone="plain">
 		<p class="eyebrow-label"><span class="dot"></span>The work</p>
 		<div class="artifact-gallery">

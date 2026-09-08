@@ -24,6 +24,11 @@ export interface PortfolioProject {
 	 * portfolio page stays live and browsable, it just stops competing.
 	 */
 	caseStudySlug?: string;
+	/**
+	 * The transferable point, for pages where "Result" is a client reaction
+	 * rather than a business outcome. Optional; rendered only when present.
+	 */
+	takeaway?: string;
 	artifacts: PortfolioArtifact[];
 }
 
@@ -121,6 +126,8 @@ export const portfolioProjects: PortfolioProject[] = [
 		action:
 			"Built their branding around Cole himself: a tongue-in-cheek illustrated mark of him flexing, paired with a straightforward tagline, Let Us Do The Dirty Work. No stock photography, no generic cleaning-company look.",
 		result: "Cole and his wife loved it, and Top Notch got a brand distinct enough to remember on a budget that couldn't stretch to much else.",
+		takeaway:
+			"Most trade businesses spend their brand budget trying to look bigger than they are. Stock photo of a smiling crew, a swoosh, a name nobody remembers. It reads as generic because it is. Cole had no budget to outspend anyone, so we made him the mark instead. Distinct beats expensive, and on a trade budget distinct is the only one you can actually buy.",
 		thumb: "/jerry/top-notch-cleaning/cole-branding.jpg",
 		artifacts: [{ kind: "image", src: "/jerry/top-notch-cleaning/cole-branding.jpg", caption: "Brand mark and print ad" }],
 	},
