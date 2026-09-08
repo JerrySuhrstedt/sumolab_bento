@@ -30,6 +30,14 @@ export interface Service {
 	faqHeading?: string;
 	relatedLinks?: ServiceLink[];
 	tagline: string;
+	/**
+	 * Short version used in the city pages' meta description. The full tagline
+	 * pushed those descriptions to 221 characters, so Google truncated them
+	 * mid-sentence on all 18 city pages. Keep this under about 95 characters:
+	 * the longest prefix is "Fractional Marketing Director for Scottsdale, AZ
+	 * businesses doing $5M to $50M. " at 78.
+	 */
+	shortTagline: string;
 	summary: string;
 	situation: string;
 	symptoms: string[];
@@ -67,6 +75,7 @@ export const fractionalCMO: Service = {
 		{ href: "/contact/", label: "Book an intro call" },
 	],
 	tagline: "Call it a part-time CMO or an outsourced CMO. Same role: executive marketing leadership that drives predictable growth, without the full-time CMO cost.",
+	shortTagline: "Executive marketing leadership on part-time hours, from an operator who ran twelve companies.",
 	summary:
 		"A fractional CMO gives you board-level marketing leadership: strategy, direction, and accountability at the executive table: a senior voice in your leadership discussions and long-term brand and growth strategy, without the cost of a full-time hire.",
 	situation:
@@ -176,6 +185,7 @@ export const fractionalMarketingDirector: Service = {
 		{ href: "/contact/", label: "Book an intro call" },
 	],
 	tagline: "Senior, hands-on marketing department leadership that gets execution moving, without the full-time marketing director cost.",
+	shortTagline: "Senior leadership that gets execution moving, without the full-time cost.",
 	summary:
 		"A fractional marketing director who sets strategy and oversees execution, systems, and day-to-day marketing operations on a part-time basis. You get senior marketing department leadership closer to the operational work, without the cost, delay, or risk of a full-time hire.",
 	situation:
@@ -281,6 +291,7 @@ export const fractionalAIAdvisor: Service = {
 		{ href: "/contact/", label: "Book an intro call" },
 	],
 	tagline: "A small business AI consultant and AI marketing consultant who brings senior operator judgment to AI, pointed at the one or two places it can actually move profit across your business.",
+	shortTagline: "Operator judgment pointed at the one or two places AI can actually move profit.",
 	summary:
 		"An AI marketing consultant and business operator who brings 26 years of judgment to the one question most consultants can't answer: where AI actually belongs in your business. Not just marketing: finance, operations, sales, HR. I find the highest-payoff place to start, put AI to work, and prove the return. Not a technologist. An operator who's run twelve companies and knows what moves profit.",
 	situationHeading: "Everyone's experimenting. Few are earning.",
