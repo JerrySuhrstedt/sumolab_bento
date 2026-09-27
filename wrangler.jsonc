@@ -1,6 +1,11 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "sumolab-bento",
+	// Pins the deploy to the SumoLab Cloudflare account. Jerry's login can see
+	// three accounts (sumolab, Papago Vans, and a personal one), and without this
+	// wrangler refuses to deploy non-interactively. Not a secret; it appears in
+	// every Cloudflare dashboard URL.
+	"account_id": "a4e90fa5ce3d680fe93f79e12ace346d",
 	"compatibility_date": "2026-08-01",
 	"compatibility_flags": ["nodejs_compat"],
 	"assets": {
