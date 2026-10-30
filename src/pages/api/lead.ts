@@ -6,6 +6,7 @@ export const prerender = false;
 
 interface Env {
 	DATABASE_URL: string;
+	TURNSTILE_SECRET: string;
 	EMAIL: {
 		send: (message: {
 			to: string;
@@ -28,6 +29,35 @@ const NOTIFY_FROM = 'notify@notify.sumolab.co';
 
 function isValidEmail(value: string) {
 	return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+/**
+ * Cloudflare Turnstile. The honeypot above catches the dumbest bots for free;
+ * this catches the rest. Tokens are single use and expire after 5 minutes.
+ * Fails closed: no secret configured means no submissions get through, which is
+ * the safe direction for a spam gate.
+ */
+async function passesTurnstile(token: string, ip: string | null, secret: string) {
+	if (!secret || !token) return false;
+	const body = new FormData();
+	body.append('secret', secret);
+	body.append('response', token);
+	if (ip) body.append('remoteip', ip);
+
+	try {
+		const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+			method: 'POST',
+			body,
+		});
+		const outcome = (await res.json()) as { success?: boolean; 'error-codes'?: string[] };
+		if (!outcome.success) {
+			console.warn('turnstile rejected', JSON.stringify(outcome['error-codes'] ?? []));
+		}
+		return outcome.success === true;
+	} catch (err) {
+		console.error('turnstile verification failed', err);
+		return false;
+	}
 }
 
 const workerEnv = env as unknown as Env;
@@ -57,6 +87,15 @@ export const POST: APIRoute = async (context) => {
 	}
 	if (!isValidEmail(email)) {
 		return new Response(JSON.stringify({ ok: false, error: 'Enter a valid email address.' }), { status: 400 });
+	}
+
+	const turnstileToken = typeof body.turnstileToken === 'string' ? body.turnstileToken : '';
+	const ip = context.request.headers.get('CF-Connecting-IP');
+	if (!(await passesTurnstile(turnstileToken, ip, workerEnv.TURNSTILE_SECRET))) {
+		return new Response(
+			JSON.stringify({ ok: false, error: 'Could not verify you are human. Please reload the page and try again.' }),
+			{ status: 400 },
+		);
 	}
 
 	const sql = neon(workerEnv.DATABASE_URL);
